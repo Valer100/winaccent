@@ -1,6 +1,13 @@
 # winaccent
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 
+# Installation
+Run this command in your terminal:
+
+```
+pip install winaccent
+```
+
 # Documentation
 
 | Variable | Info |
