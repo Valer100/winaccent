@@ -10,16 +10,12 @@ def get_registry_value(hkey, key_path, value_name):
     
     return value
 
-accent_light = None
-accent_dark = None
+accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
+accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
+accent_palette_list = accent_palette.split(" ")
 
-if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build >= 22000:
-    accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
-    accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
-    accent_palette_list = accent_palette.split(" ")
-
-    accent_light = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
-    accent_dark = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
+accent_light = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
+accent_dark = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
 
 dwm = "Software\\Microsoft\\Windows\\DWM"
 accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'AccentColor'): X}".replace("# FF", "#")
