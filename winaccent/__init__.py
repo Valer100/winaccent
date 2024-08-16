@@ -22,10 +22,10 @@ if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build >= 2200
     accent_dark = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
 
 dwm = "Software\\Microsoft\\Windows\\DWM"
-accent_color = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'AccentColor'): X}"
+accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'AccentColor'): X}".replace("# FF", "#")
 
 if not (accent_light == None and accent_dark == None): 
     if darkdetect.isDark(): accent_auto = accent_dark
     else: accent_auto = accent_light
 else:
-    accent_auto = accent_color
+    accent_auto = accent_normal
