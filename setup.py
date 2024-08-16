@@ -21,7 +21,6 @@ setup(
     long_description_content_type = "text/markdown",
     classifiers = [
         "Intended Audience :: Developers",
-        "Topic :: Software Development :: User Interfaces",
         "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: MIT License",
         "Operating System :: Windows",
