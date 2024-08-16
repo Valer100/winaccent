@@ -19,7 +19,6 @@ Here is the output for the default (blue) accent color on Windows 11:
 | winaccent.accent_dark | #3FFF24 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | winaccent.accent_normal | #008B00 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
 
-<br>
 Here is the output for a custom accent color (green):
 
 | Variable | Color | Preview |
