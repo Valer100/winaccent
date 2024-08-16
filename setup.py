@@ -23,9 +23,9 @@ setup(
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: Windows",
-        "Operating System :: Windows 10",
-        "Operating System :: Windows 11",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: Microsoft :: Windows :: Windows 10",
+        "Operating System :: Microsoft :: Windows :: Windows 11",
     ],
     keywords = [
         "accent",
@@ -42,5 +42,6 @@ setup(
         "windows-11",
         "windows-10",
         "winui",
+        "winaccent"
     ],
 )
