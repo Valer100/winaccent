@@ -18,7 +18,7 @@ accent_light = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_
 accent_dark = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
 
 dwm = "Software\\Microsoft\\Windows\\DWM"
-accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'AccentColor'): X}".replace("# FF", "#")
+accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'ColorizationAfterglow'): X}".replace("# C4", "#")
 
 if not (accent_light == None and accent_dark == None): 
     if darkdetect.isDark(): accent_auto = accent_dark
