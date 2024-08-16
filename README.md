@@ -11,7 +11,7 @@ A simple module for getting Windows' accent color. With this module you can get 
 | winaccent.accent_auto | Returns the light/dark accent color depending on the system theme
 
 # Output
-Here are the outputs for the default (blue) accent color on Windows 11:
+Here is the output for the default (blue) accent color on Windows 11:
 
 | Variable | Color | Preview |
 |----------|-------|-------|
