@@ -5,14 +5,14 @@
 # winaccent
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 
-# Installation
+## 📦 Installation
 Run this command in your terminal:
 
 ```
 pip install winaccent
 ```
 
-# Documentation
+## 📜 Documentation
 
 | Variable | Info |
 |----------|------|
@@ -21,7 +21,7 @@ pip install winaccent
 | winaccent.accent_normal | Returns the normal accent color
 | winaccent.accent_auto | Returns the light/dark accent color depending on the system theme
 
-# Output
+## 🖥️ Output
 Here is the output for the default (blue) accent color on Windows 11:
 
 | Variable | Color | Preview |
