@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-description = open("README.md", "r").read()
+description = open("README.md", "r", encoding = "utf8").read()
 
 setup(
     name = "winaccent",
