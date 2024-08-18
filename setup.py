@@ -4,7 +4,7 @@ description = open("README.md", "r", encoding = "utf8").read()
 
 setup(
     name = "winaccent",
-    version = "0.1",
+    version = "0.2.0",
     license = "MIT",
     author = "Valer100",
     description = "A simple module for getting Windows' accent color",
