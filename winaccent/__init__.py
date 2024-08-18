@@ -33,7 +33,6 @@ def on_accent_changed_listener(callback):
         update_accent_colors()
 
         if old_value != accent_normal: callback()
-        
         time.sleep(1)
 
 update_accent_colors()
