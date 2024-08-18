@@ -3,7 +3,7 @@
 </div>
 
 # winaccent
-A simple Python module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
+A simple and lightweight Python module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 
 ## 📦 Installation
 Run this command in your terminal:
@@ -32,7 +32,7 @@ print(winaccent.accent_light) # Prints the light mode accent color
 
 ### Update accent colors
 
-The accent colors can be updated using the ```update_accent_colors()``` function.
+The accent colors can be updated using the ```update_accent_colors()``` function. This function will retrieve the values again.
 
 ## 🖥️ Output
 Here is the output for the default (blue) accent color on Windows 11:
