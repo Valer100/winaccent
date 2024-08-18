@@ -14,9 +14,6 @@ setup(
         "Issues": "https://github.com/Valer100/winaccent/issues",
     },
     packages = find_packages(),
-    install_requires = [
-        "darkdetect"
-    ],
     long_description = description,
     long_description_content_type = "text/markdown",
     classifiers = [

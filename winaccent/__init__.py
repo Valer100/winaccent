@@ -2,7 +2,7 @@
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 '''
 
-import winreg, sys, darkdetect
+import winreg, sys
 
 if not sys.platform == "win32" or  not sys.getwindowsversion().major == 10: 
     raise Exception("This module only works on Windows 10 and later!")
@@ -14,18 +14,17 @@ def get_registry_value(hkey, key_path, value_name):
     
     return value
 
-accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
-accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
-accent_palette_list = accent_palette.split(" ")
+def update_accent_colors():
+    global accent_light, accent_dark, accent_normal
 
-accent_light = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
-accent_dark = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
+    accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
+    accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
+    accent_palette_list = accent_palette.split(" ")
 
-dwm = "Software\\Microsoft\\Windows\\DWM"
-accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'ColorizationAfterglow'): X}".replace("# C4", "#")
+    accent_light = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
+    accent_dark = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
 
-if not (accent_light == None and accent_dark == None): 
-    if darkdetect.isDark(): accent_auto = accent_dark
-    else: accent_auto = accent_light
-else:
-    accent_auto = accent_normal
+    dwm = "Software\\Microsoft\\Windows\\DWM"
+    accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'ColorizationAfterglow'): X}".replace("# C4", "#")
+
+update_accent_colors()
