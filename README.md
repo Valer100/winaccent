@@ -50,18 +50,18 @@ Here is the output for the default (blue) accent color on Windows 11:
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
-| accent_light | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
-| accent_dark | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
-| accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
+| accent_light | `#0067C0` | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| accent_dark | `#4CC2FF` | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
+| accent_normal | `#0078D4` | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
 
 Here is the output for a custom accent color (green):
 
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
-| accent_light | #007300 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_green.png?raw=true"> |
-| accent_dark | #3FFF24 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_green.png?raw=true"> |
-| accent_normal | #008B00 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal_green.png?raw=true"> |
+| accent_light | `#007300` | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_green.png?raw=true"> |
+| accent_dark | `#3FFF24` | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_green.png?raw=true"> |
+| accent_normal | `#008B00` | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal_green.png?raw=true"> |
 
 ## 📋 To do
-~~ - [X] Add an accent color change listener ~~
+- [x] ~~Add an accent color change listener~~
