@@ -32,7 +32,21 @@ print(winaccent.accent_light) # Prints the light mode accent color
 
 ### Update accent colors
 
-The accent colors can be updated using the ```update_accent_colors()``` function. This function will retrieve the values again.
+The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
+
+### Accent color change listener
+This module allows you to add a listener that will call a specific function when the accent color changes. Here's how you can add it:
+
+```python
+import winaccent, threading
+
+# Replace `callback` with the function that you want to be called
+thread = threading.Thread(target = lambda: winaccent.on_accent_changed_listener(callback), daemon = True)
+thread.start()
+```
+
+> [!NOTE]
+> If you added the listener, there's no need to call `update_accent_colors` because it will be called automatically every time the accent color changes.
 
 ## 🖥️ Output
 Here is the output for the default (blue) accent color on Windows 11:
@@ -53,4 +67,4 @@ Here is the output for a custom accent color (green):
 | accent_normal | #008B00 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal_green.png?raw=true"> |
 
 ## 📋 To do
-- [ ] Add an accent color change listener
+- [x] ~~Add an accent color change listener~~

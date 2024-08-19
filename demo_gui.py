@@ -1,4 +1,4 @@
-import tkinter as tk, winaccent
+import tkinter as tk, winaccent, threading
 from tkinter import ttk
 
 window = tk.Tk()
@@ -24,8 +24,9 @@ def update_accent_colors():
     add_item(winaccent.accent_dark, "Dark mode accent color")
     add_item(winaccent.accent_normal, "Normal accent color")
 
-    ttk.Button(window, text = "Refresh", command = update_accent_colors, default = "active").pack(fill = "x", pady = 8, padx = 5)
-
 update_accent_colors()
+
+thread = threading.Thread(target = lambda: winaccent.on_accent_changed_listener(update_accent_colors), daemon = True)
+thread.start()
 
 window.mainloop()

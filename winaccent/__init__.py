@@ -2,7 +2,7 @@
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 '''
 
-import winreg, sys
+import winreg, sys, time
 
 if not sys.platform == "win32" or  not sys.getwindowsversion().major == 10: 
     raise Exception("This module only works on Windows 10 and later!")
@@ -26,5 +26,13 @@ def update_accent_colors():
 
     dwm = "Software\\Microsoft\\Windows\\DWM"
     accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'ColorizationAfterglow'): X}".replace("# C4", "#")
+
+def on_accent_changed_listener(callback):
+    while True:
+        old_value = accent_normal
+        update_accent_colors()
+
+        if old_value != accent_normal: callback()
+        time.sleep(1)
 
 update_accent_colors()
