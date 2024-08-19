@@ -46,7 +46,11 @@ thread.start()
 ```
 
 > [!NOTE]
-> If you added the listener, there's no need to call `update_accent_colors` because it will be called automatically every time the accent color changes.
+> If you added the listener, there's no need to call `update_accent_colors()` because it will be called automatically every time the accent color changes.
+
+Here's a demo:
+
+![Listener demo](https://github.com/Valer100/winaccent/blob/main/assets/listener_demo.gif?raw=true)
 
 ## 🖥️ Output
 Here is the output for the default (blue) accent color on Windows 11:
