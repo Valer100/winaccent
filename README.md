@@ -70,5 +70,10 @@ Here is the output for a custom accent color (green):
 | accent_dark | #3FFF24 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_green.png?raw=true"> |
 | accent_normal | #008B00 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal_green.png?raw=true"> |
 
+## 🤩 Feedback
+If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
+
+If you find this module useful, you can consider starring this repository.
+
 ## 📋 To do
 - [x] ~~Add an accent color change listener~~
