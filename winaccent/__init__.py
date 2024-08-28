@@ -2,7 +2,7 @@
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 '''
 
-import winreg, sys, time
+import winreg, sys, time, typing
 
 if not sys.platform == "win32" or  not sys.getwindowsversion().major == 10: 
     raise Exception("This module only works on Windows 10 and later!")
@@ -34,5 +34,36 @@ def on_accent_changed_listener(callback):
 
         if old_value != accent_normal: callback()
         time.sleep(1)
+
+def manipulate_color(color: str, factor: int, action: typing.Literal["lighten", "darken"]) -> str:
+    if not action in ["lighten", "darken"]:
+        raise ValueError("Invalid value for the `action` argument. It must be either `lighten` or `darken` (without `)")
+
+    if action == "lighten": factor *= -1
+
+    red = int(color[1] + color[2], base = 16) - factor
+    green = int(color[3] + color[4], base = 16) - factor
+    blue = int(color[5] + color[6], base = 16) - factor
+
+    if red < 0: red = 0
+    if red > 255: red = 255
+
+    if green < 0: green = 0
+    if green > 255: green = 255
+
+    if blue < 0: blue = 0
+    if blue > 255: blue = 255
+
+    print(red, green, blue)
+
+    red_hex_str = f"{red:x}"
+    green_hex_str = f"{green:x}"
+    blue_hex_str = f"{blue:x}"
+
+    if len(red_hex_str) == 1: red_hex_str = "0" + red_hex_str
+    if len(green_hex_str) == 1: green_hex_str = "0" + green_hex_str
+    if len(blue_hex_str) == 1: blue_hex_str = "0" + blue_hex_str
+
+    return "#" + red_hex_str + green_hex_str + blue_hex_str
 
 update_accent_colors()
