@@ -15,6 +15,8 @@ def get_registry_value(hkey, key_path, value_name):
     return value
 
 def update_accent_colors():
+    '''Updates the accent color variables.'''
+
     global accent_light, accent_dark, accent_normal
 
     accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
@@ -27,7 +29,10 @@ def update_accent_colors():
     dwm = "Software\\Microsoft\\Windows\\DWM"
     accent_normal = f"#{get_registry_value(winreg.HKEY_CURRENT_USER, f'{dwm}', 'ColorizationAfterglow'): X}".replace("# C4", "#")
 
-def on_accent_changed_listener(callback):
+def on_accent_changed_listener(callback: callable):
+    '''Listens for accent color changes. If the accent color changed, the function
+    specified in the `callback` argument will be called.'''
+
     while True:
         old_value = accent_normal
         update_accent_colors()
@@ -36,6 +41,8 @@ def on_accent_changed_listener(callback):
         time.sleep(1)
 
 def manipulate_color(color: str, factor: int, action: typing.Literal["lighten", "darken"]) -> str:
+    '''Lightens or darkens a specific color and returns the modified color.'''
+
     if not action in ["lighten", "darken"]:
         raise ValueError("Invalid value for the `action` argument. It must be either `lighten` or `darken` (without `)")
 
