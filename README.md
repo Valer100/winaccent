@@ -24,7 +24,7 @@ For simplicity, you can get a specific accent color from one of the following va
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
 | accent_light_mode | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 
-If you need a different shade of the accent color, you can get it from one of these variables:
+If you need a different shade, you can get it from one of these variables:
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
