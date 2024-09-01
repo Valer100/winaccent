@@ -84,11 +84,13 @@ To see a demo, run the following command in your terminal:
 python -m winaccent
 ```
 
-Here's a demo with 3 different accent colors:
+Here's a demo with 6 different accent colors:
 
-|**Blue** | **Green** | **Red**|
+| **Blue** | **Dark green** | **Red** |
 |:-------:|:---------:|:------:|
-|![Blue](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_blue.png?raw=true) | ![Green](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_green.png?raw=true) | ![Red](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_red.png?raw=true) |
+|![Blue](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_blue.png?raw=true) | ![Dark green](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_green.png?raw=true) | ![Red](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_red.png?raw=true) |
+| **Gold** | **Iris pastel** | **Camouflage desert** |
+|![Gold](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_orange.png?raw=true) | ![Iris pastel](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_purple.png?raw=true) | ![Camouflage desert](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_tan.png?raw=true) |
 
 
 ## 🤩 Feedback
