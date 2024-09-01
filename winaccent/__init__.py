@@ -2,7 +2,7 @@
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 '''
 
-import winreg, sys, time, typing
+import winreg, sys, time
 
 if not sys.platform == "win32" or  not sys.getwindowsversion().major == 10: 
     raise Exception("This module only works on Windows 10 and later!")
