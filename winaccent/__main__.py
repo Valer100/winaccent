@@ -1,4 +1,4 @@
-import __init__ as winaccent, threading
+import winaccent, threading
 
 try:
     import tkinter as tk
