@@ -23,7 +23,7 @@ def update_accent_colors():
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
     accent_palette_list = accent_palette.split(" ")
 
-    # Documentation: https://learn.microsoft.com/en-en/windows/apps/design/style/color#accent-color-palette
+    # Documentation: https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette
 
     accent_dark_3 = "#" + accent_palette_list[0] + accent_palette_list[1] + accent_palette_list[2]
     accent_dark_2 = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
