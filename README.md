@@ -100,3 +100,5 @@ If you find this module useful, you can consider starring this repository.
 
 ## 📋 To do
 - [x] ~~Add an accent color change listener~~
+- [x] ~~Add color shades~~
+- [ ] Do some research about a weird color (see line 42 in `winaccent/__init__.py`)
