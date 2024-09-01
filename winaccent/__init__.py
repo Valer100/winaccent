@@ -25,16 +25,16 @@ def update_accent_colors():
 
     # Documentation: https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette
 
-    accent_dark_3 = "#" + accent_palette_list[0] + accent_palette_list[1] + accent_palette_list[2]
-    accent_dark_2 = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
-    accent_dark_1 = "#" + accent_palette_list[8] + accent_palette_list[9] + accent_palette_list[10]
+    accent_light_3 = "#" + accent_palette_list[0] + accent_palette_list[1] + accent_palette_list[2]
+    accent_light_2 = "#" + accent_palette_list[4] + accent_palette_list[5] + accent_palette_list[6]
+    accent_light_1 = "#" + accent_palette_list[8] + accent_palette_list[9] + accent_palette_list[10]
     accent_normal = "#" + accent_palette_list[12] + accent_palette_list[13] + accent_palette_list[14]
-    accent_light_1 = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
-    accent_light_2 = "#" + accent_palette_list[20] + accent_palette_list[21] + accent_palette_list[22]
-    accent_light_3 = "#" + accent_palette_list[24] + accent_palette_list[25] + accent_palette_list[26]
+    accent_dark_1 = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
+    accent_dark_2 = "#" + accent_palette_list[20] + accent_palette_list[21] + accent_palette_list[22]
+    accent_dark_3 = "#" + accent_palette_list[24] + accent_palette_list[25] + accent_palette_list[26]
 
-    accent_light = accent_light_1
-    accent_dark = accent_dark_2
+    accent_light = accent_dark_1
+    accent_dark = accent_light_2
 
     # Some weird color
     # "#" + accent_palette_list[28] + accent_palette_list[29] + accent_palette_list[30]
