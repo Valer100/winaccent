@@ -12,6 +12,12 @@ Run this command in your terminal:
 pip install winaccent
 ```
 
+To update the module, run this command:
+
+```
+pip install --upgrade winaccent
+```
+
 ## 📜 Documentation
 
 ### Get a specific accent color
@@ -41,7 +47,9 @@ If you need a different shade, you can get it from one of these variables:
 > The color previews shown here are for the Windows 11's default accent color (blue).
 
 > [!TIP]
-> `accent_dark_mode` is the same thing as `accent_light` which is the same thing as `accent_light_2`. Also, `accent_light_mode` is the same thing as `accent_dark` which is the same thing as `accent_dark_1`.
+> `accent_dark_mode` is the same thing as `accent_light` which is the same thing as `accent_light_2`. 
+>
+> Also, `accent_light_mode` is the same thing as `accent_dark` which is the same thing as `accent_dark_1`.
 
 Example:
 
@@ -51,9 +59,7 @@ import winaccent
 print(winaccent.accent_light_mode) # Prints the light mode accent color
 ```
 
-Here is a link for the guidelines (Microsoft Learn):
-
-https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette
+You may want to take a look at Microsoft's accent color guidelines. You can do that [here](https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette).
 
 ### Update accent colors
 
