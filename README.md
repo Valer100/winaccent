@@ -78,7 +78,7 @@ Here's a demo:
 ![Listener demo](https://github.com/Valer100/winaccent/blob/main/assets/listener_demo.gif?raw=true)
 
 ## 💻 Demo
-To see a demo, run the following command in your terminal:
+To see a demo, run the following command in your terminal (winaccent must be installed):
 
 ```python
 python -m winaccent
