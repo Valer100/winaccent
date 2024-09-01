@@ -3,7 +3,7 @@
 </div>
 
 # winaccent
-A simple and lightweight Python module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
+A simple and lightweight Python module for getting Windows' accent color. With this module you can also get shades of the accent color.
 
 ## 📦 Installation
 Run this command in your terminal:
@@ -23,9 +23,9 @@ For simplicity, you can get a specific accent color from one of the following va
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
-| accent_light | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
+| accent_dark_mode | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_dark | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| accent_light_mode | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 
 If you need a different shade of the accent color, you can get it from one of these variables:
 
@@ -40,14 +40,17 @@ If you need a different shade of the accent color, you can get it from one of th
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
 
-
 Example:
 
 ```python
 import winaccent
 
-print(winaccent.accent_light) # Prints the light accent color
+print(winaccent.accent_light_mode) # Prints the light mode accent color
 ```
+
+Here is a link for the guidelines (Microsoft Learn):
+
+https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette
 
 ### Update accent colors
 
@@ -70,24 +73,6 @@ thread.start()
 Here's a demo:
 
 ![Listener demo](https://github.com/Valer100/winaccent/blob/main/assets/listener_demo.gif?raw=true)
-
-## 🖥️ Output
-Here is the output for the default (blue) accent color on Windows 11:
-
-| Variable | Color | Preview |
-|----------|:-------:|:-------:|
-| accent_light | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
-| accent_dark | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
-| accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-
-Here is the output for a custom accent color (green):
-
-
-| Variable | Color | Preview |
-|----------|:-------:|:-------:|
-| accent_light | #007300 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_green.png?raw=true"> |
-| accent_dark | #3FFF24 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_green.png?raw=true"> |
-| accent_normal | #008B00 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal_green.png?raw=true"> |
 
 ## 🤩 Feedback
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
