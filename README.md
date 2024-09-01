@@ -74,6 +74,20 @@ Here's a demo:
 
 ![Listener demo](https://github.com/Valer100/winaccent/blob/main/assets/listener_demo.gif?raw=true)
 
+## 💻 Demo
+To see a demo, run the following command in your terminal:
+
+```python
+python -m winaccent
+```
+
+Here's a demo with 3 different accent colors:
+
+|**Blue** | **Green** | **Red**|
+|:-------:|:---------:|:------:|
+|![Blue](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_blue.png?raw=true) | ![Green](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_green.png?raw=true) | ![Red](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_red.png?raw=true) |
+
+
 ## 🤩 Feedback
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
 
