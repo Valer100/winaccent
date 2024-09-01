@@ -3,7 +3,7 @@
 </div>
 
 # winaccent
-A simple and lightweight Python module for getting Windows' accent color. With this module you can also get shades of the accent color.
+A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on both Windows 10 and 11 and doesn't require additional dependencies.
 
 ## 📦 Installation
 Run this command in your terminal:
