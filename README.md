@@ -23,11 +23,11 @@ For simplicity, you can get a specific accent color from one of the following va
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
-| accent_dark | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
+| accent_light | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_light | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| accent_dark | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 
-If you want a variant of the colors above, you can get it from one of these variables:
+If you need a different shade of the accent color, you can get it from one of these variables:
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
@@ -46,7 +46,7 @@ Example:
 ```python
 import winaccent
 
-print(winaccent.accent_light) # Prints the light mode accent color
+print(winaccent.accent_light) # Prints the light accent color
 ```
 
 ### Update accent colors

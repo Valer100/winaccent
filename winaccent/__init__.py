@@ -33,8 +33,8 @@ def update_accent_colors():
     accent_dark_2 = "#" + accent_palette_list[20] + accent_palette_list[21] + accent_palette_list[22]
     accent_dark_3 = "#" + accent_palette_list[24] + accent_palette_list[25] + accent_palette_list[26]
 
-    accent_light = accent_dark_1
-    accent_dark = accent_light_2
+    accent_dark = accent_dark_1
+    accent_light = accent_light_2
 
     # Some weird color
     # "#" + accent_palette_list[28] + accent_palette_list[29] + accent_palette_list[30]
