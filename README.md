@@ -115,6 +115,21 @@ Here's a GUI demo with 6 different accent colors:
 | **Gold** | **Iris pastel** | **Camouflage desert** |
 |![Gold](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_orange.png?raw=true) | ![Iris pastel](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_purple.png?raw=true) | ![Camouflage desert](https://github.com/Valer100/winaccent/blob/main/assets/demo/demo_tan.png?raw=true) |
 
+A console demo looks like this (for default blue accent color):
+
+```
+Accent palette
+==============
+
+accent_light_3:    #99EBFF
+accent_light_2:    #4CC2FF
+accent_light_1:    #0091F8
+accent_normal:     #0078D4
+accent_dark_1:     #0067C0
+accent_dark_2:     #003E92
+accent_dark_3:     #001A68
+```
+
 
 ## 🤩 Feedback
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
