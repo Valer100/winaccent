@@ -6,8 +6,10 @@ try:
 except:
     # If tkinter is unavailable, print the colors directly
 
-    print("\nAccent color palette")
-    print("======================\n")
+    print("tkinter isn't available. Perhaps it isn't installed or the installation is corrupted.\n")
+
+    print("\nAccent palette")
+    print("================\n")
     
     print(f"accent_light_3:    {winaccent.accent_light_3}")
     print(f"accent_light_2:    {winaccent.accent_light_2}")
@@ -18,7 +20,7 @@ except:
     print(f"accent_dark_3:     {winaccent.accent_dark_3}")
 
 window = tk.Tk()
-window.title("Accent color palette")
+window.title("Accent palette")
 window.resizable(False, False)
 window.configure(padx = 8, pady = 8)
 
