@@ -22,6 +22,9 @@ pip install --upgrade winaccent
 
 ### Get a specific accent color
 
+> [!NOTE]
+> The color values and previews shown here are for Windows 11's default accent color (blue). If you have a different accent color, you'll get the color values based on your accent color.
+
 For simplicity, you can get a specific accent color from one of the following variables:
 
 | Variable | Color | Preview |
@@ -42,9 +45,6 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
-
-> [!NOTE]
-> The color previews shown here are for the Windows 11's default accent color (blue).
 
 > [!TIP]
 > `accent_dark_mode` is the same thing as `accent_light` which is the same thing as `accent_light_2`. 
