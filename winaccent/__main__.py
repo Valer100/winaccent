@@ -1,11 +1,10 @@
 import winaccent, threading
 
 try:
-    import tkinter as tk
+    import tkinter as tk, ctypes
     from tkinter import ttk
 except:
-    # If tkinter is unavailable, print the colors directly
-
+    # tkinter is unavailable, print the colors directly
     print("tkinter isn't available. Perhaps it isn't installed or the installation is corrupted.\n")
 
     print("\nAccent palette")
@@ -19,10 +18,15 @@ except:
     print(f"accent_dark_2:     {winaccent.accent_dark_2}")
     print(f"accent_dark_3:     {winaccent.accent_dark_3}")
 
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+
 window = tk.Tk()
 window.title("Accent palette")
 window.resizable(False, False)
 window.configure(padx = 8, pady = 8)
+
+icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
+window.iconphoto(True, icon)
 
 style = ttk.Style()
 style.configure("TButton", font = 11)
