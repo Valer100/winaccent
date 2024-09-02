@@ -36,8 +36,12 @@ def add_item(color, text):
     color_item.pack(pady = 2, anchor = "w")
 
     tk.Frame(color_item, width = 20, height = 20, bg = color, highlightthickness = 1, highlightbackground = "#000000").pack(side = "left")
-    ttk.Label(color_item, text = f"{text}", font = ("Default", 11), width = 17).pack(side = "left", padx = (8, 0), anchor = "w")
-    tk.Label(color_item, text = f"{color}", font = ("Consolas", 11)).pack(side = "right")
+    ttk.Label(color_item, text = text, font = ("Default", 11), width = 17).pack(side = "left", padx = (8, 0), anchor = "w")
+    
+    color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = ttk.Style().lookup(".", "background"))
+    color_value.pack(side = "right")
+    color_value.insert("1.0", color)
+    color_value["state"] = "disabled"
 
 def update_accent_colors():
     winaccent.update_accent_colors()
