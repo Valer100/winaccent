@@ -1,6 +1,7 @@
-import winaccent, threading
+from contextlib import redirect_stderr
+import winaccent, threading, argparse, io
 
-try:
+def gui_demo():
     import tkinter as tk, ctypes
     from tkinter import ttk
     
@@ -47,10 +48,8 @@ try:
     thread.start()
     
     window.mainloop()
-except:
-    # tkinter is unavailable, print the colors directly
-    print("tkinter isn't available. Perhaps it isn't installed or the installation is corrupted.")
 
+def console_demo():
     print("\nAccent palette")
     print("================\n")
     
@@ -61,3 +60,16 @@ except:
     print(f"accent_dark_1:     {winaccent.accent_dark_1}")
     print(f"accent_dark_2:     {winaccent.accent_dark_2}")
     print(f"accent_dark_3:     {winaccent.accent_dark_3}")
+
+parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
+parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
+arguments = parser.parse_args()
+
+if arguments.mode == None or arguments.mode == "auto":
+    try:
+        gui_demo()
+    except:
+        print("tkinter isn't available. Perhaps it isn't installed or the installation is corrupted.")
+        console_demo()
+elif arguments.mode == "gui": gui_demo()
+elif arguments.mode == "console": console_demo()
