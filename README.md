@@ -20,8 +20,6 @@ pip install --upgrade winaccent
 
 ## 📜 Documentation
 
-<details>
-<summary>**Get a specific accent color**</summary>
 
 ### Get a specific accent color
 
@@ -63,18 +61,12 @@ print(winaccent.accent_light_mode) # Prints the light mode accent color
 ```
 
 You may want to take a look at Microsoft's accent color guidelines. You can do that [here](https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette).
-</details>
 
-<details>
-<summary>**Update accent color values**</summary>
 
 ### Update accent color values
 
 The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
-</details>
 
-<details>
-<summary>**Accent color change listener**</summary>
 
 ### Accent color change listener
 
@@ -94,7 +86,6 @@ thread.start()
 Here's a demo:
 
 https://github.com/user-attachments/assets/8e5bdec8-d7d7-40a3-b8d0-a9782ecbd0fb
-</details>
 
 
 ## 💻 Demo
