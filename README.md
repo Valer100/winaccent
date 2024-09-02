@@ -20,7 +20,6 @@ pip install --upgrade winaccent
 
 ## 📜 Documentation
 
-
 ### Get a specific accent color
 
 > [!NOTE]
