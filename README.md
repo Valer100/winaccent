@@ -81,7 +81,8 @@ thread.start()
 
 Here's a demo:
 
-![Listener demo](https://github.com/Valer100/winaccent/blob/main/assets/listener_demo.mp4?raw=true)
+https://github.com/user-attachments/assets/8e5bdec8-d7d7-40a3-b8d0-a9782ecbd0fb
+
 
 ## 💻 Demo
 To see a demo, run the following command in your terminal (winaccent must be installed):
