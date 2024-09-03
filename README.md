@@ -94,10 +94,10 @@ To see a demo, run the following command in your terminal (winaccent must be ins
 python -m winaccent
 ```
 
-This command has an optional argument --mode. It can take the following values:
+This command has an optional `--mode` argument. It can take the following values:
 
 | Value | Info |
-|:-----:|:----:|
+|:------|:-----|
 | gui | Shows a GUI demo. The GUI demo responds to accent color changes. |
 | console | Shows a console demo. The console demo **does not** respond to accent color changes. |
 | auto | If tkinter is installed and works correctly, a GUI demo will be shown. If that's not the case, a console demo will be shown. |
@@ -108,7 +108,7 @@ Example usage:
 python -m winaccent --mode gui
 ```
 
-The command will run with --mode set to `auto` by default.
+The command will run with `--mode` set to `auto` by default.
 
 Here's a GUI demo with 6 different accent colors:
 
