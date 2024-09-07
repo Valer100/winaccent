@@ -94,7 +94,7 @@ To see a demo, run the following command in your terminal (winaccent must be ins
 python -m winaccent
 ```
 
-This command has an optional `--mode` argument. It can take the following values:
+(Not released yet) This command has an optional `--mode` argument. It can take the following values:
 
 | Value | Info |
 |:------|:-----|
