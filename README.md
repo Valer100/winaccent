@@ -20,6 +20,21 @@ pip install --upgrade winaccent
 
 ## 📜 Documentation
 
+> [!IMPORTANT]
+> This is a Windows-only module. Trying to import this module on a non-Windows OS will raise a `winaccent.PlatformNotSupportedException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems. Here's an example:
+
+```python
+import sys
+
+if sys.platform == "win32": 
+    # The program is running on Windows
+    
+    import winaccent
+    print(winaccent.accent_light_mode)
+```
+
+---
+
 ### Get a specific accent color
 
 > [!NOTE]
@@ -61,11 +76,13 @@ print(winaccent.accent_light_mode) # Prints the light mode accent color
 
 You may want to take a look at Microsoft's accent color guidelines. You can do that [here](https://learn.microsoft.com/en-us/windows/apps/design/style/color#accent-color-palette).
 
+---
 
 ### Update accent color values
 
 The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
 
+---
 
 ### Accent color change listener
 
@@ -94,7 +111,7 @@ To see a demo, run the following command in your terminal (winaccent must be ins
 python -m winaccent
 ```
 
-(Not released yet) This command has an optional `--mode` argument. It can take the following values:
+This command has an optional `--mode` argument. It can take the following values:
 
 | Value | Info |
 |:------|:-----|
