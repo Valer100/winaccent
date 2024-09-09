@@ -3,10 +3,10 @@ A simple module for getting Windows' accent color. With this module you can get 
 '''
 
 import sys, time
-class PlatformNotSupportedException(Exception): pass
+class UnsupportedPlatformException(Exception): pass
 
 if not sys.platform == "win32" or not sys.getwindowsversion().major == 10: 
-    raise PlatformNotSupportedException("This module only works on Windows 10 and later!")
+    raise UnsupportedPlatformException("This module only works on Windows 10 and later!")
 else: import winreg
 
 def get_registry_value(hkey, key_path, value_name):
