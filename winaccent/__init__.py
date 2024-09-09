@@ -2,10 +2,11 @@
 A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
 '''
 
-import winreg, sys, time
+import sys, time
 
-if not sys.platform == "win32" or  not sys.getwindowsversion().major == 10: 
+if not sys.platform == "win32" or not sys.getwindowsversion().major == 10: 
     raise Exception("This module only works on Windows 10 and later!")
+else: import winreg
 
 def get_registry_value(hkey, key_path, value_name):
     key = winreg.OpenKey(hkey, key_path, 0, winreg.KEY_READ)
