@@ -21,7 +21,7 @@ pip install --upgrade winaccent
 ## 📜 Documentation
 
 > [!IMPORTANT]
-> This is a Windows-only module. Trying to import this module on a non-Windows OS will raise a `winaccent.PlatformNotSupportedException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems to avoid errors. Here's an example:
+> This is a Windows-only module. Trying to import this module on a OS other than Windows will raise a `winaccent.PlatformNotSupportedException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems to avoid errors. Here's an example:
 
 ```python
 import sys
