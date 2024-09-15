@@ -1,4 +1,4 @@
-import winaccent, threading, argparse, io
+import winaccent, threading, argparse
 
 def gui_demo():
     import tkinter as tk, ctypes
