@@ -40,7 +40,7 @@ def update_accent_colors():
     accent_dark_mode = accent_light
     accent_light_mode = accent_dark
 
-    # Some weird color
+    # Some weird color (possibly a complementary color for the accent color)
     # "#" + accent_palette_list[28] + accent_palette_list[29] + accent_palette_list[30]
 
 def on_accent_changed_listener(callback: callable):
