@@ -1,4 +1,3 @@
-from contextlib import redirect_stderr
 import winaccent, threading, argparse, io
 
 def gui_demo():
