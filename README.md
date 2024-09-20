@@ -80,6 +80,17 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 
 ---
 
+### Get active/inactive titlebar color
+
+You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`.
+
+You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
+
+> [!NOTE]
+> `titlebar_inactive` will return `None` if the inactive titlebar color isn't set (this is usually done via registry).
+
+---
+
 ### Update accent color values
 
 The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
