@@ -47,7 +47,7 @@ For simplicity, you can get a specific accent color from one of the following va
 | accent_dark_mode | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
 | accent_light_mode | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
-| accent_complement | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| accent_complement | #F7630C | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_complement.png?raw=true"> |
 
 If you need a different shade, you can get it from one of these variables:
 
@@ -60,7 +60,7 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_1 | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
-| accent_complement | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
+| accent_complement | #F7630C | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_complement.png?raw=true"> |
 
 
 > [!TIP]
