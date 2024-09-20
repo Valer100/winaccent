@@ -84,6 +84,10 @@ You can get the active titlebar color from `titlebar_active` variable and the in
 
 You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
 
+| Active titlebar | Inactive titlebar |
+|:---------------:|:-----------------:|
+| <img src="https://github.com/Valer100/winaccent/blob/main/assets/active_titlebar.png?raw=true"> | <img src="https://github.com/Valer100/winaccent/blob/main/assets/inactive_titlebar.png?raw=true"> |
+
 > [!NOTE]
 > `titlebar_inactive` will return `None` if the inactive titlebar color isn't set (this is usually done via registry).
 
