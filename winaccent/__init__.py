@@ -19,7 +19,7 @@ def get_registry_value(hkey, key_path, value_name):
 def update_accent_colors():
     '''Updates the accent color variables.'''
 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode
+    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, accent_complement
 
     accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -40,8 +40,7 @@ def update_accent_colors():
     accent_dark_mode = accent_light
     accent_light_mode = accent_dark
 
-    # Some weird color (possibly a complementary color for the accent color)
-    # "#" + accent_palette_list[28] + accent_palette_list[29] + accent_palette_list[30]
+    accent_complement = "#" + accent_palette_list[28] + accent_palette_list[29] + accent_palette_list[30]
 
 def on_accent_changed_listener(callback: callable):
     '''Listens for accent color changes. If the accent color changed, the function
