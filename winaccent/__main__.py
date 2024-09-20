@@ -7,7 +7,7 @@ def gui_demo():
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
 
     window = tk.Tk()
-    window.title("Accent palette")
+    window.title("winaccent")
     window.resizable(False, False)
     window.configure(padx = 8, pady = 8)
     
@@ -21,18 +21,25 @@ def gui_demo():
         color_item = tk.Frame(window, padx = 8, pady = 0)
         color_item.pack(pady = 2, anchor = "w")
     
-        tk.Frame(color_item, width = 20, height = 20, bg = color, highlightthickness = 1, highlightbackground = "#000000").pack(side = "left")
+        color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemMenu")
+        color_prev.pack(side = "left")
+
+        try: color_prev.configure(bg = color, highlightbackground = "#000000")
+        except: pass
+        
         ttk.Label(color_item, text = text, font = ("Default", 11), width = 23).pack(side = "left", padx = (8, 0), anchor = "w")
         
         color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = ttk.Style().lookup(".", "background"))
         color_value.pack(side = "right")
-        color_value.insert("1.0", color)
+        color_value.insert("1.0", str(color))
         color_value["state"] = "disabled"
     
     def update_accent_colors():
         winaccent.update_accent_colors()
         for widget in window.winfo_children(): widget.destroy()
     
+        ttk.Label(window, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
+
         add_item(winaccent.accent_light_3, "accent_light_3")
         add_item(winaccent.accent_light_2, "accent_light_2")
         add_item(winaccent.accent_light_1, "accent_light_1")
@@ -41,6 +48,12 @@ def gui_demo():
         add_item(winaccent.accent_dark_2, "accent_dark_2")
         add_item(winaccent.accent_dark_3, "accent_dark_3")
         add_item(winaccent.accent_complement, "accent_complement")
+
+        ttk.Label(window, text = "Titlebar options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+        
+        add_item(winaccent.is_titlebar_colored, "is_titlebar_colored")
+        add_item(winaccent.titlebar_active, "titlebar_active")
+        add_item(winaccent.titlebar_inactive, "titlebar_inactive")
     
     update_accent_colors()
     
@@ -62,6 +75,13 @@ def console_demo():
     print(f"accent_dark_3:         {winaccent.accent_dark_3}")
     print(f"accent_complement:     {winaccent.accent_complement}")
 
+    print("\nTitlebar options")
+    print("================\n")
+
+    print(f"is_titlebar_colored:   {winaccent.is_titlebar_colored}")
+    print(f"titlebar_active:       {winaccent.titlebar_active}")
+    print(f"titlebar_inactive:     {winaccent.titlebar_inactive}")
+
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
 parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
 arguments = parser.parse_args()
@@ -69,7 +89,8 @@ arguments = parser.parse_args()
 if arguments.mode == None or arguments.mode == "auto":
     try:
         gui_demo()
-    except:
+    except Exception as e:
+        print(e)
         print("tkinter isn't available. Perhaps it isn't installed or the installation is corrupted.")
         console_demo()
 elif arguments.mode == "gui": gui_demo()
