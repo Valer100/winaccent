@@ -19,7 +19,7 @@ def get_registry_value(hkey, key_path, value_name):
 def update_accent_colors():
     '''Updates the accent color variables.'''
 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, accent_complement
+    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, accent_complement, titlebar_active, titlebar_inactive, is_titlebar_colored
 
     accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -40,6 +40,17 @@ def update_accent_colors():
 
     accent_dark_mode = accent_light
     accent_light_mode = accent_dark
+
+    titlebar_active_list = hex(get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor")).lstrip("0x").upper()
+    titlebar_active = "#" + titlebar_active_list[6] + titlebar_active_list[7] + titlebar_active_list[4] + titlebar_active_list[5] + titlebar_active_list[2] + titlebar_active_list[3]
+    
+    try:
+        titlebar_inactive_list = hex(get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive")).lstrip("0x").upper()
+        titlebar_inactive = "#" + titlebar_inactive_list[6] + titlebar_inactive_list[7] + titlebar_inactive_list[4] + titlebar_inactive_list[5] + titlebar_inactive_list[2] + titlebar_inactive_list[3]
+    except:
+        titlebar_inactive = None
+
+    is_titlebar_colored = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
 
 def on_accent_changed_listener(callback: callable):
     '''Listens for accent color changes. If the accent color changed, the function
