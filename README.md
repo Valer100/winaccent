@@ -99,7 +99,7 @@ The accent colors can be updated manually using the ```update_accent_colors()```
 
 ### Accent color change listener
 
-This module allows you to add a listener that will call a specific function when the accent color changes. Here's how you can add it:
+This module allows you to add a listener that will call a specific function when the accent color or active/inactive titlebar color changes. Here's how you can add it:
 
 ```python
 import winaccent, threading
