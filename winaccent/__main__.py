@@ -47,7 +47,6 @@ def gui_demo():
         add_item(winaccent.accent_dark_1, "accent_dark_1")
         add_item(winaccent.accent_dark_2, "accent_dark_2")
         add_item(winaccent.accent_dark_3, "accent_dark_3")
-        add_item(winaccent.accent_complement, "accent_complement")
 
         ttk.Label(window, text = "Titlebar options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
         
@@ -73,7 +72,6 @@ def console_demo():
     print(f"accent_dark_1:         {winaccent.accent_dark_1}")
     print(f"accent_dark_2:         {winaccent.accent_dark_2}")
     print(f"accent_dark_3:         {winaccent.accent_dark_3}")
-    print(f"accent_complement:     {winaccent.accent_complement}")
 
     print("\nTitlebar options")
     print("================\n")

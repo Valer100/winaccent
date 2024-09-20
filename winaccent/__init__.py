@@ -19,7 +19,7 @@ def get_registry_value(hkey, key_path, value_name):
 def update_accent_colors():
     '''Updates the accent color variables.'''
 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, accent_complement, titlebar_active, titlebar_inactive, is_titlebar_colored
+    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored
 
     accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -33,7 +33,6 @@ def update_accent_colors():
     accent_dark_1 = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
     accent_dark_2 = "#" + accent_palette_list[20] + accent_palette_list[21] + accent_palette_list[22]
     accent_dark_3 = "#" + accent_palette_list[24] + accent_palette_list[25] + accent_palette_list[26]
-    accent_complement = "#" + accent_palette_list[28] + accent_palette_list[29] + accent_palette_list[30]
 
     accent_dark = accent_dark_1
     accent_light = accent_light_2

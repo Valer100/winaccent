@@ -47,7 +47,6 @@ For simplicity, you can get a specific accent color from one of the following va
 | accent_dark_mode | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
 | accent_light_mode | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
-| accent_complement | #F7630C | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_complement.png?raw=true"> |
 
 If you need a different shade, you can get it from one of these variables:
 
@@ -60,7 +59,6 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_1 | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
-| accent_complement | #F7630C | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_complement.png?raw=true"> |
 
 
 > [!TIP]
@@ -161,7 +159,6 @@ accent_normal:         #0078D4
 accent_dark_1:         #0067C0
 accent_dark_2:         #003E92
 accent_dark_3:         #001A68
-accent_complement:     #F7630C
 
 Titlebar options
 ================
@@ -180,5 +177,4 @@ If you find this module useful, you can consider starring this repository.
 ## 📋 To do
 - [x] ~~Add an accent color change listener~~
 - [x] ~~Add color shades~~
-- [x] ~~Do some research about a weird color (see line 42 in [`winaccent/__init__.py`](https://github.com/Valer100/winaccent/blob/main/winaccent/__init__.py)) - it was the complementary accent color~~
 - [x] ~~Allow to get active/inactive titlebar color~~
