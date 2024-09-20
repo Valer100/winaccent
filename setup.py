@@ -12,6 +12,7 @@ setup(
     url = "https://github.com/Valer100/winaccent",
     project_urls = {
         "Source": "https://github.com/Valer100/winaccent",
+        "Documentation": "https://github.com/Valer100/winaccent?tab=readme-ov-file#-documentation",
         "Issues": "https://github.com/Valer100/winaccent/issues",
     },
     packages = find_packages(),
