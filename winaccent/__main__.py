@@ -22,7 +22,7 @@ def gui_demo():
         color_item.pack(pady = 2, anchor = "w")
     
         tk.Frame(color_item, width = 20, height = 20, bg = color, highlightthickness = 1, highlightbackground = "#000000").pack(side = "left")
-        ttk.Label(color_item, text = text, font = ("Default", 11), width = 17).pack(side = "left", padx = (8, 0), anchor = "w")
+        ttk.Label(color_item, text = text, font = ("Default", 11), width = 23).pack(side = "left", padx = (8, 0), anchor = "w")
         
         color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = ttk.Style().lookup(".", "background"))
         color_value.pack(side = "right")
@@ -40,6 +40,7 @@ def gui_demo():
         add_item(winaccent.accent_dark_1, "accent_dark_1")
         add_item(winaccent.accent_dark_2, "accent_dark_2")
         add_item(winaccent.accent_dark_3, "accent_dark_3")
+        add_item(winaccent.accent_complement, "accent_complement")
     
     update_accent_colors()
     
@@ -52,13 +53,14 @@ def console_demo():
     print("\nAccent palette")
     print("================\n")
     
-    print(f"accent_light_3:    {winaccent.accent_light_3}")
-    print(f"accent_light_2:    {winaccent.accent_light_2}")
-    print(f"accent_light_1:    {winaccent.accent_light_1}")
-    print(f"accent_normal:     {winaccent.accent_normal}")
-    print(f"accent_dark_1:     {winaccent.accent_dark_1}")
-    print(f"accent_dark_2:     {winaccent.accent_dark_2}")
-    print(f"accent_dark_3:     {winaccent.accent_dark_3}")
+    print(f"accent_light_3:        {winaccent.accent_light_3}")
+    print(f"accent_light_2:        {winaccent.accent_light_2}")
+    print(f"accent_light_1:        {winaccent.accent_light_1}")
+    print(f"accent_normal:         {winaccent.accent_normal}")
+    print(f"accent_dark_1:         {winaccent.accent_dark_1}")
+    print(f"accent_dark_2:         {winaccent.accent_dark_2}")
+    print(f"accent_dark_3:         {winaccent.accent_dark_3}")
+    print(f"accent_complement:     {winaccent.accent_complement}")
 
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
 parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
