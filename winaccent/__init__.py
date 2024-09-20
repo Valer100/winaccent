@@ -57,10 +57,18 @@ def on_accent_changed_listener(callback: callable):
     specified in the `callback` argument will be called.'''
 
     while True:
-        old_value = accent_normal
+        accent_old = accent_normal
+        is_titlebar_colored_old = is_titlebar_colored
+        titlebar_active_old = titlebar_active
+        titlebar_inactive_old = titlebar_inactive
         update_accent_colors()
 
-        if old_value != accent_normal: callback()
+        if (accent_old != accent_normal or 
+            is_titlebar_colored_old != is_titlebar_colored or
+            titlebar_active_old != titlebar_active or
+            titlebar_inactive_old != titlebar_inactive
+        ): callback()
+        
         time.sleep(1)
 
 update_accent_colors()
