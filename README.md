@@ -78,7 +78,7 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 
 ---
 
-### Get active/inactive titlebar color
+### Get active/inactive titlebar color (not released)
 
 You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`.
 
