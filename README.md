@@ -78,9 +78,16 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 
 ---
 
-### Get active/inactive titlebar color (not released)
+### Get active/inactive titlebar color or window border color (not released)
 
-You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`.
+> [!WARNING]
+> The colors provided by these variables are the colors used by Windows to colorize the titlebar and the window borders when the "Show accent color on title bars and window borders" option is enabled in Settings.
+>
+> <img src="https://github.com/Valer100/winaccent/blob/main/assets/show_accent_color_on_window_stuff.png?raw=true">
+>
+> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry.
+
+You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`. The window border color can be obtained from `window_border` variable.
 
 You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
 
@@ -101,7 +108,7 @@ The accent colors can be updated manually using the ```update_accent_colors()```
 
 ### Accent color change listener
 
-This module allows you to add a listener that will call a specific function when the accent color or active/inactive titlebar color changes. Here's how you can add it:
+This module allows you to add a listener that will call a specific function when the accent color, active/inactive titlebar color or window border color changes. Here's how you can add it:
 
 ```python
 import winaccent, threading
@@ -182,3 +189,4 @@ If you find this module useful, please consider starring this repository.
 - [x] ~~Add an accent color change listener~~
 - [x] ~~Add color shades~~
 - [x] ~~Allow to get active/inactive titlebar color~~
+- [x] ~~Allow to get window border color~~
