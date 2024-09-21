@@ -112,7 +112,7 @@ thread.start()
 ```
 
 > [!NOTE]
-> If you added the listener, there's no need to call `update_accent_colors()` because it will be called automatically every time the accent color changes.
+> If you added the listener, there's no need to call `update_accent_colors()` because it will be called automatically every time the accent color or the active/inactive titlebar color changes.
 
 Here's a demo:
 
@@ -176,7 +176,7 @@ titlebar_inactive:     None
 ## 🤩 Feedback
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
 
-If you find this module useful, you can consider starring this repository.
+If you find this module useful, please consider starring this repository.
 
 ## 📋 To do
 - [x] ~~Add an accent color change listener~~
