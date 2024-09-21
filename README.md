@@ -82,9 +82,9 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 
 > [!WARNING]
 > The colors provided by these variables are the colors used by Windows to colorize the titlebar and the window borders when the "Show accent color on title bars and window borders" option is enabled in Settings.
->
+> <br><br>
 > <img src="https://github.com/Valer100/winaccent/blob/main/assets/show_accent_color_on_window_stuff.png?raw=true">
->
+> <br><br>
 > Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry.
 
 You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`. The window border color can be obtained from `window_border` variable.
