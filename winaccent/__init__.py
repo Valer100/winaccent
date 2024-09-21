@@ -50,7 +50,7 @@ def update_accent_colors():
         titlebar_inactive = None
 
     window_border_list = hex(get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor")).lstrip("0x").upper()
-    window_border = "#" + window_border_list[6] + window_border_list[7] + window_border_list[4] + window_border_list[5] + window_border_list[2] + window_border_list[3]
+    window_border = "#" + window_border_list[2] + window_border_list[3] + window_border_list[4] + window_border_list[5] + window_border_list[6] + window_border_list[7]
 
     is_titlebar_colored = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
 
