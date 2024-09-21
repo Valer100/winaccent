@@ -19,7 +19,7 @@ def get_registry_value(hkey, key_path, value_name):
 def update_accent_colors():
     '''Updates the accent color variables.'''
 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored
+    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored, window_border
 
     accent_palette = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -49,6 +49,9 @@ def update_accent_colors():
     except:
         titlebar_inactive = None
 
+    window_border_list = hex(get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor")).lstrip("0x").upper()
+    window_border = "#" + window_border_list[6] + window_border_list[7] + window_border_list[4] + window_border_list[5] + window_border_list[2] + window_border_list[3]
+
     is_titlebar_colored = get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
 
 def on_accent_changed_listener(callback: callable):
@@ -60,12 +63,14 @@ def on_accent_changed_listener(callback: callable):
         is_titlebar_colored_old = is_titlebar_colored
         titlebar_active_old = titlebar_active
         titlebar_inactive_old = titlebar_inactive
+        window_border_old = window_border
         update_accent_colors()
 
         if (accent_old != accent_normal or 
             is_titlebar_colored_old != is_titlebar_colored or
             titlebar_active_old != titlebar_active or
-            titlebar_inactive_old != titlebar_inactive
+            titlebar_inactive_old != titlebar_inactive or
+            window_border_old != window_border
         ): callback()
         
         time.sleep(1)
