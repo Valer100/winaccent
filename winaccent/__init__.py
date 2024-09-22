@@ -16,6 +16,12 @@ def _get_registry_value(hkey, key_path, value_name):
     
     return value
 
+def _get_color_from_registry_rgb(hkey, key_path, value_name, from_):
+    list = hex(_get_registry_value(hkey, key_path, value_name)).lstrip("0x").upper()
+    
+    if from_ == "abgr": return "#" + list[6] + list[7] + list[4] + list[5] + list[2] + list[3]
+    elif from_ == "argb": return "#" + list[2] + list[3] + list[4] + list[5] + list[6] + list[7]
+
 def update_accent_colors():
     '''Updates the accent color variables.'''
 
@@ -40,17 +46,12 @@ def update_accent_colors():
     accent_dark_mode = accent_light
     accent_light_mode = accent_dark
 
-    titlebar_active_list = hex(_get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor")).lstrip("0x").upper()
-    titlebar_active = "#" + titlebar_active_list[6] + titlebar_active_list[7] + titlebar_active_list[4] + titlebar_active_list[5] + titlebar_active_list[2] + titlebar_active_list[3]
+    titlebar_active = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor", "abgr")
     
-    try:
-        titlebar_inactive_list = hex(_get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive")).lstrip("0x").upper()
-        titlebar_inactive = "#" + titlebar_inactive_list[6] + titlebar_inactive_list[7] + titlebar_inactive_list[4] + titlebar_inactive_list[5] + titlebar_inactive_list[2] + titlebar_inactive_list[3]
-    except:
-        titlebar_inactive = None
+    try: titlebar_inactive = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
+    except: titlebar_inactive = None
 
-    window_border_list = hex(_get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor")).lstrip("0x").upper()
-    window_border = "#" + window_border_list[2] + window_border_list[3] + window_border_list[4] + window_border_list[5] + window_border_list[6] + window_border_list[7]
+    window_border = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
 
     is_titlebar_colored = _get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
 
