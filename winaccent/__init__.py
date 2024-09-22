@@ -17,10 +17,14 @@ def _get_registry_value(hkey, key_path, value_name):
     return value
 
 def _get_color_from_registry_rgb(hkey, key_path, value_name, from_):
-    list = hex(_get_registry_value(hkey, key_path, value_name)).lstrip("0x").upper()
-    
-    if from_ == "abgr": return "#" + list[6] + list[7] + list[4] + list[5] + list[2] + list[3]
-    elif from_ == "argb": return "#" + list[2] + list[3] + list[4] + list[5] + list[6] + list[7]
+    list = f"{_get_registry_value(hkey, key_path, value_name):08X}"
+    color = "#"
+
+    if from_ == "abgr": color = "#" + list[6] + list[7] + list[4] + list[5] + list[2] + list[3]
+    elif from_ == "argb": color = "#" + list[2] + list[3] + list[4] + list[5] + list[6] + list[7]
+
+    if list[0] + list[1] + color.replace("#", "") == "00000000": return "0"
+    else: return color
 
 def update_accent_colors():
     '''Updates the accent color variables.'''
@@ -51,7 +55,11 @@ def update_accent_colors():
     try: titlebar_inactive = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
     except: titlebar_inactive = None
 
+    if titlebar_active == "0": titlebar_active = accent_normal
+    if titlebar_inactive == "0": titlebar_inactive = accent_normal
+
     window_border = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
+    if window_border == "0": window_border = "#000000"
 
     is_titlebar_colored = _get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
 
