@@ -171,9 +171,10 @@ accent_dark_3:         #001A68
 Titlebar options
 ================
 
-is_titlebar_colored:   0
+is_titlebar_colored:   False
 titlebar_active:       #0078D4
 titlebar_inactive:     None
+window_border:         #0078D4
 ```
 
 
