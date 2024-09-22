@@ -85,15 +85,12 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 > <br><br>
 > <img src="https://github.com/Valer100/winaccent/blob/main/assets/show_accent_color_on_window_stuff.png?raw=true">
 > <br><br>
-> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry.
+> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry. <br><br>
+> <img src="https://github.com/Valer100/winaccent/blob/main/assets/custom_window_colors_demo.png?raw=true">
 
 You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`. The window border color can be obtained from `window_border` variable.
 
 You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
-
-| Active titlebar | Inactive titlebar |
-|:---------------:|:-----------------:|
-| <img src="https://github.com/Valer100/winaccent/blob/main/assets/active_titlebar.png?raw=true"> | <img src="https://github.com/Valer100/winaccent/blob/main/assets/inactive_titlebar.png?raw=true"> |
 
 > [!NOTE]
 > `titlebar_inactive` will return `None` if the inactive titlebar color isn't set (this is usually done via registry).
