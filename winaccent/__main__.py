@@ -31,7 +31,7 @@ def gui_demo():
         
         color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = ttk.Style().lookup(".", "background"))
         color_value.pack(side = "right")
-        color_value.insert("1.0", str(color))
+        color_value.insert("1.0", "True" if str(color) == "1" else "False" if str(color) == "0" else str(color))
         color_value["state"] = "disabled"
     
     def update_accent_colors():
@@ -77,7 +77,7 @@ def console_demo():
     print("\nWindows options")
     print("================\n")
 
-    print(f"is_titlebar_colored:   {winaccent.is_titlebar_colored}")
+    print(f"is_titlebar_colored:   " + ("True" if winaccent.is_titlebar_colored else "False"))
     print(f"titlebar_active:       {winaccent.titlebar_active}")
     print(f"titlebar_inactive:     {winaccent.titlebar_inactive}")
     print(f"window_border:         {winaccent.window_border}")
