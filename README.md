@@ -79,7 +79,7 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 
 ---
 
-### Get active/inactive titlebar color or window border color (not released)
+### Get active/inactive titlebar color or window border color
 
 > [!WARNING]
 > The colors provided by these variables are the colors used by Windows to colorize the titlebar and the window borders when the "Show accent color on title bars and window borders" option is enabled in Settings.
