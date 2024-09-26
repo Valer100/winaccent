@@ -29,7 +29,7 @@ def _get_color_from_registry_rgb(hkey, key_path, value_name, from_):
 def update_accent_colors():
     '''Updates the accent color variables.'''
 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored, window_border
+    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored, window_border, accent_menu
 
     accent_palette = _get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -43,6 +43,8 @@ def update_accent_colors():
     accent_dark_1 = "#" + accent_palette_list[16] + accent_palette_list[17] + accent_palette_list[18]
     accent_dark_2 = "#" + accent_palette_list[20] + accent_palette_list[21] + accent_palette_list[22]
     accent_dark_3 = "#" + accent_palette_list[24] + accent_palette_list[25] + accent_palette_list[26]
+    
+    accent_menu = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColorMenu", "abgr")
 
     accent_dark = accent_dark_1
     accent_light = accent_light_2
@@ -58,8 +60,8 @@ def update_accent_colors():
     window_border = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
 
     # Replicate Windows' behavior if titlebar_active, titlebar_inactive and window_border are set to 0
-    if titlebar_active == "0": titlebar_active = accent_normal
-    if titlebar_inactive == "0": titlebar_inactive = accent_normal
+    if titlebar_active == "0": titlebar_active = accent_menu
+    if titlebar_inactive == "0": titlebar_inactive = accent_menu
     if window_border == "0": window_border = "#000000"
 
     is_titlebar_colored = _get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
