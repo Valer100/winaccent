@@ -54,6 +54,9 @@ def gui_demo():
         add_item(winaccent.titlebar_active, "titlebar_active")
         add_item(winaccent.titlebar_inactive, "titlebar_inactive")
         add_item(winaccent.window_border, "window_border")
+
+        ttk.Label(window, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+        
         add_item(winaccent.accent_menu, "accent_menu")
     
     update_accent_colors()
@@ -65,7 +68,7 @@ def gui_demo():
 
 def console_demo():
     print("\nAccent palette")
-    print("================\n")
+    print("==============\n")
     
     print(f"accent_light_3:        {winaccent.accent_light_3}")
     print(f"accent_light_2:        {winaccent.accent_light_2}")
@@ -76,12 +79,16 @@ def console_demo():
     print(f"accent_dark_3:         {winaccent.accent_dark_3}")
 
     print("\nWindows options")
-    print("================\n")
+    print("===============\n")
 
     print(f"is_titlebar_colored:   " + ("True" if winaccent.is_titlebar_colored else "False"))
     print(f"titlebar_active:       {winaccent.titlebar_active}")
     print(f"titlebar_inactive:     {winaccent.titlebar_inactive}")
     print(f"window_border:         {winaccent.window_border}")
+
+    print("\nOther colors")
+    print("============\n")
+
     print(f"accent_menu:           {winaccent.accent_menu}")
 
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
