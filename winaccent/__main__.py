@@ -54,6 +54,7 @@ def gui_demo():
         add_item(winaccent.titlebar_active, "titlebar_active")
         add_item(winaccent.titlebar_inactive, "titlebar_inactive")
         add_item(winaccent.window_border, "window_border")
+        add_item(winaccent.accent_menu, "accent_menu")
     
     update_accent_colors()
     
@@ -81,6 +82,7 @@ def console_demo():
     print(f"titlebar_active:       {winaccent.titlebar_active}")
     print(f"titlebar_inactive:     {winaccent.titlebar_inactive}")
     print(f"window_border:         {winaccent.window_border}")
+    print(f"accent_menu:           {winaccent.accent_menu}")
 
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
 parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
