@@ -120,7 +120,7 @@ thread.start()
 
 Here's a demo:
 
-https://github.com/user-attachments/assets/8e5bdec8-d7d7-40a3-b8d0-a9782ecbd0fb
+https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
 
 
 ## 💻 Demo
