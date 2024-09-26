@@ -55,10 +55,11 @@ def update_accent_colors():
     try: titlebar_inactive = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
     except: titlebar_inactive = None
 
+    window_border = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
+
+    # Replicate Windows' behavior if titlebar_active, titlebar_inactive and window_border are set to 0
     if titlebar_active == "0": titlebar_active = accent_normal
     if titlebar_inactive == "0": titlebar_inactive = accent_normal
-
-    window_border = _get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
     if window_border == "0": window_border = "#000000"
 
     is_titlebar_colored = _get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
