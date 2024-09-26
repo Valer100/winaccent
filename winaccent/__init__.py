@@ -77,6 +77,7 @@ def on_accent_changed_listener(callback: callable):
         is_titlebar_colored_old = is_titlebar_colored
         titlebar_active_old = titlebar_active
         titlebar_inactive_old = titlebar_inactive
+        accent_menu_old = accent_menu
         window_border_old = window_border
         update_accent_colors()
 
@@ -84,7 +85,8 @@ def on_accent_changed_listener(callback: callable):
             is_titlebar_colored_old != is_titlebar_colored or
             titlebar_active_old != titlebar_active or
             titlebar_inactive_old != titlebar_inactive or
-            window_border_old != window_border
+            window_border_old != window_border or
+            accent_menu_old != accent_menu
         ): callback()
         
         time.sleep(1)
