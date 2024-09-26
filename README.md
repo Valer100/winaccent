@@ -60,6 +60,7 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
+You can get the accent color used in lockscreen, UAC (Windows 10) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`).
 
 > [!TIP]
 > `accent_dark_mode` is the same thing as `accent_light` which is the same thing as `accent_light_2`. 
