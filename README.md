@@ -3,6 +3,13 @@
 </div>
 
 # winaccent
+[![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
+[![Python](https://img.shields.io/pypi/pyversions/winaccent)]()
+[![Downloads](https://img.shields.io/pepy/dt/winaccent)](https://pypi.org/project/winaccent/)
+[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat)]()
+[![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
+[![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
+
 A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on both Windows 10 and 11 and doesn't require additional dependencies.
 
 ## 📦 Installation
