@@ -4,7 +4,7 @@
 
 # winaccent
 [![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
-[![Python](https://img.shields.io/pypi/pyversions/winaccent)]()
+[![Python](https://img.shields.io/pypi/pyversions/winaccent?color=yellow)]()
 [![Downloads](https://img.shields.io/pepy/dt/winaccent)](https://pypi.org/project/winaccent/)
 [![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat)]()
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
