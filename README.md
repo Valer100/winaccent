@@ -166,7 +166,7 @@ A console demo looks like this (for default blue accent color):
 
 ```
 Accent palette
-================
+==============
 
 accent_light_3:        #99EBFF
 accent_light_2:        #4CC2FF
@@ -176,8 +176,8 @@ accent_dark_1:         #0067C0
 accent_dark_2:         #003E92
 accent_dark_3:         #001A68
 
-Titlebar options
-================
+Windows options
+===============
 
 is_titlebar_colored:   False
 titlebar_active:       #0078D4
