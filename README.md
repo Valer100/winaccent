@@ -196,3 +196,4 @@ If you find this module useful, please consider starring this repository.
 - [x] ~~Add color shades~~
 - [x] ~~Allow to get active/inactive titlebar color~~
 - [x] ~~Allow to get window border color~~
+- [ ] Add support for Windows 8.x
