@@ -15,7 +15,25 @@ else:
     raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
 
 def update_accent_colors(): 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored, window_border, accent_menu
+    global accent_dark
+    global accent_light
+    global accent_dark_mode
+    global accent_light_mode
+    global accent_normal
+    global accent_dark_3
+    global accent_dark_2
+    global accent_dark_1
+    global accent_light_3
+    global accent_light_2
+    global accent_light_1
+    global accent_dark_mode
+    global accent_light_mode
+    global titlebar_active
+    global titlebar_inactive
+    global is_titlebar_colored
+    global window_border
+    global accent_menu
+
     win.update_accent_colors()
 
     accent_light_3 = win.accent_light_3
@@ -25,6 +43,11 @@ def update_accent_colors():
     accent_dark_1 = win.accent_dark_1
     accent_dark_2 = win.accent_dark_2
     accent_dark_3 = win.accent_dark_3
+
+    accent_dark = accent_dark_1
+    accent_light = accent_light_2
+    accent_dark_mode = accent_light
+    accent_light_mode = accent_dark
 
     is_titlebar_colored = win.is_titlebar_colored
     titlebar_active = win.titlebar_active

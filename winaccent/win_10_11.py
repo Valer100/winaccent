@@ -2,10 +2,22 @@ from . import utils
 import winreg
 
 def update_accent_colors():
-    print("working")
     '''Updates the accent color variables.'''
 
-    global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored, window_border, accent_menu
+    global accent_normal
+    global accent_dark_3
+    global accent_dark_2
+    global accent_dark_1
+    global accent_light_3
+    global accent_light_2
+    global accent_light_1
+    global accent_dark_mode
+    global accent_light_mode
+    global titlebar_active
+    global titlebar_inactive
+    global is_titlebar_colored
+    global window_border
+    global accent_menu
 
     accent_palette = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -22,12 +34,6 @@ def update_accent_colors():
     
     try: accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColorMenu", "abgr")
     except: accent_menu = accent_normal
-
-    accent_dark = accent_dark_1
-    accent_light = accent_light_2
-
-    accent_dark_mode = accent_light
-    accent_light_mode = accent_dark
 
     titlebar_active = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor", "abgr")
     
