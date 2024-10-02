@@ -9,7 +9,7 @@ if not sys.platform == "win32":
     raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
 elif sys.getwindowsversion().major == 10: 
     from . import win_10_11 as win
-elif sys.getwindowsversion().major == 8:
+elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
     from . import win_8 as win
 else:
     raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
