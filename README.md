@@ -10,7 +10,7 @@
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
 [![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
-A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on Windows 8.x, 10 and 11 and doesn't require additional dependencies.
+A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on both Windows 10 and 11 and doesn't require additional dependencies.
 
 ## 📦 Installation
 Run this command in your terminal:
@@ -28,7 +28,7 @@ pip install --upgrade winaccent
 ## 📜 Documentation
 
 > [!IMPORTANT]
-> This is a Windows-only module. Trying to import this module on a OS other than Windows or a Windows version older than 8.x will raise a `winaccent.UnsupportedPlatformException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems to avoid errors. Here's an example:
+> This is a Windows-only module. Trying to import this module on a OS other than Windows or a Windows version older than 10 will raise a `winaccent.UnsupportedPlatformException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems to avoid errors. Here's an example:
 
 ```python
 import sys
@@ -51,9 +51,9 @@ For simplicity, you can get a specific accent color from one of the following va
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
-| accent_dark_mode<br>accent_light | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
+| accent_dark_mode | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_light_mode<br>accent_dark | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| accent_light_mode | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 
 If you need a different shade, you can get it from one of these variables:
 
@@ -68,6 +68,11 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
 You can get the accent color used in lockscreen, UAC (Windows 10) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
+
+> [!TIP]
+> `accent_dark_mode` is the same thing as `accent_light` which is the same thing as `accent_light_2`. 
+>
+> Also, `accent_light_mode` is the same thing as `accent_dark` which is the same thing as `accent_dark_1`.
 
 Example:
 
@@ -124,20 +129,6 @@ thread.start()
 Here's a demo:
 
 https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
-
----
-
-### Windows 8.x support
-Windows 8.x is partially supported. The unsupported colors (the accent color shades) will return `None` on this Windows version. Here is a list of the supported colors and booleans:
-
-- `accent_normal`
-- `accent_menu`
-- `titlebar_active`
-- `titlebar_inactive`
-- `window_border`
-- `is_titlebar_colored`
-
-You can check if the accent color shades are supported using the `is_accent_palette_supported` boolean.
 
 
 ## 💻 Demo
