@@ -15,6 +15,8 @@ else:
     raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
 
 def update_accent_colors(): 
+    '''Updates the accent color variables.'''
+    
     global accent_dark
     global accent_light
     global accent_dark_mode
