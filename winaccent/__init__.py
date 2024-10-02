@@ -33,6 +33,7 @@ def update_accent_colors():
     global is_titlebar_colored
     global window_border
     global accent_menu
+    global is_accent_palette_supported
 
     win.update_accent_colors()
 
@@ -55,6 +56,7 @@ def update_accent_colors():
     window_border = win.window_border
 
     accent_menu = win.accent_menu
+    is_accent_palette_supported = win.is_accent_palette_supported
 
 update_accent_colors()
 

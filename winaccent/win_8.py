@@ -18,6 +18,7 @@ def update_accent_colors():
     global is_titlebar_colored
     global window_border
     global accent_menu
+    global is_accent_palette_supported
     
     accent_light_3 = None
     accent_light_2 = None
@@ -32,6 +33,6 @@ def update_accent_colors():
     titlebar_active = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
     titlebar_inactive = "#EBEBEB"
     window_border = titlebar_active
-    is_titlebar_colored = True
 
-update_accent_colors()
+    is_titlebar_colored = True
+    is_accent_palette_supported = False

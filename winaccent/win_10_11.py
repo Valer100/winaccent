@@ -18,6 +18,7 @@ def update_accent_colors():
     global is_titlebar_colored
     global window_border
     global accent_menu
+    global is_accent_palette_supported
 
     accent_palette = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
     accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
@@ -49,5 +50,4 @@ def update_accent_colors():
     if window_border == "0": window_border = "#000000"
 
     is_titlebar_colored = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
-
-update_accent_colors()
+    is_accent_palette_supported = True
