@@ -8,7 +8,7 @@ setup(
     license = "MIT",
     author = "Valer100",
     maintainer = "Valer100",
-    description = "A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on both Windows 10 and 11 and doesn't require additional dependencies.",
+    description = "A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on Windows 8.x, 10 and 11 and doesn't require additional dependencies.",
     url = "https://github.com/Valer100/winaccent",
     project_urls = {
         "Source": "https://github.com/Valer100/winaccent",
