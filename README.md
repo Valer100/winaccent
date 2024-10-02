@@ -10,7 +10,7 @@
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
 [![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
-A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on both Windows 10 and 11 and doesn't require additional dependencies.
+A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on Windows 8.x, 10 and 11 and doesn't require additional dependencies.
 
 ## 📦 Installation
 Run this command in your terminal:
@@ -28,7 +28,7 @@ pip install --upgrade winaccent
 ## 📜 Documentation
 
 > [!IMPORTANT]
-> This is a Windows-only module. Trying to import this module on a OS other than Windows or a Windows version older than 10 will raise a `winaccent.UnsupportedPlatformException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems to avoid errors. Here's an example:
+> This is a Windows-only module. Trying to import this module on a OS other than Windows or a Windows version older than 8.x will raise a `winaccent.UnsupportedPlatformException` exception. When using this module in cross-platform applications, you should only import and use winaccent on Windows systems to avoid errors. Here's an example:
 
 ```python
 import sys
