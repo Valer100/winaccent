@@ -40,6 +40,7 @@ setup(
         "sun-valley",
         "windows-11",
         "windows-10",
+        "windows-8",
         "winui",
         "winaccent"
     ],
