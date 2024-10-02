@@ -130,6 +130,18 @@ Here's a demo:
 
 https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
 
+# Windows 8.x support
+Windows 8.x is partially supported. The unsupported colors (the accent color shades) will return `None` on this Windows version. Here is a list of the supported colors and booleans:
+
+- `accent_normal`
+- `accent_menu`
+- `titlebar_active`
+- `titlebar_inactive`
+- `window_border`
+- `is_titlebar_colored`
+
+You can check if the accent color shades are supported using the `is_accent_palette_supported` boolean.
+
 
 ## 💻 Demo
 To see a demo, run the following command in your terminal (winaccent must be installed):
