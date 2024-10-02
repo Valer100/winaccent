@@ -30,7 +30,7 @@ def update_accent_colors():
     accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
 
     titlebar_active = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
-    titlebar_inactive = ""
+    titlebar_inactive = "#EBEBEB"
     window_border = titlebar_active
     is_titlebar_colored = True
 
