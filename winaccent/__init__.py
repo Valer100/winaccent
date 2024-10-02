@@ -5,10 +5,14 @@ A simple module for getting Windows' accent color. With this module you can get 
 import sys, time
 class UnsupportedPlatformException(Exception): pass
 
-if not sys.platform == "win32" or not sys.getwindowsversion().major == 10: 
-    raise UnsupportedPlatformException("This module only works on Windows 10 and later!")
-else: 
+if not sys.platform == "win32": 
+    raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
+elif sys.getwindowsversion().major == 10: 
     from . import win_10_11 as win
+elif sys.getwindowsversion().major == 8:
+    from . import win_8 as win
+else:
+    raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
 
 def update_accent_colors(): 
     global accent_light, accent_dark, accent_normal, accent_dark_3, accent_dark_2, accent_dark_1, accent_light_3, accent_light_2, accent_light_1, accent_dark_mode, accent_light_mode, titlebar_active, titlebar_inactive, is_titlebar_colored, window_border, accent_menu
