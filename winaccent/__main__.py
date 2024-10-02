@@ -38,18 +38,21 @@ def gui_demo():
         winaccent.update_accent_colors()
         for widget in window.winfo_children(): widget.destroy()
     
-        ttk.Label(window, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
+        if winaccent.is_accent_palette_supported:
+            ttk.Label(window, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
 
-        add_item(winaccent.accent_light_3, "accent_light_3")
-        add_item(winaccent.accent_light_2, "accent_light_2")
-        add_item(winaccent.accent_light_1, "accent_light_1")
-        add_item(winaccent.accent_normal, "accent_normal")
-        add_item(winaccent.accent_dark_1, "accent_dark_1")
-        add_item(winaccent.accent_dark_2, "accent_dark_2")
-        add_item(winaccent.accent_dark_3, "accent_dark_3")
+            add_item(winaccent.accent_light_3, "accent_light_3")
+            add_item(winaccent.accent_light_2, "accent_light_2")
+            add_item(winaccent.accent_light_1, "accent_light_1")
+            add_item(winaccent.accent_normal, "accent_normal")
+            add_item(winaccent.accent_dark_1, "accent_dark_1")
+            add_item(winaccent.accent_dark_2, "accent_dark_2")
+            add_item(winaccent.accent_dark_3, "accent_dark_3")
 
-        ttk.Label(window, text = "Windows options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
-        
+            ttk.Label(window, text = "Windows options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+        else:
+            ttk.Label(window, text = "Windows options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
+
         add_item(winaccent.is_titlebar_colored, "is_titlebar_colored")
         add_item(winaccent.titlebar_active, "titlebar_active")
         add_item(winaccent.titlebar_inactive, "titlebar_inactive")
@@ -57,6 +60,7 @@ def gui_demo():
 
         ttk.Label(window, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
         
+        if not winaccent.is_accent_palette_supported: add_item(winaccent.accent_normal, "accent_normal")
         add_item(winaccent.accent_menu, "accent_menu")
     
     update_accent_colors()
@@ -67,16 +71,17 @@ def gui_demo():
     window.mainloop()
 
 def console_demo():
-    print("\nAccent palette")
-    print("==============\n")
-    
-    print(f"accent_light_3:        {winaccent.accent_light_3}")
-    print(f"accent_light_2:        {winaccent.accent_light_2}")
-    print(f"accent_light_1:        {winaccent.accent_light_1}")
-    print(f"accent_normal:         {winaccent.accent_normal}")
-    print(f"accent_dark_1:         {winaccent.accent_dark_1}")
-    print(f"accent_dark_2:         {winaccent.accent_dark_2}")
-    print(f"accent_dark_3:         {winaccent.accent_dark_3}")
+    if winaccent.is_accent_palette_supported:
+        print("\nAccent palette")
+        print("==============\n")
+
+        print(f"accent_light_3:        {winaccent.accent_light_3}")
+        print(f"accent_light_2:        {winaccent.accent_light_2}")
+        print(f"accent_light_1:        {winaccent.accent_light_1}")
+        print(f"accent_normal:         {winaccent.accent_normal}")
+        print(f"accent_dark_1:         {winaccent.accent_dark_1}")
+        print(f"accent_dark_2:         {winaccent.accent_dark_2}")
+        print(f"accent_dark_3:         {winaccent.accent_dark_3}")
 
     print("\nWindows options")
     print("===============\n")
@@ -89,6 +94,7 @@ def console_demo():
     print("\nOther colors")
     print("============\n")
 
+    if not winaccent.is_accent_palette_supported: print(f"accent_normal:         {winaccent.accent_normal}")
     print(f"accent_menu:           {winaccent.accent_menu}")
 
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
