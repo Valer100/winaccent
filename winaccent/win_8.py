@@ -43,7 +43,7 @@ def update_accent_colors():
     green = (((green * titlebar_active_intensity)) + (0xD9 * (255 - titlebar_active_intensity))) / 255
     blue = (((blue * titlebar_active_intensity)) + (0xD9 * (255 - titlebar_active_intensity))) / 255
 
-    titlebar_active = f"{round(red):02X}{round(green):02X}{round(blue):02X}"
+    titlebar_active = f"#{round(red):02X}{round(green):02X}{round(blue):02X}"
 
     titlebar_inactive = "#EBEBEB"
     window_border = titlebar_active
