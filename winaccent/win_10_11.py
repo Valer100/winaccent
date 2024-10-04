@@ -1,5 +1,5 @@
 from . import utils
-import winreg
+import winreg, sys
 
 def update_accent_colors():
     '''Updates the accent color variables.'''
@@ -41,7 +41,13 @@ def update_accent_colors():
     try: titlebar_inactive = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
     except: titlebar_inactive = None
 
-    window_border = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
+    window_border_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
+    window_border_intensity = 255 * window_border_intensity / 100
+
+    window_border_max_intensity = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
+    
+    if sys.getwindowsversion().build >= 22000: window_border = window_border_max_intensity
+    else: window_border = utils.blend_colors(window_border_max_intensity, "#D9D9D9", window_border_intensity)
 
     # Replicate Windows' behavior if titlebar_active, titlebar_inactive and window_border are set to 0
     if titlebar_active == "0": titlebar_active = accent_menu
