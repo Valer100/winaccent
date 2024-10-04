@@ -26,7 +26,7 @@ def blend_colors(color_1: str, color_2: str, intensity: int) -> str:
     color_1_green = int(color_1[3] + color_1[4], base = 16)
     color_1_blue = int(color_1[5] + color_1[6], base = 16)
 
-    color_2_red = int(color_2[1] + color_1[2], base = 16)
+    color_2_red = int(color_2[1] + color_2[2], base = 16)
     color_2_green = int(color_2[3] + color_2[4], base = 16)
     color_2_blue = int(color_2[5] + color_2[6], base = 16)
 
