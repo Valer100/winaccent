@@ -35,15 +35,7 @@ def update_accent_colors():
     titlebar_active_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     titlebar_active_intensity = 255 * titlebar_active_intensity / 100
 
-    red = int(titlebar_active_max_intensity[1] + titlebar_active_max_intensity[2], base = 16)
-    green = int(titlebar_active_max_intensity[3] + titlebar_active_max_intensity[4], base = 16)
-    blue = int(titlebar_active_max_intensity[5] + titlebar_active_max_intensity[6], base = 16)
-
-    red = (((red * titlebar_active_intensity)) + (0xD9 * (255 - titlebar_active_intensity))) / 255
-    green = (((green * titlebar_active_intensity)) + (0xD9 * (255 - titlebar_active_intensity))) / 255
-    blue = (((blue * titlebar_active_intensity)) + (0xD9 * (255 - titlebar_active_intensity))) / 255
-
-    titlebar_active = f"#{round(red):02X}{round(green):02X}{round(blue):02X}"
+    titlebar_active = utils.blend_colors(titlebar_active_max_intensity, "#D9D9D9", titlebar_active_intensity)
 
     titlebar_inactive = "#EBEBEB"
     window_border = titlebar_active

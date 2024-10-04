@@ -20,3 +20,18 @@ def get_color_from_registry_rgb(hkey, key_path, value_name, from_):
 
     if list[0] + list[1] + color.replace("#", "") == "00000000": return "0"
     else: return color
+
+def blend_colors(color_1, color_2, intensity):
+    color_1_red = int(color_1[1] + color_1[2], base = 16)
+    color_1_green = int(color_1[3] + color_1[4], base = 16)
+    color_1_blue = int(color_1[5] + color_1[6], base = 16)
+
+    color_2_red = int(color_2[1] + color_1[2], base = 16)
+    color_2_green = int(color_2[3] + color_2[4], base = 16)
+    color_2_blue = int(color_2[5] + color_2[6], base = 16)
+
+    red = (((color_1_red * intensity)) + (color_2_red * (255 - intensity))) / 255
+    green = (((color_1_green * intensity)) + (color_2_green * (255 - intensity))) / 255
+    blue = (((color_1_blue * intensity)) + (color_2_blue * (255 - intensity))) / 255
+
+    return f"#{round(red):02X}{round(green):02X}{round(blue):02X}"
