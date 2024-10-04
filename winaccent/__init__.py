@@ -3,16 +3,15 @@ A simple module for getting Windows' accent color. With this module you can get 
 '''
 
 import sys, time
-class UnsupportedPlatformException(Exception): pass
 
 if not sys.platform == "win32": 
-    raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
+    raise ImportError("No Windows environment found. This module only works on Windows 8 and later.")
 elif sys.getwindowsversion().major == 10: 
     from . import win_10_11 as win
 elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
     from . import win_8 as win
 else:
-    raise UnsupportedPlatformException("This module only works on Windows 8 and later!")
+    raise ImportError("Incompatible Windows version. This module only works on Windows 8 and later.")
 
 def update_accent_colors(): 
     '''Updates the accent color variables.'''
