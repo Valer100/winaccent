@@ -13,27 +13,7 @@ elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
 else:
     raise ImportError("Incompatible Windows version. This module only works on Windows 8 and later.")
 
-accent_dark: str
-accent_light: str
-accent_dark_mode: str
-accent_light_mode: str
-accent_normal: str
-accent_dark_3: str
-accent_dark_2: str
-accent_dark_1: str
-accent_light_3: str
-accent_light_2: str
-accent_light_1: str
-accent_dark_mode: str
-accent_light_mode: str
-titlebar_active: str
-titlebar_inactive: str
-window_border: str
-accent_menu: str
-is_titlebar_colored: bool
-is_accent_palette_supported: bool
-
-def update_accent_colors() -> None: 
+def update_accent_colors(): 
     '''Updates the accent color variables.'''
     
     global accent_dark
@@ -81,7 +61,7 @@ def update_accent_colors() -> None:
 
 update_accent_colors()
 
-def on_accent_changed_listener(callback: callable) -> None:
+def on_accent_changed_listener(callback: callable):
     '''Listens for accent color changes. If the accent color changed, the function
     specified in the `callback` argument will be called.'''
 
