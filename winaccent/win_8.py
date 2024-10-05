@@ -43,7 +43,7 @@ def update_accent_colors():
     accent_dark_2 = None
     accent_dark_3 = None
 
-    if sys.getwindowsversion().minor >= 2:
+    if sys.getwindowsversion().minor == 2:
         try: color_scheme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
         except: color_scheme = 8
 
@@ -51,7 +51,7 @@ def update_accent_colors():
 
         accent_normal = accent_normal_colors[color_scheme]
         accent_menu = accent_menu_colors[color_scheme]
-    else:
+    elif sys.getwindowsversion().minor == 3:
         try:
             accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColor", "abgr")
             accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
