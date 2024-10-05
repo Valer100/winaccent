@@ -1,8 +1,6 @@
 from . import utils
 import winreg, sys
 
-# For Windows 8.0
-
 accent_menu_colors = [
     "#252525",
     "#252525",
