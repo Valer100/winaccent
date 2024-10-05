@@ -1,3 +1,7 @@
+'''
+A winaccent submodule that contains code for Windows 8 and 8.1.
+'''
+
 from . import utils
 import winreg, sys
 

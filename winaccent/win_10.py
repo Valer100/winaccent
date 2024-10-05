@@ -1,3 +1,7 @@
+'''
+A winaccent submodule that contains code for Windows 10 and 11.
+'''
+
 from . import utils
 import winreg, sys
 
