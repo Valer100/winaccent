@@ -1,5 +1,5 @@
 '''
-A simple module for getting Windows' accent color. With this module you can get both light and dark mode accent colors.
+A simple and lightweight Python module for getting Windows' accent color, a shade of it or a specific window color (active/inactive titlebar color, window borders color).
 '''
 
 import sys, time
