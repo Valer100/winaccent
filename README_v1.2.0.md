@@ -10,7 +10,7 @@
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
 [![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
-A simple and lightweight Python module for getting Windows' accent color or a shade of it. Works on Windows 8.x, 10 and 11 and doesn't require additional dependencies.
+A simple and lightweight Python module for getting Windows' accent color, a shade of it or a specific window color (active/inactive titlebar color, window borders color). Works on Windows 8.x, 10 and 11 and doesn't require additional dependencies.
 
 ## 📦 Installation
 Run this command in your terminal:
@@ -205,4 +205,4 @@ If you find this module useful, please consider starring this repository.
 - [x] ~~Add color shades~~
 - [x] ~~Allow to get active/inactive titlebar color~~
 - [x] ~~Allow to get window border color~~
-- [ ] Add support for Windows 8.x<div align="center">
+- [x] ~~Add support for Windows 8.x~~
