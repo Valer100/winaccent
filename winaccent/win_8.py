@@ -49,7 +49,9 @@ def update_accent_colors():
 
     if sys.getwindowsversion().minor == 2:
         try: color_scheme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
-        except: color_scheme = 8
+        except: 
+            try: color_scheme = utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
+            except: color_scheme = 8
 
         if color_scheme > 24: color_scheme = 8
 
