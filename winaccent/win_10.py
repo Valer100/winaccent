@@ -55,7 +55,6 @@ def update_accent_colors():
             accent_dark_2 = "#004275"
             accent_dark_3 = "#002642"
 
-
     try: accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColorMenu", "abgr")
     except: accent_menu = accent_normal
 
