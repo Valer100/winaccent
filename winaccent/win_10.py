@@ -85,5 +85,12 @@ def update_accent_colors():
     if accent_menu == "0": accent_menu = accent_normal
     if window_border == "0": window_border = "#000000"
 
-    is_titlebar_colored = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
+    try:
+        is_titlebar_colored = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
+
+        if is_titlebar_colored > 0: is_titlebar_colored = True
+        else: is_titlebar_colored = False
+    except:
+        is_titlebar_colored = False
+
     is_accent_palette_supported = True
