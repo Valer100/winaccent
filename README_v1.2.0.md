@@ -128,7 +128,7 @@ https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
 ---
 
 ### Windows 8.x support
-Windows 8.x is partially supported. The unsupported colors (the accent color shades) will return `None` on this Windows version. Here is a list of the supported colors and booleans:
+The accent color shades are not supported on Windows 8.x. These colors will return `None` on this Windows version. Here is a list of the supported colors and booleans:
 
 - `accent_normal`
 - `accent_menu`
