@@ -119,7 +119,7 @@ import winaccent
 # Prints (0, 120, 212) instead of #0078D4
 print(winaccent.hex_to_rgb(winaccent.accent_normal))
 
-#prints (255, 255, 255) instead of #FFFFFF
+# Prints (255, 255, 255) instead of #FFFFFF
 print(winaccent.hex_to_rgb("#FFFFFF")
 ```
 
