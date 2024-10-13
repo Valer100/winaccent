@@ -101,13 +101,11 @@ You can also check if colored titlebars are enabled using `is_titlebar_colored` 
 ---
 
 ### Update accent color values
-
 The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
 
 ---
 
 ### Convert HEX color to RGB tuple
-
 This module has a function that allows you to convert a HEX color to an RGB tuple. Useful if the GUI toolkit you're using expects using RGB tuples as colors instead of HEX colors.
 
 The function that does this is `hex_to_rgb()` and takes `hex` as an argument, where `hex` is the hex color you want to convert to an RGB tuple. Here's how you can use it:
@@ -122,7 +120,6 @@ print(winaccent.hex_to_rgb(winaccent.accent_normal))
 ---
 
 ### Accent color change listener
-
 This module allows you to add a listener that will call a specific function when the accent color, active/inactive titlebar color or window border color changes. Here's how you can add it:
 
 ```python
@@ -143,14 +140,14 @@ https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
 ---
 
 ### Windows 8.x support
-The accent color shades are not supported on Windows 8.x. These colors will return `None` on this Windows version. Here is a list of the supported colors and booleans:
+The accent color shades are not supported on Windows 8.x. These colors will return `None` on this Windows version. Here are the supported colors and booleans:
 
 - `accent_normal`
 - `accent_menu`
 - `titlebar_active`
 - `titlebar_inactive`
 - `window_border`
-- `is_titlebar_colored`
+- `is_titlebar_colored` (will always return `True` in this Windows version)
 
 You can check if the accent color shades are supported using the `is_accent_palette_supported` boolean.
 
