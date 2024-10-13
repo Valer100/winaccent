@@ -106,6 +106,21 @@ The accent colors can be updated manually using the ```update_accent_colors()```
 
 ---
 
+### Convert HEX color to RGB tuple
+
+This module has a function that allows you to convert a HEX color to an RGB tuple. Useful if the GUI toolkit you're using expects using RGB tuples as colors instead of HEX colors.
+
+The function that does this is `hex_to_rgb()` and takes `hex` as an argument, where `hex` is the hex color you want to convert to an RGB tuple. Here's how you can use it:
+
+```python
+import winaccent
+
+# Prints (0, 120, 212) instead of #0078D4
+print(winaccent.hex_to_rgb(winaccent.accent_normal))
+```
+
+---
+
 ### Accent color change listener
 
 This module allows you to add a listener that will call a specific function when the accent color, active/inactive titlebar color or window border color changes. Here's how you can add it:
