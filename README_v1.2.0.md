@@ -67,7 +67,10 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
-You can get the accent color used in lockscreen, UAC (Windows 10) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
+You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen (Windows 8.x), start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
+
+> [!WARNING]
+> The variables will return the colors in HEX strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. More information is provided in the `Convert HEX color to RGB tuple` section.
 
 Example:
 
@@ -115,6 +118,9 @@ import winaccent
 
 # Prints (0, 120, 212) instead of #0078D4
 print(winaccent.hex_to_rgb(winaccent.accent_normal))
+
+#prints (255, 255, 255) instead of #FFFFFF
+print(winaccent.hex_to_rgb("#FFFFFF")
 ```
 
 ---
