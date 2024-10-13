@@ -103,3 +103,29 @@ def on_accent_changed_listener(callback: callable) -> None:
         ): callback()
         
         time.sleep(1)
+
+def hex_to_rgb(hex: str) -> tuple:
+    '''
+    Function to convert a HEX color to an RGB tuple if needed.
+    '''
+
+    if hex == None:
+        return None
+    else:
+        if isinstance(hex, str):
+            if len(hex) == 7 and hex.startswith("#"): hex = hex.lstrip("#"); print(hex)
+            if len(hex) == 6:
+                try: red = int(hex[0] + hex[1], base = 16)
+                except: raise ValueError("Invalid red value")
+
+                try: green = int(hex[2] + hex[3], base = 16)
+                except: raise ValueError("Invalid green value")
+
+                try: blue = int(hex[4] + hex[5], base = 16)
+                except: raise ValueError("Invalid blue value")
+
+                return (red, green, blue)
+            else:
+                raise ValueError("Invalid HEX color")
+        else:
+            raise ValueError("`hex` must be an instance of str")
