@@ -67,7 +67,10 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
-You can get the accent color used in lockscreen, UAC (Windows 10) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
+You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen (Windows 8.x), start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
+
+> [!WARNING]
+> The variables will return the colors in HEX color strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. More information is provided in the [Convert HEX color string to RGB tuple](https://github.com/Valer100/winaccent/blob/main/README_v1.2.0.md#convert-hex-color-string-to-rgb-tuple) section.
 
 Example:
 
@@ -101,28 +104,28 @@ You can also check if colored titlebars are enabled using `is_titlebar_colored` 
 ---
 
 ### Update accent color values
-
 The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
 
 ---
 
-### Convert HEX color to RGB tuple
+### Convert HEX color string to RGB tuple
+This module has a function that allows you to convert a HEX color string to an RGB tuple. Useful if the GUI toolkit you're using expects using RGB tuples as colors instead of HEX string colors.
 
-This module has a function that allows you to convert a HEX color to an RGB tuple. Useful if the GUI toolkit you're using expects using RGB tuples as colors instead of HEX colors.
-
-The function that does this is `hex_to_rgb()` and takes `hex` as an argument, where `hex` is the hex color you want to convert to an RGB tuple. Here's how you can use it:
+The function that does this is `hex_to_rgb()` and takes `hex` as an argument, where `hex` is the hex string color you want to convert to an RGB tuple. Here's how you can use it:
 
 ```python
 import winaccent
 
 # Prints (0, 120, 212) instead of #0078D4
 print(winaccent.hex_to_rgb(winaccent.accent_normal))
+
+# Prints (255, 255, 255) instead of #FFFFFF
+print(winaccent.hex_to_rgb("#FFFFFF")
 ```
 
 ---
 
 ### Accent color change listener
-
 This module allows you to add a listener that will call a specific function when the accent color, active/inactive titlebar color or window border color changes. Here's how you can add it:
 
 ```python
@@ -143,14 +146,14 @@ https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
 ---
 
 ### Windows 8.x support
-The accent color shades are not supported on Windows 8.x. These colors will return `None` on this Windows version. Here is a list of the supported colors and booleans:
+The accent color shades are not supported on Windows 8.x. These colors will return `None` on this Windows version. Here are the supported colors and booleans:
 
 - `accent_normal`
 - `accent_menu`
 - `titlebar_active`
 - `titlebar_inactive`
 - `window_border`
-- `is_titlebar_colored`
+- `is_titlebar_colored` (will always return `True` in this Windows version)
 
 You can check if the accent color shades are supported using the `is_accent_palette_supported` boolean.
 
