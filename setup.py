@@ -4,7 +4,7 @@ description = open("README.md", "r", encoding = "utf8").read()
 
 setup(
     name = "winaccent",
-    version = "1.2.0",
+    version = "2.0.0",
     license = "MIT",
     author = "Valer100",
     maintainer = "Valer100",
