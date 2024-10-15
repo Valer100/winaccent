@@ -33,11 +33,17 @@ pip install --upgrade winaccent
 ```python
 import sys
 
-if sys.platform == "win32": 
-    # The program is running on Windows
+# Check if the program is running on Windows
+if sys.platform == "win32":
+    # Get Windows version (major.minor)
+    version = sys.getwindowsversion()
+    current_version = version.major + version.minor / (10 ** len(str(version.minor)))
 
-    import winaccent
-    print(winaccent.accent_light_mode)
+    # Check if the Windows version is greater than or equal to 6.2 (Windows 8)
+    # Windows 8.1 will return 6.3 and Windows 10 and 11 will return 10.0
+    if current_version >= 6.2:
+        import winaccent
+        print(winaccent.accent_normal)
 ```
 
 ---
