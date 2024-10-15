@@ -25,6 +25,10 @@ To update the module, run this command:
 pip install --upgrade winaccent
 ```
 
+## 📝 Requirements
+- Windows 8 or newer
+- Python 3.6 or newer
+
 ## 📜 Documentation
 
 > [!IMPORTANT]
@@ -76,7 +80,7 @@ If you need a different shade, you can get it from one of these variables:
 You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen (Windows 8.x), start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
 
 > [!WARNING]
-> The variables will return the colors in HEX color strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. More information is provided in the [Convert HEX color string to RGB tuple](https://github.com/Valer100/winaccent/blob/main/README_v1.2.0.md#convert-hex-color-string-to-rgb-tuple) section.
+> The variables will return the colors in HEX color strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. More information is provided in the [Convert HEX color string to RGB tuple](#convert-hex-color-string-to-rgb-tuple) section.
 
 Example:
 
