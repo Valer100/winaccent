@@ -56,8 +56,7 @@ def gui_demo():
         add_item(winaccent.window_border, "window_border")
 
         ttk.Label(window, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
-        
-        if not winaccent.is_accent_palette_supported: add_item(winaccent.accent_normal, "accent_normal")
+
         add_item(winaccent.accent_menu, "accent_menu")
     
     update_accent_colors()
