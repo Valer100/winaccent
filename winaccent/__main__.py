@@ -68,17 +68,16 @@ def gui_demo():
     window.mainloop()
 
 def console_demo():
-    if winaccent.is_accent_palette_supported:
-        print("\nAccent palette")
-        print("==============\n")
+    print("\nAccent palette")
+    print("==============\n")
 
-        print(f"accent_light_3:        {winaccent.accent_light_3}")
-        print(f"accent_light_2:        {winaccent.accent_light_2}")
-        print(f"accent_light_1:        {winaccent.accent_light_1}")
-        print(f"accent_normal:         {winaccent.accent_normal}")
-        print(f"accent_dark_1:         {winaccent.accent_dark_1}")
-        print(f"accent_dark_2:         {winaccent.accent_dark_2}")
-        print(f"accent_dark_3:         {winaccent.accent_dark_3}")
+    print(f"accent_light_3:        {winaccent.accent_light_3}")
+    print(f"accent_light_2:        {winaccent.accent_light_2}")
+    print(f"accent_light_1:        {winaccent.accent_light_1}")
+    print(f"accent_normal:         {winaccent.accent_normal}")
+    print(f"accent_dark_1:         {winaccent.accent_dark_1}")
+    print(f"accent_dark_2:         {winaccent.accent_dark_2}")
+    print(f"accent_dark_3:         {winaccent.accent_dark_3}")
 
     print("\nWindows options")
     print("===============\n")
@@ -91,7 +90,6 @@ def console_demo():
     print("\nOther colors")
     print("============\n")
 
-    if not winaccent.is_accent_palette_supported: print(f"accent_normal:         {winaccent.accent_normal}")
     print(f"accent_menu:           {winaccent.accent_menu}")
 
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
