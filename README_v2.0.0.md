@@ -33,16 +33,28 @@ pip install --upgrade winaccent
 ## 📜 Documentation
 
 > [!IMPORTANT]
-> This is a Windows-only module. Trying to import this module on a OS other than Windows or a Windows version older than 8 will raise an `ImportError` exception. When using this module in cross-platform applications, make sure you only import and use winaccent on Windows systems to avoid errors. Here's an example:
+> This is a Windows-only module. Trying to import this module on a OS other than Windows or a Windows version older than 8.0 will raise an `ImportError` exception. When using this module in cross-platform applications, make sure you only import and use winaccent on Windows systems to avoid errors. Here's an example:
 
 ```python
 import sys
 
-# Check if the program is running on Windows
+if sys.platform == "win32":
+    import winaccent
+    print(winaccent.accent_normal)
+```
+
+If you're using a Python version that supports Windows versions older than 8.0 (Python 3.8 and older), use the following example:
+
+<details>
+    <summary>Show the code</summary>
+
+```python
+import sys
+
 if sys.platform == "win32":
     # Get Windows version (major.minor)
     version = sys.getwindowsversion()
-    current_version = version.major + version.minor / (10 ** len(str(version.minor)))
+    current_version = float(f"{version.major}.{version.minor}")
 
     # Check if the Windows version is greater than or equal to 6.2 (Windows 8)
     # Windows 8.1 will return 6.3 and Windows 10 and 11 will return 10.0
@@ -50,6 +62,7 @@ if sys.platform == "win32":
         import winaccent
         print(winaccent.accent_normal)
 ```
+</details>
 
 ---
 
@@ -78,7 +91,7 @@ If you need a different shade, you can get it from one of these variables:
 | accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
 | accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
 
-You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen (Windows 8.x), start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
+You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen and start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
 
 > [!WARNING]
 > The variables will return the colors in HEX color strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. More information is provided in the [Convert HEX color string to RGB tuple](#convert-hex-color-string-to-rgb-tuple) section.
@@ -200,6 +213,7 @@ accent_dark_1:         #0067C0
 accent_dark_2:         #003E92
 accent_dark_3:         #001A68
 
+
 Windows options
 ===============
 
@@ -213,7 +227,7 @@ window_border:         #0078D4
 ## 🤩 Feedback
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
 
-If you find this module useful, please consider starring this repository.
+If you found this module useful, please consider starring this repository.
 
 ## 📋 To do
 - [x] ~~Add an accent color change listener~~
