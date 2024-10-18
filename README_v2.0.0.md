@@ -130,7 +130,7 @@ import winaccent
 print(winaccent.hex_to_rgb(winaccent.accent_normal))
 
 # Prints (255, 255, 255) instead of #FFFFFF
-print(winaccent.hex_to_rgb("#FFFFFF")
+print(winaccent.hex_to_rgb("#FFFFFF"))
 ```
 
 ---
@@ -152,20 +152,6 @@ thread.start()
 Here's a demo:
 
 https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
-
----
-
-### Windows 8.x support
-The accent color shades are not supported on Windows 8.x. These colors will return `None` on this Windows version. Here are the supported colors and booleans:
-
-- `accent_normal`
-- `accent_menu`
-- `titlebar_active`
-- `titlebar_inactive`
-- `window_border`
-- `is_titlebar_colored` (will always return `True` in this Windows version)
-
-You can check if the accent color shades are supported using the `is_accent_palette_supported` boolean.
 
 
 ## 💻 Demo
