@@ -15,14 +15,11 @@ def update_accent_colors():
     global accent_light_3
     global accent_light_2
     global accent_light_1
-    global accent_dark_mode
-    global accent_light_mode
     global titlebar_active
     global titlebar_inactive
     global is_titlebar_colored
     global window_border
     global accent_menu
-    global is_accent_palette_supported
 
     try:
         accent_palette = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")

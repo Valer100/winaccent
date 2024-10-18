@@ -31,21 +31,11 @@ def update_accent_colors():
     global accent_light_3
     global accent_light_2
     global accent_light_1
-    global accent_dark_mode
-    global accent_light_mode
     global titlebar_active
     global titlebar_inactive
     global is_titlebar_colored
     global window_border
     global accent_menu
-    global is_accent_palette_supported
-    
-    accent_light_3 = None
-    accent_light_2 = None
-    accent_light_1 = None
-    accent_dark_1 = None
-    accent_dark_2 = None
-    accent_dark_3 = None
 
     if sys.getwindowsversion().minor == 2:
         try: color_scheme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
@@ -82,6 +72,7 @@ def update_accent_colors():
                     accent_normal = "#4617B4"
                     accent_menu = "#180052"
 
+    # Generate accent palette
     accent_light_3 = utils.blend_colors("#FFFFFF", accent_normal, 255 * 75 / 100)
     accent_light_2 = utils.blend_colors("#FFFFFF", accent_normal, 255 * 50 / 100)
     accent_light_1 = utils.blend_colors("#FFFFFF", accent_normal, 255 * 25 / 100)
