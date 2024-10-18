@@ -102,9 +102,7 @@ def on_accent_changed_listener(callback: callable) -> None:
         time.sleep(1)
 
 def hex_to_rgb(hex: str) -> tuple:
-    '''
-    Function to convert a HEX color to an RGB tuple if needed.
-    '''
+    '''Function to convert a HEX color to an RGB tuple if needed.'''
 
     if hex == None:
         return None

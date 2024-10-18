@@ -61,11 +61,8 @@ def update_accent_colors():
     try: titlebar_inactive = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
     except: titlebar_inactive = None
 
-    try:
-        window_border_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
-        window_border_intensity = 255 * window_border_intensity / 100
-    except:
-        window_border_intensity = 0
+    try: window_border_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
+    except: window_border_intensity = 0
 
     if sys.getwindowsversion().build >= 22000: 
         window_border = titlebar_active

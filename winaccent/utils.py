@@ -22,6 +22,8 @@ def get_color_from_registry_rgb(hkey, key_path, value_name, from_) -> str:
     else: return color
 
 def blend_colors(color_1: str, color_2: str, intensity: int) -> str:
+    intensity = intensity * 255 / 100
+
     color_1_red = int(color_1[1] + color_1[2], base = 16)
     color_1_green = int(color_1[3] + color_1[4], base = 16)
     color_1_blue = int(color_1[5] + color_1[6], base = 16)
