@@ -4,9 +4,10 @@
 
 # winaccent
 [![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
-[![Python](https://img.shields.io/pypi/pyversions/winaccent?color=yellow)]()
+[![Python](https://img.shields.io/badge/python-3.6+-blue)]()
+[![Windows](https://img.shields.io/badge/windows-8.0+-blue)]()
 [![Downloads](https://img.shields.io/pepy/dt/winaccent)](https://pypi.org/project/winaccent/)
-[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat)]()
+[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat&color=yellow)]()
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
 [![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
