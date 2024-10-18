@@ -105,4 +105,3 @@ def update_accent_colors():
     window_border = titlebar_active
 
     is_titlebar_colored = True
-    is_accent_palette_supported = False

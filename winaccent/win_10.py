@@ -92,5 +92,3 @@ def update_accent_colors():
         else: is_titlebar_colored = False
     except:
         is_titlebar_colored = False
-
-    is_accent_palette_supported = True
