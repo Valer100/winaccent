@@ -79,7 +79,7 @@ def console_demo():
     print(f"accent_dark_2:         {winaccent.accent_dark_2}")
     print(f"accent_dark_3:         {winaccent.accent_dark_3}")
 
-    print("\nWindows options")
+    print("\n\nWindows options")
     print("===============\n")
 
     print(f"is_titlebar_colored:   {winaccent.is_titlebar_colored}")
@@ -87,7 +87,7 @@ def console_demo():
     print(f"titlebar_inactive:     {winaccent.titlebar_inactive}")
     print(f"window_border:         {winaccent.window_border}")
 
-    print("\nOther colors")
+    print("\n\nOther colors")
     print("============\n")
 
     print(f"accent_menu:           {winaccent.accent_menu}")
