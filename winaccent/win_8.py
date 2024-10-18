@@ -82,6 +82,13 @@ def update_accent_colors():
                     accent_normal = "#4617B4"
                     accent_menu = "#180052"
 
+    accent_light_3 = utils.blend_colors("#FFFFFF", accent_normal, 255 * 75 / 100)
+    accent_light_2 = utils.blend_colors("#FFFFFF", accent_normal, 255 * 50 / 100)
+    accent_light_1 = utils.blend_colors("#FFFFFF", accent_normal, 255 * 25 / 100)
+    accent_dark_1 = utils.blend_colors("#000000", accent_normal, 255 * 25 / 100)
+    accent_dark_2 = utils.blend_colors("#000000", accent_normal, 255 * 50 / 100)
+    accent_dark_3 = utils.blend_colors("#000000", accent_normal, 255 * 75 / 100)
+
     try:
         titlebar_active_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
         titlebar_active_intensity = 255 * titlebar_active_intensity / 100
