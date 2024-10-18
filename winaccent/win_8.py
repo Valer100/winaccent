@@ -59,16 +59,29 @@ def update_accent_colors():
         accent_menu = accent_menu_colors[color_scheme]
     elif sys.getwindowsversion().minor == 3:
         try: 
-            accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColor", "abgr")
-            accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
-        except: 
+            accent_normal = utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Accent") 
+            accent_menu = utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Background")
+
+            if len(accent_normal) != 7 or len(accent_menu) != 7:
+                raise ValueError("Invalid `accent_normal` or `accent_menu` color")
+
+            try:
+                accent_normal_test = int(accent_normal[1] + accent_normal[2], base = 16) + int(accent_normal[3] + accent_normal[4], base = 16) + int(accent_normal[5] + accent_normal[6], base = 16)
+                accent_menu_test = int(accent_menu[1] + accent_menu[2], base = 16) + int(accent_menu[3] + accent_menu[4], base = 16) + int(accent_menu[5] + accent_menu[6], base = 16)
+            except:
+                raise ValueError("Invalid `accent_normal` or `accent_menu` color")
+        except:
             try: 
-                accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultAccentColor", "abgr") 
-                accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultStartColor", "abgr")
+                accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColor", "abgr")
+                accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
             except: 
-                accent_normal = "#4617B4"
-                accent_menu = "#180052"
-    
+                try: 
+                    accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultAccentColor", "abgr") 
+                    accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultStartColor", "abgr")
+                except: 
+                    accent_normal = "#4617B4"
+                    accent_menu = "#180052"
+
     try:
         titlebar_active_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
         titlebar_active_intensity = 255 * titlebar_active_intensity / 100
