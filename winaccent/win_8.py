@@ -72,6 +72,9 @@ def update_accent_colors():
                     accent_normal = "#4617B4"
                     accent_menu = "#180052"
 
+        if accent_normal == "0": accent_normal = "#000000"
+        if accent_menu == "0": accent_menu = "#000000"
+
         if not (utils.get_contrast_ratio_with_white(accent_normal) >= 2 or utils.get_contrast_ratio_with_white(accent_menu) >= 2):
             # One of the accent colors doesn't meet the contrast ratio of 2:1 with white text
             # If they do not meet that contrast ratio, they will be set to the default values
