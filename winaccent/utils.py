@@ -35,3 +35,17 @@ def blend_colors(color_1: str, color_2: str, intensity: int) -> str:
     blue = (((color_1_blue * intensity)) + (color_2_blue * (255 - intensity))) / 255
 
     return f"#{round(red):02X}{round(green):02X}{round(blue):02X}"
+
+def get_contrast_ratio_with_white(color):
+    red = int(color[1] + color[2], base = 16) / 255
+    green = int(color[3] + color[4], base = 16) / 255
+    blue = int(color[5] + color[6], base = 16) / 255
+
+    red = red / 12.92 if red <= 0.03928 else ((red + 0.055) / 1.055) ** 2.4
+    green = green / 12.92 if green <= 0.03928 else ((green + 0.055) / 1.055) ** 2.4
+    blue = blue / 12.92 if blue <= 0.03928 else ((blue + 0.055) / 1.055) ** 2.4
+
+    luminance_white = 1
+    luminance_bg = 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+    return (max(luminance_white, luminance_bg) + 0.05) / (min(luminance_white, luminance_bg) + 0.05)
