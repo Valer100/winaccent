@@ -2,7 +2,7 @@
 A winaccent submodule containing functions used internaly.
 '''
 
-import winreg
+import winreg, colorsys
 
 def get_registry_value(hkey, key_path, value_name):
     key = winreg.OpenKey(hkey, key_path, 0, winreg.KEY_READ)
@@ -37,3 +37,14 @@ def blend_colors(color_1: str, color_2: str, intensity: int) -> str:
     blue = (((color_1_blue * intensity)) + (color_2_blue * (255 - intensity))) / 255
 
     return f"#{round(red):02X}{round(green):02X}{round(blue):02X}"
+
+def increase_saturation(color, factor):
+    red = int(color[1] + color[2], base = 16) / 255
+    green = int(color[3] + color[4], base = 16) / 255
+    blue = int(color[5] + color[6], base = 16) / 255
+    
+    hue, lightness, saturation = colorsys.rgb_to_hls(red, green, blue)
+    saturation = min(1, saturation * factor)
+    red, green, blue = colorsys.hls_to_rgb(hue, lightness, saturation)
+    
+    return f"#{round(red * 255):02X}{round(green * 255):02X}{round(blue * 255):02X}"
