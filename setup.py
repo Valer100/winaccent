@@ -39,14 +39,14 @@ setup(
     ],
     keywords = [
         "accent",
-        "accent_light",
-        "accent_dark",
-        "accent_color"
+        "accent-light",
+        "accent-dark",
+        "accent-color"
+        "accent-palette"
         "theme",
-        "tk",
-        "ttk",
-        "tkinter",
         "modern",
+        "gui",
+        "win32",
         "fluent",
         "sun-valley",
         "windows-11",
