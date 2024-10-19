@@ -27,7 +27,7 @@ pip install --upgrade winaccent
 ```
 
 ## 📝 Requirements
-- Windows 8 or newer
+- Windows 8.0 or newer
 - Python 3.6 or newer
 
 ## 📜 Documentation
