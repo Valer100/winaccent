@@ -85,7 +85,7 @@ def update_accent_colors() -> None:
 
 update_accent_colors()
 
-def on_accent_changed_listener(callback: callable) -> None:
+def on_appearance_changed(callback: callable) -> None:
     '''Listens for accent color changes. If the accent color changed, the function
     specified in the `callback` argument will be called.'''
 

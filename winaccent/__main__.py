@@ -66,7 +66,7 @@ def gui_demo():
     
     update_accent_colors()
     
-    thread = threading.Thread(target = lambda: winaccent.on_accent_changed_listener(update_accent_colors), daemon = True)
+    thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(update_accent_colors), daemon = True)
     thread.start()
     
     window.mainloop()
