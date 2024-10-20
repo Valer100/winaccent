@@ -2,7 +2,7 @@
 A winaccent submodule that contains code for Windows 10 and 11.
 '''
 
-from . import utils
+from . import _utils
 import winreg, sys
 
 def update_accent_colors():
@@ -24,7 +24,7 @@ def update_accent_colors():
     global system_uses_light_theme
 
     try:
-        accent_palette = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
+        accent_palette = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
         accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
         accent_palette_list = accent_palette.split(" ")
 
@@ -54,24 +54,24 @@ def update_accent_colors():
             accent_dark_2 = "#004275"
             accent_dark_3 = "#002642"
 
-    try: accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColorMenu", "abgr")
+    try: accent_menu = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColorMenu", "abgr")
     except: accent_menu = accent_normal
 
-    try: titlebar_active = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor", "abgr")
+    try: titlebar_active = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor", "abgr")
     except: titlebar_active = accent_menu
 
-    try: titlebar_inactive = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
+    try: titlebar_inactive = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
     except: titlebar_inactive = None
 
-    try: window_border_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
+    try: window_border_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: window_border_intensity = 0
 
     if sys.getwindowsversion().build >= 22000: 
         window_border = titlebar_active
     else:
         try: 
-            window_border_max_intensity = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
-            window_border = utils.blend_colors(window_border_max_intensity, "#D9D9D9", window_border_intensity)
+            window_border_max_intensity = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
+            window_border = _utils.blend_colors(window_border_max_intensity, "#D9D9D9", window_border_intensity)
         except: 
             window_border = "#9E9E9E"
 
@@ -82,7 +82,7 @@ def update_accent_colors():
     if window_border == "0": window_border = "#000000"
 
     try:
-        is_titlebar_colored = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
+        is_titlebar_colored = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
 
         if is_titlebar_colored > 0: is_titlebar_colored = True
         else: is_titlebar_colored = False
@@ -90,7 +90,7 @@ def update_accent_colors():
         is_titlebar_colored = False
 
     try:
-        apps_use_light_theme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
+        apps_use_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
 
         if apps_use_light_theme > 0: apps_use_light_theme = True
         else: apps_use_light_theme = False
@@ -98,7 +98,7 @@ def update_accent_colors():
         apps_use_light_theme = False
 
     try:
-        system_uses_light_theme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "SystemUsesLightTheme")
+        system_uses_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "SystemUsesLightTheme")
 
         if system_uses_light_theme > 0: system_uses_light_theme = True
         else: system_uses_light_theme = False

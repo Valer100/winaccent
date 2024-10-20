@@ -1,6 +1,6 @@
 import tkinter as tk, ctypes
 from tkinter import ttk, colorchooser
-from winaccent import utils
+from winaccent import _utils
     
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
 
@@ -70,12 +70,12 @@ def add_item(color, text):
     color_value["state"] = "disabled"
 
 def update_palette():
-    accent_light_3 = utils.increase_saturation(utils.blend_colors("#FFFFFF", accent_normal, 75), 2)
-    accent_light_2 = utils.increase_saturation(utils.blend_colors("#FFFFFF", accent_normal, 50), 2)
-    accent_light_1 = utils.increase_saturation(utils.blend_colors("#FFFFFF", accent_normal, 25), 2)
-    accent_dark_1 = utils.increase_saturation(utils.blend_colors("#000000", accent_normal, 25), 2)
-    accent_dark_2 = utils.increase_saturation(utils.blend_colors("#000000", accent_normal, 50), 2)
-    accent_dark_3 = utils.increase_saturation(utils.blend_colors("#000000", accent_normal, 75), 2)
+    accent_light_3 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 75), 2)
+    accent_light_2 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 50), 2)
+    accent_light_1 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 25), 2)
+    accent_dark_1 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 25), 2)
+    accent_dark_2 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 50), 2)
+    accent_dark_3 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 75), 2)
 
     for widget in palette.winfo_children(): widget.destroy()
     ttk.Label(palette, text = "Generated palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")

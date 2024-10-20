@@ -2,7 +2,7 @@
 A winaccent submodule that contains code for Windows 8 and 8.1.
 '''
 
-from . import utils
+from . import _utils
 import winreg, sys
 
 accent_menu_colors = [
@@ -40,9 +40,9 @@ def update_accent_colors():
     global system_uses_light_theme
 
     if sys.getwindowsversion().minor == 2:
-        try: color_scheme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
+        try: color_scheme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
         except: 
-            try: color_scheme = utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultColorSet")
+            try: color_scheme = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultColorSet")
             except: color_scheme = 8
 
         if color_scheme > 24: color_scheme = 8
@@ -51,8 +51,8 @@ def update_accent_colors():
         accent_menu = accent_menu_colors[color_scheme]
     elif sys.getwindowsversion().minor == 3:
         try: 
-            accent_normal = utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Accent") 
-            accent_menu = utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Background")
+            accent_normal = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Accent") 
+            accent_menu = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Background")
 
             if len(accent_normal) != 7 or len(accent_menu) != 7:
                 raise ValueError("Invalid `accent_normal` or `accent_menu` color")
@@ -64,12 +64,12 @@ def update_accent_colors():
                 raise ValueError("Invalid `accent_normal` or `accent_menu` color")
         except:
             try: 
-                accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColor", "abgr")
-                accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
+                accent_normal = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColor", "abgr")
+                accent_menu = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
             except: 
                 try: 
-                    accent_normal = utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultAccentColor", "abgr") 
-                    accent_menu = utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultStartColor", "abgr")
+                    accent_normal = _utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultAccentColor", "abgr") 
+                    accent_menu = _utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultStartColor", "abgr")
                 except: 
                     accent_normal = "#4617B4"
                     accent_menu = "#180052"
@@ -78,19 +78,19 @@ def update_accent_colors():
         if accent_menu == "0": accent_menu = "#000000"
 
     # Generate accent palette
-    accent_light_3 = utils.increase_saturation(utils.blend_colors("#FFFFFF", accent_normal, 75), 2)
-    accent_light_2 = utils.increase_saturation(utils.blend_colors("#FFFFFF", accent_normal, 50), 2)
-    accent_light_1 = utils.increase_saturation(utils.blend_colors("#FFFFFF", accent_normal, 25), 2)
-    accent_dark_1 = utils.increase_saturation(utils.blend_colors("#000000", accent_normal, 25), 2)
-    accent_dark_2 = utils.increase_saturation(utils.blend_colors("#000000", accent_normal, 50), 2)
-    accent_dark_3 = utils.increase_saturation(utils.blend_colors("#000000", accent_normal, 75), 2)
+    accent_light_3 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 75), 2)
+    accent_light_2 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 50), 2)
+    accent_light_1 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 25), 2)
+    accent_dark_1 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 25), 2)
+    accent_dark_2 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 50), 2)
+    accent_dark_3 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 75), 2)
 
-    try: titlebar_active_intensity = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
+    try: titlebar_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: titlebar_active_intensity = 0
 
     try:
-        titlebar_active_max_intensity = utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
-        titlebar_active = utils.blend_colors(titlebar_active_max_intensity, "#D9D9D9", titlebar_active_intensity)
+        titlebar_active_max_intensity = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
+        titlebar_active = _utils.blend_colors(titlebar_active_max_intensity, "#D9D9D9", titlebar_active_intensity)
     except:
         titlebar_active = "#9E9E9E"
 
