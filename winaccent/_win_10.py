@@ -5,7 +5,7 @@ A winaccent submodule that contains code for Windows 10 and 11.
 from . import _utils
 import winreg, sys
 
-def update_accent_colors():
+def update_values():
     '''Updates the accent color variables.'''
 
     global accent_normal

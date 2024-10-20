@@ -34,8 +34,8 @@ def gui_demo():
         color_value.insert("1.0", str(color))
         color_value["state"] = "disabled"
     
-    def update_accent_colors():
-        winaccent.update_accent_colors()
+    def update():
+        winaccent.update_values()
         for widget in window.winfo_children(): widget.destroy()
     
         ttk.Label(window, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
@@ -64,9 +64,9 @@ def gui_demo():
 
         add_item(winaccent.accent_menu, "accent_menu")
     
-    update_accent_colors()
+    update()
     
-    thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(update_accent_colors), daemon = True)
+    thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(update), daemon = True)
     thread.start()
     
     window.mainloop()

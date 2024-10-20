@@ -21,7 +21,7 @@ accent_normal_colors = [
     "#91D100", "#E1B700", "#FF76BC", "#00A4A4", "#FF7D23"
 ]
 
-def update_accent_colors():
+def update_values():
     '''Updates the accent color variables.'''
 
     global accent_normal

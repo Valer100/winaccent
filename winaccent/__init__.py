@@ -34,7 +34,7 @@ is_titlebar_colored: bool
 apps_use_light_theme: bool
 system_uses_light_theme: bool
 
-def update_accent_colors() -> None: 
+def update_values() -> None: 
     '''Updates the accent color variables.'''
     
     global accent_dark
@@ -58,7 +58,7 @@ def update_accent_colors() -> None:
     global apps_use_light_theme
     global system_uses_light_theme
 
-    win.update_accent_colors()
+    win.update_values()
 
     accent_light_3 = win.accent_light_3
     accent_light_2 = win.accent_light_2
@@ -83,7 +83,7 @@ def update_accent_colors() -> None:
     apps_use_light_theme = win.apps_use_light_theme
     system_uses_light_theme = win.system_uses_light_theme
 
-update_accent_colors()
+update_values()
 
 def on_appearance_changed(callback: callable) -> None:
     '''Listens for accent color changes. If the accent color changed, the function
@@ -107,7 +107,7 @@ def on_appearance_changed(callback: callable) -> None:
         
         apps_use_light_theme_old = apps_use_light_theme
         system_uses_light_theme_old = system_uses_light_theme
-        update_accent_colors()
+        update_values()
 
         if (accent_light_3_old != accent_light_3 or
             accent_light_2_old != accent_light_2 or
