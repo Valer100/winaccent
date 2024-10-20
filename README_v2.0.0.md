@@ -188,8 +188,7 @@ thread.start()
 
 Here's a demo:
 
-https://github.com/user-attachments/assets/5a1f334f-4d04-40a2-816d-f8df6fc523ad
-
+https://github.com/user-attachments/assets/c77e3219-fa44-4026-bbc3-1995358f4c7e
 
 ## 💻 Demo
 To see a demo, run the following command in your terminal (winaccent must be installed):
