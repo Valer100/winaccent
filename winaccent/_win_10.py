@@ -95,12 +95,12 @@ def update_values():
         if apps_use_light_theme > 0: apps_use_light_theme = True
         else: apps_use_light_theme = False
     except:
-        apps_use_light_theme = False
+        apps_use_light_theme = True
 
     try:
         system_uses_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "SystemUsesLightTheme")
 
-        if system_uses_light_theme > 0: system_uses_light_theme = True
+        if system_uses_light_theme == 0: system_uses_light_theme = True
         else: system_uses_light_theme = False
     except:
         system_uses_light_theme = False
