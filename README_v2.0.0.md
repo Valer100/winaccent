@@ -257,3 +257,4 @@ If you found this module useful, please consider starring this repository.
 - [x] ~~Allow to get active/inactive titlebar color~~
 - [x] ~~Allow to get window border color~~
 - [x] ~~Add support for Windows 8.x~~
+- [ ] Add support for retrieving high contrast colors
