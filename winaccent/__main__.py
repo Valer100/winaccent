@@ -55,6 +55,11 @@ def gui_demo():
         add_item(winaccent.titlebar_inactive, "titlebar_inactive")
         add_item(winaccent.window_border, "window_border")
 
+        ttk.Label(window, text = "System theme", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+        
+        add_item(winaccent.apps_use_light_theme, "apps_use_light_theme")
+        add_item(winaccent.system_uses_light_theme, "system_uses_light_theme")
+
         ttk.Label(window, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
 
         add_item(winaccent.accent_menu, "accent_menu")
@@ -70,26 +75,34 @@ def console_demo():
     print("\nAccent palette")
     print("==============\n")
 
-    print(f"accent_light_3:        {winaccent.accent_light_3}")
-    print(f"accent_light_2:        {winaccent.accent_light_2}")
-    print(f"accent_light_1:        {winaccent.accent_light_1}")
-    print(f"accent_normal:         {winaccent.accent_normal}")
-    print(f"accent_dark_1:         {winaccent.accent_dark_1}")
-    print(f"accent_dark_2:         {winaccent.accent_dark_2}")
-    print(f"accent_dark_3:         {winaccent.accent_dark_3}")
+    print(f"accent_light_3:           {winaccent.accent_light_3}")
+    print(f"accent_light_2:           {winaccent.accent_light_2}")
+    print(f"accent_light_1:           {winaccent.accent_light_1}")
+    print(f"accent_normal:            {winaccent.accent_normal}")
+    print(f"accent_dark_1:            {winaccent.accent_dark_1}")
+    print(f"accent_dark_2:            {winaccent.accent_dark_2}")
+    print(f"accent_dark_3:            {winaccent.accent_dark_3}")
 
     print("\n\nWindows options")
     print("===============\n")
+    
 
-    print(f"is_titlebar_colored:   {winaccent.is_titlebar_colored}")
-    print(f"titlebar_active:       {winaccent.titlebar_active}")
-    print(f"titlebar_inactive:     {winaccent.titlebar_inactive}")
-    print(f"window_border:         {winaccent.window_border}")
+    print(f"is_titlebar_colored:      {winaccent.is_titlebar_colored}")
+    print(f"titlebar_active:          {winaccent.titlebar_active}")
+    print(f"titlebar_inactive:        {winaccent.titlebar_inactive}")
+    print(f"window_border:            {winaccent.window_border}")
+    
+    print("\n\nSystem theme")
+    print("============\n")
+
+    print(f"apps_use_light_theme:     {winaccent.titlebar_inactive}")
+    print(f"system_uses_light_theme:  {winaccent.window_border}")
 
     print("\n\nOther colors")
     print("============\n")
 
-    print(f"accent_menu:           {winaccent.accent_menu}")
+    print(f"accent_menu:              {winaccent.accent_menu}")
+    print("\n")
 
 parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
 parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
