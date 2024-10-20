@@ -42,7 +42,11 @@ setup(
         "accent-light",
         "accent-dark",
         "accent-color"
-        "accent-palette"
+        "accent-palette",
+        "dark-mode",
+        "light-mode",
+        "system-theme",
+        "color",
         "theme",
         "modern",
         "gui",
