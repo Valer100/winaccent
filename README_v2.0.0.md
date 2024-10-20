@@ -11,7 +11,7 @@
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
 [![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
-A simple and lightweight Python module for easily retrieving Windows' accent color, including shades and specific window colors such as active/inactive titlebar and window borders. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
+A simple and lightweight Python module for easily retrieving Windows' accent color, including shades, specific window colors such as active/inactive titlebar and window borders and theme. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
 
 ## 📦 Installation
 Run this command in your terminal:
@@ -127,8 +127,31 @@ You can also check if colored titlebars are enabled using `is_titlebar_colored` 
 
 ---
 
-### Update accent color values
-The accent colors can be updated manually using the ```update_accent_colors()``` function. This function will retrieve the values again.
+### Get apps or system theme
+This module also allows you to check if the apps or system use the light theme or not using the `apps_use_light_theme` and `system_uses_light_theme` booleans. The difference between them is that `apps_use_light_theme` is used to check the apps' theme and `system_uses_light_theme` is used to check the theme of some system components, such as the taskbar, Start menu and others. Here's an example:
+
+```python
+import winaccent
+
+if winaccent.apps_use_light_theme: 
+    print("Apps use light theme")
+else: 
+    print("Apps use dark theme")
+
+if winaccent.system_uses_light_theme:
+    print("System uses light theme")
+else:
+    print("System uses dark theme")
+    
+```
+
+> [!NOTE]
+> `apps_use_light_theme` and `system_uses_light_theme` will always return `True` on Windows 8.x.
+
+---
+
+### Update values
+The colors and settings values provided by this module can be updated manually using the ```update_values()``` function. This function will retrieve them again.
 
 ---
 
@@ -149,19 +172,19 @@ print(winaccent.hex_to_rgb("#FFFFFF"))
 
 ---
 
-### Accent color change listener
-This module allows you to add a listener that will call a specific function when the accent color, active/inactive titlebar color or window border color changes. Here's how you can add it:
+### Appearance change listener
+This module allows you to add a listener that will call a specific function when the accent color, active/inactive titlebar color, window border color or system theme changes. Here's how you can add it:
 
 ```python
 import winaccent, threading
 
 # Replace `callback` with the function that you want to be called
-thread = threading.Thread(target = lambda: winaccent.on_accent_changed_listener(callback), daemon = True)
+thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback), daemon = True)
 thread.start()
 ```
 
 > [!NOTE]
-> If you added the listener, there's no need to call `update_accent_colors()` because it will be called automatically every time the accent color or the active/inactive titlebar color changes.
+> If you added the listener, there's no need to call `update_values()` because it will be called automatically every time the appearance changes.
 
 Here's a demo:
 
