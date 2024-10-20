@@ -31,6 +31,8 @@ titlebar_inactive: str
 window_border: str
 accent_menu: str
 is_titlebar_colored: bool
+apps_use_light_theme: bool
+system_uses_light_theme: bool
 
 def update_accent_colors() -> None: 
     '''Updates the accent color variables.'''
@@ -53,6 +55,8 @@ def update_accent_colors() -> None:
     global is_titlebar_colored
     global window_border
     global accent_menu
+    global apps_use_light_theme
+    global system_uses_light_theme
 
     win.update_accent_colors()
 
@@ -76,6 +80,9 @@ def update_accent_colors() -> None:
 
     accent_menu = win.accent_menu
 
+    apps_use_light_theme = win.apps_use_light_theme
+    system_uses_light_theme = win.system_uses_light_theme
+
 update_accent_colors()
 
 def on_accent_changed_listener(callback: callable) -> None:
@@ -83,20 +90,42 @@ def on_accent_changed_listener(callback: callable) -> None:
     specified in the `callback` argument will be called.'''
 
     while True:
+        accent_light_1_old = accent_light_1
+        accent_light_2_old = accent_light_2
+        accent_light_3_old = accent_light_3
         accent_old = accent_normal
+        accent_dark_1_old = accent_dark_1
+        accent_dark_2_old = accent_dark_2
+        accent_dark_3_old = accent_dark_3
+
         is_titlebar_colored_old = is_titlebar_colored
         titlebar_active_old = titlebar_active
         titlebar_inactive_old = titlebar_inactive
-        accent_menu_old = accent_menu
         window_border_old = window_border
+
+        accent_menu_old = accent_menu
+        
+        apps_use_light_theme_old = apps_use_light_theme
+        system_uses_light_theme_old = system_uses_light_theme
         update_accent_colors()
 
-        if (accent_old != accent_normal or 
+        if (accent_light_3_old != accent_light_3 or
+            accent_light_2_old != accent_light_2 or
+            accent_light_1_old != accent_light_1 or
+            accent_old != accent_normal or 
+            accent_dark_1_old != accent_dark_1 or
+            accent_dark_2_old != accent_dark_2 or
+            accent_dark_3_old != accent_dark_3 or
+            
             is_titlebar_colored_old != is_titlebar_colored or
             titlebar_active_old != titlebar_active or
             titlebar_inactive_old != titlebar_inactive or
             window_border_old != window_border or
-            accent_menu_old != accent_menu
+            
+            accent_menu_old != accent_menu or
+            
+            apps_use_light_theme_old != apps_use_light_theme or
+            system_uses_light_theme_old != system_uses_light_theme
         ): callback()
         
         time.sleep(1)

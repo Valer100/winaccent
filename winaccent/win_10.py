@@ -20,6 +20,8 @@ def update_accent_colors():
     global is_titlebar_colored
     global window_border
     global accent_menu
+    global apps_use_light_theme
+    global system_uses_light_theme
 
     try:
         accent_palette = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
@@ -86,3 +88,19 @@ def update_accent_colors():
         else: is_titlebar_colored = False
     except:
         is_titlebar_colored = False
+
+    try:
+        apps_use_light_theme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
+
+        if apps_use_light_theme > 0: apps_use_light_theme = True
+        else: apps_use_light_theme = False
+    except:
+        apps_use_light_theme = False
+
+    try:
+        system_uses_light_theme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "SystemUsesLightTheme")
+
+        if system_uses_light_theme > 0: system_uses_light_theme = True
+        else: system_uses_light_theme = False
+    except:
+        system_uses_light_theme = False

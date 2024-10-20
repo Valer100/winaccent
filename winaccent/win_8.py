@@ -36,6 +36,8 @@ def update_accent_colors():
     global is_titlebar_colored
     global window_border
     global accent_menu
+    global apps_use_light_theme
+    global system_uses_light_theme
 
     if sys.getwindowsversion().minor == 2:
         try: color_scheme = utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
@@ -96,3 +98,5 @@ def update_accent_colors():
     window_border = titlebar_active
 
     is_titlebar_colored = True
+    apps_use_light_theme = True
+    system_uses_light_theme = None
