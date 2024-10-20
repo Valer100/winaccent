@@ -99,4 +99,4 @@ def update_values():
 
     is_titlebar_colored = True
     apps_use_light_theme = True
-    system_uses_light_theme = None
+    system_uses_light_theme = True
