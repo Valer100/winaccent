@@ -75,9 +75,9 @@ For simplicity, you can get a specific accent color from one of the following va
 
 | Variable | Color | Preview |
 |----------|:-------:|:-------:|
-| accent_dark_mode<br>accent_light | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
+| accent_dark_mode<br>(or accent_light) | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
 | accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_light_mode<br>accent_dark | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| accent_light_mode<br>(or accent_dark) | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
 
 If you need a different shade, you can get it from one of these variables:
 
