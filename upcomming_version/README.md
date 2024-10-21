@@ -227,22 +227,35 @@ A console demo looks like this (for default blue accent color):
 Accent palette
 ==============
 
-accent_light_3:        #99EBFF
-accent_light_2:        #4CC2FF
-accent_light_1:        #0091F8
-accent_normal:         #0078D4
-accent_dark_1:         #0067C0
-accent_dark_2:         #003E92
-accent_dark_3:         #001A68
+accent_light_3:           #99EBFF
+accent_light_2:           #4CC2FF
+accent_light_1:           #0091F8
+accent_normal:            #0078D4
+accent_dark_1:            #0067C0
+accent_dark_2:            #003E92
+accent_dark_3:            #001A68
 
 
 Windows options
 ===============
 
-is_titlebar_colored:   False
-titlebar_active:       #0078D4
-titlebar_inactive:     None
-window_border:         #0078D4
+is_titlebar_colored:      False
+titlebar_active:          #0078D4
+titlebar_inactive:        None
+window_border:            #0078D4
+
+
+System theme
+============
+
+apps_use_light_theme:     False
+system_uses_light_theme:  False
+
+
+Other colors
+============
+
+accent_menu:              #0078D4
 ```
 
 
@@ -254,7 +267,8 @@ If you found this module useful, please consider starring this repository.
 ## 📋 To do
 - [x] ~~Add an accent color change listener~~
 - [x] ~~Add color shades~~
-- [x] ~~Allow to get active/inactive titlebar color~~
-- [x] ~~Allow to get window border color~~
+- [x] ~~Add support for getting active/inactive titlebar color~~
+- [x] ~~Add support for getting window border color~~
 - [x] ~~Add support for Windows 8.x~~
+- [x] ~~Add support for retrieving apps' and system's theme~~
 - [ ] Add support for retrieving high contrast colors
