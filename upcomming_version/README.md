@@ -271,4 +271,3 @@ If you found this module useful, please consider starring this repository.
 - [x] ~~Add support for getting window border color~~
 - [x] ~~Add support for Windows 8.x~~
 - [x] ~~Add support for retrieving apps' and system's theme~~
-- [ ] Add support for retrieving high contrast colors
