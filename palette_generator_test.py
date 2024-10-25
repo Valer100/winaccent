@@ -26,8 +26,11 @@ color_prev = tk.Frame(color, width = 20, height = 20, highlightthickness = 1, hi
 color_prev.pack(side = "left")
 
 def on_color_change(event = None):
+    global accent_normal
+    accent_normal = color_input.get()
+
     if len(color_input.get()) == 7:
-        try: color_prev["bg"] = color_input.get(); update_palette()
+        try: color_prev["bg"] = accent_normal; update_palette()
         except: color_prev["bg"] = "SystemMenu"
     else:
         color_prev["bg"] = "SystemMenu"
