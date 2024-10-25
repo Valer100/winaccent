@@ -21,10 +21,10 @@ def gui_demo():
         color_item = tk.Frame(window, padx = 8, pady = 0)
         color_item.pack(pady = 2, anchor = "w")
     
-        color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemMenu")
+        color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemButtonFace")
         color_prev.pack(side = "left")
 
-        try: color_prev.configure(bg = color, highlightbackground = "#000000")
+        try: color_prev.configure(bg = color, highlightbackground = "SystemButtonText")
         except: pass
         
         ttk.Label(color_item, text = text, font = ("Default", 11), width = 23).pack(side = "left", padx = (8, 0), anchor = "w")

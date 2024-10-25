@@ -9,7 +9,7 @@ window.title("Palette generator")
 window.resizable(False, False)
 window.configure(padx = 8, pady = 8)
 
-accent_normal = "#4617b4"
+accent_normal = "#4617B4"
 
 icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
 window.iconphoto(True, icon)
@@ -22,18 +22,18 @@ ttk.Label(window, text = "Main color", font = ("Segoe UI Semibold", 15)).pack(pa
 color = ttk.Frame(window)
 color.pack(fill = "x", anchor = "w", padx = 8)
 
-color_prev = tk.Frame(color, width = 20, height = 20, highlightthickness = 1, highlightbackground = "#000000", bg = accent_normal)
+color_prev = tk.Frame(color, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemButtonText", bg = accent_normal)
 color_prev.pack(side = "left")
 
 def on_color_change(event = None):
     global accent_normal
-    accent_normal = color_input.get()
+    accent_normal = color_input.get().upper()
 
     if len(color_input.get()) == 7:
         try: color_prev["bg"] = accent_normal; update_palette()
-        except: color_prev["bg"] = "SystemMenu"
+        except: color_prev["bg"] = "SystemButtonFace"
     else:
-        color_prev["bg"] = "SystemMenu"
+        color_prev["bg"] = "SystemButtonFace"
 
 def choose_color():
     global accent_normal
@@ -59,10 +59,10 @@ def add_item(color, text):
     color_item = tk.Frame(palette, padx = 8, pady = 0)
     color_item.pack(pady = 2, anchor = "w")
 
-    color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemMenu")
+    color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemButtonFace")
     color_prev.pack(side = "left")
 
-    try: color_prev.configure(bg = color, highlightbackground = "#000000")
+    try: color_prev.configure(bg = color, highlightbackground = "SystemButtonText")
     except: pass
     
     ttk.Label(color_item, text = text, font = ("Default", 11), width = 23).pack(side = "left", padx = (8, 0), anchor = "w")
