@@ -48,3 +48,14 @@ def increase_saturation(color, factor):
     red, green, blue = colorsys.hls_to_rgb(hue, lightness, saturation)
     
     return f"#{round(red * 255):02X}{round(green * 255):02X}{round(blue * 255):02X}"
+
+def generate_color_palette(color: str) -> list:
+    palette = []
+    palette.append(increase_saturation(blend_colors("#FFFFFF", color, 75), 2))
+    palette.append(increase_saturation(blend_colors("#FFFFFF", color, 50), 2))
+    palette.append(increase_saturation(blend_colors("#FFFFFF", color, 25), 2))
+    palette.append(increase_saturation(blend_colors("#000000", color, 25), 2))
+    palette.append(increase_saturation(blend_colors("#000000", color, 50), 2))
+    palette.append(increase_saturation(blend_colors("#000000", color, 75), 2))
+
+    return palette
