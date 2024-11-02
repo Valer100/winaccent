@@ -115,8 +115,13 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 > <br><br>
 > <img src="https://github.com/Valer100/winaccent/blob/main/assets/show_accent_color_on_window_stuff.png?raw=true">
 > <br><br>
-> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry. <br><br>
+> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry.
+> <details>
+> <summary>Show example</summary>
+>
 > <img src="https://github.com/Valer100/winaccent/blob/main/assets/custom_window_colors_demo.png?raw=true">
+> </details>
+
 
 You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`. The window border color can be obtained from `window_border` variable.
 
@@ -186,9 +191,29 @@ thread.start()
 > [!NOTE]
 > If you added the listener, there's no need to call `update_values()` because it will be called automatically every time the appearance changes.
 
-Here's a demo:
+<details>
+<summary>Show demo</summary>
 
 https://github.com/user-attachments/assets/c77e3219-fa44-4026-bbc3-1995358f4c7e
+</details>
+
+---
+
+### Flags
+
+Currently, there are only 2 flags available: `get_accent_from_dwm` and `dwm_accent_max_intensity` (both set to `False` by default). If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the `titlebar_active` color and different shades will be generated. If `dwm_accent_max_intensity` flag is set to `True`, the `accent_normal` color will default to the active titlebar color, but with maximum intensity (this flag only takes effect on Windows 8.x and `get_accent_from_dwm` must be set to `True`).
+
+> [!NOTE]
+> You need to call `update_values()` after changing a flag's value for the changes to take effect.
+
+<details>
+<summary>Flag effects</summary>
+
+`get_accent_from_dwm` set to `False` (default) | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
+|---|---|
+`get_accent_from_dwm` set to `True` | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_on.png?raw=true)
+`dwm_accent_max_intensity` set to `True` | ![dwm_accent_max_intensity](https://github.com/Valer100/winaccent/blob/main/assets/dwm/dwm_accent_max_intensity_on.png?raw=true)
+</details>
 
 ## 💻 Demo
 To see a demo, run the following command in your terminal (winaccent must be installed):
@@ -213,15 +238,18 @@ python -m winaccent --mode gui
 
 The command will run with `--mode` set to `auto` by default.
 
-Here's how a GUI demo looks:
+<details>
+<summary>Show GUI demo</summary>
 
 | **Windows version** | **Default colors & settings** | **Modified colors & settings** |
 |:-------------------:|:------------------:|:----------------------------:|
 | **Windows 11** | ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_11_default.png?raw=true) | ![Windows 11 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_11_modified.png?raw=true)
 | **Windows 10** | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_10_default.png?raw=true) | ![Windows 10 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_10_modified.png?raw=true)
 | **Windows 8** | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_8_default.png?raw=true) | ![Windows 8 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_8_modified.png?raw=true)
+</details>
 
-A console demo looks like this (for default blue accent color):
+<details>
+<summary>Show console demo</summary>
 
 ```
 Accent palette
@@ -257,6 +285,7 @@ Other colors
 
 accent_menu:              #0078D4
 ```
+</details>
 
 
 ## 🤩 Feedback
