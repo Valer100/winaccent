@@ -13,9 +13,11 @@ elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
 else:
     raise ImportError("Incompatible Windows version. This module only works on Windows 8 and later.")
 
+# Flags
 get_accent_from_dwm: bool = False
 dwm_accent_max_intensity: bool = False
 
+# Colors
 accent_dark: str
 accent_light: str
 accent_dark_mode: str
@@ -33,9 +35,17 @@ titlebar_active: str
 titlebar_inactive: str
 window_border: str
 accent_menu: str
+
+# Other settings
 is_titlebar_colored: bool
 apps_use_light_theme: bool
 system_uses_light_theme: bool
+
+# Event constants
+accent_color_changed = 0
+window_color_changed = 1
+system_theme_changed = 2
+
 
 def update_values() -> None: 
     '''Updates the accent color variables.'''
@@ -93,14 +103,12 @@ def update_values() -> None:
 
 update_values()
 
-def on_appearance_changed(callback: callable) -> None:
-    '''Listens for accent color changes. If the accent color changed, the function
-    specified in the `callback` argument will be called.'''
+
+def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
+    '''Listens for appearance settings changes (accent color, system theme, window colors). 
+    If one of them changes, the function specified in the `callback` argument will be called.'''
 
     while True:
-        get_accent_from_dwm_old = get_accent_from_dwm
-        dwm_accent_max_intensity_old = dwm_accent_max_intensity
-
         accent_light_1_old = accent_light_1
         accent_light_2_old = accent_light_2
         accent_light_3_old = accent_light_3
@@ -118,12 +126,10 @@ def on_appearance_changed(callback: callable) -> None:
         
         apps_use_light_theme_old = apps_use_light_theme
         system_uses_light_theme_old = system_uses_light_theme
+        
         update_values()
 
-        if (get_accent_from_dwm_old != get_accent_from_dwm or
-            dwm_accent_max_intensity_old != dwm_accent_max_intensity or
-            
-            accent_light_3_old != accent_light_3 or
+        if (accent_light_3_old != accent_light_3 or
             accent_light_2_old != accent_light_2 or
             accent_light_1_old != accent_light_1 or
             accent_old != accent_normal or 
@@ -131,16 +137,24 @@ def on_appearance_changed(callback: callable) -> None:
             accent_dark_2_old != accent_dark_2 or
             accent_dark_3_old != accent_dark_3 or
             
-            is_titlebar_colored_old != is_titlebar_colored or
-            titlebar_active_old != titlebar_active or
-            titlebar_inactive_old != titlebar_inactive or
-            window_border_old != window_border or
-            
-            accent_menu_old != accent_menu or
-            
-            apps_use_light_theme_old != apps_use_light_theme or
-            system_uses_light_theme_old != system_uses_light_theme
-        ): callback()
+            accent_menu_old != accent_menu
+        ): 
+            if pass_event: callback(event = 0)
+            else: callback()
+
+        elif (is_titlebar_colored_old != is_titlebar_colored or
+              titlebar_active_old != titlebar_active or
+              titlebar_inactive_old != titlebar_inactive or
+              window_border_old != window_border
+        ): 
+            if pass_event: callback(event = 1)
+            else: callback()
+
+        elif (apps_use_light_theme_old != apps_use_light_theme or
+              system_uses_light_theme_old != system_uses_light_theme
+        ): 
+            if pass_event: callback(event = 2)
+            else: callback()
         
         time.sleep(1)
 
