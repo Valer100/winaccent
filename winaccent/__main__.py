@@ -27,8 +27,16 @@ def gui_demo():
         color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemButtonFace")
         color_prev.pack(side = "left")
 
-        try: color_prev.configure(bg = color, highlightbackground = "SystemButtonText")
-        except: pass
+        try: 
+            color_prev.configure(bg = color, highlightbackground = "SystemButtonText")
+        except:
+            checkbutton = ttk.Checkbutton(color_prev, text = "")
+            checkbutton.place(relx = .6, rely = .5, anchor = "center")
+            checkbutton.invoke()
+            checkbutton["state"] = "disabled"
+
+            if color: checkbutton.state(["selected"])
+            else: checkbutton.state(["!selected"])
         
         ttk.Label(color_item, text = text, font = ("Default", 11), width = 23).pack(side = "left", padx = (8, 0), anchor = "w")
         
