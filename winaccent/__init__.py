@@ -39,6 +39,8 @@ system_uses_light_theme: bool
 def update_values() -> None: 
     '''Updates the accent color variables.'''
     
+    global get_accent_from_dwm
+
     global accent_dark
     global accent_light
     global accent_dark_mode
@@ -60,6 +62,7 @@ def update_values() -> None:
     global apps_use_light_theme
     global system_uses_light_theme
 
+    win.get_accent_from_dwm = get_accent_from_dwm
     win.update_values()
 
     accent_light_3 = win.accent_light_3
