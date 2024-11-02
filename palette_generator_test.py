@@ -93,5 +93,8 @@ def update_palette():
     add_item(accent_dark_2, "accent_dark_2")
     add_item(accent_dark_3, "accent_dark_3")
 
+    window.update()
+    window.geometry(window.geometry())
+
 update_palette()
 window.mainloop()

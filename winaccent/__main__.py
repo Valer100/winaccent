@@ -95,6 +95,9 @@ def gui_demo():
         if get_accent_from_dwm.get(): dwm_accent_max_intensity_c["state"] = "enabled"
         else: dwm_accent_max_intensity.set(False)
 
+        window.update()
+        window.geometry(window.geometry())
+
     update()
     
     thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(update), daemon = True)
