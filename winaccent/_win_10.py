@@ -8,6 +8,8 @@ import winreg, sys
 def update_values():
     '''Updates the accent color variables.'''
 
+    global get_accent_from_dwm
+
     global accent_normal
     global accent_dark_3
     global accent_dark_2
@@ -80,6 +82,17 @@ def update_values():
     if titlebar_inactive == "0": titlebar_inactive = accent_menu
     if accent_menu == "0": accent_menu = accent_normal
     if window_border == "0": window_border = "#000000"
+
+    if get_accent_from_dwm and accent_normal != titlebar_active:
+        accent_normal = titlebar_active
+        accent_palette = _utils.generate_color_palette(accent_normal)
+
+        accent_light_3 = accent_palette[0]
+        accent_light_2 = accent_palette[1]
+        accent_light_1 = accent_palette[2]
+        accent_dark_1 = accent_palette[3]
+        accent_dark_2 = accent_palette[4]
+        accent_dark_3 = accent_palette[5]
 
     try:
         is_titlebar_colored = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")

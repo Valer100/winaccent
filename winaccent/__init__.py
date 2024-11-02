@@ -13,6 +13,8 @@ elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
 else:
     raise ImportError("Incompatible Windows version. This module only works on Windows 8 and later.")
 
+get_accent_from_dwm: bool = False
+
 accent_dark: str
 accent_light: str
 accent_dark_mode: str
@@ -90,6 +92,8 @@ def on_appearance_changed(callback: callable) -> None:
     specified in the `callback` argument will be called.'''
 
     while True:
+        get_accent_from_dwm_old = get_accent_from_dwm
+
         accent_light_1_old = accent_light_1
         accent_light_2_old = accent_light_2
         accent_light_3_old = accent_light_3
@@ -109,7 +113,9 @@ def on_appearance_changed(callback: callable) -> None:
         system_uses_light_theme_old = system_uses_light_theme
         update_values()
 
-        if (accent_light_3_old != accent_light_3 or
+        if (get_accent_from_dwm_old != get_accent_from_dwm or
+            
+            accent_light_3_old != accent_light_3 or
             accent_light_2_old != accent_light_2 or
             accent_light_1_old != accent_light_1 or
             accent_old != accent_normal or 

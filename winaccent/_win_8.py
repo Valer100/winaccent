@@ -24,6 +24,8 @@ accent_normal_colors = [
 def update_values():
     '''Updates the accent color variables.'''
 
+    global get_accent_from_dwm
+
     global accent_normal
     global accent_dark_3
     global accent_dark_2
@@ -94,6 +96,17 @@ def update_values():
         titlebar_active = _utils.blend_colors(titlebar_active_max_intensity, "#D9D9D9", titlebar_active_intensity)
     except:
         titlebar_active = "#9E9E9E"
+
+    if get_accent_from_dwm:
+        accent_normal = titlebar_active
+        accent_palette = _utils.generate_color_palette(accent_normal)
+
+        accent_light_3 = accent_palette[0]
+        accent_light_2 = accent_palette[1]
+        accent_light_1 = accent_palette[2]
+        accent_dark_1 = accent_palette[3]
+        accent_dark_2 = accent_palette[4]
+        accent_dark_3 = accent_palette[5]
 
     titlebar_inactive = "#EBEBEB"
     window_border = titlebar_active
