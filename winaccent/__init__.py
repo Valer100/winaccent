@@ -14,6 +14,7 @@ else:
     raise ImportError("Incompatible Windows version. This module only works on Windows 8 and later.")
 
 get_accent_from_dwm: bool = False
+dwm_accent_max_intensity: bool = False
 
 accent_dark: str
 accent_light: str
@@ -40,6 +41,7 @@ def update_values() -> None:
     '''Updates the accent color variables.'''
     
     global get_accent_from_dwm
+    global dwm_accent_max_intensity
 
     global accent_dark
     global accent_light
@@ -63,6 +65,7 @@ def update_values() -> None:
     global system_uses_light_theme
 
     win.get_accent_from_dwm = get_accent_from_dwm
+    win.dwm_accent_max_intensity = dwm_accent_max_intensity
     win.update_values()
 
     accent_light_3 = win.accent_light_3
@@ -96,6 +99,7 @@ def on_appearance_changed(callback: callable) -> None:
 
     while True:
         get_accent_from_dwm_old = get_accent_from_dwm
+        dwm_accent_max_intensity_old = dwm_accent_max_intensity
 
         accent_light_1_old = accent_light_1
         accent_light_2_old = accent_light_2
@@ -117,6 +121,7 @@ def on_appearance_changed(callback: callable) -> None:
         update_values()
 
         if (get_accent_from_dwm_old != get_accent_from_dwm or
+            dwm_accent_max_intensity_old != dwm_accent_max_intensity or
             
             accent_light_3_old != accent_light_3 or
             accent_light_2_old != accent_light_2 or

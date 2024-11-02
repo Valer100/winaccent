@@ -25,6 +25,7 @@ def update_values():
     '''Updates the accent color variables.'''
 
     global get_accent_from_dwm
+    global dwm_accent_max_intensity
 
     global accent_normal
     global accent_dark_3
@@ -95,10 +96,13 @@ def update_values():
         titlebar_active_max_intensity = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
         titlebar_active = _utils.blend_colors(titlebar_active_max_intensity, "#D9D9D9", titlebar_active_intensity)
     except:
+        titlebar_active_max_intensity = "#9E9E9E"
         titlebar_active = "#9E9E9E"
 
     if get_accent_from_dwm:
-        accent_normal = titlebar_active
+        if dwm_accent_max_intensity: accent_normal = titlebar_active_max_intensity
+        else: accent_normal = titlebar_active
+        
         accent_palette = _utils.generate_color_palette(accent_normal)
 
         accent_light_3 = accent_palette[0]
