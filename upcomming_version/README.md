@@ -209,8 +209,9 @@ Currently, there are only 2 flags available: `get_accent_from_dwm` and `dwm_acce
 <details>
 <summary>Flag effects</summary>
 
-`get_accent_from_dwm` set to `False` (default) | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
+Flag | Example
 |---|---|
+`get_accent_from_dwm` set to `False` (default) | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
 `get_accent_from_dwm` set to `True` | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_on.png?raw=true)
 `dwm_accent_max_intensity` set to `True` | ![dwm_accent_max_intensity](https://github.com/Valer100/winaccent/blob/main/assets/dwm/dwm_accent_max_intensity_on.png?raw=true)
 </details>
