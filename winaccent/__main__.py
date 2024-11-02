@@ -9,16 +9,19 @@ def gui_demo():
     window = tk.Tk()
     window.title("winaccent")
     window.resizable(False, False)
-    window.configure(padx = 8, pady = 8)
+    window.configure(padx = 10, pady = 10)
     
     icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
     window.iconphoto(True, icon)
     
+    get_accent_from_dwm = tk.BooleanVar(value = False)
+    dwm_accent_max_intensity = tk.BooleanVar(value = False)
+
     style = ttk.Style()
-    style.configure("TButton", font = 11)
+    style.configure("TCheckbutton", font = ("Default", 11))
     
-    def add_item(color, text):
-        color_item = tk.Frame(window, padx = 8, pady = 0)
+    def add_item(widget, color, text):
+        color_item = tk.Frame(widget, padx = 8, pady = 0)
         color_item.pack(pady = 2, anchor = "w")
     
         color_prev = tk.Frame(color_item, width = 20, height = 20, highlightthickness = 1, highlightbackground = "SystemButtonFace")
@@ -35,35 +38,63 @@ def gui_demo():
         color_value["state"] = "disabled"
     
     def update():
+        winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
+        winaccent.dwm_accent_max_intensity = dwm_accent_max_intensity.get()
         winaccent.update_values()
+
         for widget in window.winfo_children(): widget.destroy()
     
-        ttk.Label(window, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
+        accent_palette = ttk.Frame(window)
+        accent_palette.grid(row = 0, column = 0, padx = (0, 24), sticky = "n")
 
-        add_item(winaccent.accent_light_3, "accent_light_3")
-        add_item(winaccent.accent_light_2, "accent_light_2")
-        add_item(winaccent.accent_light_1, "accent_light_1")
-        add_item(winaccent.accent_normal, "accent_normal")
-        add_item(winaccent.accent_dark_1, "accent_dark_1")
-        add_item(winaccent.accent_dark_2, "accent_dark_2")
-        add_item(winaccent.accent_dark_3, "accent_dark_3")
+        ttk.Label(accent_palette, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
 
-        ttk.Label(window, text = "Windows options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+        add_item(accent_palette, winaccent.accent_light_3, "accent_light_3")
+        add_item(accent_palette, winaccent.accent_light_2, "accent_light_2")
+        add_item(accent_palette, winaccent.accent_light_1, "accent_light_1")
+        add_item(accent_palette, winaccent.accent_normal, "accent_normal")
+        add_item(accent_palette, winaccent.accent_dark_1, "accent_dark_1")
+        add_item(accent_palette, winaccent.accent_dark_2, "accent_dark_2")
+        add_item(accent_palette, winaccent.accent_dark_3, "accent_dark_3")
 
-        add_item(winaccent.is_titlebar_colored, "is_titlebar_colored")
-        add_item(winaccent.titlebar_active, "titlebar_active")
-        add_item(winaccent.titlebar_inactive, "titlebar_inactive")
-        add_item(winaccent.window_border, "window_border")
 
-        ttk.Label(window, text = "System theme", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+        other_colors = ttk.Frame(window)
+        other_colors.grid(row = 0, column = 1, sticky = "n")
+
+        ttk.Label(other_colors, text = "Windows options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
+
+        add_item(other_colors, winaccent.is_titlebar_colored, "is_titlebar_colored")
+        add_item(other_colors, winaccent.titlebar_active, "titlebar_active")
+        add_item(other_colors, winaccent.titlebar_inactive, "titlebar_inactive")
+        add_item(other_colors, winaccent.window_border, "window_border")
+
+        ttk.Label(other_colors, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+
+        add_item(other_colors, winaccent.accent_menu, "accent_menu")
+
+
+        system_theme = ttk.Frame(window)
+        system_theme.grid(row = 1, column = 0, padx = (0, 24), sticky = "n")
+
+        ttk.Label(system_theme, text = "System theme", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
         
-        add_item(winaccent.apps_use_light_theme, "apps_use_light_theme")
-        add_item(winaccent.system_uses_light_theme, "system_uses_light_theme")
+        add_item(system_theme, winaccent.apps_use_light_theme, "apps_use_light_theme")
+        add_item(system_theme, winaccent.system_uses_light_theme, "system_uses_light_theme")
 
-        ttk.Label(window, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
 
-        add_item(winaccent.accent_menu, "accent_menu")
+        flags = ttk.Frame(window)
+        flags.grid(row = 1, column = 1, sticky = "nw")
+
+        ttk.Label(flags, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+
+        ttk.Checkbutton(flags, text = "  get_accent_from_dwm", variable = get_accent_from_dwm, command = update).pack(anchor = "w", padx = 8)
+
+        dwm_accent_max_intensity_c = ttk.Checkbutton(flags, text = "  dwm_accent_max_intensity", state = "disabled", variable = dwm_accent_max_intensity, command = update)
+        dwm_accent_max_intensity_c.pack(anchor = "w", padx = 8)
     
+        if get_accent_from_dwm.get(): dwm_accent_max_intensity_c["state"] = "enabled"
+        else: dwm_accent_max_intensity.set(False)
+
     update()
     
     thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(update), daemon = True)
