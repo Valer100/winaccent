@@ -244,9 +244,9 @@ The command will run with `--mode` set to `auto` by default.
 
 | **Windows version** | **Default colors & settings** | **Modified colors & settings** |
 |:-------------------:|:------------------:|:----------------------------:|
-| **Windows 11** | ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_11_default.png?raw=true) | ![Windows 11 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_11_modified.png?raw=true)
-| **Windows 10** | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_10_default.png?raw=true) | ![Windows 10 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_10_modified.png?raw=true)
-| **Windows 8** | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_8_default.png?raw=true) | ![Windows 8 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_8_modified.png?raw=true)
+| **Windows 11** | ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo3/win_11_default.png?raw=true) | ![Windows 11 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo3/win_11_modified.png?raw=true)
+| **Windows 10** | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo3/win_10_default.png?raw=true) | ![Windows 10 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo3/win_10_modified.png?raw=true)
+| **Windows 8** | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo3/win_8_default.png?raw=true) | ![Windows 8 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo3/win_8_modified.png?raw=true)
 </details>
 
 <details>
