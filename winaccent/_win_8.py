@@ -77,13 +77,14 @@ def update_values():
         if accent_normal == "0": accent_normal = "#000000"
         if accent_menu == "0": accent_menu = "#000000"
 
-    # Generate accent palette
-    accent_light_3 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 75), 2)
-    accent_light_2 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 50), 2)
-    accent_light_1 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 25), 2)
-    accent_dark_1 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 25), 2)
-    accent_dark_2 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 50), 2)
-    accent_dark_3 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 75), 2)
+    accent_palette = _utils.generate_color_palette(accent_normal)
+
+    accent_light_3 = accent_palette[0]
+    accent_light_2 = accent_palette[1]
+    accent_light_1 = accent_palette[2]
+    accent_dark_1 = accent_palette[3]
+    accent_dark_2 = accent_palette[4]
+    accent_dark_3 = accent_palette[5]
 
     try: titlebar_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: titlebar_active_intensity = 0

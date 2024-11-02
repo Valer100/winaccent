@@ -73,12 +73,14 @@ def add_item(color, text):
     color_value["state"] = "disabled"
 
 def update_palette():
-    accent_light_3 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 75), 2)
-    accent_light_2 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 50), 2)
-    accent_light_1 = _utils.increase_saturation(_utils.blend_colors("#FFFFFF", accent_normal, 25), 2)
-    accent_dark_1 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 25), 2)
-    accent_dark_2 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 50), 2)
-    accent_dark_3 = _utils.increase_saturation(_utils.blend_colors("#000000", accent_normal, 75), 2)
+    accent_palette = _utils.generate_color_palette(accent_normal)
+
+    accent_light_3 = accent_palette[0]
+    accent_light_2 = accent_palette[1]
+    accent_light_1 = accent_palette[2]
+    accent_dark_1 = accent_palette[3]
+    accent_dark_2 = accent_palette[4]
+    accent_dark_3 = accent_palette[5]
 
     for widget in palette.winfo_children(): widget.destroy()
     ttk.Label(palette, text = "Generated palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
