@@ -218,7 +218,7 @@ https://github.com/user-attachments/assets/c77e3219-fa44-4026-bbc3-1995358f4c7e
 
 ### Flags
 
-Currently, there are only 2 flags available: `get_accent_from_dwm` and `dwm_accent_max_intensity` (both set to `False` by default). If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the `titlebar_active` color and different shades will be generated. If `dwm_accent_max_intensity` flag is set to `True`, the `accent_normal` color will default to the active titlebar color, but with maximum intensity (this flag only takes effect on Windows 8.x and `get_accent_from_dwm` must be set to `True`).
+Currently, there is only one flag available: `get_accent_from_dwm` (set to `False` by default). If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the active titlebar color (with maximum intensity on Windows 8.x) and different shades will be generated.
 
 > [!NOTE]
 > You need to call `update_values()` after changing a flag's value for the changes to take effect.
@@ -229,8 +229,7 @@ Currently, there are only 2 flags available: `get_accent_from_dwm` and `dwm_acce
 Flag | Example
 |---|---|
 `get_accent_from_dwm` set to `False` (default) | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
-`get_accent_from_dwm` set to `True` | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_on.png?raw=true)
-`dwm_accent_max_intensity` set to `True` | ![dwm_accent_max_intensity](https://github.com/Valer100/winaccent/blob/main/assets/dwm/dwm_accent_max_intensity_on.png?raw=true)
+`get_accent_from_dwm` set to `True` | ![dwm_accent_max_intensity](https://github.com/Valer100/winaccent/blob/main/assets/dwm/dwm_accent_max_intensity_on.png?raw=true)
 </details>
 
 ## 💻 Demo
