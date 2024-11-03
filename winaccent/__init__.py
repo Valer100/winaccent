@@ -15,7 +15,6 @@ else:
 
 # Flags
 get_accent_from_dwm: bool = False
-dwm_accent_max_intensity: bool = False
 
 # Colors
 accent_dark: str
@@ -52,7 +51,6 @@ def update_values() -> None:
     '''Updates the accent color variables.'''
     
     global get_accent_from_dwm
-    global dwm_accent_max_intensity
 
     global accent_dark
     global accent_light
@@ -76,7 +74,6 @@ def update_values() -> None:
     global system_uses_light_theme
 
     win.get_accent_from_dwm = get_accent_from_dwm
-    win.dwm_accent_max_intensity = dwm_accent_max_intensity
     win.update_values()
 
     accent_light_3 = win.accent_light_3

@@ -9,7 +9,6 @@ def update_values():
     '''Updates the accent color variables.'''
 
     global get_accent_from_dwm
-    global dwm_accent_max_intensity
 
     global accent_normal
     global accent_dark_3
