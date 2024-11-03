@@ -22,8 +22,6 @@ accent_normal_colors = [
 ]
 
 def update_values():
-    '''Updates the accent color variables.'''
-
     global get_accent_from_dwm
 
     global accent_normal
