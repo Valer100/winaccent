@@ -188,6 +188,23 @@ thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callb
 thread.start()
 ```
 
+It also supports passing an `event` argument to your `callback` function if you need to only detect accent color, window chrome color or system theme changes. Your `callback` function needs to have an `event` argument and you must set the `pass_event` argument of the `on_appearance_changed()` function to `True`. Here's an example:
+
+```python
+import winaccent, threading
+
+def detect_appearance_changes(event):
+    if event == winaccent.event.accent_color_changed:
+        print("Accent color changed!")
+    elif event == winaccent.event.window_chrome_color_changed:
+        print("One of the window chrome color changed!")
+    elif event == winaccent.event.system_theme_changed:
+        print("System theme changed!")
+
+thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = detect_appearance_changes, pass_event = True), daemon = True)
+thread.start()
+```
+
 > [!NOTE]
 > If you added the listener, there's no need to call `update_values()` because it will be called automatically every time the appearance changes.
 
