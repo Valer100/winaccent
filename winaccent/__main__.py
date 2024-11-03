@@ -15,7 +15,6 @@ def gui_demo():
     window.iconphoto(True, icon)
     
     get_accent_from_dwm = tk.BooleanVar(value = False)
-    dwm_accent_max_intensity = tk.BooleanVar(value = False)
 
     style = ttk.Style()
     style.configure("TCheckbutton", font = ("Default", 11))
@@ -47,7 +46,6 @@ def gui_demo():
     
     def update():
         winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
-        winaccent.dwm_accent_max_intensity = dwm_accent_max_intensity.get()
         winaccent.update_values()
 
         for widget in window.winfo_children(): widget.destroy()
@@ -96,12 +94,6 @@ def gui_demo():
         ttk.Label(flags, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
 
         ttk.Checkbutton(flags, text = "  get_accent_from_dwm", variable = get_accent_from_dwm, command = update).pack(anchor = "w", padx = 8)
-
-        dwm_accent_max_intensity_c = ttk.Checkbutton(flags, text = "  dwm_accent_max_intensity", state = "disabled", variable = dwm_accent_max_intensity, command = update)
-        dwm_accent_max_intensity_c.pack(anchor = "w", padx = 8)
-    
-        if get_accent_from_dwm.get(): dwm_accent_max_intensity_c["state"] = "enabled"
-        else: dwm_accent_max_intensity.set(False)
 
         window.update()
         window.geometry(window.geometry())
