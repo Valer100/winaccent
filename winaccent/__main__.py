@@ -54,7 +54,6 @@ def gui_demo():
         accent_palette.grid(row = 0, column = 0, padx = (0, 24), sticky = "n")
 
         ttk.Label(accent_palette, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
-
         add_item(accent_palette, winaccent.accent_light_3, "accent_light_3")
         add_item(accent_palette, winaccent.accent_light_2, "accent_light_2")
         add_item(accent_palette, winaccent.accent_light_1, "accent_light_1")
@@ -68,14 +67,12 @@ def gui_demo():
         other_colors.grid(row = 0, column = 1, sticky = "n")
 
         ttk.Label(other_colors, text = "Windows options", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
-
         add_item(other_colors, winaccent.is_titlebar_colored, "is_titlebar_colored")
         add_item(other_colors, winaccent.titlebar_active, "titlebar_active")
         add_item(other_colors, winaccent.titlebar_inactive, "titlebar_inactive")
         add_item(other_colors, winaccent.window_border, "window_border")
 
         ttk.Label(other_colors, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
-
         add_item(other_colors, winaccent.accent_menu, "accent_menu")
 
 
@@ -83,7 +80,6 @@ def gui_demo():
         system_theme.grid(row = 1, column = 0, padx = (0, 24), sticky = "n")
 
         ttk.Label(system_theme, text = "System theme", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
-        
         add_item(system_theme, winaccent.apps_use_light_theme, "apps_use_light_theme")
         add_item(system_theme, winaccent.system_uses_light_theme, "system_uses_light_theme")
 
@@ -92,7 +88,6 @@ def gui_demo():
         flags.grid(row = 1, column = 1, sticky = "nw")
 
         ttk.Label(flags, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
-
         ttk.Checkbutton(flags, text = "  get_accent_from_dwm", variable = get_accent_from_dwm, command = update).pack(anchor = "w", padx = 8)
 
         window.update()
