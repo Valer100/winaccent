@@ -42,9 +42,10 @@ apps_use_light_theme: bool
 system_uses_light_theme: bool
 
 # Event constants
-accent_color_changed = 0
-window_color_changed = 1
-system_theme_changed = 2
+class event:
+    accent_color_changed = 0
+    window_chrome_color_changed = 1
+    system_theme_changed = 2
 
 
 def update_values() -> None: 
@@ -139,6 +140,7 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
             
             accent_menu_old != accent_menu
         ): 
+            # Accent color changed
             if pass_event: callback(event = 0)
             else: callback()
 
@@ -147,12 +149,14 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
               titlebar_inactive_old != titlebar_inactive or
               window_border_old != window_border
         ): 
+            # Active/inactive titlebar or window border color changed
             if pass_event: callback(event = 1)
             else: callback()
 
         elif (apps_use_light_theme_old != apps_use_light_theme or
               system_uses_light_theme_old != system_uses_light_theme
         ): 
+            # System theme changed
             if pass_event: callback(event = 2)
             else: callback()
         
