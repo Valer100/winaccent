@@ -229,7 +229,7 @@ Currently, there is only one flag available: `get_accent_from_dwm` (set to `Fals
 Flag | Example
 |---|---|
 `get_accent_from_dwm` set to `False` (default) | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
-`get_accent_from_dwm` set to `True` | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
+`get_accent_from_dwm` set to `True` | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_on.png?raw=true)
 </details>
 
 ## 💻 Demo
