@@ -44,7 +44,8 @@ system_uses_light_theme: bool
 class event:
     accent_color_changed = 0
     window_chrome_color_changed = 1
-    system_theme_changed = 2
+    apps_theme_changed = 2
+    system_theme_changed = 3
 
 
 def update_values() -> None: 
@@ -150,13 +151,15 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
             if pass_event: callback(event = 1)
             else: callback()
 
-        elif (apps_use_light_theme_old != apps_use_light_theme or
-              system_uses_light_theme_old != system_uses_light_theme
-        ): 
-            # System theme changed
+        elif (apps_use_light_theme_old != apps_use_light_theme): 
+            # Apps theme changed
             if pass_event: callback(event = 2)
             else: callback()
-        
+        elif (system_uses_light_theme_old != system_uses_light_theme):
+            # System theme changed
+            if pass_event: callback(event = 3)
+            else: callback()
+
         time.sleep(1)
 
 def hex_to_rgb(hex: str) -> tuple:
