@@ -198,12 +198,23 @@ def detect_appearance_changes(event):
         print("Accent color changed!")
     elif event == winaccent.event.window_chrome_color_changed:
         print("One of the window chrome color changed!")
+    elif event == winaccent.event.apps_theme_changed:
+        print("Apps' theme changed!")
     elif event == winaccent.event.system_theme_changed:
         print("System theme changed!")
 
 thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = detect_appearance_changes, pass_event = True), daemon = True)
 thread.start()
 ```
+
+Event constants (from the `event` class):
+
+| Constant | Value |
+|:---------|:-----:|
+| accent_color_changed | 0 |
+| window_chrome_color_changed | 1 |
+| apps_theme_changed | 2 |
+| system_theme_changed | 3 |
 
 > [!NOTE]
 > If you added the listener, there's no need to call `update_values()` because it will be called automatically every time the appearance changes.
