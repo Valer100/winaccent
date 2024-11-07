@@ -1,5 +1,5 @@
 '''
-A simple and lightweight Python module for easily retrieving Windows' accent color, including shades, specific window colors such as active/inactive titlebar and window borders and theme. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
+A simple and lightweight Python module for easily retrieving Windows' accent color, including shades, specific window chrome colors such as active/inactive titlebar and window borders and theme. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
 '''
 
 import sys, time
@@ -104,7 +104,7 @@ update_values()
 
 
 def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
-    '''Listens for appearance settings changes (accent color, system theme, window colors). 
+    '''Listens for appearance settings changes (accent color, system theme, window chrome colors). 
     If one of them changes, the function specified in the `callback` argument will be called.'''
 
     while True:
