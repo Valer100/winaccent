@@ -95,6 +95,7 @@ def update_values() -> None:
 
     is_titlebar_colored = win.is_titlebar_colored
     titlebar_active = win.titlebar_active
+    titlebar_active_text = win.titlebar_active_text
     titlebar_inactive = win.titlebar_inactive
     window_border = win.window_border
 

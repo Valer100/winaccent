@@ -85,6 +85,8 @@ def update_values():
     if accent_menu == "0": accent_menu = accent_normal
     if window_border == "0": window_border = "#000000"
 
+    titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
+
     if get_accent_from_dwm and accent_normal != titlebar_active:
         accent_normal = titlebar_active
         accent_palette = _utils.generate_color_palette(accent_normal)
