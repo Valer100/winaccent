@@ -87,9 +87,11 @@ def update_values():
     if window_border == "0": window_border = "#000000"
 
     titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
+    
+    titlebar_inactive_text_no_blend = "#FFFFFF" if _utils.white_text_on_color(titlebar_inactive) else "#000000"
 
     if titlebar_inactive == None: titlebar_inactive_text = None
-    else: titlebar_inactive_text = _utils.blend_colors(titlebar_active_text, titlebar_inactive, 40)
+    else: titlebar_inactive_text = _utils.blend_colors(titlebar_inactive_text_no_blend, titlebar_inactive, 40)
 
     if get_accent_from_dwm and accent_normal != titlebar_active:
         accent_normal = titlebar_active
