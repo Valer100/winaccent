@@ -24,18 +24,21 @@ accent_normal_colors = [
 def update_values():
     global get_accent_from_dwm
 
+    global accent_menu
+    
+    global accent_light_3
+    global accent_light_2
+    global accent_light_1
     global accent_normal
     global accent_dark_3
     global accent_dark_2
     global accent_dark_1
-    global accent_light_3
-    global accent_light_2
-    global accent_light_1
+
+    global is_titlebar_colored
     global titlebar_active
     global titlebar_inactive
-    global is_titlebar_colored
     global window_border
-    global accent_menu
+    
     global apps_use_light_theme
     global system_uses_light_theme
 

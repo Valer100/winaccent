@@ -17,10 +17,12 @@ else:
 get_accent_from_dwm: bool = False
 
 # Colors
+accent_menu: str
 accent_dark: str
 accent_light: str
 accent_dark_mode: str
 accent_light_mode: str
+
 accent_normal: str
 accent_dark_3: str
 accent_dark_2: str
@@ -28,12 +30,11 @@ accent_dark_1: str
 accent_light_3: str
 accent_light_2: str
 accent_light_1: str
-accent_dark_mode: str
-accent_light_mode: str
+
 titlebar_active: str
+titlebar_active_text: str
 titlebar_inactive: str
 window_border: str
-accent_menu: str
 
 # Other settings
 is_titlebar_colored: bool
@@ -57,20 +58,22 @@ def update_values() -> None:
     global accent_light
     global accent_dark_mode
     global accent_light_mode
-    global accent_normal
+    global accent_menu
+
     global accent_dark_3
     global accent_dark_2
     global accent_dark_1
+    global accent_normal
     global accent_light_3
     global accent_light_2
     global accent_light_1
-    global accent_dark_mode
-    global accent_light_mode
-    global titlebar_active
-    global titlebar_inactive
+    
     global is_titlebar_colored
+    global titlebar_active
+    global titlebar_active_text
+    global titlebar_inactive
     global window_border
-    global accent_menu
+    
     global apps_use_light_theme
     global system_uses_light_theme
 
