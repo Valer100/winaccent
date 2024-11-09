@@ -34,6 +34,7 @@ accent_light_1: str
 titlebar_active: str
 titlebar_active_text: str
 titlebar_inactive: str
+titlebar_inactive_text: str
 window_border: str
 
 # Other settings
@@ -72,6 +73,7 @@ def update_values() -> None:
     global titlebar_active
     global titlebar_active_text
     global titlebar_inactive
+    global titlebar_inactive_text
     global window_border
     
     global apps_use_light_theme
@@ -97,6 +99,7 @@ def update_values() -> None:
     titlebar_active = win.titlebar_active
     titlebar_active_text = win.titlebar_active_text
     titlebar_inactive = win.titlebar_inactive
+    titlebar_inactive_text = win.titlebar_inactive_text
     window_border = win.window_border
 
     accent_menu = win.accent_menu
