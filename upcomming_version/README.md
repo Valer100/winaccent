@@ -123,12 +123,12 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 > </details>
 
 
-You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`. The window border color can be obtained from `window_border` variable.
+You can get the active/inactive titlebar color from the `titlebar_active` or `titlebar_inactive` variables and the active/inactive titlebar text color from the `titlebar_active_text` or `titlebar_inactive_text` variables. The window border color can be obtained from `window_border` variable.
 
 You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
 
 > [!NOTE]
-> `titlebar_inactive` will return `None` if the inactive titlebar color isn't set (this is usually done via registry).
+> `titlebar_inactive` and `titlebar_inactive_text` will return `None` if the inactive titlebar color isn't set (this is usually done via registry).
 
 ---
 
