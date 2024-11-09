@@ -49,6 +49,13 @@ def increase_saturation(color, factor):
     
     return f"#{round(red * 255):02X}{round(green * 255):02X}{round(blue * 255):02X}"
 
+def white_text_on_color(color):
+    red = int(color[1] + color[2], base = 16)
+    green = int(color[3] + color[4], base = 16)
+    blue = int(color[5] + color[6], base = 16)
+
+    return (5 * green + 2 * red + blue) <= 8 * 128
+
 def generate_color_palette(color: str) -> list:
     palette = []
     palette.append(increase_saturation(blend_colors("#FFFFFF", color, 75), 2))
