@@ -36,7 +36,9 @@ def update_values():
 
     global is_titlebar_colored
     global titlebar_active
+    global titlebar_active_text
     global titlebar_inactive
+    global titlebar_inactive_text
     global window_border
     
     global apps_use_light_theme
@@ -99,6 +101,8 @@ def update_values():
         titlebar_active_max_intensity = "#9E9E9E"
         titlebar_active = "#9E9E9E"
 
+    titlebar_active_text = "#282828"
+
     if get_accent_from_dwm:
         accent_normal = titlebar_active_max_intensity
         accent_palette = _utils.generate_color_palette(accent_normal)
@@ -111,6 +115,8 @@ def update_values():
         accent_dark_3 = accent_palette[5]
 
     titlebar_inactive = "#EBEBEB"
+    titlebar_inactive_text = "#282828"
+
     window_border = titlebar_active
 
     is_titlebar_colored = True
