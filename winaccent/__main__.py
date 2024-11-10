@@ -15,6 +15,7 @@ def gui_demo():
     window.iconphoto(True, icon)
     
     get_accent_from_dwm = tk.BooleanVar(value = False)
+    dark_mode_titlebar = tk.BooleanVar(value = False)
 
     style = ttk.Style()
     style.configure("TCheckbutton", font = ("Default", 11))
@@ -46,6 +47,7 @@ def gui_demo():
     
     def update():
         winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
+        winaccent.dark_mode_titlebar = dark_mode_titlebar.get()
         winaccent.update_values()
 
         for widget in window.winfo_children(): widget.destroy()
@@ -91,6 +93,7 @@ def gui_demo():
 
         ttk.Label(flags, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
         ttk.Checkbutton(flags, text = "  get_accent_from_dwm", variable = get_accent_from_dwm, command = update).pack(anchor = "w", padx = 8)
+        ttk.Checkbutton(flags, text = "  dark_mode_titlebar", variable = dark_mode_titlebar, command = update).pack(anchor = "w", padx = 8)
 
         window.update()
         window.geometry(window.geometry())
