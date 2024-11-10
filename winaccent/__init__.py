@@ -15,6 +15,7 @@ else:
 
 # Flags
 get_accent_from_dwm: bool = False
+dark_mode_titlebar: bool = False
 
 # Colors
 accent_menu: str
@@ -54,6 +55,7 @@ def update_values() -> None:
     '''Updates the accent color variables.'''
     
     global get_accent_from_dwm
+    global dark_mode_titlebar
 
     global accent_dark
     global accent_light
@@ -80,6 +82,7 @@ def update_values() -> None:
     global system_uses_light_theme
 
     win.get_accent_from_dwm = get_accent_from_dwm
+    win.dark_mode_titlebar = dark_mode_titlebar
     win.update_values()
 
     accent_light_3 = win.accent_light_3
