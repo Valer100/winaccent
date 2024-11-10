@@ -224,16 +224,34 @@ Currently, there are only 2 flags available: `get_accent_from_dwm` and `dark_mod
 
 If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the active titlebar color (with maximum intensity on Windows 8.x) and different shades will be generated.
 
+If `dark_mode_titlebar` flag is set to `True`, the dark mode titlebar-related colors will be returned. If it's set to `False`, it will return the light mode titlebar-related colors.
+
+Here's an example of setting a flag to `True`:
+
+```python
+import winaccent
+
+# Before enabling `dark_mode_titlebar` flag
+print(winaccent.titlebar_active)
+
+# Enable the flag and retrieve the values again
+winaccent.dark_mode_titlebar = True
+winaccent.update_values()
+
+# After enabling `dark_mode_titlebar` flag
+print(winaccent.titlebar_active)
+```
+
 > [!NOTE]
 > You need to call `update_values()` after changing a flag's value for the changes to take effect.
 
 <details>
 <summary>Flag effects</summary>
 
-Flag | Example
-|---|---|
-`get_accent_from_dwm` set to `False` (default) | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true)
-`get_accent_from_dwm` set to `True` | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_on.png?raw=true)
+Flag | If set to `False` (default) | If set to `True` |
+|---|:---:|:---:|
+get_accent_from_dwm | ![get_accent_from_dwm_off](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_off.png?raw=true) | ![get_accent_from_dwm_on](https://github.com/Valer100/winaccent/blob/main/assets/dwm/get_accent_from_dwm_on.png?raw=true) |
+dark_mode_titlebar | ![dark_mode_titlebar_off](https://github.com/Valer100/winaccent/blob/main/assets/dm_titlebar/dm_titlebar_off.png?raw=true) | ![dark_mode_titlebar_on](https://github.com/Valer100/winaccent/blob/main/assets/dm_titlebar/dm_titlebar_on.png?raw=true) |
 </details>
 
 ## 💻 Demo
