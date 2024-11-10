@@ -7,6 +7,7 @@ import winreg, sys
 
 def update_values():
     global get_accent_from_dwm
+    global dark_mode_titlebar
 
     global accent_menu
 
@@ -65,8 +66,23 @@ def update_values():
     try: titlebar_active = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor", "abgr")
     except: titlebar_active = accent_menu
 
-    try: titlebar_inactive = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
-    except: titlebar_inactive = None
+    try: 
+        titlebar_inactive = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
+    except: 
+        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
+            if dark_mode_titlebar:
+                titlebar_inactive = "#2B2B2B"
+                titlebar_inactive_text = "#808080"
+            else:
+                titlebar_inactive = "#FFFFFF"
+                titlebar_inactive_text = "#999999"
+        else:
+            if dark_mode_titlebar:
+                titlebar_inactive = "#202020"
+                titlebar_inactive_text = "#797979"
+            else:
+                titlebar_inactive = "#F3F3F3"
+                titlebar_inactive_text = "#929292"
 
     try: window_border_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: window_border_intensity = 0
@@ -88,7 +104,8 @@ def update_values():
 
     titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
     
-    if titlebar_inactive == None: titlebar_inactive_text = None
+    if titlebar_inactive == None: 
+        titlebar_inactive_text = None
     else: 
         titlebar_inactive_text_no_blend = "#FFFFFF" if _utils.white_text_on_color(titlebar_inactive) else "#000000"
         titlebar_inactive_text = _utils.blend_colors(titlebar_inactive_text_no_blend, titlebar_inactive, 40)
@@ -111,6 +128,22 @@ def update_values():
         else: is_titlebar_colored = False
     except:
         is_titlebar_colored = False
+
+    if not is_titlebar_colored:
+        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
+            if dark_mode_titlebar:
+                titlebar_active = "#000000"
+                titlebar_active_text = "#FFFFFF"
+            else:
+                titlebar_active = "#FFFFFF"
+                titlebar_active_text = "#000000"
+        else:
+            if dark_mode_titlebar:
+                titlebar_active = "#202020"
+                titlebar_active_text = "#FFFFFF"
+            else:
+                titlebar_active = "#F3F3F3"
+                titlebar_active_text = "#000000"
 
     try:
         apps_use_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
