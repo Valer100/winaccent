@@ -157,7 +157,7 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
               titlebar_inactive_old != titlebar_inactive or
               window_border_old != window_border
         ): 
-            # Active/inactive titlebar or window border color changed
+            # A window chrome color changed
             if pass_event: callback(event = 1)
             else: callback()
 
