@@ -108,27 +108,18 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 
 ---
 
-### Get active/inactive titlebar color or window border color
+### Get a specific window chrome color
+You can use one of these variables:
 
-> [!WARNING]
-> The colors provided by these variables are the colors used by Windows to colorize the titlebar and the window borders when the "Show accent color on title bars and window borders" option is enabled in Settings.
-> <br><br>
-> <img src="https://github.com/Valer100/winaccent/blob/main/assets/show_accent_color_on_window_stuff.png?raw=true">
-> <br><br>
-> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry.
-> <details>
-> <summary>Show example</summary>
->
-> <img src="https://github.com/Valer100/winaccent/blob/main/assets/custom_window_colors_demo.png?raw=true">
-> </details>
-
-
-You can get the active/inactive titlebar color from the `titlebar_active` or `titlebar_inactive` variables and the active/inactive titlebar text color from the `titlebar_active_text` or `titlebar_inactive_text` variables. The window border color can be obtained from `window_border` variable.
+| Variable | Description |
+|:---------|:------------|
+| titlebar_active | Returns the active titlebar color |
+| titlebar_active_text | Returns the active titlebar text color |
+| titlebar_inactive | Returns the inactive titlebar color |
+| titlebar_inactive_text | Returns the inactive titlebar text color |
+| window_border | Returns the window border color
 
 You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
-
-> [!NOTE]
-> `titlebar_inactive` and `titlebar_inactive_text` will return `None` if the inactive titlebar color isn't set (this is usually done via registry).
 
 ---
 
@@ -229,7 +220,9 @@ https://github.com/user-attachments/assets/c77e3219-fa44-4026-bbc3-1995358f4c7e
 
 ### Flags
 
-Currently, there is only one flag available: `get_accent_from_dwm` (set to `False` by default). If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the active titlebar color (with maximum intensity on Windows 8.x) and different shades will be generated.
+Currently, there are only 2 flags available: `get_accent_from_dwm` and `dark_mode_titlebar` (both set to `False` by default). 
+
+If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the active titlebar color (with maximum intensity on Windows 8.x) and different shades will be generated.
 
 > [!NOTE]
 > You need to call `update_values()` after changing a flag's value for the changes to take effect.
