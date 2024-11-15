@@ -57,12 +57,11 @@ def white_text_on_color(color):
     return (5 * green + 2 * red + blue) <= 8 * 128
 
 def generate_color_palette(color: str) -> list:
-    palette = []
-    palette.append(increase_saturation(blend_colors("#FFFFFF", color, 75), 2))
-    palette.append(increase_saturation(blend_colors("#FFFFFF", color, 50), 2))
-    palette.append(increase_saturation(blend_colors("#FFFFFF", color, 25), 2))
-    palette.append(increase_saturation(blend_colors("#000000", color, 25), 2))
-    palette.append(increase_saturation(blend_colors("#000000", color, 50), 2))
-    palette.append(increase_saturation(blend_colors("#000000", color, 75), 2))
-
-    return palette
+    return [
+        increase_saturation(blend_colors("#FFFFFF", color, 75), 2),
+        increase_saturation(blend_colors("#FFFFFF", color, 50), 2),
+        increase_saturation(blend_colors("#FFFFFF", color, 25), 2),
+        increase_saturation(blend_colors("#000000", color, 25), 2),
+        increase_saturation(blend_colors("#000000", color, 50), 2),
+        increase_saturation(blend_colors("#000000", color, 75), 2),
+    ]
