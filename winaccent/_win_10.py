@@ -134,16 +134,24 @@ def update_values():
             if dark_mode_titlebar:
                 titlebar_active = "#000000"
                 titlebar_active_text = "#FFFFFF"
+                titlebar_inactive = "#2B2B2B"
+                titlebar_inactive_text = "#808080"
             else:
                 titlebar_active = "#FFFFFF"
                 titlebar_active_text = "#000000"
+                titlebar_inactive = "#FFFFFF"
+                titlebar_inactive_text = "#999999"
         else:
             if dark_mode_titlebar:
                 titlebar_active = "#202020"
                 titlebar_active_text = "#FFFFFF"
+                titlebar_inactive = "#202020"
+                titlebar_inactive_text = "#797979"
             else:
                 titlebar_active = "#F3F3F3"
                 titlebar_active_text = "#000000"
+                titlebar_inactive = "#F3F3F3"
+                titlebar_inactive_text = "#929292"
 
     try:
         apps_use_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
