@@ -40,7 +40,8 @@ def update_values():
     global titlebar_active_text
     global titlebar_inactive
     global titlebar_inactive_text
-    global window_border
+    global window_border_active
+    global window_border_inactive
     
     global apps_use_light_theme
     global system_uses_light_theme
@@ -118,7 +119,8 @@ def update_values():
     titlebar_inactive = "#EBEBEB"
     titlebar_inactive_text = "#282828"
 
-    window_border = titlebar_active
+    window_border_active = titlebar_active
+    window_border_inactive = "#EBEBEB"
 
     is_titlebar_colored = True
     apps_use_light_theme = True

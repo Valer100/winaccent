@@ -37,6 +37,8 @@ titlebar_active_text: str
 titlebar_inactive: str
 titlebar_inactive_text: str
 window_border: str
+window_border_active: str
+window_border_inactive: str
 
 # Other settings
 is_titlebar_colored: bool
@@ -77,6 +79,8 @@ def update_values() -> None:
     global titlebar_inactive
     global titlebar_inactive_text
     global window_border
+    global window_border_active
+    global window_border_inactive
     
     global apps_use_light_theme
     global system_uses_light_theme
@@ -103,7 +107,9 @@ def update_values() -> None:
     titlebar_active_text = win.titlebar_active_text
     titlebar_inactive = win.titlebar_inactive
     titlebar_inactive_text = win.titlebar_inactive_text
-    window_border = win.window_border
+    window_border = win.window_border_active
+    window_border_active = win.window_border_active
+    window_border_inactive = win.window_border_inactive
 
     accent_menu = win.accent_menu
 
@@ -129,7 +135,8 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
         is_titlebar_colored_old = is_titlebar_colored
         titlebar_active_old = titlebar_active
         titlebar_inactive_old = titlebar_inactive
-        window_border_old = window_border
+        window_border_active_old = window_border_active
+        window_border_inactive_old = window_border_inactive
 
         accent_menu_old = accent_menu
         
@@ -155,7 +162,8 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
         elif (is_titlebar_colored_old != is_titlebar_colored or
               titlebar_active_old != titlebar_active or
               titlebar_inactive_old != titlebar_inactive or
-              window_border_old != window_border
+              window_border_active_old != window_border_active or
+              window_border_inactive_old != window_border_inactive
         ): 
             # A window chrome color changed
             if pass_event: callback(event = 1)

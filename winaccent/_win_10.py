@@ -24,7 +24,8 @@ def update_values():
     global titlebar_active_text
     global titlebar_inactive
     global titlebar_inactive_text
-    global window_border
+    global window_border_active
+    global window_border_inactive
     
     global apps_use_light_theme
     global system_uses_light_theme
@@ -84,23 +85,23 @@ def update_values():
                 titlebar_inactive = "#F3F3F3"
                 titlebar_inactive_text = "#929292"
 
-    try: window_border_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
-    except: window_border_intensity = 0
+    try: window_border_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
+    except: window_border_active_intensity = 0
 
     if sys.getwindowsversion().build >= 22000: 
-        window_border = titlebar_active
+        window_border_active = titlebar_active
     else:
         try: 
             window_border_max_intensity = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
-            window_border = _utils.blend_colors(window_border_max_intensity, "#D9D9D9", window_border_intensity)
+            window_border_active = _utils.blend_colors(window_border_max_intensity, "#D9D9D9", window_border_active_intensity)
         except: 
-            window_border = "#9E9E9E"
+            window_border_active = "#9E9E9E"
 
     # Replicate Windows' behavior if titlebar_active, titlebar_inactive and window_border are set to 0
     if titlebar_active == "0": titlebar_active = accent_menu
     if titlebar_inactive == "0": titlebar_inactive = accent_menu
     if accent_menu == "0": accent_menu = accent_normal
-    if window_border == "0": window_border = "#000000"
+    if window_border_active == "0": window_border = "#000000"
 
     titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
     
@@ -136,22 +137,33 @@ def update_values():
                 titlebar_active_text = "#FFFFFF"
                 titlebar_inactive = "#2B2B2B"
                 titlebar_inactive_text = "#808080"
+                window_border_active = "#262626"
             else:
                 titlebar_active = "#FFFFFF"
                 titlebar_active_text = "#000000"
                 titlebar_inactive = "#FFFFFF"
                 titlebar_inactive_text = "#999999"
+                window_border_active = "#707070"
         else:
             if dark_mode_titlebar:
                 titlebar_active = "#202020"
                 titlebar_active_text = "#FFFFFF"
                 titlebar_inactive = "#202020"
                 titlebar_inactive_text = "#797979"
+                window_border_active = "#404040"
             else:
                 titlebar_active = "#F3F3F3"
                 titlebar_active_text = "#000000"
                 titlebar_inactive = "#F3F3F3"
                 titlebar_inactive_text = "#929292"
+                window_border_active = "#404040"
+
+    if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
+        if dark_mode_titlebar: window_border_inactive = "#262626"
+        else: window_border_inactive = "#AAAAAA"
+    else:
+        if dark_mode_titlebar: window_border_inactive = "#404040"
+        else: window_border_inactive = "#404040"
 
     try:
         apps_use_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
