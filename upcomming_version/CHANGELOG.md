@@ -4,6 +4,7 @@
 - Added 2 flags: `get_accent_from_dwm` and `dark_mode_titlebar`
 - Now you can retrieve the active/inactive titlebar text color from the `titlebar_active_text` and `inactive_titlebar_text` variables.
 - Now you can retrieve the actual active/inactive titlebar color regardless if the "Show accent color on title bars and window borders" setting is enabled or not.
+- Now you can retrieve the inactive window border color using `window_border_inactive`. For retrieving the active window border color, use `window_border_active`. `window_border` will be deprecated starting with version 3.0.0.
 
 Read the documentation to learn more about the new features.
 <br>
