@@ -119,7 +119,8 @@ You can use one of these variables:
 | titlebar_active_text | Returns the active titlebar text color |
 | titlebar_inactive | Returns the inactive titlebar color |
 | titlebar_inactive_text | Returns the inactive titlebar text color |
-| window_border | Returns the window border color
+| window_border_active | Returns the active window border color
+| window_border_inactive | Returns the inactive window border color
 
 You can also check if colored titlebars are enabled using `is_titlebar_colored` boolean.
 
