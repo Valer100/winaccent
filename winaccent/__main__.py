@@ -65,16 +65,21 @@ def gui_demo():
         add_item(accent_palette, winaccent.accent_dark_3, "accent_dark_3")
 
 
-        other_colors = ttk.Frame(window)
-        other_colors.grid(row = 0, column = 1, sticky = "n")
+        window_chrome = ttk.Frame(window)
+        window_chrome.grid(row = 0, column = 1, sticky = "n")
 
-        ttk.Label(other_colors, text = "Window chrome", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
-        add_item(other_colors, winaccent.is_titlebar_colored, "is_titlebar_colored")
-        add_item(other_colors, winaccent.titlebar_active, "titlebar_active")
-        add_item(other_colors, winaccent.titlebar_active_text, "titlebar_active_text")
-        add_item(other_colors, winaccent.titlebar_inactive, "titlebar_inactive")
-        add_item(other_colors, winaccent.titlebar_inactive_text, "titlebar_inactive_text")
-        add_item(other_colors, winaccent.window_border, "window_border")
+        ttk.Label(window_chrome, text = "Window chrome", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
+        add_item(window_chrome, winaccent.is_titlebar_colored, "is_titlebar_colored")
+        add_item(window_chrome, winaccent.titlebar_active, "titlebar_active")
+        add_item(window_chrome, winaccent.titlebar_active_text, "titlebar_active_text")
+        add_item(window_chrome, winaccent.titlebar_inactive, "titlebar_inactive")
+        add_item(window_chrome, winaccent.titlebar_inactive_text, "titlebar_inactive_text")
+        add_item(window_chrome, winaccent.window_border_active, "window_border_active")
+        add_item(window_chrome, winaccent.window_border_inactive, "window_border_inactive")
+
+
+        other_colors = ttk.Frame(window)
+        other_colors.grid(row = 1, column = 1, sticky = "n")
 
         ttk.Label(other_colors, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
         add_item(other_colors, winaccent.accent_menu, "accent_menu")
@@ -89,7 +94,7 @@ def gui_demo():
 
 
         flags = ttk.Frame(window)
-        flags.grid(row = 1, column = 1, sticky = "nw")
+        flags.grid(row = 2, column = 0, sticky = "nw")
 
         ttk.Label(flags, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
         ttk.Checkbutton(flags, text = "  get_accent_from_dwm", variable = get_accent_from_dwm, command = update).pack(anchor = "w", padx = 8)
@@ -126,7 +131,8 @@ def console_demo():
     print(f"titlebar_active_text:     {winaccent.titlebar_active_text}")
     print(f"titlebar_inactive:        {winaccent.titlebar_inactive}")
     print(f"titlebar_inactive_text:   {winaccent.titlebar_inactive_text}")
-    print(f"window_border:            {winaccent.window_border}")
+    print(f"window_border_active:     {winaccent.window_border_active}")
+    print(f"window_border_inactive:   {winaccent.window_border_inactive}")
     
     print("\n\nSystem theme")
     print("============\n")
