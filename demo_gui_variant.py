@@ -61,16 +61,24 @@ def update_accent_palette():
     winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
 
     ttk.Label(accent_palette, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w")
-    add_color(accent_palette, "accent_light_3", winaccent.accent_light_3)
-    add_color(accent_palette, "accent_light_2", winaccent.accent_light_2)
-    add_color(accent_palette, "accent_light_1", winaccent.accent_light_1)
-    add_color(accent_palette, "accent_normal", winaccent.accent_normal)
-    add_color(accent_palette, "accent_dark_1", winaccent.accent_dark_1)
-    add_color(accent_palette, "accent_dark_2", winaccent.accent_dark_2)
-    add_color(accent_palette, "accent_dark_3", winaccent.accent_dark_3)
+    
+    accent_palette_colors = tk.Frame(accent_palette, highlightbackground = winaccent.accent_dark_3, highlightthickness = 1)
+    accent_palette_colors.pack(anchor = "w", fill = "x")
+
+    add_color(accent_palette_colors, "accent_light_3", winaccent.accent_light_3)
+    add_color(accent_palette_colors, "accent_light_2", winaccent.accent_light_2)
+    add_color(accent_palette_colors, "accent_light_1", winaccent.accent_light_1)
+    add_color(accent_palette_colors, "accent_normal", winaccent.accent_normal)
+    add_color(accent_palette_colors, "accent_dark_1", winaccent.accent_dark_1)
+    add_color(accent_palette_colors, "accent_dark_2", winaccent.accent_dark_2)
+    add_color(accent_palette_colors, "accent_dark_3", winaccent.accent_dark_3)
 
     ttk.Label(accent_palette, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
-    add_color(accent_palette, "accent_menu", winaccent.accent_menu)
+    
+    accent_menu = tk.Frame(accent_palette, highlightbackground = "SystemButtonText", highlightthickness = 1)
+    accent_menu.pack(anchor = "w", fill = "x")
+
+    add_color(accent_menu, "accent_menu", winaccent.accent_menu)
 
     ttk.Label(accent_palette, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
     ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette).pack(anchor = "w", padx = 4)
@@ -88,15 +96,21 @@ def update_windows_preview():
 
     ttk.Label(window_chrome, text = "Active window", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 
-    add_color(window_chrome, "titlebar_active", winaccent.titlebar_active)
-    add_color(window_chrome, "titlebar_active_text", winaccent.titlebar_active_text)
-    add_color(window_chrome, "window_border_active", winaccent.window_border_active)
+    active_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightthickness = 1)
+    active_window_colors.pack(anchor = "w", fill = "x")
+
+    add_color(active_window_colors, "titlebar_active", winaccent.titlebar_active)
+    add_color(active_window_colors, "titlebar_active_text", winaccent.titlebar_active_text)
+    add_color(active_window_colors, "window_border_active", winaccent.window_border_active)
 
     ttk.Label(window_chrome, text = "Inactive window", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 
-    add_color(window_chrome, "titlebar_inactive", winaccent.titlebar_inactive)
-    add_color(window_chrome, "titlebar_inactive_text", winaccent.titlebar_inactive_text)
-    add_color(window_chrome, "window_border_inactive", winaccent.window_border_inactive)
+    inactive_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightthickness = 1)
+    inactive_window_colors.pack(anchor = "w", fill = "x")
+
+    add_color(inactive_window_colors, "titlebar_inactive", winaccent.titlebar_inactive)
+    add_color(inactive_window_colors, "titlebar_inactive_text", winaccent.titlebar_inactive_text)
+    add_color(inactive_window_colors, "window_border_inactive", winaccent.window_border_inactive)
 
     ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
     ttk.Checkbutton(window_chrome, text = " dark_mode_titlebar", variable = dark_mode_titlebar, command = update_windows_preview).pack(anchor = "w", padx = 4)
