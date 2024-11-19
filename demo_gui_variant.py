@@ -43,7 +43,9 @@ def add_color(parent, color_name, color):
     color_value["state"] = "disabled"
 
 def add_boolean_value(parent, value_name, value):
-    checkbutton = ttk.Checkbutton(parent, text = " " + value_name)
+    style.map("Value.TCheckbutton", foreground = [("disabled", "SystemButtonText")])
+
+    checkbutton = ttk.Checkbutton(parent, text = " " + value_name, style = "Value.TCheckbutton")
     checkbutton.pack(anchor = "w", pady = (4, 0))
     checkbutton.invoke()
     checkbutton.configure(state = "disabled")
