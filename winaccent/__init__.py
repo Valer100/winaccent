@@ -124,6 +124,8 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
     If one of them changes, the function specified in the `callback` argument will be called.'''
 
     while True:
+        accent_color_changed = False
+
         accent_light_1_old = accent_light_1
         accent_light_2_old = accent_light_2
         accent_light_3_old = accent_light_3
@@ -156,24 +158,27 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
             accent_menu_old != accent_menu
         ): 
             # Accent color changed
+            accent_color_changed = True
+
             if pass_event: callback(event = 0)
             else: callback()
 
-        elif (is_titlebar_colored_old != is_titlebar_colored or
-              titlebar_active_old != titlebar_active or
-              titlebar_inactive_old != titlebar_inactive or
-              window_border_active_old != window_border_active or
-              window_border_inactive_old != window_border_inactive
+        if (is_titlebar_colored_old != is_titlebar_colored or
+            titlebar_active_old != titlebar_active or
+            titlebar_inactive_old != titlebar_inactive or
+            window_border_active_old != window_border_active or
+            window_border_inactive_old != window_border_inactive
         ): 
             # A window chrome color changed
             if pass_event: callback(event = 1)
-            else: callback()
+            elif not accent_color_changed: callback()
 
-        elif (apps_use_light_theme_old != apps_use_light_theme): 
+        if (apps_use_light_theme_old != apps_use_light_theme): 
             # Apps theme changed
             if pass_event: callback(event = 2)
             else: callback()
-        elif (system_uses_light_theme_old != system_uses_light_theme):
+            
+        if (system_uses_light_theme_old != system_uses_light_theme):
             # System theme changed
             if pass_event: callback(event = 3)
             else: callback()
