@@ -127,16 +127,16 @@ def update_theme():
     add_boolean_value(theme, "apps_use_light_theme", winaccent.apps_use_light_theme)
     add_boolean_value(theme, "system_uses_light_theme", winaccent.system_uses_light_theme)
 
-def on_appearance_changed():
-    update_accent_palette()
-    update_windows_preview()
-    update_theme()
+def on_appearance_changed(event):
+    if event == winaccent.event.accent_color_changed: update_accent_palette()
+    elif event == winaccent.event.window_chrome_color_changed: update_windows_preview()
+    elif event == winaccent.event.system_theme_changed: update_theme()
 
 update_accent_palette()
 update_windows_preview()
 update_theme()
 
-thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = on_appearance_changed), daemon = True)
+thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = on_appearance_changed, pass_event = True), daemon = True)
 thread.start()
 
 lock_size()
