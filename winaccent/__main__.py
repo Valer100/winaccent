@@ -29,16 +29,14 @@ def gui_demo():
 
     def add_color(parent, color_name, color):
         text_color = "#FFFFFF" if winaccent._utils.white_text_on_color(color) else "#000000"
-        text_color_inverse = "#000000" if winaccent._utils.white_text_on_color(color) else "#FFFFFF"
 
-        color_item = tk.Frame(parent, bg = color, padx = 8, pady = 8)
+        color_item = tk.Frame(parent, bg = color, padx = 8, pady = 6)
         color_item.pack(fill = "x")
 
         color_name = tk.Label(color_item, text = color_name, font = ("Default", 11), fg = text_color, bg = color)
         color_name.pack(side = "left")
 
-        color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = color, fg = text_color, 
-                              selectbackground = text_color, selectforeground = text_color_inverse)
+        color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = color, fg = text_color)
         color_value.pack(side = "right")
         color_value.insert("1.0", str(color))
         color_value["state"] = "disabled"
@@ -47,7 +45,7 @@ def gui_demo():
         style.map("Value.TCheckbutton", foreground = [("disabled", "SystemButtonText")])
 
         checkbutton = ttk.Checkbutton(parent, text = " " + value_name, style = "Value.TCheckbutton")
-        checkbutton.pack(anchor = "w", pady = (4, 0))
+        checkbutton.pack(anchor = "w", pady = (0, 4))
         checkbutton.invoke()
         checkbutton.configure(state = "disabled")
 
@@ -57,9 +55,10 @@ def gui_demo():
     accent_palette = ttk.Frame(notebook, padding = 10)
     notebook.add(accent_palette, text = "Accent palette")
 
-    def update_accent_palette():
+    def update_accent_palette_colors():
         for widget in accent_palette.winfo_children(): widget.destroy()
         winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
+        winaccent.update_values()
 
         ttk.Label(accent_palette, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w")
 
@@ -81,21 +80,22 @@ def gui_demo():
 
         add_color(accent_menu, "accent_menu", winaccent.accent_menu)
 
-        ttk.Label(accent_palette, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
-        ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette).pack(anchor = "w", padx = 4)
+        ttk.Label(accent_palette, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+        ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette_colors).pack(anchor = "w", padx = 4)
 
 
     window_chrome = ttk.Frame(notebook, padding = 10)
     notebook.add(window_chrome, text = "Window chrome")
 
-    def update_windows_preview():
+    def update_windows_chrome_colors():
         for widget in window_chrome.winfo_children(): widget.destroy()
         winaccent.dark_mode_titlebar = dark_mode_titlebar.get()
         winaccent.update_values()
 
+        ttk.Label(window_chrome, text = "Titlebar", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
         add_boolean_value(window_chrome, "is_titlebar_colored", winaccent.is_titlebar_colored)
 
-        ttk.Label(window_chrome, text = "Active window", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
+        ttk.Label(window_chrome, text = "Active window", font = ("Segoe UI Semibold", 15)).pack(pady = (12, 10), anchor = "w")
 
         active_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightthickness = 1)
         active_window_colors.pack(anchor = "w", fill = "x")
@@ -113,14 +113,14 @@ def gui_demo():
         add_color(inactive_window_colors, "titlebar_inactive_text", winaccent.titlebar_inactive_text)
         add_color(inactive_window_colors, "window_border_inactive", winaccent.window_border_inactive)
 
-        ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
-        ttk.Checkbutton(window_chrome, text = " dark_mode_titlebar", variable = dark_mode_titlebar, command = update_windows_preview).pack(anchor = "w", padx = 4)
+        ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+        ttk.Checkbutton(window_chrome, text = " dark_mode_titlebar", variable = dark_mode_titlebar, command = update_windows_chrome_colors).pack(anchor = "w", padx = 4)
 
 
     theme = ttk.Frame(notebook, padding = 10)
     notebook.add(theme, text = "Theme")
 
-    def update_theme():
+    def update_theme_info():
         for widget in theme.winfo_children(): widget.destroy()
 
         ttk.Label(theme, text = "Theme", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
@@ -129,13 +129,13 @@ def gui_demo():
         add_boolean_value(theme, "system_uses_light_theme", winaccent.system_uses_light_theme)
 
     def on_appearance_changed(event):
-        if event == winaccent.event.accent_color_changed: update_accent_palette()
-        elif event == winaccent.event.window_chrome_color_changed: update_windows_preview()
-        elif event == winaccent.event.system_theme_changed: update_theme()
+        if event == winaccent.event.accent_color_changed: update_accent_palette_colors()
+        elif event == winaccent.event.window_chrome_color_changed: update_windows_chrome_colors()
+        elif event == winaccent.event.system_theme_changed: update_theme_info()
 
-    update_accent_palette()
-    update_windows_preview()
-    update_theme()
+    update_accent_palette_colors()
+    update_windows_chrome_colors()
+    update_theme_info()
 
     thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = on_appearance_changed, pass_event = True), daemon = True)
     thread.start()

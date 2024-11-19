@@ -61,7 +61,7 @@ def add_item(parent, color, text):
     text_color = "#FFFFFF" if winaccent._utils.white_text_on_color(color) else "#000000"
     text_color_inverse = "#000000" if winaccent._utils.white_text_on_color(color) else "#FFFFFF"
 
-    color_item = tk.Frame(parent, bg = color, padx = 8, pady = 8)
+    color_item = tk.Frame(parent, bg = color, padx = 8, pady = 6)
     color_item.pack(fill = "x")
 
     color_name = tk.Label(color_item, text = text, font = ("Default", 11), fg = text_color, bg = color)
