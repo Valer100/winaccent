@@ -17,6 +17,8 @@ def gui_demo():
 
     style = ttk.Style()
     style.configure("TCheckbutton", font = ("Default", 11))
+    style.configure("TNotebook", background = "SystemButtonFace")
+    style.configure(".", background = "SystemWindow")
 
     notebook = ttk.Notebook(window, width = 300)
     notebook.pack()
@@ -29,6 +31,7 @@ def gui_demo():
 
     def add_color(parent, color_name, color):
         text_color = "#FFFFFF" if winaccent._utils.white_text_on_color(color) else "#000000"
+        text_color_inverse = "#000000" if winaccent._utils.white_text_on_color(color) else "#FFFFFF"
 
         color_item = tk.Frame(parent, bg = color, padx = 8, pady = 6)
         color_item.pack(fill = "x")
@@ -36,7 +39,8 @@ def gui_demo():
         color_name = tk.Label(color_item, text = color_name, font = ("Default", 11), fg = text_color, bg = color)
         color_name.pack(side = "left")
 
-        color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = color, fg = text_color)
+        color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = color, fg = text_color, 
+                              selectbackground = text_color, selectforeground = text_color_inverse)
         color_value.pack(side = "right")
         color_value.insert("1.0", str(color))
         color_value["state"] = "disabled"
