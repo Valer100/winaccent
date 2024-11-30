@@ -69,6 +69,7 @@ def update_values():
 
     try: 
         titlebar_inactive = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColorInactive", "abgr")
+        titlebar_inactive_custom_color = True
     except: 
         if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
             if dark_mode_titlebar:
@@ -84,6 +85,8 @@ def update_values():
             else:
                 titlebar_inactive = "#F3F3F3"
                 titlebar_inactive_text = "#929292"
+
+        titlebar_inactive_custom_color = False
 
     try: window_border_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: window_border_active_intensity = 0
@@ -105,11 +108,8 @@ def update_values():
 
     titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
     
-    if titlebar_inactive == None: 
-        titlebar_inactive_text = None
-    else: 
-        titlebar_inactive_text_no_blend = "#FFFFFF" if _utils.white_text_on_color(titlebar_inactive) else "#000000"
-        titlebar_inactive_text = _utils.blend_colors(titlebar_inactive_text_no_blend, titlebar_inactive, 40)
+    titlebar_inactive_text_no_blend = "#FFFFFF" if _utils.white_text_on_color(titlebar_inactive) else "#000000"
+    titlebar_inactive_text = _utils.blend_colors(titlebar_inactive_text_no_blend, titlebar_inactive, 40)
 
     if get_accent_from_dwm and accent_normal != titlebar_active:
         accent_normal = titlebar_active
@@ -162,8 +162,11 @@ def update_values():
         if dark_mode_titlebar: window_border_inactive = "#262626"
         else: window_border_inactive = "#AAAAAA"
     else:
-        if dark_mode_titlebar: window_border_inactive = "#404040"
-        else: window_border_inactive = "#404040"
+        if is_titlebar_colored and titlebar_inactive_custom_color:
+            window_border_inactive = titlebar_inactive
+        else:
+            if dark_mode_titlebar: window_border_inactive = "#404040"
+            else: window_border_inactive = "#404040"
 
     try:
         apps_use_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
