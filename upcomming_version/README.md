@@ -283,10 +283,10 @@ The command will run with `--mode` set to `auto` by default.
 <details>
 <summary>Show GUI demo</summary>
 
-| **Windows 11** | ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win_11.png?raw=true) |
+| **Windows 11** | ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win11.png?raw=true) |
 |:---:|---|
-| **Windows 10** | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win_10.png?raw=true) |
-| **Windows 8** | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win_8.png?raw=true) |
+| **Windows 10** | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win10.png?raw=true) |
+| **Windows 8** | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win8.png?raw=true) |
 </details>
 
 <details>
