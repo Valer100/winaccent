@@ -3,15 +3,16 @@ A winaccent submodule containing functions used internaly.
 '''
 
 import winreg, colorsys
+from typing import Any, Literal
 
-def get_registry_value(hkey, key_path, value_name):
+def get_registry_value(hkey: int, key_path: str, value_name: str) -> Any :
     key = winreg.OpenKey(hkey, key_path, 0, winreg.KEY_READ)
     value, regtype = winreg.QueryValueEx(key, value_name)
     winreg.CloseKey(key)
     
     return value
 
-def get_color_from_registry_rgb(hkey, key_path, value_name, from_) -> str:
+def get_color_from_registry_rgb(hkey: int, key_path: str, value_name: str, from_: Literal["abgr", "argb"]) -> str:
     list = f"{get_registry_value(hkey, key_path, value_name):08X}"
     color = "#"
 
@@ -38,7 +39,7 @@ def blend_colors(color_1: str, color_2: str, intensity: int) -> str:
 
     return f"#{round(red):02X}{round(green):02X}{round(blue):02X}"
 
-def increase_saturation(color, factor):
+def increase_saturation(color: str, factor: float) -> str:
     red = int(color[1] + color[2], base = 16) / 255
     green = int(color[3] + color[4], base = 16) / 255
     blue = int(color[5] + color[6], base = 16) / 255
@@ -49,7 +50,7 @@ def increase_saturation(color, factor):
     
     return f"#{round(red * 255):02X}{round(green * 255):02X}{round(blue * 255):02X}"
 
-def white_text_on_color(color):
+def white_text_on_color(color: str) -> bool:
     red = int(color[1] + color[2], base = 16)
     green = int(color[3] + color[4], base = 16)
     blue = int(color[5] + color[6], base = 16)
