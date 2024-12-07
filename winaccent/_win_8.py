@@ -5,6 +5,10 @@ A winaccent submodule that contains code for Windows 8 and 8.1.
 from . import _utils
 import winreg, sys
 
+# IMPORTANT!
+# `accent_menu` represents here the Start menu color
+
+# Windows 8.0 color schemes' colors
 accent_menu_colors = [
     "#252525", "#252525", "#252525", "#252525", "#2E1700",
     "#4E0000", "#4E0038", "#2D004E", "#1F0068", "#001E4E",
@@ -47,20 +51,37 @@ def update_values():
     global system_uses_light_theme
 
     if sys.getwindowsversion().minor == 2:
-        try: color_scheme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
-        except: 
-            try: color_scheme = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultColorSet")
-            except: color_scheme = 8
+        # Windows 8.0
 
+        try:
+            # Try retrieving the user's color scheme number
+            color_scheme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "ColorSet_Version3")
+        except: 
+            try: 
+                # If retrieving the user's color scheme number fails, try retrieving the machine-wide color scheme number
+                color_scheme = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultColorSet")
+            except: 
+                # If retrieving the machine-wide color scheme number also fails, use the fallback number (8)
+                color_scheme = 8
+
+        # If the color scheme number is greater than 24, use the fallback number (8)
         if color_scheme > 24: color_scheme = 8
 
+        # Retrieve the accent_normal and accent_menu colors from the current color scheme
         accent_normal = accent_normal_colors[color_scheme]
         accent_menu = accent_menu_colors[color_scheme]
+
     elif sys.getwindowsversion().minor == 3:
+        # Windows 8.1
+
+        # Try retrieving the accent colors set through Group Policy
         try: 
             accent_normal = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Accent") 
             accent_menu = _utils.get_registry_value(winreg.HKEY_LOCAL_MACHINE, "Software\\Policies\\Microsoft\\Windows\\Personalization", "PersonalColors_Background")
 
+            # Check if the colors are valid
+            # If not, raise an exception, since things go weird
+            
             if len(accent_normal) != 7 or len(accent_menu) != 7:
                 raise ValueError("Invalid `accent_normal` or `accent_menu` color")
 
@@ -70,20 +91,24 @@ def update_values():
             except:
                 raise ValueError("Invalid `accent_normal` or `accent_menu` color")
         except:
+            # If that fails, try retrieving the user's accent colors
             try: 
                 accent_normal = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColor", "abgr")
                 accent_menu = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "StartColor", "abgr")
             except: 
+                # If that also fails, try retrieving the machine-wide ones
                 try: 
                     accent_normal = _utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultAccentColor", "abgr") 
                     accent_menu = _utils.get_color_from_registry_rgb(winreg.HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "DefaultStartColor", "abgr")
                 except: 
+                    # If that also fails, use fallback colors
                     accent_normal = "#4617B4"
                     accent_menu = "#180052"
 
         if accent_normal == "0": accent_normal = "#000000"
         if accent_menu == "0": accent_menu = "#000000"
 
+    # Generate a color palette for the accent color (Windows 8.x doesn't generate one automatically)
     accent_palette = _utils.generate_color_palette(accent_normal)
 
     accent_light_3 = accent_palette[0]
@@ -93,9 +118,12 @@ def update_values():
     accent_dark_2 = accent_palette[4]
     accent_dark_3 = accent_palette[5]
 
+    # Retrieve active titlebar color intensity (useful for retrieving the actual active titlebar color)
     try: titlebar_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: titlebar_active_intensity = 0
 
+    # Retrieve the actual active titlebar color
+    # You have to get the active titlebar color with max intensity and then blend it with "#D9D9D9" with the intensity we retrieved previously
     try:
         titlebar_active_max_intensity = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
         titlebar_active = _utils.blend_colors(titlebar_active_max_intensity, "#D9D9D9", titlebar_active_intensity)
@@ -103,8 +131,10 @@ def update_values():
         titlebar_active_max_intensity = "#9E9E9E"
         titlebar_active = "#9E9E9E"
 
+    # Hardcode active titlebar text color
     titlebar_active_text = "#282828"
 
+    # If `get_accent_from_dwm` flag is active, generate an alternative accent color pallete based on the active titlebar color
     if get_accent_from_dwm:
         accent_normal = titlebar_active_max_intensity
         accent_palette = _utils.generate_color_palette(accent_normal)
@@ -116,12 +146,17 @@ def update_values():
         accent_dark_2 = accent_palette[4]
         accent_dark_3 = accent_palette[5]
 
+    # Hardcode inactive titlebar color and text color
     titlebar_inactive = "#EBEBEB"
     titlebar_inactive_text = "#282828"
 
+    # Set active window border color to the active titlebar color
     window_border_active = titlebar_active
+
+    # Hardcode inactive window border color
     window_border_inactive = "#EBEBEB"
 
+    # Hardcode these values to `True`
     is_titlebar_colored = True
     apps_use_light_theme = True
     system_uses_light_theme = True
