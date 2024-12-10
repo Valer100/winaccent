@@ -5,12 +5,13 @@ A winaccent submodule containing functions used internaly.
 import winreg, colorsys
 from typing import Any, Literal
 
-def get_registry_value(hkey: int, key_path: str, value_name: str) -> Any :
+def get_registry_value(hkey: int, key_path: str, value_name: str, expected_regtype: int = None) -> Any :
     key = winreg.OpenKey(hkey, key_path, 0, winreg.KEY_READ)
     value, regtype = winreg.QueryValueEx(key, value_name)
     winreg.CloseKey(key)
     
-    return value
+    if expected_regtype == regtype or expected_regtype == None: return value
+    else: raise ValueError(f"Invalid registry value: expected {expected_regtype} but got {regtype}")
 
 def get_color_from_registry_rgb(hkey: int, key_path: str, value_name: str, from_: Literal["abgr", "argb"]) -> str:
     list = f"{get_registry_value(hkey, key_path, value_name):08X}"
@@ -19,8 +20,16 @@ def get_color_from_registry_rgb(hkey: int, key_path: str, value_name: str, from_
     if from_ == "abgr": color = "#" + list[6] + list[7] + list[4] + list[5] + list[2] + list[3]
     elif from_ == "argb": color = "#" + list[2] + list[3] + list[4] + list[5] + list[6] + list[7]
 
-    if list[0] + list[1] + color.replace("#", "") == "00000000": return "0"
-    else: return color
+    if list[0] + list[1] + color.replace("#", "") == "00000000": 
+        return "0"
+    else:
+        # Check if the color is valid
+        if len(color) != 7: return "#FF00FF"
+
+        try: color_test = int(color[1] + color[2], base = 16) + int(color[3] + color[4], base = 16) + int(color[5] + color[6], base = 16)
+        except: return "#FF00FF"
+        
+        return color
 
 def blend_colors(color_1: str, color_2: str, intensity: int) -> str:
     intensity = intensity * 255 / 100
