@@ -32,7 +32,7 @@ def update_values():
 
     # Retrieve accent color palette
     try:
-        accent_palette = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette")
+        accent_palette = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentPalette", winreg.REG_BINARY)
         accent_palette = " ".join(f'{byte:02X}' for byte in accent_palette)
         accent_palette_list = accent_palette.split(" ")
 
