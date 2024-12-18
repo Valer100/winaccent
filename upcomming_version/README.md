@@ -75,23 +75,21 @@ if sys.platform == "win32":
 
 For simplicity, you can get a specific accent color from one of the following variables:
 
-| Variable | Color | Preview |
-|----------|:-------:|:-------:|
-| accent_dark_mode<br>(or accent_light) | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
-| accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_light_mode<br>(or accent_dark) | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| Variable | Color |
+|----------|:------:
+| **accent_dark_mode**<br>(or **accent_light**) | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"><br>#4CC2FF |
+| **accent_normal** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"><br>#0078D4 |
+| **accent_light_mode**<br>(or **accent_dark**) | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"><br>#0067C0 |
 
 If you need a different shade, you can get it from one of these variables:
 
-| Variable | Color | Preview |
-|----------|:-------:|:-------:|
-| accent_light_3 | #99EBFF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_3.png?raw=true"> |
-| accent_light_2 | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
-| accent_light_1 | #0091F8 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_1.png?raw=true"> |
-| accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_dark_1 | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
-| accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
-| accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
+| Variable | Color | Variable | Color |
+|----------|:-----:|----------|:-----:|
+| **accent_light_3** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_3.png?raw=true"><br>#99EBFF |**accent_dark_1** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"><br>#0067C0 |
+| **accent_light_2** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"><br>#4CC2FF | **accent_dark_2** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"><br>#003E92 |
+| **accent_light_1** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_1.png?raw=true"><br>#0091F8 | **accent_dark_3** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"><br>#001A68 |
+| **accent_normal** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"><br>#0078D4 |
+
 
 You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen and start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
 
