@@ -158,38 +158,38 @@ def update_values():
                 titlebar_active_text = "#FFFFFF"
                 titlebar_inactive = "#2B2B2B"
                 titlebar_inactive_text = "#808080"
-                window_border_active = "#262626"
+                window_border_active = "#434343"
             else:
                 titlebar_active = "#FFFFFF"
                 titlebar_active_text = "#000000"
                 titlebar_inactive = "#FFFFFF"
                 titlebar_inactive_text = "#999999"
-                window_border_active = "#707070"
+                window_border_active = "#363636"
         else:
             if dark_mode_titlebar:
                 titlebar_active = "#202020"
                 titlebar_active_text = "#FFFFFF"
                 titlebar_inactive = "#202020"
                 titlebar_inactive_text = "#797979"
-                window_border_active = "#404040"
+                window_border_active = "#757575"
             else:
                 titlebar_active = "#F3F3F3"
                 titlebar_active_text = "#000000"
                 titlebar_inactive = "#F3F3F3"
                 titlebar_inactive_text = "#929292"
-                window_border_active = "#404040"
+                window_border_active = "#757575"
 
     # More color hardcoding
     if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
-        if dark_mode_titlebar: window_border_inactive = "#262626"
-        else: window_border_inactive = "#AAAAAA"
+        if dark_mode_titlebar: window_border_inactive = "#555555"
+        else: window_border_inactive = "#555555"
     else:
         if is_titlebar_colored and titlebar_inactive_custom_color:
             # On Windows 11 inactive window border color is the same as the inactive titlebar color
             window_border_inactive = titlebar_inactive
         else:
-            if dark_mode_titlebar: window_border_inactive = "#404040"
-            else: window_border_inactive = "#404040"
+            if dark_mode_titlebar: window_border_inactive = "#757575"
+            else: window_border_inactive = "#757575"
 
     # Retrieve apps' theme
     try:
