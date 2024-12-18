@@ -120,7 +120,7 @@ def update_values():
     if titlebar_active == "0": titlebar_active = accent_menu
     if titlebar_inactive == "0": titlebar_inactive = accent_menu
     if accent_menu == "0": accent_menu = accent_normal
-    if window_border_active == "0": window_border = "#000000"
+    if window_border_active == "0": window_border_active = "#000000"
 
     # Retrieve active titlebar text color (for colored titlebars)
     titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
