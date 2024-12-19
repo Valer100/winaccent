@@ -9,6 +9,7 @@ def gui_demo():
     window.resizable(False, False)
     window.configure(padx = 10, pady = 10)
 
+    full_palette = tk.BooleanVar(value = True)
     get_accent_from_dwm = tk.BooleanVar(value = False)
     dark_mode_titlebar = tk.BooleanVar(value = False)
 
@@ -64,18 +65,32 @@ def gui_demo():
         winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
         winaccent.update_values()
 
-        ttk.Label(accent_palette, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w")
 
-        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = winaccent.accent_dark_3, highlightthickness = 1)
+        header = ttk.Frame(accent_palette)
+        header.pack(anchor = "w", fill = "x")
+
+        ttk.Label(header, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w", side = "left")
+        ttk.Checkbutton(header, text = " Full palette", variable = full_palette, command = update_accent_palette_colors).pack(anchor = "w", pady = (0, 5), side = "right")
+
+        accent_palette_frame = ttk.Frame(accent_palette)
+        accent_palette_frame.pack(anchor = "w", fill = "both", expand = True)
+
+        accent_palette_colors = tk.Frame(accent_palette_frame, highlightbackground = winaccent.accent_dark_3, highlightthickness = 1)
         accent_palette_colors.pack(anchor = "w", fill = "x")
 
-        add_color(accent_palette_colors, "accent_light_3", winaccent.accent_light_3)
-        add_color(accent_palette_colors, "accent_light_2", winaccent.accent_light_2)
-        add_color(accent_palette_colors, "accent_light_1", winaccent.accent_light_1)
-        add_color(accent_palette_colors, "accent_normal", winaccent.accent_normal)
-        add_color(accent_palette_colors, "accent_dark_1", winaccent.accent_dark_1)
-        add_color(accent_palette_colors, "accent_dark_2", winaccent.accent_dark_2)
-        add_color(accent_palette_colors, "accent_dark_3", winaccent.accent_dark_3)
+        if full_palette.get():
+            add_color(accent_palette_colors, "accent_light_3", winaccent.accent_light_3)
+            add_color(accent_palette_colors, "accent_light_2", winaccent.accent_light_2)
+            add_color(accent_palette_colors, "accent_light_1", winaccent.accent_light_1)
+            add_color(accent_palette_colors, "accent_normal", winaccent.accent_normal)
+            add_color(accent_palette_colors, "accent_dark_1", winaccent.accent_dark_1)
+            add_color(accent_palette_colors, "accent_dark_2", winaccent.accent_dark_2)
+            add_color(accent_palette_colors, "accent_dark_3", winaccent.accent_dark_3)
+        else:
+            add_color(accent_palette_colors, "accent_light", winaccent.accent_light)
+            add_color(accent_palette_colors, "accent_normal", winaccent.accent_normal)
+            add_color(accent_palette_colors, "accent_dark", winaccent.accent_dark)
+
 
         ttk.Label(accent_palette, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 

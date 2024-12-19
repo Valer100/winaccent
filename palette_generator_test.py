@@ -8,14 +8,24 @@ window.title("Palette generator")
 window.resizable(False, False)
 window.configure(padx = 10, pady = 10)
 
+def lock_geometry(window):
+    if full_palette.get() != full_palette_old:
+        window.geometry("")
+        window.update()
+        window.geometry(window.geometry())
+
 accent_normal = "#4617B4"
 accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
+
+full_palette_old = False
+full_palette = tk.BooleanVar(value = True)
 
 icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
 window.iconphoto(True, icon)
 
 style = ttk.Style()
 style.configure("TButton", font = 11)
+style.configure("TCheckbutton", font = ("Default", 11))
 
 ttk.Label(window, text = "Main color", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
 
@@ -74,6 +84,8 @@ def add_item(parent, color, text):
     color_value["state"] = "disabled"
 
 def update_palette():
+    global full_palette_old
+
     accent_palette = winaccent._utils.generate_color_palette(accent_normal)
 
     accent_light_3 = accent_palette[0]
@@ -84,21 +96,31 @@ def update_palette():
     accent_dark_3 = accent_palette[5]
 
     for widget in palette.winfo_children(): widget.destroy()
-    ttk.Label(palette, text = "Generated palette", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (16, 8), anchor = "w")
+
+    palette_header = ttk.Frame(palette)
+    palette_header.pack(anchor = "w", fill = "x")
+
+    ttk.Label(palette_header, text = "Palette", font = ("Segoe UI Semibold", 15)).pack(padx = (8, 0), pady = (16, 8), anchor = "w", side = "left")
+    ttk.Checkbutton(palette_header, text = " Full palette", variable = full_palette, command = update_palette).pack(anchor = "w", pady = (13, 0), padx = (0, 8), side = "right")
 
     palette_colors = tk.Frame(palette, highlightbackground = accent_dark_3, highlightthickness = 1)
     palette_colors.pack(anchor = "w", fill = "x", padx = 8, pady = (0, 8))
 
-    add_item(palette_colors, accent_light_3, "accent_light_3")
-    add_item(palette_colors, accent_light_2, "accent_light_2")
-    add_item(palette_colors, accent_light_1, "accent_light_1")
-    add_item(palette_colors, accent_normal, "accent_normal")
-    add_item(palette_colors, accent_dark_1, "accent_dark_1")
-    add_item(palette_colors, accent_dark_2, "accent_dark_2")
-    add_item(palette_colors, accent_dark_3, "accent_dark_3")
+    if full_palette.get():
+        add_item(palette_colors, accent_light_3, "accent_light_3")
+        add_item(palette_colors, accent_light_2, "accent_light_2")
+        add_item(palette_colors, accent_light_1, "accent_light_1")
+        add_item(palette_colors, accent_normal, "accent_normal")
+        add_item(palette_colors, accent_dark_1, "accent_dark_1")
+        add_item(palette_colors, accent_dark_2, "accent_dark_2")
+        add_item(palette_colors, accent_dark_3, "accent_dark_3")
+    else:
+        add_item(palette_colors, accent_light_2, "accent_light")
+        add_item(palette_colors, accent_normal, "accent_normal")
+        add_item(palette_colors, accent_dark_1, "accent_dark")
 
-    window.update()
-    window.geometry(window.geometry())
+    lock_geometry(window)
+    full_palette_old = full_palette.get()
 
 update_palette()
 window.mainloop()
