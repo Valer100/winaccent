@@ -1,4 +1,4 @@
-import tkinter as tk, winaccent, ctypes, threading, winaccent, argparse
+import tkinter as tk, winaccent, ctypes, threading, argparse, traceback
 from tkinter import ttk
 
 def gui_demo():
@@ -193,8 +193,9 @@ if arguments.mode == None or arguments.mode == "auto":
     try:
         gui_demo()
     except Exception as e:
-        print(e)
-        print("tkinter isn't available. Perhaps it isn't installed or the installation is corrupted.")
+        print("\nFailed to show GUI demo. Here's why:\n")
+        traceback.print_exception(type(e), e, e.__traceback__)
+        print("\nConsole demo will be shown instead.")
         console_demo()
 elif arguments.mode == "gui": gui_demo()
 elif arguments.mode == "console": console_demo()
