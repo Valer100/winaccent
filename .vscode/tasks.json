@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "$(play) Run demo (auto)",
+            "type": "shell",
+            "command": "python -m winaccent",
+            "problemMatcher": []
+        },
+        {
+            "label": "$(play) Run GUI demo",
+            "type": "shell",
+            "command": "python -m winaccent --mode gui",
+            "problemMatcher": []
+        },
+        {
+            "label": "$(play) Run console demo",
+            "type": "shell",
+            "command": "python -m winaccent --mode console",
+            "problemMatcher": []
+        }
+    ]
+}
