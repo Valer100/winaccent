@@ -7,6 +7,10 @@
 - Now you can retrieve the inactive window border color using `window_border_inactive`. For retrieving the active window border color, use `window_border_active`. `window_border` will be deprecated starting with version 3.0.0.
 
 [Read the documentation](https://github.com/Valer100/winaccent?tab=readme-ov-file#-documentation) to learn more about the new features.
+
+## Improvements
+- Redesigned the GUI demo to look better and cleaner.
+
 <br>
 
 > [!NOTE]
