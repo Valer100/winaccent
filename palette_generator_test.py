@@ -8,16 +8,10 @@ window.title("Palette generator")
 window.resizable(False, False)
 window.configure(padx = 10, pady = 10)
 
-def lock_geometry(window):
-    if full_palette.get() != full_palette_old:
-        window.geometry("")
-        window.update()
-        window.geometry(window.geometry())
-
+color_item_index = -1
 accent_normal = "#4617B4"
 accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
 
-full_palette_old = False
 full_palette = tk.BooleanVar(value = True)
 
 icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
@@ -65,16 +59,21 @@ pick_color = ttk.Button(color, text = "...", width = 3, command = choose_color).
 ttk.Frame(window, width = 280).pack()
 
 palette = ttk.Frame(window)
-palette.pack(anchor = "w", fill = "x")
+palette.pack(anchor = "w", fill = "both", expand = True)
 
-def add_item(parent, color, text):
+def add_color(parent, color, color_name):
+    global color_item_index
+    color_item_index += 1
+
     text_color = "#FFFFFF" if winaccent._utils.white_text_on_color(color) else "#000000"
     text_color_inverse = "#000000" if winaccent._utils.white_text_on_color(color) else "#FFFFFF"
 
     color_item = tk.Frame(parent, bg = color, padx = 8, pady = 6)
-    color_item.pack(fill = "x")
+    color_item.grid(row = color_item_index, sticky = "nsew")
 
-    color_name = tk.Label(color_item, text = text, font = ("Default", 11), fg = text_color, bg = color)
+    parent.grid_columnconfigure(0, weight = 1)
+
+    color_name = tk.Label(color_item, text = color_name, font = ("Default", 11), fg = text_color, bg = color)
     color_name.pack(side = "left")
 
     color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = color, fg = text_color, 
@@ -84,8 +83,7 @@ def add_item(parent, color, text):
     color_value["state"] = "disabled"
 
 def update_palette():
-    global full_palette_old
-
+    global color_item_index
     accent_palette = winaccent._utils.generate_color_palette(accent_normal)
 
     accent_light_3 = accent_palette[0]
@@ -103,24 +101,43 @@ def update_palette():
     ttk.Label(palette_header, text = "Palette", font = ("Segoe UI Semibold", 15)).pack(padx = (8, 0), pady = (16, 8), anchor = "w", side = "left")
     ttk.Checkbutton(palette_header, text = " Full palette", variable = full_palette, command = update_palette).pack(anchor = "w", pady = (13, 0), padx = (0, 8), side = "right")
 
-    palette_colors = tk.Frame(palette, highlightbackground = accent_dark_3, highlightthickness = 1)
-    palette_colors.pack(anchor = "w", fill = "x", padx = 8, pady = (0, 8))
+    palette_colors = tk.Frame(palette, highlightbackground = accent_dark_3, highlightthickness = 1, background = "#000000")
+    palette_colors.pack(anchor = "w", fill = "both", expand = True, padx = 8, pady = (0, 8))
 
     if full_palette.get():
-        add_item(palette_colors, accent_light_3, "accent_light_3")
-        add_item(palette_colors, accent_light_2, "accent_light_2")
-        add_item(palette_colors, accent_light_1, "accent_light_1")
-        add_item(palette_colors, accent_normal, "accent_normal")
-        add_item(palette_colors, accent_dark_1, "accent_dark_1")
-        add_item(palette_colors, accent_dark_2, "accent_dark_2")
-        add_item(palette_colors, accent_dark_3, "accent_dark_3")
-    else:
-        add_item(palette_colors, accent_light_2, "accent_light")
-        add_item(palette_colors, accent_normal, "accent_normal")
-        add_item(palette_colors, accent_dark_1, "accent_dark")
+        palette_colors.grid_rowconfigure(0, weight = 1)
+        palette_colors.grid_rowconfigure(1, weight = 1)
+        palette_colors.grid_rowconfigure(2, weight = 1)
+        palette_colors.grid_rowconfigure(3, weight = 1)
+        palette_colors.grid_rowconfigure(4, weight = 1)
+        palette_colors.grid_rowconfigure(5, weight = 1)
+        palette_colors.grid_rowconfigure(6, weight = 1)
 
-    lock_geometry(window)
-    full_palette_old = full_palette.get()
+        add_color(palette_colors, accent_light_3, "accent_light_3")
+        add_color(palette_colors, accent_light_2, "accent_light_2")
+        add_color(palette_colors, accent_light_1, "accent_light_1")
+        add_color(palette_colors, accent_normal, "accent_normal")
+        add_color(palette_colors, accent_dark_1, "accent_dark_1")
+        add_color(palette_colors, accent_dark_2, "accent_dark_2")
+        add_color(palette_colors, accent_dark_3, "accent_dark_3")
+    else:
+        palette_colors.grid_rowconfigure(0, weight = 1)
+        palette_colors.grid_rowconfigure(1, weight = 1)
+        palette_colors.grid_rowconfigure(2, weight = 1)
+        palette_colors.grid_rowconfigure(3, weight = 0)
+        palette_colors.grid_rowconfigure(4, weight = 0)
+        palette_colors.grid_rowconfigure(5, weight = 0)
+        palette_colors.grid_rowconfigure(6, weight = 0)
+
+        add_color(palette_colors, accent_light_2, "accent_light")
+        add_color(palette_colors, accent_normal, "accent_normal")
+        add_color(palette_colors, accent_dark_1, "accent_dark")
+
+    color_item_index = -1
 
 update_palette()
+
+window.update()
+window.geometry(window.geometry())
+
 window.mainloop()
