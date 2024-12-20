@@ -4,19 +4,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "$(play) Run demo (auto)",
+            "label": "Launch demo (auto)",
             "type": "shell",
             "command": "python -m winaccent",
             "problemMatcher": []
         },
         {
-            "label": "$(play) Run GUI demo",
+            "label": "Launch GUI demo",
             "type": "shell",
             "command": "python -m winaccent --mode gui",
             "problemMatcher": []
         },
         {
-            "label": "$(play) Run console demo",
+            "label": "Launch console demo",
             "type": "shell",
             "command": "python -m winaccent --mode console",
             "problemMatcher": []
