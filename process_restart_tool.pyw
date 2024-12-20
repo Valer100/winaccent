@@ -3,10 +3,6 @@ from tkinter import ttk
 
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
 
-if not ctypes.windll.shell32.IsUserAnAdmin():
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, "\"" + os.path.abspath(sys.argv[0]) + "\"", "", 1)
-    sys.exit()
-
 window = tk.Tk()
 window.title("Process restart tool")
 window.resizable(False, False)
@@ -17,6 +13,6 @@ window.iconphoto(True, icon)
 
 ttk.Label(window, text = "Click one of the following buttons to restart a process").pack(anchor = "w", pady = (0, 14))
 ttk.Button(window, text = "Restart explorer.exe", command = lambda: subprocess.call("taskkill /f /im explorer.exe & start explorer", shell = True)).pack(fill = "x")
-ttk.Button(window, text = "Restart dwm.exe", command = lambda: subprocess.call("taskkill /f /im dwm.exe", shell = True)).pack(fill = "x", pady = (4, 0))
+ttk.Button(window, text = "Restart dwm.exe", command = lambda: ctypes.windll.shell32.ShellExecuteW(None, "runas", "cmd", "/c taskkill /f /im dwm.exe", "", 1)).pack(fill = "x", pady = (4, 0))
 
 window.mainloop()
