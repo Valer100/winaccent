@@ -22,6 +22,12 @@
             "problemMatcher": []
         },
         {
+            "label": "Launch palette generator demo",
+            "type": "shell",
+            "command": "python palette_generator_test.pyw",
+            "problemMatcher": []
+        },
+        {
             "label": "Launch process restart tool",
             "type": "shell",
             "command": "pythonw process_restart_tool.pyw",
