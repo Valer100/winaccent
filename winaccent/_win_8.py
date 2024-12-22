@@ -47,6 +47,12 @@ def update_values():
     global window_border_active
     global window_border_inactive
     
+    global is_start_menu_colored
+    global is_taskbar_colored
+    global start_menu
+    global taskbar
+
+    global transparency_effects_enabled
     global apps_use_light_theme
     global system_uses_light_theme
 
@@ -108,6 +114,9 @@ def update_values():
         if accent_normal == "0": accent_normal = "#000000"
         if accent_menu == "0": accent_menu = "#000000"
 
+    start_menu = accent_menu
+
+
     # Generate a color palette for the accent color (Windows 8.x doesn't generate one automatically)
     accent_palette = _utils.generate_color_palette(accent_normal)
 
@@ -118,9 +127,11 @@ def update_values():
     accent_dark_2 = accent_palette[4]
     accent_dark_3 = accent_palette[5]
 
+
     # Retrieve active titlebar color intensity (useful for retrieving the actual active titlebar color)
     try: titlebar_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: titlebar_active_intensity = 0
+
 
     # Retrieve the actual active titlebar color
     # You have to get the active titlebar color with max intensity and then blend it with "#D9D9D9" with the intensity we retrieved previously
@@ -131,8 +142,14 @@ def update_values():
         titlebar_active_max_intensity = "#9E9E9E"
         titlebar_active = "#9E9E9E"
 
+
+    # The taskbar color is the same as the active titlebar color
+    taskbar = titlebar_active
+
+
     # Hardcode active titlebar text color
     titlebar_active_text = "#282828"
+
 
     # If `get_accent_from_dwm` flag is active, generate an alternative accent color pallete based on the active titlebar color
     if get_accent_from_dwm:
@@ -146,17 +163,24 @@ def update_values():
         accent_dark_2 = accent_palette[4]
         accent_dark_3 = accent_palette[5]
 
+
     # Hardcode inactive titlebar color and text color
     titlebar_inactive = "#EBEBEB"
     titlebar_inactive_text = "#282828"
 
+
     # Set active window border color to the active titlebar color
     window_border_active = titlebar_active
+
 
     # Hardcode inactive window border color
     window_border_inactive = "#EBEBEB"
 
+
     # Hardcode these values to `True`
     is_titlebar_colored = True
+    is_start_menu_colored = True
+    is_taskbar_colored = True
+    transparency_effects_enabled = True
     apps_use_light_theme = True
     system_uses_light_theme = True

@@ -17,7 +17,7 @@ else:
 get_accent_from_dwm: bool = False
 dark_mode_titlebar: bool = False
 
-# Colors
+# Accent colors
 accent_menu: str
 accent_dark: str
 accent_light: str
@@ -32,6 +32,9 @@ accent_light_3: str
 accent_light_2: str
 accent_light_1: str
 
+# Window chrome
+is_titlebar_colored: bool
+
 titlebar_active: str
 titlebar_active_text: str
 titlebar_inactive: str
@@ -40,8 +43,16 @@ window_border: str
 window_border_active: str
 window_border_inactive: str
 
+# Start Menu & Taskbar
+is_start_menu_colored: bool
+is_taskbar_colored: bool
+
+start_menu: str
+taskbar: str
+
 # Other settings
-is_titlebar_colored: bool
+transparency_effects_enabled: bool
+
 apps_use_light_theme: bool
 system_uses_light_theme: bool
 
@@ -49,12 +60,15 @@ system_uses_light_theme: bool
 class event:
     accent_color_changed = 0
     window_chrome_color_changed = 1
-    apps_theme_changed = 2
-    system_theme_changed = 3
+    start_menu_color_changed = 2
+    taskbar_color_changed = 3
+    transparency_effects_toggled = 4
+    apps_theme_changed = 5
+    system_theme_changed = 6
 
 
 def update_values() -> None: 
-    '''Updates the accent color variables.'''
+    '''Retrieves and updates all the values.'''
     
     global get_accent_from_dwm
     global dark_mode_titlebar
@@ -82,6 +96,12 @@ def update_values() -> None:
     global window_border_active
     global window_border_inactive
     
+    global is_start_menu_colored
+    global is_taskbar_colored
+    global start_menu
+    global taskbar
+
+    global transparency_effects_enabled
     global apps_use_light_theme
     global system_uses_light_theme
 
@@ -101,6 +121,7 @@ def update_values() -> None:
     accent_light = accent_light_2
     accent_dark_mode = accent_light
     accent_light_mode = accent_dark
+    accent_menu = win.accent_menu
 
     is_titlebar_colored = win.is_titlebar_colored
     titlebar_active = win.titlebar_active
@@ -111,8 +132,12 @@ def update_values() -> None:
     window_border_active = win.window_border_active
     window_border_inactive = win.window_border_inactive
 
-    accent_menu = win.accent_menu
+    is_start_menu_colored = win.is_start_menu_colored
+    is_taskbar_colored = win.is_taskbar_colored
+    start_menu = win.start_menu
+    taskbar = win.taskbar
 
+    transparency_effects_enabled = win.transparency_effects_enabled
     apps_use_light_theme = win.apps_use_light_theme
     system_uses_light_theme = win.system_uses_light_theme
 
@@ -142,6 +167,12 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
 
         accent_menu_old = accent_menu
         
+        is_start_menu_colored_old = is_start_menu_colored
+        is_taskbar_colored_old = is_taskbar_colored
+        start_menu_old = start_menu
+        taskbar_old = taskbar
+
+        transparency_effects_enabled_old = transparency_effects_enabled
         apps_use_light_theme_old = apps_use_light_theme
         system_uses_light_theme_old = system_uses_light_theme
         
@@ -173,14 +204,31 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
             if pass_event: callback(event = 1)
             elif not accent_color_changed: callback()
 
-        if (apps_use_light_theme_old != apps_use_light_theme): 
-            # Apps theme changed
+        if (start_menu_old != start_menu or
+            is_start_menu_colored_old != is_start_menu_colored): 
+            # Start Menu color changed
             if pass_event: callback(event = 2)
+            elif not accent_color_changed: callback()
+
+        if (taskbar_old != taskbar or
+            is_taskbar_colored_old != is_taskbar_colored): 
+            # Taskbar color changed
+            if pass_event: callback(event = 3)
+            elif not accent_color_changed: callback()
+
+        if transparency_effects_enabled_old != transparency_effects_enabled: 
+            # Transparency effects toggled
+            if pass_event: callback(event = 4)
+            else: callback()
+
+        if apps_use_light_theme_old != apps_use_light_theme: 
+            # Apps theme changed
+            if pass_event: callback(event = 5)
             else: callback()
             
-        if (system_uses_light_theme_old != system_uses_light_theme):
+        if system_uses_light_theme_old != system_uses_light_theme:
             # System theme changed
-            if pass_event: callback(event = 3)
+            if pass_event: callback(event = 6)
             else: callback()
 
         time.sleep(1)

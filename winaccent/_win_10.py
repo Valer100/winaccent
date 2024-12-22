@@ -10,7 +10,7 @@ def update_values():
     global dark_mode_titlebar
 
     global accent_menu
-
+    
     global accent_light_3
     global accent_light_2
     global accent_light_1
@@ -18,7 +18,7 @@ def update_values():
     global accent_dark_3
     global accent_dark_2
     global accent_dark_1
-    
+
     global is_titlebar_colored
     global titlebar_active
     global titlebar_active_text
@@ -27,6 +27,12 @@ def update_values():
     global window_border_active
     global window_border_inactive
     
+    global is_start_menu_colored
+    global is_taskbar_colored
+    global start_menu
+    global taskbar
+
+    global transparency_effects_enabled
     global apps_use_light_theme
     global system_uses_light_theme
 
@@ -65,13 +71,44 @@ def update_values():
             accent_dark_2 = "#004275"
             accent_dark_3 = "#002642"
 
+
     # Retrieve accent_menu color
     try: accent_menu = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", "AccentColorMenu", "abgr")
     except: accent_menu = accent_normal
 
+
+    # Retrieve Start Menu and Taskbar colors
+    try:
+        color_prevalence_system = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "ColorPrevalence")
+
+        if color_prevalence_system == 0:
+            is_start_menu_colored = False
+            is_taskbar_colored = False
+        elif color_prevalence_system == 1:
+            is_start_menu_colored = True
+            is_taskbar_colored = True
+        elif color_prevalence_system >= 2:
+            is_start_menu_colored = False
+            is_taskbar_colored = True
+    except:
+        is_start_menu_colored = False
+        is_taskbar_colored = False
+
+
+    if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22621:
+        # Windows 11
+        start_menu = _utils.blend_colors("#FFFFFF", accent_dark_2, 3.5)
+    elif sys.getwindowsversion().major == 10:
+        # Windows 10
+        start_menu = accent_dark_1
+    
+    taskbar = accent_dark_2
+
+
     # Retrieve active titlebar color (for colored titlebars)
     try: titlebar_active = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "AccentColor", "abgr")
     except: titlebar_active = accent_menu
+
 
     # Retrieve inactive titlebar color (for colored titlebars)
     try: 
@@ -100,6 +137,7 @@ def update_values():
 
         titlebar_inactive_custom_color = False
 
+
     # Retrieve active window border color intensity (useful for retrieving the atcual window border color on Windows 10)
     try: window_border_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: window_border_active_intensity = 0
@@ -116,18 +154,22 @@ def update_values():
         except: 
             window_border_active = "#9E9E9E"
 
+
     # Replicate Windows' behavior if titlebar_active, titlebar_inactive and window_border are set to 0
     if titlebar_active == "0": titlebar_active = accent_menu
     if titlebar_inactive == "0": titlebar_inactive = accent_menu
     if accent_menu == "0": accent_menu = accent_normal
     if window_border_active == "0": window_border_active = "#000000"
 
+
     # Retrieve active titlebar text color (for colored titlebars)
     titlebar_active_text = "#FFFFFF" if _utils.white_text_on_color(titlebar_active) else "#000000"
-    
+
+
     # Retrieve inactive titlebar text color (for colored titlebars)
     titlebar_inactive_text_no_blend = "#FFFFFF" if _utils.white_text_on_color(titlebar_inactive) else "#000000"
     titlebar_inactive_text = _utils.blend_colors(titlebar_inactive_text_no_blend, titlebar_inactive, 40)
+
 
     # If `get_accent_from_dwm` flag is active, generate an alternative accent color pallete based on the active titlebar color
     if get_accent_from_dwm and accent_normal != titlebar_active:
@@ -141,6 +183,7 @@ def update_values():
         accent_dark_2 = accent_palette[4]
         accent_dark_3 = accent_palette[5]
 
+
     # Retrieve the value of the "Show accent color on title bars and window borders" setting
     try:
         is_titlebar_colored = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorPrevalence")
@@ -149,6 +192,7 @@ def update_values():
         else: is_titlebar_colored = False
     except:
         is_titlebar_colored = False
+
 
     # Hardcode some colors if the titlebars aren't colored
     if not is_titlebar_colored:
@@ -179,6 +223,7 @@ def update_values():
                 titlebar_inactive_text = "#929292"
                 window_border_active = "#757575"
 
+
     # More color hardcoding
     if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
         if dark_mode_titlebar: window_border_inactive = "#555555"
@@ -191,6 +236,7 @@ def update_values():
             if dark_mode_titlebar: window_border_inactive = "#757575"
             else: window_border_inactive = "#757575"
 
+
     # Retrieve apps' theme
     try:
         apps_use_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme")
@@ -200,6 +246,7 @@ def update_values():
     except:
         apps_use_light_theme = True
 
+
     # Retrieve system's theme
     try:
         system_uses_light_theme = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "SystemUsesLightTheme")
@@ -208,3 +255,37 @@ def update_values():
         else: system_uses_light_theme = True
     except:
         system_uses_light_theme = False
+
+
+    # Retrieve transparency effects setting
+    try:
+        transparency_effects_enabled = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "EnableTransparency")
+
+        if transparency_effects_enabled == 0: transparency_effects_enabled = False
+        else: transparency_effects_enabled = True
+    except:
+        transparency_effects_enabled = False
+
+
+    # Hardcode start menu color if it isn't colored
+    if not is_start_menu_colored:
+        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22621:
+            # Windows 11
+            if system_uses_light_theme: start_menu = "#F2F2F2"
+            else: start_menu = "#242424"
+        elif sys.getwindowsversion().major == 10:
+            # Windows 10
+            if system_uses_light_theme: start_menu = "#E4E4E4"
+            else: start_menu = "#1F1F1F"
+
+    
+    # Hardcode taskbar color if it isn't colored
+    if not is_taskbar_colored:
+        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22621:
+            # Windows 11
+            if system_uses_light_theme: taskbar = "#EEEEEE"
+            else: taskbar = "#1C1C1C"
+        elif sys.getwindowsversion().major == 10:
+            # Windows 10
+            if system_uses_light_theme: taskbar = "#EEEEEE"
+            else: taskbar = "#101010"
