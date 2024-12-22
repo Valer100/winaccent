@@ -165,25 +165,45 @@ def gui_demo():
         ttk.Checkbutton(window_chrome, text = " dark_mode_titlebar", variable = dark_mode_titlebar, command = update_windows_chrome_colors).pack(anchor = "w", padx = 4)
 
 
-    theme = ttk.Frame(notebook, padding = 10)
-    notebook.add(theme, text = "Theme")
+    system = ttk.Frame(notebook, padding = 10)
+    notebook.add(system, text = "System")
 
-    def update_theme_info():
-        for widget in theme.winfo_children(): widget.destroy()
+    def update_system_info():
+        for widget in system.winfo_children(): widget.destroy()
 
-        ttk.Label(theme, text = "Theme", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
+        ttk.Label(system, text = "Start Menu", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
+        add_boolean_value(system, "is_start_menu_colored", winaccent.is_start_menu_colored)
+        
+        start_menu_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        start_menu_color.pack(anchor = "w", fill = "x", pady = (8, 0))
+        
+        add_color(start_menu_color, "start_menu", winaccent.start_menu)
 
-        add_boolean_value(theme, "apps_use_light_theme", winaccent.apps_use_light_theme)
-        add_boolean_value(theme, "system_uses_light_theme", winaccent.system_uses_light_theme)
+        ttk.Label(system, text = "Taskbar", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+        add_boolean_value(system, "is_taskbar_colored", winaccent.is_taskbar_colored)
+
+        taskbar_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        taskbar_color.pack(anchor = "w", fill = "x", pady = (8, 0))
+
+        add_color(taskbar_color, "taskbar", winaccent.taskbar)
+
+        ttk.Label(system, text = "UI Appearance", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+
+        add_boolean_value(system, "transparency_effects_enabled", winaccent.transparency_effects_enabled)
+        add_boolean_value(system, "apps_use_light_theme", winaccent.apps_use_light_theme)
+        add_boolean_value(system, "system_uses_light_theme", winaccent.system_uses_light_theme)
 
     def on_appearance_changed(event):
         if event == winaccent.event.accent_color_changed: update_accent_palette_colors()
         elif event == winaccent.event.window_chrome_color_changed: update_windows_chrome_colors()
-        elif event == winaccent.event.system_theme_changed: update_theme_info()
+        elif event == winaccent.event.system_theme_changed: update_system_info()
+        elif event == winaccent.event.transparency_effects_toggled: update_system_info()
+        elif event == winaccent.event.start_menu_color_changed: update_system_info()
+        elif event == winaccent.event.taskbar_color_changed: update_system_info()
 
     update_accent_palette_colors()
     update_windows_chrome_colors()
-    update_theme_info()
+    update_system_info()
 
     thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = on_appearance_changed, pass_event = True), daemon = True)
     thread.start()
@@ -196,36 +216,49 @@ def console_demo():
     print("\nAccent palette")
     print("==============\n")
 
-    print(f"accent_light_3:           {winaccent.accent_light_3}")
-    print(f"accent_light_2:           {winaccent.accent_light_2}")
-    print(f"accent_light_1:           {winaccent.accent_light_1}")
-    print(f"accent_normal:            {winaccent.accent_normal}")
-    print(f"accent_dark_1:            {winaccent.accent_dark_1}")
-    print(f"accent_dark_2:            {winaccent.accent_dark_2}")
-    print(f"accent_dark_3:            {winaccent.accent_dark_3}")
+    print(f"accent_light_3:                 {winaccent.accent_light_3}")
+    print(f"accent_light_2:                 {winaccent.accent_light_2}")
+    print(f"accent_light_1:                 {winaccent.accent_light_1}")
+    print(f"accent_normal:                  {winaccent.accent_normal}")
+    print(f"accent_dark_1:                  {winaccent.accent_dark_1}")
+    print(f"accent_dark_2:                  {winaccent.accent_dark_2}")
+    print(f"accent_dark_3:                  {winaccent.accent_dark_3}")
 
     print("\n\nWindow chrome")
     print("===============\n")
     
 
-    print(f"is_titlebar_colored:      {winaccent.is_titlebar_colored}")
-    print(f"titlebar_active:          {winaccent.titlebar_active}")
-    print(f"titlebar_active_text:     {winaccent.titlebar_active_text}")
-    print(f"titlebar_inactive:        {winaccent.titlebar_inactive}")
-    print(f"titlebar_inactive_text:   {winaccent.titlebar_inactive_text}")
-    print(f"window_border_active:     {winaccent.window_border_active}")
-    print(f"window_border_inactive:   {winaccent.window_border_inactive}")
+    print(f"is_titlebar_colored:            {winaccent.is_titlebar_colored}")
+    print(f"titlebar_active:                {winaccent.titlebar_active}")
+    print(f"titlebar_active_text:           {winaccent.titlebar_active_text}")
+    print(f"titlebar_inactive:              {winaccent.titlebar_inactive}")
+    print(f"titlebar_inactive_text:         {winaccent.titlebar_inactive_text}")
+    print(f"window_border_active:           {winaccent.window_border_active}")
+    print(f"window_border_inactive:         {winaccent.window_border_inactive}")
     
-    print("\n\nSystem theme")
-    print("============\n")
+    print("\n\nStart Menu")
+    print("==========\n")
 
-    print(f"apps_use_light_theme:     {winaccent.titlebar_inactive}")
-    print(f"system_uses_light_theme:  {winaccent.window_border}")
+    print(f"is_start_menu_colored:          {winaccent.is_start_menu_colored}")
+    print(f"start_menu:                     {winaccent.start_menu}")
+
+    print("\n\nTaskbar")
+    print("=======\n")
+
+    print(f"is_taskbar_colored:             {winaccent.is_taskbar_colored}")
+    print(f"taskbar:                        {winaccent.taskbar}")
+
+    print("\n\nUI Appearance")
+    print("=============\n")
+
+    print(f"transparency_effects_enabled:   {winaccent.transparency_effects_enabled}")
+    print(f"apps_use_light_theme:           {winaccent.apps_use_light_theme}")
+    print(f"system_uses_light_theme:        {winaccent.system_uses_light_theme}")
 
     print("\n\nOther colors")
     print("============\n")
 
-    print(f"accent_menu:              {winaccent.accent_menu}")
+    print(f"accent_menu:                    {winaccent.accent_menu}")
     print("\n")
 
 
