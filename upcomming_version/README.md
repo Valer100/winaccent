@@ -129,20 +129,6 @@ You can get the Start Menu color from the `start_menu` variable and the Taskbar 
 
 ---
 
-### Check if transparency effects are enabled
-You can check if the transparency effects are enabled using the `transparency_effects_enabled` boolean. Here's an example:
-
-```python
-import winaccent
-
-if winaccent.transparency_effects_enabled:
-    print("Transparency effects are enabled")
-else:
-    print("Transparency effects are disabled")
-```
-
----
-
 ### Get apps or system theme
 This module also allows you to check if the apps or system use the light theme or not using the `apps_use_light_theme` and `system_uses_light_theme` booleans. The difference between them is that `apps_use_light_theme` is used to check the apps' theme and `system_uses_light_theme` is used to check the theme of some system components, such as the taskbar, Start menu and others. Here's an example:
 
@@ -163,6 +149,11 @@ else:
 
 > [!NOTE]
 > `apps_use_light_theme` and `system_uses_light_theme` will always return `True` on Windows 8.x.
+
+---
+
+### Check if transparency effects are enabled
+You can check if the transparency effects are enabled using the `transparency_effects_enabled` boolean.
 
 ---
 
