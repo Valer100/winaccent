@@ -75,23 +75,20 @@ if sys.platform == "win32":
 
 For simplicity, you can get a specific accent color from one of the following variables:
 
-| Variable | Color | Preview |
-|----------|:-------:|:-------:|
-| accent_dark_mode<br>(or accent_light) | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
-| accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_light_mode<br>(or accent_dark) | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
+| Variable | Color |
+|----------|:------:
+| **accent_dark_mode**<br>(or **accent_light**) | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"><br>#4CC2FF |
+| **accent_normal** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"><br>#0078D4 |
+| **accent_light_mode**<br>(or **accent_dark**) | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"><br>#0067C0 |
 
 If you need a different shade, you can get it from one of these variables:
 
-| Variable | Color | Preview |
-|----------|:-------:|:-------:|
-| accent_light_3 | #99EBFF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_3.png?raw=true"> |
-| accent_light_2 | #4CC2FF | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"> |
-| accent_light_1 | #0091F8 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_1.png?raw=true"> |
-| accent_normal | #0078D4 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"> |
-| accent_dark_1 | #0067C0 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"> |
-| accent_dark_2 | #003E92 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"> |
-| accent_dark_3 | #001A68 | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"> |
+| Variable | Color | Variable | Color |
+|----------|:-----:|----------|:-----:|
+| **accent_light_3** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_3.png?raw=true"><br>#99EBFF |**accent_dark_1** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light.png?raw=true"><br>#0067C0 |
+| **accent_light_2** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark.png?raw=true"><br>#4CC2FF | **accent_dark_2** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_2.png?raw=true"><br>#003E92 |
+| **accent_light_1** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_1.png?raw=true"><br>#0091F8 | **accent_dark_3** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"><br>#001A68 |
+| **accent_normal** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"><br>#0078D4 |
 
 You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen and start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
 
@@ -117,8 +114,12 @@ You may want to take a look at Microsoft's accent color guidelines. You can do t
 > <br><br>
 > <img src="https://github.com/Valer100/winaccent/blob/main/assets/show_accent_color_on_window_stuff.png?raw=true">
 > <br><br>
-> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry. <br><br>
+> Also, the `titlebar_active` and `window_border` variables don't always return the same color. The user can change the color of the titlebar or window borders from the registry. <br>
+> <details>
+> <summary>Show example</summary>
+> <br>
 > <img src="https://github.com/Valer100/winaccent/blob/main/assets/custom_window_colors_demo.png?raw=true">
+> </details>
 
 You can get the active titlebar color from `titlebar_active` variable and the inactive titlebar color from `titlebar_inactive`. The window border color can be obtained from `window_border` variable.
 
@@ -188,9 +189,6 @@ thread.start()
 > [!NOTE]
 > If you added the listener, there's no need to call `update_values()` because it will be called automatically every time the appearance changes.
 
-Here's a demo:
-
-https://github.com/user-attachments/assets/c77e3219-fa44-4026-bbc3-1995358f4c7e
 
 ## 💻 Demo
 To see a demo, run the following command in your terminal (winaccent must be installed):
@@ -215,7 +213,9 @@ python -m winaccent --mode gui
 
 The command will run with `--mode` set to `auto` by default.
 
-Here's how a GUI demo looks:
+<details>
+<summary>Show GUI demo screenshots</summary>
+<br>
 
 | **Windows version** | **Default colors & settings** | **Modified colors & settings** |
 |:-------------------:|:------------------:|:----------------------------:|
@@ -223,7 +223,11 @@ Here's how a GUI demo looks:
 | **Windows 10** | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_10_default.png?raw=true) | ![Windows 10 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_10_modified.png?raw=true)
 | **Windows 8** | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_8_default.png?raw=true) | ![Windows 8 modified](https://github.com/Valer100/winaccent/blob/main/assets/demo2/win_8_modified.png?raw=true)
 
-A console demo looks like this (for default blue accent color):
+</details>
+
+<details>
+<summary>Show console demo console output</summary>
+<br>
 
 ```
 Accent palette
@@ -259,17 +263,9 @@ Other colors
 
 accent_menu:              #0078D4
 ```
-
+</details>
 
 ## 🤩 Feedback
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
 
 If you found this module useful, please consider starring this repository.
-
-## 📋 To do
-- [x] ~~Add an accent color change listener~~
-- [x] ~~Add color shades~~
-- [x] ~~Add support for getting active/inactive titlebar color~~
-- [x] ~~Add support for getting window border color~~
-- [x] ~~Add support for Windows 8.x~~
-- [x] ~~Add support for retrieving apps' and system's theme~~

@@ -90,7 +90,6 @@ If you need a different shade, you can get it from one of these variables:
 | **accent_light_1** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_dark_1.png?raw=true"><br>#0091F8 | **accent_dark_3** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_light_3.png?raw=true"><br>#001A68 |
 | **accent_normal** | <img src="https://github.com/Valer100/winaccent/blob/main/assets/colors/accent_normal.png?raw=true"><br>#0078D4 |
 
-
 You can get the accent color used in lockscreen, UAC (Windows 10), welcome screen and start menu (Windows 8.x) and other elements using `accent_menu` variable (usually it's the same color as `accent_normal`, but can be modified in the registry).
 
 > [!WARNING]
@@ -255,6 +254,7 @@ print(winaccent.titlebar_active)
 
 <details>
 <summary>Flag effects</summary>
+<br>
 
 Flag | If set to `False` (default) | If set to `True` |
 |---|:---:|:---:|
@@ -287,6 +287,7 @@ The command will run with `--mode` set to `auto` by default.
 
 <details>
 <summary>Show GUI demo</summary>
+<br>
 
 | **Windows 11** | **Windows 10** | **Windows 8.x** |
 |:--------------:|:--------------:|:---------------:|
@@ -296,6 +297,7 @@ The command will run with `--mode` set to `auto` by default.
 
 <details>
 <summary>Show console demo</summary>
+<br>
 
 ```
 Accent palette
@@ -338,11 +340,3 @@ accent_menu:              #0078D4
 If you found a bug or want to make a suggestion, open a new issue. If you're ready to add a new feature or fix a bug, pull requests are welcome.
 
 If you found this module useful, please consider starring this repository.
-
-## 📋 To do
-- [x] ~~Add an accent color change listener~~
-- [x] ~~Add color shades~~
-- [x] ~~Add support for getting active/inactive titlebar color~~
-- [x] ~~Add support for getting window border color~~
-- [x] ~~Add support for Windows 8.x~~
-- [x] ~~Add support for retrieving apps' and system's theme~~
