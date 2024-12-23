@@ -169,6 +169,7 @@ def gui_demo():
     notebook.add(system, text = "System")
 
     def update_system_info():
+        global color_item_index
         for widget in system.winfo_children(): widget.destroy()
 
         ttk.Label(system, text = "Start Menu", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
@@ -178,6 +179,7 @@ def gui_demo():
         start_menu_color.pack(anchor = "w", fill = "x", pady = (8, 0))
         
         add_color(start_menu_color, "start_menu", winaccent.start_menu)
+        color_item_index = -1
 
         ttk.Label(system, text = "Taskbar", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         add_boolean_value(system, "is_taskbar_colored", winaccent.is_taskbar_colored)
@@ -186,6 +188,7 @@ def gui_demo():
         taskbar_color.pack(anchor = "w", fill = "x", pady = (8, 0))
 
         add_color(taskbar_color, "taskbar", winaccent.taskbar)
+        color_item_index = -1
 
         ttk.Label(system, text = "UI Appearance", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
 
