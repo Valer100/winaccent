@@ -6,11 +6,11 @@
 [![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
 [![Python](https://img.shields.io/badge/python-3.6+-blue)]()
 [![Windows](https://img.shields.io/badge/windows-8.0+-blue)]()
-[![Format](https://img.shields.io/pypi/format/winaccent)]()
+[![Format](https://img.shields.io/pypi/format/winaccent)](https://pypi.org/project/winaccent/)
 [![Downloads](https://img.shields.io/pepy/dt/winaccent)](https://pypi.org/project/winaccent/)
-[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat&color=yellow)]()
-[![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)]()
-[![Last commit](https://img.shields.io/github/last-commit/Valer100/winaccent)]()
+[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat&color=yellow)](https://github.com/Valer100/winaccent/stargazers)
+[![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent)](https://github.com/Valer100/winaccent/graphs/contributors)
+[![Last commit](https://img.shields.io/github/last-commit/Valer100/winaccent)](https://github.com/Valer100/winaccent/commits/main)
 [![License](https://img.shields.io/github/license/Valer100/winaccent)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
 A simple and lightweight Python module for easily retrieving Windows' accent color, including shades, specific window chrome colors such as active/inactive titlebar and window borders and theme. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
