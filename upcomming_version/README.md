@@ -224,12 +224,6 @@ Event constants (from the `event` class):
 > [!NOTE]
 > If you added the listener, there's no need to call `update_values()` because it will be called automatically every time the appearance changes.
 
-<details>
-<summary>Show demo</summary>
-
-https://github.com/user-attachments/assets/c77e3219-fa44-4026-bbc3-1995358f4c7e
-</details>
-
 ---
 
 ### Flags
