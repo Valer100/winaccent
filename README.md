@@ -226,7 +226,7 @@ The command will run with `--mode` set to `auto` by default.
 </details>
 
 <details>
-<summary>Show console demo console output</summary>
+<summary>Show console demo output</summary>
 <br>
 
 ```

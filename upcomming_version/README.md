@@ -286,7 +286,7 @@ python -m winaccent --mode gui
 The command will run with `--mode` set to `auto` by default.
 
 <details>
-<summary>Show GUI demo</summary>
+<summary>Show GUI demo screenshots</summary>
 <br>
 
 | **Windows 11** | **Windows 10** | **Windows 8.x** |
@@ -296,7 +296,7 @@ The command will run with `--mode` set to `auto` by default.
 </details>
 
 <details>
-<summary>Show console demo</summary>
+<summary>Show console demo output</summary>
 <br>
 
 ```
