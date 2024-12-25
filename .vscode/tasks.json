@@ -24,7 +24,7 @@
         {
             "label": "Launch palette generator demo",
             "type": "shell",
-            "command": "python palette_generator_test.pyw",
+            "command": "python palette_generator_test.py",
             "problemMatcher": []
         },
         {
