@@ -80,7 +80,11 @@ def gui_demo():
         ttk.Label(header, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w", side = "left")
         ttk.Checkbutton(header, text = " Full palette", variable = full_palette, command = update_accent_palette_colors).pack(anchor = "w", pady = (0, 5), side = "right")
 
-        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = winaccent.accent_dark_3, highlightthickness = 1)
+        current_text_color_rgb = window.winfo_rgb("SystemButtonText")
+        current_text_color = f"#{current_text_color_rgb[0]:02x}{current_text_color_rgb[1]:02x}{current_text_color_rgb[2]:02x}"
+        palette_bd = winaccent.accent_dark_3 if winaccent._utils.white_text_on_color(current_text_color) else winaccent.accent_light_3
+
+        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = palette_bd, highlightthickness = 1)
         accent_palette_colors.pack(anchor = "w", fill = "both", expand = True)
 
         if full_palette.get():

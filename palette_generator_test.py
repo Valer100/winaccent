@@ -11,6 +11,7 @@ window.configure(padx = 10, pady = 10)
 color_item_index = -1
 accent_normal = "#4617B4"
 accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
+accent_light_3 = winaccent._utils.generate_color_palette(accent_normal)[0]
 
 full_palette = tk.BooleanVar(value = True)
 
@@ -26,18 +27,32 @@ ttk.Label(window, text = "Main color", font = ("Segoe UI Semibold", 15)).pack(pa
 color = ttk.Frame(window)
 color.pack(fill = "x", anchor = "w", padx = 10)
 
-color_prev = tk.Frame(color, width = 23, height = 23, highlightthickness = 1, highlightbackground = accent_dark_3, bg = accent_normal)
+current_text_color_rgb = window.winfo_rgb("SystemButtonText")
+current_text_color = f"#{current_text_color_rgb[0]:02x}{current_text_color_rgb[1]:02x}{current_text_color_rgb[2]:02x}"
+palette_bd = accent_dark_3 if winaccent._utils.white_text_on_color(current_text_color) else accent_light_3
+
+color_prev = tk.Frame(color, width = 23, height = 23, highlightthickness = 1, highlightbackground = palette_bd, bg = accent_normal)
 color_prev.pack(side = "left")
 
 def on_color_change(event = None):
-    global accent_normal
+    global accent_normal, palette_bd
     accent_normal = color_input.get().upper()
 
     if len(color_input.get()) == 7:
-        try: color_prev["bg"] = accent_normal; update_palette()
-        except: color_prev["bg"] = "SystemButtonFace"
+        try: 
+            accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
+            accent_light_3 = winaccent._utils.generate_color_palette(accent_normal)[0]
+
+            current_text_color_rgb = window.winfo_rgb("SystemButtonText")
+            current_text_color = f"#{current_text_color_rgb[0]:02x}{current_text_color_rgb[1]:02x}{current_text_color_rgb[2]:02x}"
+            palette_bd = accent_dark_3 if winaccent._utils.white_text_on_color(current_text_color) else accent_light_3
+
+            color_prev.configure(bg = accent_normal, highlightbackground = palette_bd)
+            update_palette()
+        except: 
+            color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemButtonText")
     else:
-        color_prev["bg"] = "SystemButtonFace"
+        color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemButtonText")
 
 def choose_color():
     global accent_normal
@@ -83,7 +98,7 @@ def add_color(parent, color, color_name):
     color_value["state"] = "disabled"
 
 def update_palette():
-    global color_item_index
+    global color_item_index, palette_bd
     accent_palette = winaccent._utils.generate_color_palette(accent_normal)
 
     accent_light_3 = accent_palette[0]
@@ -101,7 +116,7 @@ def update_palette():
     ttk.Label(palette_header, text = "Palette", font = ("Segoe UI Semibold", 15)).pack(padx = (8, 0), pady = (16, 8), anchor = "w", side = "left")
     ttk.Checkbutton(palette_header, text = " Full palette", variable = full_palette, command = update_palette).pack(anchor = "w", pady = (13, 0), padx = (0, 8), side = "right")
 
-    palette_colors = tk.Frame(palette, highlightbackground = accent_dark_3, highlightthickness = 1, background = "#000000")
+    palette_colors = tk.Frame(palette, highlightbackground = palette_bd, highlightthickness = 1, background = "#000000")
     palette_colors.pack(anchor = "w", fill = "both", expand = True, padx = 8, pady = (0, 8))
 
     if full_palette.get():
