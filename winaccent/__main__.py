@@ -232,7 +232,7 @@ def console_demo():
     print(f"accent_dark_3:                  {winaccent.accent_dark_3}")
 
     print("\n\nWindow chrome")
-    print("===============\n")
+    print("=============\n")
     
 
     print(f"is_titlebar_colored:            {winaccent.is_titlebar_colored}")
