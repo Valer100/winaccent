@@ -304,35 +304,53 @@ The command will run with `--mode` set to `auto` by default.
 Accent palette
 ==============
 
-accent_light_3:           #99EBFF
-accent_light_2:           #4CC2FF
-accent_light_1:           #0091F8
-accent_normal:            #0078D4
-accent_dark_1:            #0067C0
-accent_dark_2:            #003E92
-accent_dark_3:            #001A68
+accent_light_3:                 #99EBFF
+accent_light_2:                 #4CC2FF
+accent_light_1:                 #0091F8
+accent_normal:                  #0078D4
+accent_dark_1:                  #0067C0
+accent_dark_2:                  #003E92
+accent_dark_3:                  #001A68
 
 
-Windows options
-===============
+Window chrome
+=============
 
-is_titlebar_colored:      False
-titlebar_active:          #0078D4
-titlebar_inactive:        None
-window_border:            #0078D4
+is_titlebar_colored:            False
+titlebar_active:                #F3F3F3
+titlebar_active_text:           #000000
+titlebar_inactive:              #F3F3F3
+titlebar_inactive_text:         #929292
+window_border_active:           #757575
+window_border_inactive:         #757575
 
 
-System theme
-============
+Start Menu
+==========
 
-apps_use_light_theme:     False
-system_uses_light_theme:  False
+is_start_menu_colored:          False
+start_menu:                     #242424
+
+
+Taskbar
+=======
+
+is_taskbar_colored:             False
+taskbar:                        #1C1C1C
+
+
+UI Appearance
+=============
+
+transparency_effects_enabled:   True
+apps_use_light_theme:           False
+system_uses_light_theme:        False
 
 
 Other colors
 ============
 
-accent_menu:              #0078D4
+accent_menu:                    #0078D4
 ```
 </details>
 
