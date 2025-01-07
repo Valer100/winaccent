@@ -7,7 +7,7 @@ def gui_demo():
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
 
     window = tk.Tk()
-    window.title("winaccent")
+    window.title(f"winaccent {winaccent.__version__}")
     window.resizable(False, False)
     window.configure(padx = 10, pady = 10)
 
@@ -220,8 +220,11 @@ def gui_demo():
 
 
 def console_demo():
+    print(f"\nwinaccent {winaccent.__version__}")
+    print("===============\n")
+
     print("\nAccent palette")
-    print("==============\n")
+    print("--------------\n")
 
     print(f"accent_light_3:                 {winaccent.accent_light_3}")
     print(f"accent_light_2:                 {winaccent.accent_light_2}")
@@ -232,7 +235,7 @@ def console_demo():
     print(f"accent_dark_3:                  {winaccent.accent_dark_3}")
 
     print("\n\nWindow chrome")
-    print("=============\n")
+    print("-------------\n")
     
 
     print(f"is_titlebar_colored:            {winaccent.is_titlebar_colored}")
@@ -244,26 +247,26 @@ def console_demo():
     print(f"window_border_inactive:         {winaccent.window_border_inactive}")
     
     print("\n\nStart Menu")
-    print("==========\n")
+    print("----------\n")
 
     print(f"is_start_menu_colored:          {winaccent.is_start_menu_colored}")
     print(f"start_menu:                     {winaccent.start_menu}")
 
     print("\n\nTaskbar")
-    print("=======\n")
+    print("-------\n")
 
     print(f"is_taskbar_colored:             {winaccent.is_taskbar_colored}")
     print(f"taskbar:                        {winaccent.taskbar}")
 
     print("\n\nUI Appearance")
-    print("=============\n")
+    print("-------------\n")
 
     print(f"transparency_effects_enabled:   {winaccent.transparency_effects_enabled}")
     print(f"apps_use_light_theme:           {winaccent.apps_use_light_theme}")
     print(f"system_uses_light_theme:        {winaccent.system_uses_light_theme}")
 
     print("\n\nOther colors")
-    print("============\n")
+    print("------------\n")
 
     print(f"accent_menu:                    {winaccent.accent_menu}")
     print("\n")
