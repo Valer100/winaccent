@@ -84,7 +84,7 @@ def gui_demo():
         current_text_color = f"#{current_text_color_rgb[0]:02x}{current_text_color_rgb[1]:02x}{current_text_color_rgb[2]:02x}"
         palette_bd = winaccent.accent_dark_3 if winaccent._utils.white_text_on_color(current_text_color) else winaccent.accent_light_3
 
-        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = palette_bd, highlightthickness = 1)
+        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = palette_bd, highlightcolor = palette_bd, highlightthickness = 1)
         accent_palette_colors.pack(anchor = "w", fill = "both", expand = True)
 
         if full_palette.get():
@@ -120,7 +120,7 @@ def gui_demo():
 
         ttk.Label(accent_palette, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 
-        accent_menu = tk.Frame(accent_palette, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        accent_menu = tk.Frame(accent_palette, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
         accent_menu.pack(anchor = "w", fill = "x")
 
         add_color(accent_menu, "accent_menu", winaccent.accent_menu)
@@ -145,7 +145,7 @@ def gui_demo():
 
         ttk.Label(window_chrome, text = "Active window", font = ("Segoe UI Semibold", 15)).pack(pady = (12, 10), anchor = "w")
 
-        active_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        active_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
         active_window_colors.pack(anchor = "w", fill = "x")
 
         add_color(active_window_colors, "titlebar_active", winaccent.titlebar_active)
@@ -156,7 +156,7 @@ def gui_demo():
 
         ttk.Label(window_chrome, text = "Inactive window", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 
-        inactive_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        inactive_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
         inactive_window_colors.pack(anchor = "w", fill = "x")
 
         add_color(inactive_window_colors, "titlebar_inactive", winaccent.titlebar_inactive)
@@ -179,7 +179,7 @@ def gui_demo():
         ttk.Label(system, text = "Start Menu", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
         add_boolean_value(system, "is_start_menu_colored", winaccent.is_start_menu_colored)
         
-        start_menu_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        start_menu_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
         start_menu_color.pack(anchor = "w", fill = "x", pady = (8, 0))
         
         add_color(start_menu_color, "start_menu", winaccent.start_menu)
@@ -188,7 +188,7 @@ def gui_demo():
         ttk.Label(system, text = "Taskbar", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         add_boolean_value(system, "is_taskbar_colored", winaccent.is_taskbar_colored)
 
-        taskbar_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightthickness = 1)
+        taskbar_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
         taskbar_color.pack(anchor = "w", fill = "x", pady = (8, 0))
 
         add_color(taskbar_color, "taskbar", winaccent.taskbar)
