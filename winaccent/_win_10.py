@@ -138,7 +138,7 @@ def update_values():
         titlebar_inactive_custom_color = False
 
 
-    # Retrieve active window border color intensity (useful for retrieving the atcual window border color on Windows 10)
+    # Retrieve active window border color intensity (useful for retrieving the actual window border color on Windows 10)
     try: window_border_active_intensity = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColorBalance")
     except: window_border_active_intensity = 0
 
@@ -171,7 +171,7 @@ def update_values():
     titlebar_inactive_text = _utils.blend_colors(titlebar_inactive_text_no_blend, titlebar_inactive, 40)
 
 
-    # If `get_accent_from_dwm` flag is active, generate an alternative accent color pallete based on the active titlebar color
+    # If `get_accent_from_dwm` flag is active, generate an alternative accent color palette based on the active titlebar color
     if get_accent_from_dwm and accent_normal != titlebar_active:
         accent_normal = titlebar_active
         accent_palette = _utils.generate_color_palette(accent_normal)
