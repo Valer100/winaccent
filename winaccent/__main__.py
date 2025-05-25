@@ -221,7 +221,7 @@ def gui_demo():
 
 def console_demo():
     print(f"\nwinaccent {winaccent.__version__}")
-    print("===============\n")
+    print("=" * len(f"winaccent {winaccent.__version__}") + "\n")
 
     print("\nAccent palette")
     print("--------------\n")
