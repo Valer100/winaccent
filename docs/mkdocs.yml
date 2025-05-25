@@ -1,0 +1,92 @@
+site_name: winaccent
+site_description: The winaccent module documentation
+repo_url: https://github.com/Valer100/winaccent
+repo_name: Valer100/winaccent
+copyright: Copyright &copy; 2024-2025 Valer100
+
+extra:
+    social:
+        - icon: fontawesome/solid/earth-americas
+          link: https://valer100.github.io
+          name: My website
+        - icon: fontawesome/brands/github
+          link: https://github.com/Valer100
+          name: Valer100 on GitHub
+        - icon: fontawesome/brands/python
+          link: https://pypi.org/project/winaccent
+          name: winaccent on PyPI
+nav:
+    - About winaccent:
+        - What's winaccent: ""
+        - Requirements: about/requirements.md
+        - License: about/license.md
+        
+    - Getting started:
+        - Installation: getting-started/installation.md
+        - Try the demo: getting-started/try-the-demo.md
+        - Example usage: getting-started/example-usage.md
+
+    - Colors:
+        - Accent color and shades: colors/accent-color-and-shades.md
+        - System colors: colors/system-colors.md
+        - Window chrome colors: colors/window-chrome-colors.md
+
+    - Other features:
+        - Settings: other-features/settings.md
+        - Refreshing the colors and the appearance change listener: other-features/refreshing-the-colors-and-listener.md
+        - HEX string color to RGB integer tuple function: other-features/hex-to-rgb-function.md
+        - Flags: other-features/flags.md
+        
+markdown_extensions:
+  - admonition
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  
+
+theme: 
+    name: material
+    logo: icon.svg
+    favicon: icon.svg
+
+    features:
+        - navigation.instant
+        - navigation.instant.progress
+        - navigation.sections
+        - navigation.indexes
+        - navigation.footer
+        - content.tooltips
+        - content.code.copy
+
+    font:
+        text: Inter
+        code: Cascadia Code
+
+    icon:
+        repo: fontawesome/brands/github
+
+    palette:
+        - media: "(prefers-color-scheme)"
+          primary: indigo
+          accent: indigo
+          toggle:
+            icon: fontawesome/solid/computer
+            name: Switch to Light mode
+    
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/white-balance-sunny
+              name: Switch to Dark mode
+
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: fontawesome/solid/moon
+              name: Switch to System mode

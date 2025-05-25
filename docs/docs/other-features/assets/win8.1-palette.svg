@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="270"
+   height="249.95348"
+   viewBox="0 0 71.43748 66.133519"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="win8.1-palette.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4875189"
+     inkscape:cx="131.4269"
+     inkscape:cy="99.494534"
+     inkscape:window-width="1366"
+     inkscape:window-height="697"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect7"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,7.9374998,0,1 @ F,0,0,1,0,7.9374998,0,1"
+       radius="30"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect6"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,7.9374998,0,1 @ F,0,0,1,0,7.9374998,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="30"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect5"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,-17.072047)">
+      <path
+         id="rect1"
+         style="fill:#cab2ff;fill-opacity:1;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         d="M 18.969275,33.419788 H 142.93825 a 7.9374998,7.9374998 45 0 1 7.9375,7.9375 l 0,10.556948 H 11.031775 V 41.357288 a 7.9374998,7.9374998 135 0 1 7.9375,-7.9375 z"
+         inkscape:path-effect="#path-effect6"
+         inkscape:original-d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#000000;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269">accent_light_3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#000000;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2"><tspan
+           sodipodi:role="line"
+           id="tspan2-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#000000;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#CAB2FF</tspan></text>
+    </g>
+    <g
+       id="g2-7"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,-7.6243941)">
+      <path
+         id="rect1-6"
+         style="fill:#9366ff;fill-opacity:1;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2-1"><tspan
+           sodipodi:role="line"
+           id="tspan2-8"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#000000;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269">accent_light_2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#000000;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2-9"><tspan
+           sodipodi:role="line"
+           id="tspan2-1-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#000000;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#9366FF</tspan></text>
+    </g>
+    <g
+       id="g2-7-4"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,1.8232583)">
+      <path
+         id="rect1-6-3"
+         style="fill:#5d19ff;fill-opacity:1;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2-1-1"><tspan
+           sodipodi:role="line"
+           id="tspan2-8-2"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269">accent_light_1</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269"
+           id="tspan3" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2-9-3"><tspan
+           sodipodi:role="line"
+           id="tspan2-1-2-3"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#ffffff;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#5D19FF</tspan></text>
+    </g>
+    <g
+       id="g2-9"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,20.718564)">
+      <path
+         id="rect1-8"
+         style="fill:#2d0098;fill-opacity:1;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2-6"><tspan
+           sodipodi:role="line"
+           id="tspan2-5"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269">accent_dark_1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2-0"><tspan
+           sodipodi:role="line"
+           id="tspan2-1-28"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#ffffff;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#2D0098</tspan></text>
+    </g>
+    <g
+       id="g2-7-6"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,30.166215)">
+      <path
+         id="rect1-6-0"
+         style="fill:#1e0066;fill-opacity:1;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2-1-2"><tspan
+           sodipodi:role="line"
+           id="tspan2-8-4"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269">accent_dark_2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2-9-8"><tspan
+           sodipodi:role="line"
+           id="tspan2-1-2-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#ffffff;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#1E0066</tspan></text>
+    </g>
+    <g
+       id="g2-7-4-5"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,39.613872)">
+      <path
+         id="rect1-6-3-0"
+         style="fill:#100033;fill-opacity:1;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         d="M 11.031775,33.419788 H 150.87575 v 10.556948 a 7.9374998,7.9374998 135 0 1 -7.9375,7.9375 H 18.969275 a 7.9374998,7.9374998 45 0 1 -7.9375,-7.9375 z"
+         inkscape:path-effect="#path-effect7"
+         inkscape:original-d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2-1-1-9"><tspan
+           sodipodi:role="line"
+           id="tspan2-8-2-0"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269">accent_dark_3</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269"
+           id="tspan3-0" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2-9-3-6"><tspan
+           sodipodi:role="line"
+           id="tspan2-1-2-3-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#ffffff;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#100033</tspan></text>
+    </g>
+    <g
+       id="g2-7-4-3"
+       transform="matrix(0.51083717,0,0,0.51083717,-5.6353945,11.27091)">
+      <path
+         id="rect1-6-3-8"
+         style="fill:#4617b4;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers;fill-opacity:1"
+         d="M 11.031775,33.419788 H 150.87575 V 51.914236 H 11.031775 Z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:Inter;-inkscape-font-specification:'Inter Medium';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="15.729018"
+         y="45.490269"
+         id="text2-1-1-7"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269"
+           id="tspan3-2">accent_normal</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.76111px;font-family:Inter;-inkscape-font-specification:'Inter Medium';fill:#ffffff;stroke-width:5.497"
+           x="15.729018"
+           y="45.490269"
+           id="tspan4" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#ffffff;stroke-width:5.49701;stroke-opacity:0;paint-order:stroke fill markers"
+         x="145.4066"
+         y="45.490269"
+         id="text2-2-9-3-7"><tspan
+           sodipodi:role="line"
+           id="tspan2-1-2-3-7"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:end;text-anchor:end;fill:#ffffff;stroke-width:5.497"
+           x="145.4066"
+           y="45.490269">#4617B4</tspan></text>
+    </g>
+  </g>
+</svg>
