@@ -13,7 +13,7 @@ def gui_demo():
 
     full_palette = tk.BooleanVar(value = True)
     get_accent_from_dwm = tk.BooleanVar(value = False)
-    dark_mode_titlebar = tk.BooleanVar(value = False)
+    dark_mode_window = tk.BooleanVar(value = False)
 
     icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
     window.iconphoto(True, icon)
@@ -137,7 +137,7 @@ def gui_demo():
         global color_item_index
 
         for widget in window_chrome.winfo_children(): widget.destroy()
-        winaccent.dark_mode_titlebar = dark_mode_titlebar.get()
+        winaccent.dark_mode_window = dark_mode_window.get()
         winaccent.update_values()
 
         ttk.Label(window_chrome, text = "Titlebar", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
@@ -166,7 +166,7 @@ def gui_demo():
         color_item_index = -1
 
         ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
-        ttk.Checkbutton(window_chrome, text = " dark_mode_titlebar", variable = dark_mode_titlebar, command = update_windows_chrome_colors).pack(anchor = "w", padx = 4)
+        ttk.Checkbutton(window_chrome, text = " dark_mode_window", variable = dark_mode_window, command = update_windows_chrome_colors).pack(anchor = "w", padx = 4)
 
 
     system = ttk.Frame(notebook, padding = 10)

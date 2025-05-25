@@ -7,7 +7,7 @@ import winreg, sys
 
 def update_values():
     global get_accent_from_dwm
-    global dark_mode_titlebar
+    global dark_mode_window
 
     global accent_menu
     
@@ -120,7 +120,7 @@ def update_values():
 
         if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
             # Windows 10
-            if dark_mode_titlebar:
+            if dark_mode_window:
                 titlebar_inactive = "#2B2B2B"
                 titlebar_inactive_text = "#808080"
             else:
@@ -128,7 +128,7 @@ def update_values():
                 titlebar_inactive_text = "#999999"
         else:
             # Windows 11
-            if dark_mode_titlebar:
+            if dark_mode_window:
                 titlebar_inactive = "#202020"
                 titlebar_inactive_text = "#797979"
             else:
@@ -197,7 +197,7 @@ def update_values():
     # Hardcode some colors if the titlebars aren't colored
     if not is_titlebar_colored:
         if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
-            if dark_mode_titlebar:
+            if dark_mode_window:
                 titlebar_active = "#000000"
                 titlebar_active_text = "#FFFFFF"
                 titlebar_inactive = "#2B2B2B"
@@ -210,7 +210,7 @@ def update_values():
                 titlebar_inactive_text = "#999999"
                 window_border_active = "#363636"
         else:
-            if dark_mode_titlebar:
+            if dark_mode_window:
                 titlebar_active = "#202020"
                 titlebar_active_text = "#FFFFFF"
                 titlebar_inactive = "#202020"
@@ -226,14 +226,14 @@ def update_values():
 
     # More color hardcoding
     if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build < 22621:
-        if dark_mode_titlebar: window_border_inactive = "#555555"
+        if dark_mode_window: window_border_inactive = "#555555"
         else: window_border_inactive = "#555555"
     else:
         if is_titlebar_colored and titlebar_inactive_custom_color:
             # On Windows 11 inactive window border color is the same as the inactive titlebar color
             window_border_inactive = titlebar_inactive
         else:
-            if dark_mode_titlebar: window_border_inactive = "#757575"
+            if dark_mode_window: window_border_inactive = "#757575"
             else: window_border_inactive = "#757575"
 
 

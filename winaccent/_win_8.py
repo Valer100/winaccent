@@ -27,7 +27,7 @@ accent_normal_colors = [
 
 def update_values():
     global get_accent_from_dwm
-    global dark_mode_titlebar
+    global dark_mode_window
 
     global accent_menu
     

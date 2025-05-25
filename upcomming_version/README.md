@@ -228,25 +228,25 @@ Event constants (from the `event` class):
 
 ### Flags
 
-Currently, there are only 2 flags available: `get_accent_from_dwm` and `dark_mode_titlebar` (both set to `False` by default). 
+Currently, there are only 2 flags available: `get_accent_from_dwm` and `dark_mode_window` (both set to `False` by default). 
 
 If `get_accent_from_dwm` flag is set to `True`, the `accent_normal` color will default to the active titlebar color (with maximum intensity on Windows 8.x) and different shades will be generated.
 
-If `dark_mode_titlebar` flag is set to `True`, the dark mode titlebar-related colors will be returned. If it's set to `False`, it will return the light mode titlebar-related colors.
+If `dark_mode_window` flag is set to `True`, the dark mode titlebar-related colors will be returned. If it's set to `False`, it will return the light mode titlebar-related colors.
 
 Here's an example of setting a flag to `True`:
 
 ```python
 import winaccent
 
-# Before enabling `dark_mode_titlebar` flag
+# Before enabling `dark_mode_window` flag
 print(winaccent.titlebar_active)
 
 # Enable the flag and retrieve the values again
-winaccent.dark_mode_titlebar = True
+winaccent.dark_mode_window = True
 winaccent.update_values()
 
-# After enabling `dark_mode_titlebar` flag
+# After enabling `dark_mode_window` flag
 print(winaccent.titlebar_active)
 ```
 
