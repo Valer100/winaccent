@@ -13,7 +13,7 @@ Simple as that.
 
 
 ## Using winaccent in cross-platform applications
-Unfortunately, winaccent is a Windows-only module, meaning that it won't work on other platforms like Linux or MacOS. Trying to import winaccent on a platform other than Windows or a Windows version older than 8.0 will raise an `ImportError` exception. When using this module in cross-platform applications, make sure you only import and use winaccent on Windows systems to avoid errors. On other operating systems you will have to find other ways to get the system's accent color or just to hardcode it to something else. Here's an example:
+Unfortunately, winaccent is a Windows-only module, meaning that it won't work on other platforms like Linux or MacOS. Trying to import winaccent on a platform other than Windows or a Windows version older than 8.0 will raise an `ImportError` exception. When using this module in cross-platform applications, make sure you only import and use winaccent on Windows systems to avoid errors. For other operating systems, you will need to find other ways to get the system's accent color or hardcode it to a different color. Here's an example:
 
 ```python
 import sys
@@ -26,8 +26,8 @@ if sys.platform == "win32":
 else:
     # Other platforms
     #
-    # You will have to find different ways for retrieving the
-    # system accent color or just to hardcode it to something else.
+    # You will need to find different ways for retrieving the
+    # system accent color hardcode it to a different color.
 
     print("The script is running on an unsupported platform.")
 ```
@@ -50,8 +50,8 @@ if sys.platform == "win32":
 else:
     # Other platforms
     #
-    # You will have to find different ways for retrieving the
-    # system accent color or just to hardcode it to something else.
+    # You will need to find different ways for retrieving the
+    # system accent color hardcode it to a different color.
 
     print("The script is running on an unsupported platform.")
 ```
