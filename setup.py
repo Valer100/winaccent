@@ -13,7 +13,7 @@ setup(
     python_requires = ">=3.6",
     project_urls = {
         "Source": "https://github.com/Valer100/winaccent",
-        "Documentation": "https://github.com/Valer100/winaccent?tab=readme-ov-file#-documentation",
+        "Documentation": "https://valer100.github.io/winaccent",
         "Issues": "https://github.com/Valer100/winaccent/issues",
     },
     packages = find_packages(),

@@ -7,10 +7,11 @@
 - Now you can retrieve the inactive window border color using `window_border_inactive`. For retrieving the active window border color, use `window_border_active`. `window_border` will be deprecated starting with version 3.0.0.
 - Now you can retrieve the start menu and taskbar color using `start_menu` and `taskbar` (you can also check if they are colored or not using `is_start_menu_colored` and `is_taskbar_colored` booleans).
 
-[Read the documentation](https://github.com/Valer100/winaccent?tab=readme-ov-file#-documentation) to learn more about the new features.
+[Read the documentation](https://valer100.github.io/winaccent) to learn more about the new features.
 
 ## Improvements
 - Redesigned the GUI demo to look better and cleaner.
+- New documentation website (you can visit it [here](https://valer100.github.io/winaccent)).
 
 <br>
 
@@ -18,5 +19,5 @@
 > To update, run the following command:
 >
 > ```
-> pip install --upgrade winaccent
+> pip install --upgrade --nocache winaccent
 > ```
