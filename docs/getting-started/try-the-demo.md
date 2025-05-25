@@ -1,6 +1,6 @@
 # Try the demo
 
-Before using winaccent, you can try the demo program to see how it works and what features are implemented. The demo program can be launched in 3 different ways: console mode, GUI mode and auto mode.
+Before using winaccent, you can try the demo program to see how it works and what features are implemented. The demo program can be launched in 3 different modes: console mode, GUI mode and auto mode.
 
 !!! warning
     You must have winaccent installed to be able to run the demo program. See [Installation](installation.md) for more information about installing winaccent.
