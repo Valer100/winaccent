@@ -6,7 +6,7 @@ Windows generates an accent palette based on the current accent color. It consis
 - the original accent color (A)
 - 3 light variants (+1, +2 and +3)
 
-![Accent palette example](assets/palette-example.svg)
+![Accent palette example](assets/palette-example.svg){ .no-lightbox }
 
 For the current accent color we'll use <font color="#0078D4">&nbsp;:fontawesome-solid-circle:</font> **#0078D4** (the default accent color). The output values shown bellow were generated on a Windows 11 machine.
 
@@ -14,9 +14,9 @@ For simplicity, you can get a specific accent color shade from one of the follow
 
 | Variable | Example color output |
 |:---------|:--------------------:|
-| **accent_light** (or **accent_dark_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg) &nbsp;&nbsp;#4CC2FF</div> |
-| **accent_normal**                             | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg) &nbsp;&nbsp;#0078D4</div>  |
-| **accent_dark** (or **accent_light_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg) &nbsp;&nbsp;#0067C0</div>  |
+| **accent_light** (or **accent_dark_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg){ .no-lightbox } &nbsp;&nbsp;#4CC2FF</div> |
+| **accent_normal**                             | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg){ .no-lightbox } &nbsp;&nbsp;#0078D4</div>  |
+| **accent_dark** (or **accent_light_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg){ .no-lightbox } &nbsp;&nbsp;#0067C0</div>  |
 
 Here's an example for printing them in the console:
 
@@ -32,13 +32,13 @@ If you need a different shade than the ones listed above, here's the complete li
 
 | Variable | Example color output |
 |:---------|:--------------------:|
-| **accent_light_3** | <div style="display: flex; align-items: center; justify-content: center;">![#99EBFF](assets/circle-accent-light-3.svg) &nbsp;&nbsp;#99EBFF</div> |
-| **accent_light_2** | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg) &nbsp;&nbsp;#4CC2FF</div> |
-| **accent_light_1** | <div style="display: flex; align-items: center; justify-content: center;">![#0091F8](assets/circle-accent-light-1.svg) &nbsp;&nbsp;#0091F8</div> |
-| **accent_normal**  | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg) &nbsp;&nbsp;#0078D4</div>  |
-| **accent_dark_1**  | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg) &nbsp;&nbsp;#0067C0</div>  |
-| **accent_dark_2**  | <div style="display: flex; align-items: center; justify-content: center;">![#003E92](assets/circle-accent-dark-2.svg) &nbsp;&nbsp;#003E92</div>  |
-| **accent_dark_3**  | <div style="display: flex; align-items: center; justify-content: center;">![#001A68](assets/circle-accent-dark-3.svg) &nbsp;&nbsp;#001A68</div>  |
+| **accent_light_3** | <div style="display: flex; align-items: center; justify-content: center;">![#99EBFF](assets/circle-accent-light-3.svg){ .no-lightbox } &nbsp;&nbsp;#99EBFF</div> |
+| **accent_light_2** | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg){ .no-lightbox } &nbsp;&nbsp;#4CC2FF</div> |
+| **accent_light_1** | <div style="display: flex; align-items: center; justify-content: center;">![#0091F8](assets/circle-accent-light-1.svg){ .no-lightbox } &nbsp;&nbsp;#0091F8</div> |
+| **accent_normal**  | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg){ .no-lightbox } &nbsp;&nbsp;#0078D4</div>  |
+| **accent_dark_1**  | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg){ .no-lightbox } &nbsp;&nbsp;#0067C0</div>  |
+| **accent_dark_2**  | <div style="display: flex; align-items: center; justify-content: center;">![#003E92](assets/circle-accent-dark-2.svg){ .no-lightbox } &nbsp;&nbsp;#003E92</div>  |
+| **accent_dark_3**  | <div style="display: flex; align-items: center; justify-content: center;">![#001A68](assets/circle-accent-dark-3.svg){ .no-lightbox } &nbsp;&nbsp;#001A68</div>  |
 
 ```python
 import winaccent
