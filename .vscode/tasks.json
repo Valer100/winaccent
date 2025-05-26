@@ -32,6 +32,12 @@
             "type": "shell",
             "command": "pythonw process_restart_tool.pyw",
             "problemMatcher": []
+        },
+        {
+            "label": "Preview docs website",
+            "type": "shell",
+            "command": "mkdocs serve",
+            "problemMatcher": []
         }
     ]
 }
