@@ -14,6 +14,7 @@ setup(
     project_urls = {
         "Source": "https://github.com/Valer100/winaccent",
         "Documentation": "https://valer100.github.io/winaccent",
+        "Changelog": "https://valer100.github.io/winaccent/about/changelog",
         "Issues": "https://github.com/Valer100/winaccent/issues",
     },
     packages = find_packages(),

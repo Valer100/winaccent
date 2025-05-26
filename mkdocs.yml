@@ -24,6 +24,7 @@ nav:
         - What's winaccent: ""
         - Requirements: about/requirements.md
         - License: about/license.md
+        - Changelog: about/changelog.md
         
     - Getting started:
         - Installation: getting-started/installation.md
@@ -43,6 +44,7 @@ nav:
         
 markdown_extensions:
   - admonition
+  - attr_list
   - md_in_html
   - pymdownx.details
   - pymdownx.superfences
@@ -76,7 +78,7 @@ theme:
           primary: indigo
           accent: indigo
           toggle:
-            icon: fontawesome/solid/computer
+            icon: material/auto-fix
             name: Switch to Light mode
     
         - media: "(prefers-color-scheme: light)"

@@ -1,8 +1,17 @@
+/* Custom minimum version badge */
+/* <a title="Minimum version" class="badge" href="../../about/changelog#2.1.0">:material-tag-outline: **v2.1.0**</a> */
+
 .badge {
     background-color: #526cfe1a;
     padding: 4px;
     border-radius: 3px;
     font-size: .85em;
+    transition: background-color 0.3s !important;
+}
+
+.badge:hover {
+    background-color: #526cfe3a;
+    transition: background-color 0.3s !important;
 }
 
 @media (min-width: 960px) {
@@ -23,6 +32,18 @@
     }
 }
 
+div.md-search__scrollwrap {
+    scrollbar-width: initial;
+}
+
 div.md-header__title {
     margin-left: 8px !important;
+}
+
+.version-testing {
+    color: #c09d00;
+}
+
+[data-md-color-scheme="slate"] .version-testing {
+    color: #fff598;
 }
