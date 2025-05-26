@@ -56,7 +56,7 @@ print(f"Inactive window border: {wintaccent.window_border_inactive}")
 
     </div>
 
-    Title bar and window border colors can also be customized from the registry on Windows 10:
+    Title bar and window border colors can also be customized from the registry:
 
     <div align="center">
     ![Custom window colors](assets/custom-window-colors.png)
