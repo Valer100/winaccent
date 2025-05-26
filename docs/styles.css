@@ -1,0 +1,28 @@
+.badge {
+    background-color: #526cfe1a;
+    padding: 4px;
+    border-radius: 3px;
+    font-size: .85em;
+}
+
+@media (min-width: 960px) {
+    form.md-search__form {
+        border-radius: 500px !important;
+    }
+
+    div.md-search__scrollwrap, div.md-search__output {
+        border-radius: 15px !important;
+    }
+
+    div.md-search__output {
+        margin-top: 8px;
+    }
+
+    div.md-header__source {
+        margin-left: 16px !important;
+    }
+}
+
+div.md-header__title {
+    margin-left: 8px !important;
+}

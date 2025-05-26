@@ -15,6 +15,10 @@ extra:
         - icon: fontawesome/brands/python
           link: https://pypi.org/project/winaccent
           name: winaccent on PyPI
+
+extra_css:
+    - styles.css
+
 nav:
     - About winaccent:
         - What's winaccent: ""
