@@ -5,7 +5,7 @@
 [![Windows](https://img.shields.io/badge/windows-8.0+-blue?style=for-the-badge)]()
 [![Format](https://img.shields.io/pypi/format/winaccent?style=for-the-badge)](https://pypi.org/project/winaccent/)
 [![Downloads](https://img.shields.io/pepy/dt/winaccent?style=for-the-badge)](https://pypi.org/project/winaccent/)
-[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat&color=yellow&style=for-the-badge)](https://github.com/Valer100/winaccent/stargazers)
+[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?color=yellow&style=for-the-badge)](https://github.com/Valer100/winaccent/stargazers)
 [![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent?style=for-the-badge)](https://github.com/Valer100/winaccent/graphs/contributors)
 [![Last commit](https://img.shields.io/github/last-commit/Valer100/winaccent?style=for-the-badge)](https://github.com/Valer100/winaccent/commits/main)
 [![Commits since latest release](https://img.shields.io/github/commits-since/Valer100/winaccent/latest?style=for-the-badge)](https://github.com/Valer100/winaccent/commits/main)
