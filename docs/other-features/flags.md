@@ -1,4 +1,5 @@
 # Flags
+<!-- Added in <font color="#4051B5">:material-tag: **v2.1.0**</font> -->
 
 Flags are winaccent settings that customize its behavior. These flags can be used to enable features and modify the output of some variables. By default, every flag defaults to `False`. 
 
@@ -40,10 +41,10 @@ print(f"accent_dark_2: {winaccent.accent_dark_2}")
 print(f"accent_dark_3: {winaccent.accent_dark_3}")
 ```
 
-Here's a visual comparasion before enabling the flag and after enabling the flag on Windows 8.x (Normal accent color: &nbsp;![Windows 8.1 default purple](assets/circle-accent-purple-small.svg) **#4617D4**; DWM accent color: &nbsp;![Windows 8.1 DWM yellow](assets/circle-accent-yellow-small.svg) **#F6C34A**):
+Here's a visual comparasion before enabling the flag and after enabling the flag on Windows 8.x (Normal accent color: <font color="#4617D4">&nbsp;:fontawesome-solid-circle:</font> **#4617D4**; DWM accent color: <font color="#F6C34A">&nbsp;:fontawesome-solid-circle:</font> **#F6C34A**):
 
 ![Windows 8.1 example window](assets/win8.1-window.png)
-<br>Windows 8.1 example window (title bar color: &nbsp;![Windows 8.1 DWM light yellow](assets/circle-accent-light-yellow-small.svg) **#F0C869**)
+<br>Windows 8.1 example window (title bar color: <font color="#F0C869">&nbsp;:fontawesome-solid-circle:</font> **#F0C869**)
 
 <div markdown align="center" style="display: flex; flex-wrap: wrap;">
 

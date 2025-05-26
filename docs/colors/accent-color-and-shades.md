@@ -8,7 +8,7 @@ Windows generates an accent palette based on the current accent color. It consis
 
 ![Accent palette example](assets/palette-example.svg)
 
-For the current accent color we'll use &nbsp;![Windows 11 default blue](assets/circle-accent-normal-small.svg) **#0078D4** (the default accent color). The output values shown bellow were generated on a Windows 11 machine.
+For the current accent color we'll use <font color="#0078D4">&nbsp;:fontawesome-solid-circle:</font> **#0078D4** (the default accent color). The output values shown bellow were generated on a Windows 11 machine.
 
 For simplicity, you can get a specific accent color shade from one of the following variables:
 
@@ -56,7 +56,7 @@ print(f"accent_dark_3: {winaccent.accent_dark_3}")
     `accent_dark_mode`, `accent_light` and `accent_light_2` return the same color. `accent_light_mode`, `accent_dark` and `accent_dark_1` also return the same color. 
 
 !!! note
-    The accent palette generation algorithm is slightly different in Windows 11 from the one in Windows 10. Here's an example with the &nbsp;![Windows Gold accent color](assets/circle-accent-gold-small.svg) **#FF8C00** (Gold) accent color on both Windows 10 and 11:
+    The accent palette generation algorithm is slightly different in Windows 11 from the one in Windows 10. Here's an example with the <font color="#FF8C00">&nbsp;:fontawesome-solid-circle:</font> **#FF8C00** (Gold) accent color on both Windows 10 and 11:
 
     <div align="center" style="display: flex; flex-wrap: wrap;">
 
