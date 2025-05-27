@@ -1,14 +1,14 @@
 # Flags
 <!-- Added in <font color="#4051B5">:material-tag: **v2.1.0**</font> -->
 
-Flags are winaccent settings that customize its behavior. These flags can be used to enable features and modify the output of some variables. By default, every flag defaults to `False`. 
+Flags are winaccent settings that customize its behavior. These flags can be used to enable features and modify the output of some variables. All flags belong to the `Flags` class. By default, every flag defaults to `False`. 
 
 !!! important
     After enabling or disabling a flag, make sure to always call `update_values()` for the changes to take effect.
 
 Currently, there are only 2 flags available:
 
-## `get_accent_from_dwm` flag
+## `GET_ACCENT_FROM_DWM` flag
 When set to `True`, this flag is responsible for changing the `accent_normal` color to the active title bar color (the colorized one on Windows 10 and 11 and the color with maximum intensity on Windows 8.x; `ColorizationColor` in Windows 8.x and `AccentColor` in Windows 10 and 11 in the registry) and generate the accent palette accordingly. This flag makes more sense for Windows 8.x systems, because on Windows 10 and 11 the colored title bar color is usually the same as the system's accent color, but it can also be enabled on Windows 10 and 11. You can enable it like this:
 
 ```python
@@ -26,7 +26,7 @@ print(f"accent_dark_2: {winaccent.accent_dark_2}")
 print(f"accent_dark_3: {winaccent.accent_dark_3}")
 
 # Enable the flag
-winaccent.get_accent_from_dwm = True
+winaccent.Flags.GET_ACCENT_FROM_DWM = True
 winaccent.update_values()  # Required for the flag changes to take effect
 
 # After enabling the flag
@@ -61,7 +61,7 @@ Here's a visual comparasion before enabling the flag and after enabling the flag
 </div>
 
 
-## `dark_mode_window` flag
+## `DARK_MODE_WINDOW` flag
 
 When set to `True`, this flag will make winaccent return the dark mode versions of the window chrome colors. Useful when your app has also has a dark theme and you want to use the dark mode values when the dark theme is applied. You can enable it like this:
 
@@ -79,7 +79,7 @@ print(f"window_border_active: {winaccent.window_border_active}")
 print(f"window_border_inactive: {winaccent.window_border_inactive}")
 
 # Enable the flag
-winaccent.dark_mode_window = True
+winaccent.Flags.DARK_MODE_WINDOW = True
 winaccent.update_values()  # Required for the flag changes to take effect
 
 # After enabling the flag

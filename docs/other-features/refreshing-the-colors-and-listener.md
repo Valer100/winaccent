@@ -36,9 +36,9 @@ The example code above prints the accent color and the apps' theme when the appe
 import winaccent, threading
 
 def when_appearance_changed(event):
-    if event == winaccent.event.accent_color_changed:
+    if event == winaccent.Event.ACCENT_COLOR_CHANGED:
         print(f"Accent color changed to {winaccent.accent_normal}")
-    elif event == winaccent.event.apps_theme_changed:
+    elif event == winaccent.Event.APPS_THEME_CHANGED:
         print(f"Apps' theme changed to {'light' if winaccent.apps_use_light_theme else 'dark'}")
 
 thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = when_appearance_changed, pass_event = True), daemon = True)
@@ -47,17 +47,17 @@ thread.start()
 
 In this example, the accent color will only be printed if it changes. The same goes for the apps' theme.
 
-Here are all the supported event constants from the `event` class:
+Here are all the supported event constants from the `Event` class:
 
 | Constant                     | Value |
 |:-----------------------------|:-----:|
-| accent_color_changed         | 0     |
-| window_chrome_color_changed  | 1     |
-| start_menu_color_changed     | 2     |
-| taskbar_color_changed        | 3     |
-| transparency_effects_toggled | 4     |
-| apps_theme_changed           | 5     |
-| system_theme_changed         | 6     |
+| ACCENT_COLOR_CHANGED         | 0     |
+| WINDOW_CHROME_COLOR_CHANGED  | 1     |
+| START_MENU_COLOR_CHANGED     | 2     |
+| TASKBAR_COLOR_CHANGED        | 3     |
+| TRANSPARENCY_EFFECTS_TOGGLED | 4     |
+| APPS_THEME_CHANGED           | 5     |
+| SYSTEM_THEME_CHANGED         | 6     |
 
 !!! note
     If you set up the listener, there's no need to call `update_values()` manually, because the values will update automatically.

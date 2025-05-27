@@ -16,9 +16,6 @@ elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
 else:
     raise ImportError("Incompatible Windows version. This module only works on Windows 8 and later.")
 
-# Flags
-get_accent_from_dwm: bool = False
-dark_mode_window: bool = False
 
 # Accent colors
 accent_menu: str
@@ -60,22 +57,24 @@ apps_use_light_theme: bool
 system_uses_light_theme: bool
 
 # Event constants
-class event:
-    accent_color_changed = 0
-    window_chrome_color_changed = 1
-    start_menu_color_changed = 2
-    taskbar_color_changed = 3
-    transparency_effects_toggled = 4
-    apps_theme_changed = 5
-    system_theme_changed = 6
+class Event:
+    ACCENT_COLOR_CHANGED = 0
+    WINDOW_CHROME_COLOR_CHANGED = 1
+    START_MENU_COLOR_CHANGED = 2
+    TASKBAR_COLOR_CHANGED = 3
+    TRANSPARENCY_EFFECTS_TOGGLED = 4
+    APPS_THEME_CHANGED = 5
+    SYSTEM_THEME_CHANGED = 6
+
+# Flags
+class Flags:
+    GET_ACCENT_FROM_DWM: bool = False
+    DARK_MODE_WINDOW: bool = False
 
 
 def update_values() -> None: 
     '''Retrieves and updates all the values.'''
     
-    global get_accent_from_dwm
-    global dark_mode_window
-
     global accent_dark
     global accent_light
     global accent_dark_mode
@@ -108,8 +107,8 @@ def update_values() -> None:
     global apps_use_light_theme
     global system_uses_light_theme
 
-    win.get_accent_from_dwm = get_accent_from_dwm
-    win.dark_mode_window = dark_mode_window
+    win.get_accent_from_dwm = Flags.GET_ACCENT_FROM_DWM
+    win.dark_mode_window = Flags.DARK_MODE_WINDOW
     win.update_values()
 
     accent_light_3 = win.accent_light_3
@@ -194,7 +193,7 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
             # Accent color changed
             accent_color_changed = True
 
-            if pass_event: callback(event = 0)
+            if pass_event: callback(event = Event.ACCENT_COLOR_CHANGED)
             else: callback()
 
         if (is_titlebar_colored_old != is_titlebar_colored or
@@ -204,19 +203,19 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
             window_border_inactive_old != window_border_inactive
         ): 
             # A window chrome color changed
-            if pass_event: callback(event = 1)
+            if pass_event: callback(event = Event.WINDOW_CHROME_COLOR_CHANGED)
             elif not accent_color_changed: callback()
 
         if (start_menu_old != start_menu or
             is_start_menu_colored_old != is_start_menu_colored): 
             # Start Menu color changed
-            if pass_event: callback(event = 2)
+            if pass_event: callback(event = Event.START_MENU_COLOR_CHANGED)
             elif not accent_color_changed: callback()
 
         if (taskbar_old != taskbar or
             is_taskbar_colored_old != is_taskbar_colored): 
             # Taskbar color changed
-            if pass_event: callback(event = 3)
+            if pass_event: callback(event = Event.TASKBAR_COLOR_CHANGED)
             elif not accent_color_changed: callback()
 
         if transparency_effects_enabled_old != transparency_effects_enabled: 
@@ -226,12 +225,12 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
 
         if apps_use_light_theme_old != apps_use_light_theme: 
             # Apps theme changed
-            if pass_event: callback(event = 5)
+            if pass_event: callback(event = Event.APPS_THEME_CHANGED)
             else: callback()
             
         if system_uses_light_theme_old != system_uses_light_theme:
             # System theme changed
-            if pass_event: callback(event = 6)
+            if pass_event: callback(event = Event.SYSTEM_THEME_CHANGED)
             else: callback()
 
         time.sleep(1)

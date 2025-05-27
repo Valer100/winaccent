@@ -71,7 +71,7 @@ def gui_demo():
         global color_item_index
 
         for widget in accent_palette.winfo_children(): widget.destroy()
-        winaccent.get_accent_from_dwm = get_accent_from_dwm.get()
+        winaccent.Flags.GET_ACCENT_FROM_DWM = get_accent_from_dwm.get()
         winaccent.update_values()
 
         header = ttk.Frame(accent_palette)
@@ -137,7 +137,7 @@ def gui_demo():
         global color_item_index
 
         for widget in window_chrome.winfo_children(): widget.destroy()
-        winaccent.dark_mode_window = dark_mode_window.get()
+        winaccent.Flags.DARK_MODE_WINDOW = dark_mode_window.get()
         winaccent.update_values()
 
         ttk.Label(window_chrome, text = "Titlebar", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
@@ -201,12 +201,12 @@ def gui_demo():
         add_boolean_value(system, "system_uses_light_theme", winaccent.system_uses_light_theme)
 
     def on_appearance_changed(event):
-        if event == winaccent.event.accent_color_changed: update_accent_palette_colors()
-        elif event == winaccent.event.window_chrome_color_changed: update_windows_chrome_colors()
-        elif event == winaccent.event.system_theme_changed: update_system_info()
-        elif event == winaccent.event.transparency_effects_toggled: update_system_info()
-        elif event == winaccent.event.start_menu_color_changed: update_system_info()
-        elif event == winaccent.event.taskbar_color_changed: update_system_info()
+        if event == winaccent.Event.ACCENT_COLOR_CHANGED: update_accent_palette_colors()
+        elif event == winaccent.Event.WINDOW_CHROME_COLOR_CHANGED: update_windows_chrome_colors()
+        elif event == winaccent.Event.SYSTEM_THEME_CHANGED: update_system_info()
+        elif event == winaccent.Event.TRANSPARENCY_EFFECTS_TOGGLED: update_system_info()
+        elif event == winaccent.Event.START_MENU_COLOR_CHANGED: update_system_info()
+        elif event == winaccent.Event.TASKBAR_COLOR_CHANGED: update_system_info()
 
     update_accent_palette_colors()
     update_windows_chrome_colors()
