@@ -100,13 +100,13 @@ img.rounded, video {
     border: 1px solid var(--md-typeset-table-color);
 }
 
-div.md-tooltip {
+div.md-tooltip, div.md-tooltip2 {
     border-radius: 5px !important;
     color: #ffffffde !important;
     background-color: #1E2129 !important;
 }
 
-[data-md-color-scheme="slate"] div.md-tooltip {
+[data-md-color-scheme="slate"] div.md-tooltip, div.md-tooltip2 {
     color: #000000de !important;
     background-color: #FFFFFF !important;
 }
