@@ -14,7 +14,7 @@
 - New documentation website (this one).
 
 
-## <font title="Released">:material-tag-outline:</font> Version 2.0.1 <small>(October 21, 2024)</small> { id="2.0.1" }
+## <font title="Latest version" class="version-latest">:material-check: Version 2.0.1</font> <small>(October 21, 2024)</small> { id="2.0.1" }
 
 ### Breaking changes
 - The minimum Python version supported was changed to 3.6

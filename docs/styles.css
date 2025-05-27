@@ -4,7 +4,7 @@
 .badge {
     background-color: #526cfe1a;
     padding: 4px;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: .85em;
     transition: background-color 0.3s !important;
 }
@@ -41,9 +41,52 @@ div.md-header__title {
 }
 
 .version-testing {
-    color: #c09d00;
+    color: #d1880a;
 }
 
 [data-md-color-scheme="slate"] .version-testing {
-    color: #fff598;
+    color: #ffde79;
+}
+
+.version-latest {
+    color: #192679;
+}
+
+[data-md-color-scheme="slate"] .version-latest {
+    color: #8493e6;
+}
+
+::selection {
+    background-color: #4051b57f;
+}
+
+body {
+    transition: background-color 0.3s, scrollbar-color 0.3s;
+}
+
+.md-typeset code {
+    transition: background-color 0.3s, scrollbar-color 0.3s !important;
+}
+
+.md-typeset table:not([class]), .md-typeset .admonition {
+    background: none !important;
+    border-radius: 15px;
+}
+
+p.admonition-title {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+.md-typeset code {
+    border-radius: 5px;
+}
+
+.md-typeset pre>code {
+    border-radius: 15px;
+}
+
+img.rounded, video {
+    border-radius: 15px;
+    border: 1px solid var(--md-typeset-table-color);
 }

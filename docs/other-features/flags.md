@@ -43,7 +43,7 @@ print(f"accent_dark_3: {winaccent.accent_dark_3}")
 
 Here's a visual comparasion before enabling the flag and after enabling the flag on Windows 8.x (Normal accent color: <font color="#4617D4">&nbsp;:fontawesome-solid-circle:</font> **#4617D4**; DWM accent color: <font color="#F6C34A">&nbsp;:fontawesome-solid-circle:</font> **#F6C34A**):
 
-![Windows 8.1 example window](assets/win8.1-window.png)
+![Windows 8.1 example window](assets/win8.1-window.png){ .rounded }
 <br>Windows 8.1 example window (title bar color: <font color="#F0C869">&nbsp;:fontawesome-solid-circle:</font> **#F0C869**)
 
 <div markdown align="center" style="display: flex; flex-wrap: wrap;">

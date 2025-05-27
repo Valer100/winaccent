@@ -2,7 +2,7 @@
 
 The window chrome refers to the parts of a window that are drawn by the operating system rather than by the application itself. This typically includes the title bar, window borders and close/minimize/maximize buttons. These elements surround the main content area of the application and allow the user to move, resize, or control the window. Not to be confused with the Google Chrome web browser.
 
-![Example window](assets/window.png)
+![Example window](assets/window.png){ .rounded }
 
 winaccent allows you to get some window chrome colors. You can do that using the following variables:
 
@@ -45,12 +45,12 @@ print(f"Inactive window border: {wintaccent.window_border_inactive}")
     <div alignment="center" style="display: flex; flex-wrap: wrap;">
 
     <figure markdown>
-    ![Windows 10 colored title bar](assets/win10-colored-titlebar.png)
+    ![Windows 10 colored title bar](assets/win10-colored-titlebar.png){ .rounded }
     <br>Windows 10
     </figure>
 
     <figure markdown>
-    ![Windows 11 colored title bar](assets/win11-colored-titlebar.png)
+    ![Windows 11 colored title bar](assets/win11-colored-titlebar.png){ .rounded }
     <br>Windows 11
     </figure>
 
@@ -59,7 +59,7 @@ print(f"Inactive window border: {wintaccent.window_border_inactive}")
     Title bar and window border colors can also be customized from the registry:
 
     <div align="center">
-    ![Custom window colors](assets/custom-window-colors.png)
+    ![Custom window colors](assets/custom-window-colors.png){ .rounded }
     </div>
 
 !!! warning
