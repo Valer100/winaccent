@@ -64,10 +64,6 @@ body {
     transition: background-color 0.3s, scrollbar-color 0.3s;
 }
 
-.md-typeset code {
-    transition: background-color 0.3s, scrollbar-color 0.3s !important;
-}
-
 .md-typeset table:not([class]), .md-typeset .admonition {
     background: none !important;
     border-radius: 15px;
@@ -80,13 +76,37 @@ p.admonition-title {
 
 .md-typeset code {
     border-radius: 5px;
+    transition: background-color 0.3s, scrollbar-color 0.3s !important;
 }
 
 .md-typeset pre>code {
     border-radius: 15px;
 }
 
+@media screen and (max-width: 44.9844em) {
+    .md-content__inner>.highlight>.filename, .md-content__inner>.highlight>.highlighttable>tbody>tr>.code>div>pre>code, .md-content__inner>.highlight>.highlighttable>tbody>tr>.filename span.filename, .md-content__inner>.highlight>.highlighttable>tbody>tr>.linenos, .md-content__inner>.highlight>pre>code {
+        border-radius: 15px !important;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .md-clipboard {
+        right: 1.7em !important;
+    }
+}
+
 img.rounded, video {
     border-radius: 15px;
     border: 1px solid var(--md-typeset-table-color);
+}
+
+div.md-tooltip {
+    border-radius: 5px !important;
+    color: #ffffffde !important;
+    background-color: #1E2129 !important;
+}
+
+[data-md-color-scheme="slate"] div.md-tooltip {
+    color: #000000de !important;
+    background-color: #FFFFFF !important;
 }
