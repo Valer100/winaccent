@@ -27,7 +27,7 @@ else:
     # Other platforms
     #
     # You will need to find different ways for retrieving the
-    # system accent color hardcode it to a different color.
+    # system accent color or hardcode it to a different color.
 
     print("The script is running on an unsupported platform.")
 ```
@@ -51,7 +51,7 @@ else:
     # Other platforms
     #
     # You will need to find different ways for retrieving the
-    # system accent color hardcode it to a different color.
+    # system accent color or hardcode it to a different color.
 
     print("The script is running on an unsupported platform.")
 ```
