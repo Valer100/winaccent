@@ -269,7 +269,7 @@ def update_values():
 
     # Hardcode start menu color if it isn't colored
     if not is_start_menu_colored:
-        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22621:
+        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22000:
             # Windows 11
             if system_uses_light_theme: start_menu = "#F2F2F2"
             else: start_menu = "#242424"
@@ -281,7 +281,7 @@ def update_values():
     
     # Hardcode taskbar color if it isn't colored
     if not is_taskbar_colored:
-        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22621:
+        if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22000:
             # Windows 11
             if system_uses_light_theme: taskbar = "#EEEEEE"
             else: taskbar = "#1C1C1C"
