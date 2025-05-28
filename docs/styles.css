@@ -76,11 +76,11 @@ p.admonition-title {
 
 .md-typeset code {
     border-radius: 5px;
-    transition: background-color 0.3s, scrollbar-color 0.3s !important;
 }
 
 .md-typeset pre>code {
     border-radius: 15px;
+    clip-path: inset(0 round 15px);
 }
 
 @media screen and (max-width: 44.9844em) {
