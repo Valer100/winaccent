@@ -84,17 +84,17 @@ The GUI demo looks like this:
 <div markdown align="center" style="display: flex; flex-wrap: wrap;">
 
 <figure markdown>
-![Windows 8.x GUI demo](assets/win8-gui-demo.png)
+![Windows 8.x GUI demo](assets/win8-gui-demo.png){ .rounded }
 <br>Windows 8.x
 </figure>
 
 <figure markdown>
-![Windows 10 GUI demo](assets/win10-gui-demo.png)
+![Windows 10 GUI demo](assets/win10-gui-demo.png){ .rounded }
 <br>Windows 10
 </figure>
 
 <figure markdown>
-![Windows 11 GUI demo](assets/win11-gui-demo.png)
+![Windows 11 GUI demo](assets/win11-gui-demo.png){ .rounded }
 <br>Windows 11
 </figure>
 

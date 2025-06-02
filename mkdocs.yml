@@ -46,6 +46,9 @@ nav:
         - Refreshing the colors and the appearance change listener: other-features/refreshing-the-colors-and-listener.md
         - HEX string color to RGB integer tuple function: other-features/hex-to-rgb-function.md
         - Flags: other-features/flags.md
+
+    - Playground:
+        - Custom accent palette generation algorithm: playground/custom-accent-palette-generation-algorithm.md
         
 markdown_extensions:
   - admonition
