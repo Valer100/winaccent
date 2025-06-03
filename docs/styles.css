@@ -78,13 +78,13 @@ p.admonition-title {
     border-radius: 5px;
 }
 
-.md-typeset pre>code {
+.md-typeset pre > code {
     border-radius: 15px;
     clip-path: inset(0 round 15px);
 }
 
 @media screen and (max-width: 44.9844em) {
-    .md-content__inner>.highlight>.filename, .md-content__inner>.highlight>.highlighttable>tbody>tr>.code>div>pre>code, .md-content__inner>.highlight>.highlighttable>tbody>tr>.filename span.filename, .md-content__inner>.highlight>.highlighttable>tbody>tr>.linenos, .md-content__inner>.highlight>pre>code {
+    .md-content__inner > .highlight > .filename, .md-content__inner > .highlight > .highlighttable > tbody > tr > .code > div > pre > code, .md-content__inner > .highlight > .highlighttable > tbody > tr > .filename span.filename, .md-content__inner > .highlight > .highlighttable > tbody > tr > .linenos, .md-content__inner > .highlight > pre > code {
         border-radius: 15px !important;
         margin-left: 16px;
         margin-right: 16px;
@@ -109,4 +109,18 @@ div.md-tooltip, div.md-tooltip2__inner {
 [data-md-color-scheme="slate"] div.md-tooltip, [data-md-color-scheme="slate"] div.md-tooltip2__inner {
     color: #000000de !important;
     background-color: #FFFFFF !important;
+}
+
+[data-md-color-scheme="default"] div, html:has(body[data-md-color-scheme="default"]) {
+    scrollbar-color: #ADADAD #FFFFFF !important;
+}
+
+[data-md-color-scheme="slate"] div, html:has(body[data-md-color-scheme="slate"]) {
+    scrollbar-color: #5D5F67 #1E2129 !important;
+}
+
+@media screen and (min-width: 60em) {
+    .md-search__overlay {
+        cursor: auto !important;
+    }
 }
