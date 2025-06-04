@@ -1,0 +1,126 @@
+/* Custom minimum version badge */
+/* <a title="Minimum version" class="badge" href="../../about/changelog#2.1.0">:material-tag-outline: **v2.1.0**</a> */
+
+.badge {
+    background-color: #526cfe1a;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: .85em;
+    transition: background-color 0.3s !important;
+}
+
+.badge:hover {
+    background-color: #526cfe3a;
+    transition: background-color 0.3s !important;
+}
+
+@media (min-width: 960px) {
+    form.md-search__form {
+        border-radius: 500px !important;
+    }
+
+    div.md-search__scrollwrap, div.md-search__output {
+        border-radius: 15px !important;
+    }
+
+    div.md-search__output {
+        margin-top: 8px;
+    }
+
+    div.md-header__source {
+        margin-left: 16px !important;
+    }
+}
+
+div.md-search__scrollwrap {
+    scrollbar-width: initial;
+}
+
+div.md-header__title {
+    margin-left: 8px !important;
+}
+
+.version-testing {
+    color: #d1880a;
+}
+
+[data-md-color-scheme="slate"] .version-testing {
+    color: #ffde79;
+}
+
+.version-latest {
+    color: #192679;
+}
+
+[data-md-color-scheme="slate"] .version-latest {
+    color: #8493e6;
+}
+
+::selection {
+    background-color: #4051b57f;
+}
+
+body {
+    transition: background-color 0.3s, scrollbar-color 0.3s;
+}
+
+.md-typeset table:not([class]), .md-typeset .admonition {
+    background: none !important;
+    border-radius: 15px;
+}
+
+p.admonition-title {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+.md-typeset code {
+    border-radius: 5px;
+}
+
+.md-typeset pre > code {
+    border-radius: 15px;
+    clip-path: inset(0 round 15px);
+}
+
+@media screen and (max-width: 44.9844em) {
+    .md-content__inner > .highlight > .filename, .md-content__inner > .highlight > .highlighttable > tbody > tr > .code > div > pre > code, .md-content__inner > .highlight > .highlighttable > tbody > tr > .filename span.filename, .md-content__inner > .highlight > .highlighttable > tbody > tr > .linenos, .md-content__inner > .highlight > pre > code {
+        border-radius: 15px !important;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .md-clipboard {
+        right: 1.7em !important;
+    }
+}
+
+img.rounded, video {
+    border-radius: 15px;
+    border: 1px solid var(--md-typeset-table-color);
+}
+
+div.md-tooltip, div.md-tooltip2__inner {
+    border-radius: 5px !important;
+    color: #ffffffde !important;
+    background-color: #1E2129 !important;
+}
+
+[data-md-color-scheme="slate"] div.md-tooltip, [data-md-color-scheme="slate"] div.md-tooltip2__inner {
+    color: #000000de !important;
+    background-color: #FFFFFF !important;
+}
+
+[data-md-color-scheme="default"] div, html:has(body[data-md-color-scheme="default"]) {
+    scrollbar-color: #ADADAD #FFFFFF !important;
+}
+
+[data-md-color-scheme="slate"] div, html:has(body[data-md-color-scheme="slate"]) {
+    scrollbar-color: #5D5F67 #1E2129 !important;
+}
+
+@media screen and (min-width: 60em) {
+    .md-search__overlay {
+        cursor: auto !important;
+    }
+}
