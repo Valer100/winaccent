@@ -86,6 +86,8 @@ print(f"accent_dark_3: {winaccent.accent_dark_3}")
 
     </div>
 
+    You can also try it without installing anything [here](../playground/custom-accent-palette-generation-algorithm.md).
+
 !!! warning
     The color variables will return the colors in HEX strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. See [HEX string color to RGB integer tuple function](../other-features/hex-to-rgb-function.md) for more information.
 
