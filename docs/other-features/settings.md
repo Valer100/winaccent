@@ -90,4 +90,4 @@ else:
 ```
 
 !!! note
-    On Windows 8.x, this variable will always return `True`
+    On Windows 8.x, this variable will always return `True`.

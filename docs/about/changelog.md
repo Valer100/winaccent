@@ -1,6 +1,8 @@
 # Changelog
 
-## <font class="version-testing"><font title="Work in progress">:material-flask-outline:</font> Version 2.1.0</font> <small>(not released yet)</small> { id="2.1.0" }
+<!-- ## <font class="version-testing"><font title="Work in progress">:material-flask-outline:</font> Version 2.1.0</font> <small>(not released yet)</small> { id="2.1.0" } -->
+
+## <font class="version-latest"><font title="Latest version">:material-check:</font> Version 2.1.0</font> <small>(June 24, 2025)</small> { id="2.1.0" }
 
 ### New features
 - Added 2 flags: `get_accent_from_dwm` and `dark_mode_window`
@@ -14,7 +16,7 @@
 - New documentation website (this one).
 
 
-## <font class="version-latest"><font title="Latest version">:material-check:</font> Version 2.0.1</font> <small>(October 21, 2024)</small> { id="2.0.1" }
+## <font title="Released">:material-tag-outline:</font> Version 2.0.1 <small>(October 21, 2024)</small> { id="2.0.1" }
 
 ### Breaking changes
 - The minimum Python version supported was changed to 3.6
