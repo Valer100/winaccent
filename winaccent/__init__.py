@@ -2,7 +2,7 @@
 A simple and lightweight Python module for easily retrieving Windows' accent color, including shades, specific window chrome colors such as active/inactive titlebar and window borders and theme. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
 '''
 
-__version__ = "2.1.0"
+__version__ = "2.2.0"
 __author__ = "Valer100"
 
 import sys, time
