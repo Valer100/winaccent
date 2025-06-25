@@ -1,7 +1,10 @@
 import tkinter as tk, subprocess, ctypes, sys, os
 from tkinter import ttk
 
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+try:
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+except:
+    pass
 
 window = tk.Tk()
 window.title("Process restart tool")

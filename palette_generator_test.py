@@ -1,7 +1,10 @@
 import tkinter as tk, ctypes, winaccent
 from tkinter import ttk, colorchooser
-    
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+
+try:
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+except:
+    pass
 
 window = tk.Tk()
 window.title("Palette generator")
