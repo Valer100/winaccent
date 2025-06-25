@@ -3,7 +3,10 @@ A winaccent submodule containing functions used internaly.
 '''
 
 import winreg, colorsys
-from typing import Any, Literal
+from typing import Any
+
+try: from typing import Literal
+except: pass
 
 def get_registry_value(hkey: int, key_path: str, value_name: str, expected_regtype: int = None) -> Any :
     key = winreg.OpenKey(hkey, key_path, 0, winreg.KEY_READ)
@@ -13,7 +16,7 @@ def get_registry_value(hkey: int, key_path: str, value_name: str, expected_regty
     if expected_regtype == regtype or expected_regtype == None: return value
     else: raise ValueError(f"Invalid registry value: expected {expected_regtype} but got {regtype}")
 
-def get_color_from_registry_rgb(hkey: int, key_path: str, value_name: str, from_: Literal["abgr", "argb"]) -> str:
+def get_color_from_registry_rgb(hkey: int, key_path: str, value_name: str, from_: "Literal['abgr', 'argb']") -> str:
     list = f"{get_registry_value(hkey, key_path, value_name):08X}"
     color = "#"
 
