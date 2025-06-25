@@ -136,7 +136,7 @@ def gui_demo():
         color_item_index = -1
 
         ttk.Label(accent_palette, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
-        ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette_colors).pack(anchor = "w", padx = 4)
+        ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
 
 
     window_chrome = ttk.Frame(notebook, padding = 10)
@@ -175,7 +175,7 @@ def gui_demo():
         color_item_index = -1
 
         ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
-        ttk.Checkbutton(window_chrome, text = " dark_mode_window", variable = dark_mode_window, command = update_windows_chrome_colors).pack(anchor = "w", padx = 4)
+        ttk.Checkbutton(window_chrome, text = " dark_mode_window", variable = dark_mode_window, command = update_windows_chrome_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
 
 
     system = ttk.Frame(notebook, padding = 10)
@@ -208,6 +208,10 @@ def gui_demo():
         add_boolean_value(system, "transparency_effects_enabled", winaccent.transparency_effects_enabled)
         add_boolean_value(system, "apps_use_light_theme", winaccent.apps_use_light_theme)
         add_boolean_value(system, "system_uses_light_theme", winaccent.system_uses_light_theme)
+        
+        ttk.Label(system, text = "Other info", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+        
+        add_boolean_value(system, "os_has_full_support", winaccent.os_has_full_support)
 
     def on_appearance_changed(event):
         if event == winaccent.Event.ACCENT_COLOR_CHANGED: update_accent_palette_colors()
@@ -231,6 +235,11 @@ def gui_demo():
 def console_demo():
     print(f"\nwinaccent {winaccent.__version__}")
     print("=" * len(f"winaccent {winaccent.__version__}") + "\n")
+
+    if winaccent.os_has_full_support:
+        print("\nThis Windows version is fully supported.")
+    else:
+        print("\nThis Windows version isn't fully supported.")
 
     print("\nAccent palette")
     print("--------------\n")

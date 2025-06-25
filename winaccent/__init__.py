@@ -19,6 +19,9 @@ else:
     raise ImportError("Incompatible Windows version. This module only works on Windows Vista and later.")
 
 
+# Support status
+os_has_full_support: bool
+
 # Accent colors
 accent_menu: str
 accent_dark: str
@@ -77,6 +80,8 @@ class Flags:
 def update_values() -> None: 
     '''Retrieves and updates all the values.'''
     
+    global os_has_full_support
+
     global accent_dark
     global accent_light
     global accent_dark_mode
@@ -109,9 +114,13 @@ def update_values() -> None:
     global apps_use_light_theme
     global system_uses_light_theme
 
+
     win.get_accent_from_dwm = Flags.GET_ACCENT_FROM_DWM
     win.dark_mode_window = Flags.DARK_MODE_WINDOW
     win.update_values()
+
+
+    os_has_full_support = win.os_has_full_support
 
     accent_light_3 = win.accent_light_3
     accent_light_2 = win.accent_light_2

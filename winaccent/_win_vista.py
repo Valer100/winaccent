@@ -3,10 +3,12 @@ A winaccent submodule that contains code for Windows Vista and 7.
 '''
 
 from . import _utils
-import winreg
+import winreg, sys
 
 
 def update_values():
+    global os_has_full_support
+
     global get_accent_from_dwm
     global dark_mode_window
 
@@ -38,11 +40,16 @@ def update_values():
     global system_uses_light_theme
 
 
+    # Limited support
+    os_has_full_support = False
+
+
     # Retrieve accent color from DWM
     try:
         accent_normal = _utils.get_color_from_registry_rgb(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\DWM", "ColorizationColor", "argb")
     except:
-        accent_normal = "#74b8fc"
+        if sys.getwindowsversion() == 0: accent_normal = "#409EFE"
+        else: accent_normal = "#74B8FC"
 
     if accent_normal == "0": accent_normal = "#000000"
     accent_menu = accent_normal

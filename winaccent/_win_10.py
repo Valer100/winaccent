@@ -6,6 +6,8 @@ from . import _utils
 import winreg, sys
 
 def update_values():
+    global os_has_full_support
+
     global get_accent_from_dwm
     global dark_mode_window
 
@@ -35,6 +37,11 @@ def update_values():
     global transparency_effects_enabled
     global apps_use_light_theme
     global system_uses_light_theme
+
+
+    # Full support
+    os_has_full_support = True
+
 
     # Retrieve accent color palette
     try:
