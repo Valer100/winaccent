@@ -111,12 +111,12 @@ div.md-tooltip, div.md-tooltip2__inner {
     background-color: #FFFFFF !important;
 }
 
-[data-md-color-scheme="default"] div, html:has(body[data-md-color-scheme="default"]) {
-    scrollbar-color: #ADADAD #FFFFFF !important;
+[data-md-color-scheme="default"] div, [data-md-color-scheme="default"] code, html:has(body[data-md-color-scheme="default"]) {
+    scrollbar-color: #ADADAD transparent !important;
 }
 
-[data-md-color-scheme="slate"] div, html:has(body[data-md-color-scheme="slate"]) {
-    scrollbar-color: #5D5F67 #1E2129 !important;
+[data-md-color-scheme="slate"] div, [data-md-color-scheme="slate"] code, html:has(body[data-md-color-scheme="slate"]) {
+    scrollbar-color: #5D5F67 transparent !important;
 }
 
 @media screen and (min-width: 60em) {
