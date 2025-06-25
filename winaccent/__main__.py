@@ -4,7 +4,10 @@ from tkinter import ttk
 color_item_index = -1
 
 def gui_demo():
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+    try:
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
+    except:
+        pass
 
     window = tk.Tk()
     window.title(f"winaccent {winaccent.__version__}")
@@ -36,8 +39,14 @@ def gui_demo():
         global color_item_index
         color_item_index += 1
 
-        text_color = "#FFFFFF" if winaccent._utils.white_text_on_color(color) else "#000000"
-        text_color_inverse = "#000000" if winaccent._utils.white_text_on_color(color) else "#FFFFFF"
+        if color == None: color = "systemButtonFace"
+
+        try:
+            text_color = "#FFFFFF" if winaccent._utils.white_text_on_color(color) else "#000000"
+            text_color_inverse = "#000000" if winaccent._utils.white_text_on_color(color) else "#FFFFFF"
+        except:
+            text_color = "systemButtonText"
+            text_color_inverse = "systemWindow"
 
         color_item = tk.Frame(parent, bg = color, padx = 8, pady = 6)
         color_item.grid(row = color_item_index, sticky = "nsew")
@@ -50,7 +59,7 @@ def gui_demo():
         color_value = tk.Text(color_item, width = 7, height = 1, font = ("Consolas", 11), bd = 0, bg = color, fg = text_color, 
                               selectbackground = text_color, selectforeground = text_color_inverse)
         color_value.pack(side = "right")
-        color_value.insert("1.0", str(color))
+        color_value.insert("1.0", str(color if color != "systemButtonFace" else "None"))
         color_value["state"] = "disabled"
 
     def add_boolean_value(parent, value_name, value):

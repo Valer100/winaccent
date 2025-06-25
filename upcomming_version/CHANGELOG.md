@@ -1,3 +1,5 @@
 # Version 2.2.0
 
-Nothing here right now.
+## What's new
+
+- Added limited support for Windows Vista and 7
