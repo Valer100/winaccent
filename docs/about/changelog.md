@@ -15,6 +15,9 @@
 - Redesigned the GUI demo to look better and cleaner.
 - New documentation website (this one).
 
+### Regressions
+- Compatibility with Python 3.6 and 3.7 is broken (will be fixed in the next update).
+
 
 ## <font title="Released">:material-tag-outline:</font> Version 2.0.1 <small>(October 21, 2024)</small> { id="2.0.1" }
 
