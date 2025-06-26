@@ -4,6 +4,11 @@
     img {
         border-radius: 5px;
     }
+
+    a.md-nav__link[href$="/winaccent/"] {
+        color: var(--md-typeset-a-color) !important;
+        font-weight: 700;
+    }
 </style>
 
 [![PyPI](https://img.shields.io/pypi/v/winaccent?style=flat-square)](https://pypi.org/project/winaccent/)

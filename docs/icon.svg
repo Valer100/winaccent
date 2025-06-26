@@ -31,13 +31,13 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg10" />
   <rect
-     style="opacity:0.5;fill:#000000;fill-opacity:1;stroke-width:12.5457;paint-order:stroke fill markers"
+     style="opacity:1;fill:#5e70bf;fill-opacity:1;stroke-width:15;paint-order:stroke fill markers"
      id="rect10"
      width="124"
      height="124"
      x="2"
      y="2"
-     ry="8.6235189" />
+     ry="0" />
   <rect
      x="5.8749986"
      y="5.875"
@@ -46,7 +46,7 @@
      fill="#000c40"
      id="rect1"
      style="fill:#001556;fill-opacity:1;stroke-width:1.08551"
-     ry="5.1741118" />
+     ry="0" />
   <rect
      x="15.5625"
      y="5.875"
@@ -104,7 +104,7 @@
      fill="#2489e5"
      id="rect7"
      style="fill:#7fc3d4;fill-opacity:1;stroke-width:1.08551"
-     ry="5.4615622" />
+     ry="0" />
   <rect
      x="105.17188"
      y="5.875"
