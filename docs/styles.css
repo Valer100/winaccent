@@ -140,11 +140,19 @@ html:has(body[data-md-color-scheme="slate"]) {
     padding: 2px;
 }
 
+[data-md-color-scheme="slate"] .md-nav__source {
+    background-color: #181818;
+}
+
 [data-md-color-scheme="default"] .md-header.md-header {
     background-color: #f0f0f0;
     border-bottom: 1px solid #00000015;
     box-shadow: none;
     padding: 2px;
+}
+
+[data-md-color-scheme="default"] .md-nav__source {
+    background-color: #f0f0f0 !important;
 }
 
 @media (max-width: 1220px) {
@@ -155,6 +163,11 @@ html:has(body[data-md-color-scheme="slate"]) {
     [data-md-color-scheme="default"] .md-nav__title {
         background-color: #f0f0f0 !important;
     }
+}
+
+.md-nav--secondary .md-nav__title {
+    background-color: transparent !important;
+    box-shadow: none;
 }
 
 @media (min-width: 1220px) {
