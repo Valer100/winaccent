@@ -23,3 +23,6 @@
 [![License](https://img.shields.io/github/license/Valer100/winaccent?style=flat-square)](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
 winaccent is a simple and lightweight Python module for easily retrieving Windows' accent color, including its shades, specific window chrome colors such as active/inactive title bar and window borders and settings like theme (both apps' and system's theme), transparency effects, and more. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
+
+<br>
+[:material-book:&nbsp;&nbsp;Get started](about/requirements.md){ .button }
