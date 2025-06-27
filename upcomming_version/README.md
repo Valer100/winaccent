@@ -1,8 +1,8 @@
 <div id="toc">
-    <ul style="list-style: none;">
+    <ul style="list-style: none; padding: 0px;">
         <h1>
             <summary>
-                <h><img src="../assets/logo.svg" height=100 alt="winaccent logo" align="left"/><h3>winaccent</h3></h>
+                <h><img src="https://raw.githubusercontent.com/Valer100/winaccent/refs/heads/main/assets/logo.svg" height=100 alt="winaccent logo" align="left"/><h3>winaccent</h3></h>
             </summary>
             <p></p>
         </h1>
