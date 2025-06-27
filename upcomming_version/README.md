@@ -1,11 +1,14 @@
-<div align="center">
-    <img width="700" src="https://github.com/Valer100/winaccent/blob/main/assets/hero.png?raw=true">
-</div>
+<h1>
+    <summary style="list-style: none;">
+        <h><img src="../assets/logo.svg" height=100 alt="winaccent logo" align="left"/><h3>winaccent</h3></h>
+    </summary>
+    <p></p>
+</h1>
+<br>
 
-# winaccent
 [![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
 [![Python](https://img.shields.io/badge/python-3.6+-blue)]()
-[![Windows](https://img.shields.io/badge/windows-8.0+-blue)]()
+[![Windows](https://img.shields.io/badge/windows-vista+-blue)]()
 [![Format](https://img.shields.io/pypi/format/winaccent)](https://pypi.org/project/winaccent/)
 [![Downloads](https://img.shields.io/pepy/dt/winaccent)](https://pypi.org/project/winaccent/)
 [![Stars](https://img.shields.io/github/stars/Valer100/winaccent?style=flat&color=yellow)](https://github.com/Valer100/winaccent/stargazers)
