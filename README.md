@@ -1,8 +1,15 @@
-<div align="center">
-    <img width="700" src="https://github.com/Valer100/winaccent/blob/main/assets/hero.png?raw=true">
+<div id="toc">
+    <ul style="list-style: none; padding: 0px;">
+        <h1>
+            <summary>
+                <h><img src="https://raw.githubusercontent.com/Valer100/winaccent/refs/heads/main/assets/logo.svg" height=100 alt="winaccent logo" align="left"/><h3>winaccent</h3></h>
+            </summary>
+            <p></p>
+        </h1>
+    </ul>
 </div>
+<br>
 
-# winaccent
 [![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
 [![Python](https://img.shields.io/badge/python-3.6+-blue)]()
 [![Windows](https://img.shields.io/badge/windows-8.0+-blue)]()

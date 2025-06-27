@@ -134,14 +134,14 @@ html:has(body[data-md-color-scheme="slate"]) {
 }
 
 [data-md-color-scheme="slate"] .md-header.md-header {
-    background-color: #181818;
-    border-bottom: 1px solid #FFFFFF15;
+    background-color: #171717;
+    border-bottom: 1px solid #FFFFFF0F;
     box-shadow: none;
     padding: 2px;
 }
 
 [data-md-color-scheme="slate"] .md-nav__source {
-    background-color: #181818;
+    background-color: #171717;
 }
 
 [data-md-color-scheme="default"] .md-header.md-header {
@@ -157,7 +157,7 @@ html:has(body[data-md-color-scheme="slate"]) {
 
 @media (max-width: 1220px) {
     [data-md-color-scheme="slate"] .md-nav__title {
-        background-color: #181818 !important;
+        background-color: #171717 !important;
     }
 
     [data-md-color-scheme="default"] .md-nav__title {
