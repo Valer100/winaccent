@@ -1,9 +1,13 @@
-<h1>
-    <summary style="list-style: none;">
-        <h><img src="../assets/logo.svg" height=100 alt="winaccent logo" align="left"/><h3>winaccent</h3></h>
-    </summary>
-    <p></p>
-</h1>
+<div id="toc">
+    <ul style="list-style: none;">
+        <h1>
+            <summary>
+                <h><img src="../assets/logo.svg" height=100 alt="winaccent logo" align="left"/><h3>winaccent</h3></h>
+            </summary>
+            <p></p>
+        </h1>
+    </ul>
+</div>
 <br>
 
 [![PyPI](https://img.shields.io/pypi/v/winaccent)](https://pypi.org/project/winaccent/)
