@@ -15,8 +15,15 @@ python -m winaccent --mode console
 
 The output will look like this:
 
-```
-winaccent 2.1.0
+<style>
+    .console-demo {
+        height: 300px !important;
+    }
+</style>
+
+<div class="md-typeset">
+<pre>
+<code class="console-demo">winaccent 2.1.0
 ===============
 
 Accent palette
@@ -69,7 +76,9 @@ Other colors
 ------------
 
 accent_menu:                    #0078D4
-```
+</code>
+</pre>
+</div>
 
 
 ## The GUI mode
@@ -79,23 +88,48 @@ In the GUI mode, the demo program will display a window with an interactive user
 python -m winaccent --mode gui
 ```
 
+<br>
 The GUI demo looks like this:
 
-<div markdown align="center" style="display: flex; flex-wrap: wrap;">
+<style>
+    figure {
+        flex-shrink: 0;
+        margin: 0px !important;
+    }
 
-<figure markdown>
-![Windows 8.x GUI demo](assets/win8-gui-demo.png){ .rounded }
-<br>Windows 8.x
+    .screenshot {
+        height: 574px !important;
+        width: 340px !important;
+        object-fit: scale-down !important;
+        object-position: top !important;
+    }
+</style>
+
+<div markdown align="center" style="display: flex; flex-wrap: no-wrap; overflow-x: auto; margin-bottom: 64px !important; scrollbar-width: thin; gap: 32px;">
+
+<!-- <figure markdown>
+![Windows Vista GUI demo](assets/winvista-gui-demo.png){ .screenshot }
+<br><p>Windows Vista</p>
 </figure>
 
 <figure markdown>
-![Windows 10 GUI demo](assets/win10-gui-demo.png){ .rounded }
-<br>Windows 10
+![Windows 7 GUI demo](assets/win7-gui-demo.png){ .screenshot }
+<br><p>Windows 7</p>
+</figure> -->
+
+<figure markdown>
+![Windows 8.x GUI demo](assets/win8-gui-demo.png){ .screenshot }
+<br><p>Windows 8.x</p>
 </figure>
 
 <figure markdown>
-![Windows 11 GUI demo](assets/win11-gui-demo.png){ .rounded }
-<br>Windows 11
+![Windows 10 GUI demo](assets/win10-gui-demo.png){ .screenshot }
+<br><p>Windows 10</p>
+</figure>
+
+<figure markdown>
+![Windows 11 GUI demo](assets/win11-gui-demo.png){ .screenshot }
+<br><p>Windows 11</p>
 </figure>
 
 </div>
