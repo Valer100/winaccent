@@ -18,8 +18,15 @@
     }
 
     @media (max-width: 550px) {
+        .description {
+            flex-wrap: wrap;
+        }
+
         .description img {
-            display: none;
+            margin-top: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 150px;
         }
     }
 </style>
@@ -35,16 +42,16 @@
 [![Commits since latest release](https://img.shields.io/github/commits-since/Valer100/winaccent/latest?style=flat-square&labelColor=303030&color=8BCAD8#only-dark){ .ghbadge }](https://github.com/Valer100/winaccent/commits/main)
 [![License](https://img.shields.io/github/license/Valer100/winaccent?style=flat-square&labelColor=303030&color=D6D88B#only-dark){ .ghbadge }](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
-[![PyPI](https://img.shields.io/pypi/v/winaccent?style=flat-square&labelColor=efefef&color=004C94#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
-[![Python](https://img.shields.io/badge/python-3.6+-blue?style=flat-square&labelColor=efefef&color=004C94#only-light){ .ghbadge }]()
-[![Windows](https://img.shields.io/badge/windows-8.0+-blue?style=flat-square&labelColor=efefef&color=004C94#only-light){ .ghbadge }]()
-[![Format](https://img.shields.io/pypi/format/winaccent?style=flat-square&labelColor=efefef&color=129A00#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
-[![Downloads](https://img.shields.io/pepy/dt/winaccent?style=flat-square&labelColor=efefef&color=129A00#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
-[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?&style=flat-square&labelColor=efefef&color=AD8100#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/stargazers)
-[![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent?style=flat-square&labelColor=efefef&color=AE2B12#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/graphs/contributors)
-[![Last commit](https://img.shields.io/github/last-commit/Valer100/winaccent?style=flat-square&labelColor=efefef&color=129A00#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/commits/main)
-[![Commits since latest release](https://img.shields.io/github/commits-since/Valer100/winaccent/latest?style=flat-square&labelColor=efefef&color=004C94#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/commits/main)
-[![License](https://img.shields.io/github/license/Valer100/winaccent?style=flat-square&labelColor=efefef&color=659800#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/winaccent?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
+[![Python](https://img.shields.io/badge/python-3.6+-blue?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }]()
+[![Windows](https://img.shields.io/badge/windows-8.0+-blue?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }]()
+[![Format](https://img.shields.io/pypi/format/winaccent?style=flat-square&labelColor=eaeaea&color=129A00#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
+[![Downloads](https://img.shields.io/pepy/dt/winaccent?style=flat-square&labelColor=eaeaea&color=129A00#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
+[![Stars](https://img.shields.io/github/stars/Valer100/winaccent?&style=flat-square&labelColor=eaeaea&color=AD8100#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/stargazers)
+[![Contributors](https://img.shields.io/github/contributors/Valer100/winaccent?style=flat-square&labelColor=eaeaea&color=AE2B12#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/graphs/contributors)
+[![Last commit](https://img.shields.io/github/last-commit/Valer100/winaccent?style=flat-square&labelColor=eaeaea&color=129A00#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/commits/main)
+[![Commits since latest release](https://img.shields.io/github/commits-since/Valer100/winaccent/latest?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/commits/main)
+[![License](https://img.shields.io/github/license/Valer100/winaccent?style=flat-square&labelColor=eaeaea&color=659800#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/blob/main/LICENSE)
 
 <div class="description" style="display: flex; flex-direction: row; column-gap: 32px; row-gap: 16px;">
     <img class="no-lightbox" style="flex-shrink: 0;" src="icon.svg" alt="winaccent logo" width=100/>
