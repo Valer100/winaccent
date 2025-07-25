@@ -29,9 +29,6 @@ print(f"Inactive window border: {wintaccent.window_border_inactive}")
 ```
 
 !!! note
-    `titlebar_inactive` will return `None` if the inactive title bar color isn't set (it isn't set by default on Windows). This can be usually done in the registry by creating or modifying the `AccentColorInactive` DWORD 32-bit value from `HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM`. The color must be in the following form: `FFBBGGRR` (like a normal RGB HEX color, but the red and the blue values are swapped with each other).
-
-!!! note
     If you want to obtain the dark mode window chrome colors, you will have to enable the `dark_mode_titlebar` flag. See [`dark_mode_window` flag](../other-features/flags.md#dark_mode_window-flag) for more information.
 
 !!! note
@@ -40,7 +37,7 @@ print(f"Inactive window border: {wintaccent.window_border_inactive}")
 !!! important
     The window border color is translucent (except when the "Show accent color on title bars and window borders" option from Settings > Personalization > Colors is enabled). winaccent will return the window border color without opacity to prevent some issues.
 
-    Also, the window border color is actually slightly different than the title bar color on Windows 10 (only on Windows 11 it's the same).
+    Also, the window border color is actually slightly lighter than the title bar color on Windows 10 (only on Windows 11 it's the same).
 
     <div alignment="center" style="display: flex; flex-wrap: wrap;">
 
