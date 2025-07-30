@@ -13,10 +13,10 @@ For the current accent color we'll use <font color="#0078D4">&nbsp;:fontawesome-
 For simplicity, you can get a specific accent color shade from one of the following variables:
 
 | Variable | Example color output |
-|:---------|:--------------------:|
-| **accent_light** (or **accent_dark_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg){ .no-lightbox } &nbsp;&nbsp;#4CC2FF</div> |
-| **accent_normal**                             | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg){ .no-lightbox } &nbsp;&nbsp;#0078D4</div>  |
-| **accent_dark** (or **accent_light_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg){ .no-lightbox } &nbsp;&nbsp;#0067C0</div>  |
+|:---------|---------------------:|
+| **accent_light** (or **accent_dark_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#4CC2FF</b></div> |
+| **accent_normal**                             | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#0078D4</b></div>  |
+| **accent_dark** (or **accent_light_mode**) | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#0067C0</b></div>  |
 
 Here's an example for printing them in the console:
 
@@ -31,14 +31,14 @@ print(f"accent_dark: {winaccent.accent_dark}")  # winaccent.accent_light_mode re
 If you need a different shade than the ones listed above, here's the complete list of variables:
 
 | Variable | Example color output |
-|:---------|:--------------------:|
-| **accent_light_3** | <div style="display: flex; align-items: center; justify-content: center;">![#99EBFF](assets/circle-accent-light-3.svg){ .no-lightbox } &nbsp;&nbsp;#99EBFF</div> |
-| **accent_light_2** | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg){ .no-lightbox } &nbsp;&nbsp;#4CC2FF</div> |
-| **accent_light_1** | <div style="display: flex; align-items: center; justify-content: center;">![#0091F8](assets/circle-accent-light-1.svg){ .no-lightbox } &nbsp;&nbsp;#0091F8</div> |
-| **accent_normal**  | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg){ .no-lightbox } &nbsp;&nbsp;#0078D4</div>  |
-| **accent_dark_1**  | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg){ .no-lightbox } &nbsp;&nbsp;#0067C0</div>  |
-| **accent_dark_2**  | <div style="display: flex; align-items: center; justify-content: center;">![#003E92](assets/circle-accent-dark-2.svg){ .no-lightbox } &nbsp;&nbsp;#003E92</div>  |
-| **accent_dark_3**  | <div style="display: flex; align-items: center; justify-content: center;">![#001A68](assets/circle-accent-dark-3.svg){ .no-lightbox } &nbsp;&nbsp;#001A68</div>  |
+|:---------|---------------------:|
+| **accent_light_3** | <div style="display: flex; align-items: center; justify-content: center;">![#99EBFF](assets/circle-accent-light-3.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#99EBFF</b></div> |
+| **accent_light_2** | <div style="display: flex; align-items: center; justify-content: center;">![#4CC2FF](assets/circle-accent-light-2.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#4CC2FF</b></div> |
+| **accent_light_1** | <div style="display: flex; align-items: center; justify-content: center;">![#0091F8](assets/circle-accent-light-1.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#0091F8</b></div> |
+| **accent_normal**  | <div style="display: flex; align-items: center; justify-content: center;">![#0078D4](assets/circle-accent-normal.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#0078D4</b></div>  |
+| **accent_dark_1**  | <div style="display: flex; align-items: center; justify-content: center;">![#0067C0](assets/circle-accent-dark-1.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#0067C0</b></div>  |
+| **accent_dark_2**  | <div style="display: flex; align-items: center; justify-content: center;">![#003E92](assets/circle-accent-dark-2.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#003E92</b></div>  |
+| **accent_dark_3**  | <div style="display: flex; align-items: center; justify-content: center;">![#001A68](assets/circle-accent-dark-3.svg){ .no-lightbox } &nbsp;&nbsp;<b style="font-family: monospace">#001A68</b></div>  |
 
 ```python
 import winaccent
