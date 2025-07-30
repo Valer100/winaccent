@@ -182,3 +182,89 @@ python -m winaccent --mode auto
 ```
 python -m winaccent
 ```
+
+## Shorter command
+
+For an easier way to run the demo program, you can try the `winaccent` command. It also supports the `--mode` argument that we've discussed previously.
+
+Some examples for running the command:
+
+```
+winaccent
+```
+
+```
+winaccent --mode auto
+```
+
+```
+winaccent --mode gui
+```
+
+```
+winaccent --mode console
+```
+
+<br>
+
+!!! note
+    The shorter `winaccent` command was added in version 2.2.0. It isn't available in older versions.
+
+!!! warning
+    If the command doesn't work and you're using a supported winaccent version, make sure your Python installation's `Scripts` folder is included in your `PATH` environment variable. To do that, follow these steps:
+    
+    &emsp;1. Open the Start menu, type "Edit the system environment variables", and then click on the first option.
+    <br>
+
+    &emsp;2. Click on "Environment Variables.
+
+    &emsp; <img alt="System properties window" src="../assets/system-properties.png"/>
+    
+    <br>
+
+    &emsp;3. Under "User variables for USERNAME", find the "Path" variable and double-click on it.
+    
+    &emsp; <img alt="User variables" src="../assets/env-var-user.png"/>
+    
+    <br>
+
+    &emsp;4. Look for the following path here:
+
+    ```
+    C:\Users\%user_folder%\AppData\Roaming\Python\Python%version%\Scripts
+    ```
+
+    &emsp;where:
+
+    &emsp;`%user_folder%` is the name of your user folder (type `echo %username%` in the Command Prompt to get it)
+
+    &emsp;`%version%` is the Python's version, without any dot (`.`) and patch version. For example, if you have Python 3.11.9 installed, `%version%` will be 311. 
+    
+    <br>
+
+    &emsp;If you can't find it, click on the "New" button, type the path shown above (replace %user_folder% and %version% with your own values, without `%`), then press Enter, and then click "OK". If you can see it, then you can skip this step.
+    
+    <br>
+
+    &emsp;5. Under "System variables", look for the "Path" variable and double-click on it.
+    
+    &emsp; <img alt="User variables" src="../assets/env-var-system.png"/>
+
+    <br>
+
+    &emsp;6. Look for the following path here:
+
+    ```
+    C:\Program Files\Python%version%\Scripts
+    ```
+
+    &emsp;where `%version%` is the Python's version, without any dot (`.`) and patch version (for example, if you have Python 3.11.9 installed, `%version%` will be 311),
+
+    &emsp;If you can't find it, click on the "New" button, type the path shown above (replace %version% with your own value, without `%`), then press Enter, and then click "OK" If you can see it, then you can skip this step.
+    
+    <br>
+
+    &emsp;7. Click "OK" to close the "Environment Variables" window.
+    <br>
+
+    &emsp;8. Click "OK" to close the "System Properties" window.
