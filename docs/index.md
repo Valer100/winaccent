@@ -33,7 +33,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/winaccent?style=flat-square&labelColor=303030&color=8BCAD8#only-dark){ .ghbadge }](https://pypi.org/project/winaccent/)
 [![Python](https://img.shields.io/badge/python-3.6+-blue?style=flat-square&labelColor=303030&color=8BCAD8#only-dark){ .ghbadge }]()
-[![Windows](https://img.shields.io/badge/windows-8.0+-blue?style=flat-square&labelColor=303030&color=8BCAD8#only-dark){ .ghbadge }]()
+[![Windows](https://img.shields.io/badge/windows-vista+-blue?style=flat-square&labelColor=303030&color=8BCAD8#only-dark){ .ghbadge }]()
 [![Format](https://img.shields.io/pypi/format/winaccent?style=flat-square&labelColor=303030&color=B1DC97#only-dark){ .ghbadge }](https://pypi.org/project/winaccent/)
 [![Downloads](https://img.shields.io/pepy/dt/winaccent?style=flat-square&labelColor=303030&color=B1DC97#only-dark){ .ghbadge }](https://pypi.org/project/winaccent/)
 [![Stars](https://img.shields.io/github/stars/Valer100/winaccent?&style=flat-square&labelColor=303030&color=DEDE9C#only-dark){ .ghbadge }](https://github.com/Valer100/winaccent/stargazers)
@@ -44,7 +44,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/winaccent?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
 [![Python](https://img.shields.io/badge/python-3.6+-blue?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }]()
-[![Windows](https://img.shields.io/badge/windows-8.0+-blue?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }]()
+[![Windows](https://img.shields.io/badge/windows-vista+-blue?style=flat-square&labelColor=eaeaea&color=004C94#only-light){ .ghbadge }]()
 [![Format](https://img.shields.io/pypi/format/winaccent?style=flat-square&labelColor=eaeaea&color=129A00#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
 [![Downloads](https://img.shields.io/pepy/dt/winaccent?style=flat-square&labelColor=eaeaea&color=129A00#only-light){ .ghbadge }](https://pypi.org/project/winaccent/)
 [![Stars](https://img.shields.io/github/stars/Valer100/winaccent?&style=flat-square&labelColor=eaeaea&color=AD8100#only-light){ .ghbadge }](https://github.com/Valer100/winaccent/stargazers)
@@ -56,7 +56,7 @@
 <div class="description" style="display: flex; flex-direction: row; column-gap: 32px; row-gap: 16px;">
     <img class="no-lightbox" style="flex-shrink: 0;" src="icon.svg" alt="winaccent logo" width=100/>
 
-    <p>winaccent is a simple and lightweight Python module for easily retrieving Windows' accent color, including its shades, specific window chrome colors such as active/inactive title bar and window borders and settings like theme (both apps' and system's theme), transparency effects, and more. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.</p>
+    <p>winaccent is a simple and lightweight Python module for easily retrieving Windows' accent color, including its shades, specific window chrome colors such as active/inactive title bar and window borders and settings like theme (both apps' and system's theme), transparency effects, and more. Supports Windows Vista, 7, 8.x, 10 and 11 and doesn't require additional dependencies.</p>
 </div>
 
 [:material-book:&nbsp;&nbsp;Get started](about/requirements.md){ .button }

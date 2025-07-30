@@ -107,7 +107,7 @@ The GUI demo looks like this:
 
 <div markdown align="center" style="display: flex; flex-wrap: no-wrap; overflow-x: auto; margin-bottom: 64px !important; scrollbar-width: thin; gap: 32px;">
 
-<!-- <figure markdown>
+<figure markdown>
 ![Windows Vista GUI demo](assets/winvista-gui-demo.png){ .screenshot }
 <br><p>Windows Vista</p>
 </figure>
@@ -115,7 +115,7 @@ The GUI demo looks like this:
 <figure markdown>
 ![Windows 7 GUI demo](assets/win7-gui-demo.png){ .screenshot }
 <br><p>Windows 7</p>
-</figure> -->
+</figure>
 
 <figure markdown>
 ![Windows 8.x GUI demo](assets/win8-gui-demo.png){ .screenshot }
@@ -158,7 +158,7 @@ The GUI demo looks like this:
     6. After the Python Setup window appeared, choose "Modify"
     7. In the Optional features section, make sure "tcl/tk and IDLE" option is checked and then click "Next".
 
-    **Windows 8.x**
+    **Windows 8.x, 7, Vista:**
 
     1. Open Control Panel.
     2. Using the search box, look for "Programs and features" and when found click on it.

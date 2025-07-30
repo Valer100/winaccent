@@ -2,7 +2,9 @@
 
 <!-- ## <font class="version-testing"><font title="Work in progress">:material-flask-outline:</font> Version 2.1.0</font> <small>(not released yet)</small> { id="2.1.0" } -->
 
-## <font class="version-latest"><font title="Latest version">:material-check:</font> Version 2.1.0</font> <small>(June 24, 2025)</small> { id="2.1.0" }
+## <font class="version-latest"><font title="Latest version">:material-check:</font> Version 2.2.0</font> <small>(not released yet)</small> { id="2.2.0" }
+
+## <font title="Released">:material-tag-outline:</font> Version 2.1.0 <small>(June 24, 2025)</small> { id="2.1.0" }
 
 ### New features
 - Added 2 flags: `get_accent_from_dwm` and `dark_mode_window`
@@ -24,12 +26,12 @@
 ### Breaking changes
 - The minimum Python version supported was changed to 3.6
 - The module will now raise an `ImportError` exception instead of an `UnsupportedPlatfromException` exception
-- `on_accent_changed_listener()` function was renamed to `on_appearance_changed()`
-- `update_accent_colors()` function was renamed to `update_values()`
+- `on_accent_changed_listener` function was renamed to `on_appearance_changed`
+- `update_accent_colors` function was renamed to `update_values`
 
 ### New features
 - Added Windows 8.x support
-- Added a function to convert HEX colors to RGB tuples (`hex_to_rgb()`)
+- Added a function to convert HEX colors to RGB tuples (`hex_to_rgb`)
 - Retrieve apps' theme and system's theme using `apps_use_light_theme` and `system_uses_light_theme` booleans
 
 ### Fixes
@@ -81,7 +83,7 @@ The easiest fix for this is to replace all occurences of `accent_light` with `ac
 
 ### What's new:
 - Removed dependency on `darkdetect` (this means that `accent_auto` is now deprecated)
-- Added new function: `update_accent_colors()`
+- Added a new function: `update_accent_colors`
 
 
 ## <font title="Released">:material-tag-outline:</font> Version 0.1.0 <small>(August 16, 2024)</small> { id="0.1.0" }

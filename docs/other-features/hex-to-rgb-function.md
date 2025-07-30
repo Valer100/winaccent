@@ -1,6 +1,6 @@
 # HEX string color to RGB integer tuple function
 
-By design, winaccent color variables return colors in the RGB HEX strings format (`#RRGGBB`). However, this format might not be suitable for other modules or things, so winaccent also includes a `hex_to_rgb()` function that takes `hex` as a string argument (the RGB HEX string color) and returns the RGB integer tuple of that color. It can be used like this:
+By design, winaccent color variables return colors in the RGB HEX strings format (`#RRGGBB`). However, this format might not be suitable for other modules or things, so winaccent also includes a `hex_to_rgb` function that takes `hex` as a string argument (the RGB HEX string color) and returns the RGB integer tuple of that color. It can be used like this:
 
 ```python
 import winaccent

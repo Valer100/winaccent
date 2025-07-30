@@ -4,7 +4,7 @@ By default, when you import the module, winaccent retrieves the colors and setti
 Consider this example: Your user runs your app with the apps' theme set to dark and the system's accent color set to blue. While the app is running, they change the apps' theme to light and the system's accent color to green. If winaccent used functions, opening a new window in your app would cause the new window to follow the updated settings, but the main window would still use the old settings, unless you set up the appearance change listener. With variables, both the main and new windows will continue to use the old settings unless the listener is set up.
 
 ## Refreshing the colors manually
-In some cases, refreshing the colors and settings would be the best. To update all the colors and settings, you can call the `update_values()` function. Here's an example of how you can use it:
+In some cases, refreshing the colors and settings would be the best. To update all the colors and settings, you can call the `update_values` function. Here's an example of how you can use it:
 
 ```python
 import winaccent
@@ -30,7 +30,7 @@ thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callb
 thread.start()
 ```
 
-The example code above prints the accent color and the apps' theme when the appearance settings change. But they will only be printed when any appearance setting supported by winaccent changes. This means that the code above will print the accent color and the apps' theme even if they don't actually change, but other settings like the colored title bars and window borders do. To fix this, we will have to add a new `event` integer argument to the `when_appearance_changed()` function, check if `event` is equal to an event constant (more constants bellow) and set the `pass_event` argument of the `on_appearance_changed()` function to `True`. Here's an example:
+The example code above prints the accent color and the apps' theme when the appearance settings change. But they will only be printed when any appearance setting supported by winaccent changes. This means that the code above will print the accent color and the apps' theme even if they don't actually change, but other settings like the colored title bars and window borders do. To fix this, we will have to add a new `event` integer argument to the `when_appearance_changed` function, check if `event` is equal to an event constant (more constants bellow) and set the `pass_event` argument of the `on_appearance_changed` function to `True`. Here's an example:
 
 ```python
 import winaccent, threading

@@ -73,7 +73,7 @@ print(f"accent_dark_3: {winaccent.accent_dark_3}")
     </div>
 
 !!! note
-    In Windows 8.x there's no accent palette generation algorithm. For maintaining compatibility, winaccent will automatically generate a palette using a custom algorithm that tries to immitate the one from Windows 10. It's not perfect, but there's still room for improvement.
+    In Windows 8.x, 7 and Vista, there's no accent palette generation algorithm. For maintaining compatibility, winaccent will automatically generate a palette using a custom algorithm that tries to immitate the one from Windows 10. It's not perfect, but there's still room for improvement.
 
     Using the same accent color as in the example above with Windows 10 and 11 on Windows 8.1 will give this result (Windows 8.0 is limited to only a few predefined accent colors):
 
@@ -89,7 +89,7 @@ print(f"accent_dark_3: {winaccent.accent_dark_3}")
     You can also try it without installing anything [here](../playground/custom-accent-palette-generation-algorithm.md).
 
 !!! warning
-    The color variables will return the colors in HEX strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb()` function. See [HEX string color to RGB integer tuple function](../other-features/hex-to-rgb-function.md) for more information.
+    The color variables will return the colors in HEX strings (e.g. `#RRGGBB`). If you need an RGB tuple instead of a HEX color string, use the `hex_to_rgb` function. See [HEX string color to RGB integer tuple function](../other-features/hex-to-rgb-function.md) for more information.
 
 !!! note
     You can also force winaccent to use the accent color provided by DWM (`ColorizationColor` in Windows 8.x and `AccentColor` in Windows 10 and 11 in the registry) and generate the accent palette accordingly. To do that, you have to enable the `get_accent_from_dwm` flag. See [`get_accent_from_dwm` flag](../other-features/flags.md#get_accent_from_dwm-flag) for more information.
