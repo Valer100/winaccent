@@ -47,8 +47,14 @@ The documentation is available [here](https://valer100.github.io/winaccent).
 ## 💻 Demo
 To see a demo, run the following command in your terminal (winaccent must be installed):
 
-```python
+```powershell
 python -m winaccent
+```
+
+... or even simpler:
+
+```powershell
+winaccent
 ```
 
 This command has an optional `--mode` argument. It can take the following values:

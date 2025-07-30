@@ -18,6 +18,11 @@ setup(
         "Issues": "https://github.com/Valer100/winaccent/issues",
     },
     packages = find_packages(),
+    entry_points = {
+        "console_scripts": [
+            "winaccent = winaccent.__main__:main",
+        ],
+    },
     long_description = description,
     long_description_content_type = "text/markdown",
     classifiers = [

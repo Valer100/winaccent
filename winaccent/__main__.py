@@ -290,17 +290,21 @@ def console_demo():
     print("\n")
 
 
-parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
-parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
-arguments = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser(usage = "python -m winaccent --mode")
+    parser.add_argument("--mode", type = str, required = False, choices = ["gui", "console", "auto"], metavar = "", help = "choose the demo mode. Accepted values: gui, console, auto.")
+    arguments = parser.parse_args()
 
-if arguments.mode == None or arguments.mode == "auto":
-    try:
-        gui_demo()
-    except Exception as e:
-        print("\nFailed to show GUI demo. Here's why:\n")
-        traceback.print_exception(type(e), e, e.__traceback__)
-        print("\nConsole demo will be shown instead.")
-        console_demo()
-elif arguments.mode == "gui": gui_demo()
-elif arguments.mode == "console": console_demo()
+    if arguments.mode == None or arguments.mode == "auto":
+        try:
+            gui_demo()
+        except Exception as e:
+            print("\nFailed to show GUI demo. Here's why:\n")
+            traceback.print_exception(type(e), e, e.__traceback__)
+            print("\nConsole demo will be shown instead.")
+            console_demo()
+    elif arguments.mode == "gui": gui_demo()
+    elif arguments.mode == "console": console_demo()
+
+
+if __name__ == "__main__": main()
