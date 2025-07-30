@@ -1,12 +1,5 @@
 name: Build and deploy documentation website
-on:
-  push:
-    branches: 
-      - main
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - '.github/workflows/deploy_docs.yml'
+on: workflow_dispatch
 permissions:
   contents: write
 jobs:
