@@ -1,5 +1,9 @@
+import os
 import tkinter as tk, winaccent, ctypes, threading, argparse, traceback
 from tkinter import ttk
+
+# Prevent "File not found" errors
+os.chdir(os.path.dirname(__file__))
 
 color_item_index = -1
 
@@ -18,8 +22,7 @@ def gui_demo():
     get_accent_from_dwm = tk.BooleanVar(value = False)
     dark_mode_window = tk.BooleanVar(value = False)
 
-    icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
-    window.iconphoto(True, icon)
+    window.iconbitmap(bitmap = "icon.ico")
 
     style = ttk.Style()
     style.configure("TCheckbutton", font = ("Default", 11))

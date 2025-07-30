@@ -1,5 +1,7 @@
-import tkinter as tk, subprocess, ctypes, sys, os
+import tkinter as tk, subprocess, ctypes, os
 from tkinter import ttk
+
+os.chdir(os.path.dirname(__file__))
 
 try:
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
@@ -10,9 +12,7 @@ window = tk.Tk()
 window.title("Process restart tool")
 window.resizable(False, False)
 window.configure(padx = 16, pady = 14)
-
-icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
-window.iconphoto(True, icon)
+window.iconbitmap("winaccent/icon.ico")
 
 ttk.Label(window, text = "Click one of the following buttons to restart a process").pack(anchor = "w", pady = (0, 14))
 ttk.Button(window, text = "Restart explorer.exe", command = lambda: subprocess.call("taskkill /f /im explorer.exe & start explorer", shell = True)).pack(fill = "x")

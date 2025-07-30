@@ -1,5 +1,7 @@
-import tkinter as tk, ctypes, winaccent
+import tkinter as tk, ctypes, winaccent, os
 from tkinter import ttk, colorchooser
+
+os.chdir(os.path.dirname(__file__))
 
 try:
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
@@ -10,6 +12,7 @@ window = tk.Tk()
 window.title("Palette generator")
 window.resizable(False, False)
 window.configure(padx = 10, pady = 10)
+window.iconbitmap("winaccent/icon.ico")
 
 color_item_index = -1
 accent_normal = "#4617B4"
@@ -17,9 +20,6 @@ accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
 accent_light_3 = winaccent._utils.generate_color_palette(accent_normal)[0]
 
 full_palette = tk.BooleanVar(value = True)
-
-icon = tk.PhotoImage(data = "iVBORw0KGgoAAAANSUhEUgAAAEwAAABMBAMAAAA1uUwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURQAAAAAaaAA+kgBnwAB41ACR+EzC/5nr/8MyyRkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVEjH7coxAQAQFEXRLwIRiEAEIhCB1aa+l4LlnvnYH85LiJKylCqty5iyjmwajUaj0Wg0Gu19e87sAnxWiuenyOclAAAAAElFTkSuQmCC")
-window.iconphoto(True, icon)
 
 style = ttk.Style()
 style.configure("TButton", font = 11)

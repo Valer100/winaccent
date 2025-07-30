@@ -23,6 +23,9 @@ setup(
             "winaccent = winaccent.__main__:main",
         ],
     },
+    package_data = {
+        "winaccent": ["icon.ico"]
+    },
     long_description = description,
     long_description_content_type = "text/markdown",
     classifiers = [
