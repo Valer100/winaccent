@@ -1,6 +1,5 @@
 import os
-import tkinter as tk, winaccent, ctypes, threading, argparse, traceback
-from tkinter import ttk
+import winaccent, ctypes, threading, argparse, traceback
 
 # Prevent "File not found" errors
 os.chdir(os.path.dirname(__file__))
@@ -8,6 +7,9 @@ os.chdir(os.path.dirname(__file__))
 color_item_index = -1
 
 def gui_demo():
+    import tkinter as tk
+    from tkinter import ttk
+
     try:
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("winaccent.demo")
     except:
