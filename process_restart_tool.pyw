@@ -9,6 +9,7 @@ except:
     pass
 
 window = tk.Tk()
+window.withdraw()
 window.title("Process restart tool")
 window.resizable(False, False)
 window.configure(padx = 16, pady = 14)
@@ -18,4 +19,5 @@ ttk.Label(window, text = "Click one of the following buttons to restart a proces
 ttk.Button(window, text = "Restart explorer.exe", command = lambda: subprocess.call("taskkill /f /im explorer.exe & start explorer", shell = True)).pack(fill = "x")
 ttk.Button(window, text = "Restart dwm.exe", command = lambda: ctypes.windll.shell32.ShellExecuteW(None, "runas", "cmd", "/c taskkill /f /im dwm.exe", "", 1)).pack(fill = "x", pady = (4, 0))
 
+window.deiconify()
 window.mainloop()

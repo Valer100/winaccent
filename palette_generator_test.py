@@ -9,6 +9,7 @@ except:
     pass
 
 window = tk.Tk()
+window.withdraw()
 window.title("Palette generator")
 window.resizable(False, False)
 window.configure(padx = 10, pady = 10)
@@ -155,6 +156,7 @@ def update_palette():
 
 update_palette()
 
+window.deiconify()
 window.update()
 window.geometry(window.geometry())
 

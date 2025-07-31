@@ -14,6 +14,7 @@ def gui_demo():
         pass
 
     window = tk.Tk()
+    window.withdraw()
     window.title(f"winaccent {winaccent.__version__}")
     window.resizable(False, False)
     window.configure(padx = 10, pady = 10)
@@ -231,6 +232,7 @@ def gui_demo():
     thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = on_appearance_changed, pass_event = True), daemon = True)
     thread.start()
 
+    window.deiconify()
     lock_size()
     window.mainloop()
 
