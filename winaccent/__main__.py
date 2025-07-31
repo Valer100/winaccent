@@ -244,11 +244,11 @@ def console_demo():
     print("=" * len(f"winaccent {winaccent.__version__}") + "\n")
 
     if winaccent.os_has_full_support:
-        print("\nThis Windows version is fully supported.")
+        print("This Windows version is fully supported.")
     else:
-        print("\nThis Windows version isn't fully supported.")
+        print("This Windows version isn't fully supported.")
 
-    print("\nAccent palette")
+    print("\n\nAccent palette")
     print("--------------\n")
 
     print(f"accent_light_3:                 {winaccent.accent_light_3}")
