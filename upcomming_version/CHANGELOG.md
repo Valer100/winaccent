@@ -9,3 +9,4 @@
 
 - Fixed compatibility with Python 3.6 and 3.7
 - Fixed demo program not launching at all (even in console mode) if the Python installation was missing tk/tcl support
+- Add dark mode theme support to the demo program
