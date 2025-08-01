@@ -29,8 +29,53 @@ def gui_demo():
 
     style = ttk.Style()
     style.configure("TCheckbutton", font = ("Default", 11))
-    style.configure("TNotebook", background = "SystemButtonFace")
-    style.configure(".", background = "SystemWindow")
+
+    style.element_create("Dark.Notebook.client", "from", "clam")
+    style.element_create("Dark.Notebook.tab", "from", "clam")
+
+    def use_system_theme():
+        if not winaccent.apps_use_light_theme:
+            window.update()
+            window.configure(background = "#202020")
+
+            ctypes.windll.dwmapi.DwmSetWindowAttribute(
+                ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
+                ctypes.sizeof(ctypes.c_int(1))
+            )
+
+            style.map("Value.TCheckbutton", foreground = [("disabled", "#FFFFFF")])
+
+            style.layout("TNotebook", [("Dark.Notebook.client", {"sticky": "nswe"})])
+            style.layout("TNotebook.Tab", [("Dark.Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children": [("Notebook.label", {"side": "top", "sticky": ""})]})]})])
+
+            style.configure("TNotebook", background = "#202020", lightcolor = "#272727", darkcolor = "#272727", bordercolor = "#3D3D3D")
+            style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (4, 1, 4, 1))
+
+            style.map("TNotebook.Tab",
+                background = [("selected", "#272727"), ("active", "#2A2A2A")],
+                lightcolor = [("selected", "#272727"), ("active", "#2A2A2A")],
+                darkcolor = [("selected", "#272727"), ("active", "#2A2A2A")]
+            )
+
+            style.configure(".", background = "#272727", foreground = "#FFFFFF", bordercolor = "#3D3D3D")
+        else:
+            window.update()
+            window.configure(background = "SystemButtonFace")
+
+            ctypes.windll.dwmapi.DwmSetWindowAttribute(
+                ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(0)), 
+                ctypes.sizeof(ctypes.c_int(0))
+            )
+
+            style.map("Value.TCheckbutton", foreground = [("disabled", "SystemWindowText")])
+            
+            style.layout("TNotebook", [("Notebook.client", {"sticky": "nswe"})])
+            style.layout("TNotebook.Tab", [("Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children":[("Notebook.label", {"side": "top", "sticky": ""})]})]})])
+
+            style.configure("TNotebook", background = "SystemButtonFace")
+            style.configure(".", background = "SystemWindow", foreground = "SystemWindowText", bordercolor = "#3D3D3D")
+
+    use_system_theme()
 
     notebook = ttk.Notebook(window, width = 300)
     notebook.pack()
@@ -69,8 +114,6 @@ def gui_demo():
         color_value["state"] = "disabled"
 
     def add_boolean_value(parent, value_name, value):
-        style.map("Value.TCheckbutton", foreground = [("disabled", "SystemButtonText")])
-
         checkbutton = ttk.Checkbutton(parent, text = " " + value_name, style = "Value.TCheckbutton")
         checkbutton.pack(anchor = "w", pady = (0, 4))
         checkbutton.invoke()
@@ -94,12 +137,8 @@ def gui_demo():
 
         ttk.Label(header, text = "Accent palette", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w", side = "left")
         ttk.Checkbutton(header, text = " Full palette", variable = full_palette, command = update_accent_palette_colors).pack(anchor = "w", pady = (0, 5), side = "right")
-
-        current_text_color_rgb = window.winfo_rgb("SystemButtonText")
-        current_text_color = f"#{current_text_color_rgb[0]:02x}{current_text_color_rgb[1]:02x}{current_text_color_rgb[2]:02x}"
-        palette_bd = winaccent.accent_dark_3 if winaccent._utils.white_text_on_color(current_text_color) else winaccent.accent_light_3
-
-        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = palette_bd, highlightcolor = palette_bd, highlightthickness = 1)
+        
+        accent_palette_colors = tk.Frame(accent_palette, highlightbackground = style.lookup(".", "bordercolor"), highlightcolor = style.lookup(".", "bordercolor"), highlightthickness = 1)
         accent_palette_colors.pack(anchor = "w", fill = "both", expand = True)
 
         if full_palette.get():
@@ -135,7 +174,7 @@ def gui_demo():
 
         ttk.Label(accent_palette, text = "Other colors", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 
-        accent_menu = tk.Frame(accent_palette, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
+        accent_menu = tk.Frame(accent_palette, highlightbackground = style.lookup(".", "bordercolor"), highlightcolor = style.lookup(".", "bordercolor"), highlightthickness = 1)
         accent_menu.pack(anchor = "w", fill = "x")
 
         add_color(accent_menu, "accent_menu", winaccent.accent_menu)
@@ -160,7 +199,7 @@ def gui_demo():
 
         ttk.Label(window_chrome, text = "Active window", font = ("Segoe UI Semibold", 15)).pack(pady = (12, 10), anchor = "w")
 
-        active_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
+        active_window_colors = tk.Frame(window_chrome, highlightbackground = style.lookup(".", "bordercolor"), highlightcolor = style.lookup(".", "bordercolor"), highlightthickness = 1)
         active_window_colors.pack(anchor = "w", fill = "x")
 
         add_color(active_window_colors, "titlebar_active", winaccent.titlebar_active)
@@ -171,7 +210,7 @@ def gui_demo():
 
         ttk.Label(window_chrome, text = "Inactive window", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
 
-        inactive_window_colors = tk.Frame(window_chrome, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
+        inactive_window_colors = tk.Frame(window_chrome, highlightbackground = style.lookup(".", "bordercolor"), highlightcolor = style.lookup(".", "bordercolor"), highlightthickness = 1)
         inactive_window_colors.pack(anchor = "w", fill = "x")
 
         add_color(inactive_window_colors, "titlebar_inactive", winaccent.titlebar_inactive)
@@ -194,7 +233,7 @@ def gui_demo():
         ttk.Label(system, text = "Start Menu", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 6), anchor = "w")
         add_boolean_value(system, "is_start_menu_colored", winaccent.is_start_menu_colored)
         
-        start_menu_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
+        start_menu_color = tk.Frame(system, highlightbackground = style.lookup(".", "bordercolor"), highlightcolor = style.lookup(".", "bordercolor"), highlightthickness = 1)
         start_menu_color.pack(anchor = "w", fill = "x", pady = (8, 0))
         
         add_color(start_menu_color, "start_menu", winaccent.start_menu)
@@ -203,7 +242,7 @@ def gui_demo():
         ttk.Label(system, text = "Taskbar", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         add_boolean_value(system, "is_taskbar_colored", winaccent.is_taskbar_colored)
 
-        taskbar_color = tk.Frame(system, highlightbackground = "SystemButtonText", highlightcolor = "SystemButtonText", highlightthickness = 1)
+        taskbar_color = tk.Frame(system, highlightbackground = style.lookup(".", "bordercolor"), highlightcolor = style.lookup(".", "bordercolor"), highlightthickness = 1)
         taskbar_color.pack(anchor = "w", fill = "x", pady = (8, 0))
 
         add_color(taskbar_color, "taskbar", winaccent.taskbar)
@@ -222,6 +261,7 @@ def gui_demo():
     def on_appearance_changed(event):
         if event == winaccent.Event.ACCENT_COLOR_CHANGED: update_accent_palette_colors()
         elif event == winaccent.Event.WINDOW_CHROME_COLOR_CHANGED: update_windows_chrome_colors()
+        elif event == winaccent.Event.APPS_THEME_CHANGED: update_system_info(); use_system_theme()
         elif event == winaccent.Event.SYSTEM_THEME_CHANGED: update_system_info()
         elif event == winaccent.Event.TRANSPARENCY_EFFECTS_TOGGLED: update_system_info()
         elif event == winaccent.Event.START_MENU_COLOR_CHANGED: update_system_info()
