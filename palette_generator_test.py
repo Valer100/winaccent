@@ -31,7 +31,7 @@ ttk.Label(window, text = "Main color", font = ("Segoe UI Semibold", 15)).pack(pa
 color = ttk.Frame(window)
 color.pack(fill = "x", anchor = "w", padx = 10)
 
-color_prev = tk.Frame(color, width = 23, height = 23, highlightthickness = 1, highlightbackground = "#3D3D3D", bg = accent_normal)
+color_prev = tk.Frame(color, width = 23, height = 23, highlightthickness = 1, highlightbackground = "SystemWindowText", bg = accent_normal)
 color_prev.pack(side = "left")
 
 def on_color_change(event = None):
@@ -40,12 +40,12 @@ def on_color_change(event = None):
 
     if len(color_input.get()) == 7:
         try:
-            color_prev.configure(bg = accent_normal, highlightbackground = "#3D3D3D")
+            color_prev.configure(bg = accent_normal, highlightbackground = "SystemWindowText")
             update_palette()
         except: 
-            color_prev.configure(bg = "SystemButtonFace", highlightbackground = "#3D3D3D")
+            color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemWindowText")
     else:
-        color_prev.configure(bg = "SystemButtonFace", highlightbackground = "#3D3D3D")
+        color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemWindowText")
 
 def choose_color():
     global accent_normal
@@ -109,7 +109,7 @@ def update_palette():
     ttk.Label(palette_header, text = "Palette", font = ("Segoe UI Semibold", 15)).pack(padx = (8, 0), pady = (16, 8), anchor = "w", side = "left")
     ttk.Checkbutton(palette_header, text = " Full palette", variable = full_palette, command = update_palette).pack(anchor = "w", pady = (13, 0), padx = (0, 8), side = "right")
 
-    palette_colors = tk.Frame(palette, highlightbackground = "#3D3D3D", highlightthickness = 1)
+    palette_colors = tk.Frame(palette, highlightbackground = "SystemWindowText", highlightthickness = 1)
     palette_colors.pack(anchor = "w", fill = "both", expand = True, padx = 8, pady = (0, 8))
 
     if full_palette.get():

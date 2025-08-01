@@ -57,7 +57,7 @@ def gui_demo():
                 darkcolor = [("selected", "#272727"), ("active", "#2A2A2A")]
             )
 
-            style.configure(".", background = "#272727", foreground = "#FFFFFF", bordercolor = "#3D3D3D")
+            style.configure(".", background = "#272727", foreground = "#FFFFFF", bordercolor = "#FFFFFF")
         else:
             window.update()
             window.configure(background = "SystemButtonFace")
@@ -73,7 +73,7 @@ def gui_demo():
             style.layout("TNotebook.Tab", [("Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children":[("Notebook.label", {"side": "top", "sticky": ""})]})]})])
 
             style.configure("TNotebook", background = "SystemButtonFace")
-            style.configure(".", background = "SystemWindow", foreground = "SystemWindowText", bordercolor = "#3D3D3D")
+            style.configure(".", background = "SystemWindow", foreground = "SystemWindowText", bordercolor = "SystemWindowText")
 
     use_system_theme()
 
