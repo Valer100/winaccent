@@ -124,12 +124,22 @@ The GUI demo looks like this:
 
 <figure markdown>
 ![Windows 10 GUI demo](assets/win10-gui-demo.png){ .screenshot }
-<br><p>Windows 10</p>
+<br><p>Windows 10 (light mode)</p>
+</figure>
+
+<figure markdown>
+![Windows 10 GUI demo](assets/win10-dark-gui-demo.png){ .screenshot }
+<br><p>Windows 10 (dark mode)</p>
 </figure>
 
 <figure markdown>
 ![Windows 11 GUI demo](assets/win11-gui-demo.png){ .screenshot }
-<br><p>Windows 11</p>
+<br><p>Windows 11 (light mode)</p>
+</figure>
+
+<figure markdown>
+![Windows 11 GUI demo](assets/win11-dark-gui-demo.png){ .screenshot }
+<br><p>Windows 11 (dark mode)</p>
 </figure>
 
 </div>
