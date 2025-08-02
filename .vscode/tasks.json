@@ -36,7 +36,7 @@
         {
             "label": "Preview docs website",
             "type": "shell",
-            "command": "mkdocs serve",
+            "command": "start \"\" \"http://127.0.0.1:8000/winaccent/\"; mkdocs serve",
             "problemMatcher": []
         }
     ]
