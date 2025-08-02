@@ -49,7 +49,7 @@ def gui_demo():
             style.layout("TNotebook.Tab", [("Dark.Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children": [("Notebook.label", {"side": "top", "sticky": ""})]})]})])
 
             style.configure("TNotebook", background = "#202020", lightcolor = "#272727", darkcolor = "#272727", bordercolor = "#3D3D3D")
-            style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (4, 1, 4, 1))
+            style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (3, 1, 3, 1))
 
             style.map("TNotebook.Tab",
                 background = [("selected", "#272727"), ("active", "#353535")],
@@ -74,6 +74,8 @@ def gui_demo():
             style.layout("TNotebook.Tab", [("Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children":[("Notebook.label", {"side": "top", "sticky": ""})]})]})])
 
             style.configure("TNotebook", background = "SystemButtonFace")
+            style.configure("TNotebook.Tab", padding = "")
+
             style.configure("ColorList.TFrame", padding = 1, background = "SystemWindowText")
             style.configure(".", background = "SystemWindow", foreground = "SystemWindowText")
 
