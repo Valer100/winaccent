@@ -57,7 +57,7 @@ def gui_demo():
                 darkcolor = [("selected", "#272727"), ("active", "#353535")]
             )
 
-            style.configure("ColorList.TFrame", padding = 1, background = "#FFFFFF")
+            style.configure("ColorList.TFrame", background = "#FFFFFF")
             style.configure(".", background = "#272727", foreground = "#FFFFFF")
         else:
             window.update()
@@ -76,7 +76,7 @@ def gui_demo():
             style.configure("TNotebook", background = "SystemButtonFace")
             style.configure("TNotebook.Tab", padding = "")
 
-            style.configure("ColorList.TFrame", padding = 1, background = "SystemWindowText")
+            style.configure("ColorList.TFrame", background = "SystemWindowText")
             style.configure(".", background = "SystemWindow", foreground = "SystemWindowText")
 
     use_system_theme()
