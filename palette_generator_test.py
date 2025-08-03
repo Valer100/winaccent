@@ -15,6 +15,40 @@ window.resizable(False, False)
 window.configure(padx = 10, pady = 10)
 window.iconbitmap("winaccent/icon.ico")
 
+style = ttk.Style()
+style.configure("ColorList.TFrame", background = "#000000")
+
+if not winaccent.apps_use_light_theme:
+    window.update()
+    window.configure(background = "#202020")
+
+    ctypes.windll.dwmapi.DwmSetWindowAttribute(
+        ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
+        ctypes.sizeof(ctypes.c_int(1))
+    )
+    style.element_create("Dark.Button.border", "from", "clam")
+    style.element_create("Dark.Entry.field", "from", "clam")
+
+    style.layout("TButton", [("Dark.Button.border", {"sticky": "nswe", "border": "1", "children": [("Button.focus", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Button.label", {"sticky": "nswe"})]})]})]})])
+    style.layout("TEntry", [("Dark.Entry.field", {"sticky": "nswe", "border": "1", "children": [("Entry.background", {"sticky": "nswe", "children": [("Entry.padding", {"sticky": "nswe", "children": [("Entry.textarea", {"sticky": "nswe"})]})]})]})])
+
+    style.configure("TEntry", fieldbackground = "#404040", bordercolor = "#6E6E6E", insertcolor = "#FFFFFF")
+    style.configure("TButton", background = "#333333", bordercolor = "#9B9B9B", relief = "raised")
+    
+    style.map("TEntry",
+        bordercolor = [("focus", "#FFFFFF")],
+        lightcolor = [("focus", "#404040"), ("", "#404040")],
+        darkcolor = [("focus", "#404040"), ("", "#404040")],
+    )
+    style.map("TButton",
+        background = [("pressed", "#676767"), ("active", "#454545"), ("", "#333333")],
+        lightcolor = [("pressed", "#676767"), ("active", "#454545"), ("", "#333333")],
+        darkcolor = [("pressed", "#676767"), ("active", "#454545"), ("", "#333333")],
+    )
+
+    style.configure("ColorList.TFrame", background = "#FFFFFF")
+    style.configure(".", background = "#202020", foreground = "#FFFFFF")
+
 color_item_index = -1
 accent_normal = "#4617B4"
 accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
@@ -31,8 +65,11 @@ ttk.Label(window, text = "Main color", font = ("Segoe UI Semibold", 15)).pack(pa
 color = ttk.Frame(window)
 color.pack(fill = "x", anchor = "w", padx = 10)
 
-color_prev = tk.Frame(color, width = 23, height = 23, highlightthickness = 1, highlightbackground = "SystemWindowText", bg = accent_normal)
-color_prev.pack(side = "left")
+color_frame = ttk.Frame(color, style = "ColorList.TFrame", padding = 1)
+color_frame.pack(side = "left")
+
+color_prev = tk.Frame(color_frame, width = 23, height = 23, bg = accent_normal)
+color_prev.pack()
 
 def on_color_change(event = None):
     global accent_normal
@@ -109,7 +146,7 @@ def update_palette():
     ttk.Label(palette_header, text = "Palette", font = ("Segoe UI Semibold", 15)).pack(padx = (8, 0), pady = (16, 8), anchor = "w", side = "left")
     ttk.Checkbutton(palette_header, text = " Full palette", variable = full_palette, command = update_palette).pack(anchor = "w", pady = (13, 0), padx = (0, 8), side = "right")
 
-    palette_colors = tk.Frame(palette, highlightbackground = "SystemWindowText", highlightthickness = 1)
+    palette_colors = ttk.Frame(palette, style = "ColorList.TFrame", padding = 1)
     palette_colors.pack(anchor = "w", fill = "both", expand = True, padx = 8, pady = (0, 8))
 
     if full_palette.get():
