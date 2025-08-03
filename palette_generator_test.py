@@ -15,7 +15,17 @@ window.resizable(False, False)
 window.configure(padx = 10, pady = 10)
 window.iconbitmap("winaccent/icon.ico")
 
+color_item_index = -1
+accent_normal = "#4617B4"
+old_color = accent_normal
+accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
+accent_light_3 = winaccent._utils.generate_color_palette(accent_normal)[0]
+
+full_palette = tk.BooleanVar(value = True)
+
 style = ttk.Style()
+style.configure("TButton", font = 11)
+style.configure("TCheckbutton", font = ("Default", 11))
 style.configure("ColorList.TFrame", background = "#000000")
 
 if not winaccent.apps_use_light_theme:
@@ -49,17 +59,6 @@ if not winaccent.apps_use_light_theme:
     style.configure("ColorList.TFrame", background = "#FFFFFF")
     style.configure(".", background = "#202020", foreground = "#FFFFFF")
 
-color_item_index = -1
-accent_normal = "#4617B4"
-accent_dark_3 = winaccent._utils.generate_color_palette(accent_normal)[5]
-accent_light_3 = winaccent._utils.generate_color_palette(accent_normal)[0]
-
-full_palette = tk.BooleanVar(value = True)
-
-style = ttk.Style()
-style.configure("TButton", font = 11)
-style.configure("TCheckbutton", font = ("Default", 11))
-
 ttk.Label(window, text = "Main color", font = ("Segoe UI Semibold", 15)).pack(padx = 8, pady = (0, 8), anchor = "w")
 
 color = ttk.Frame(window)
@@ -72,17 +71,20 @@ color_prev = tk.Frame(color_frame, width = 23, height = 23, bg = accent_normal)
 color_prev.pack()
 
 def on_color_change(event = None):
-    global accent_normal
+    global accent_normal, old_color
     accent_normal = color_input.get().upper()
 
-    if len(color_input.get()) == 7:
-        try:
-            color_prev.configure(bg = accent_normal, highlightbackground = "SystemWindowText")
-            update_palette()
-        except: 
+    if accent_normal != old_color:
+        if len(color_input.get()) == 7:
+            try:
+                color_prev.configure(bg = accent_normal, highlightbackground = "SystemWindowText")
+                update_palette()
+            except: 
+                color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemWindowText")
+        else:
             color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemWindowText")
-    else:
-        color_prev.configure(bg = "SystemButtonFace", highlightbackground = "SystemWindowText")
+
+        old_color = accent_normal
 
 def choose_color():
     global accent_normal
