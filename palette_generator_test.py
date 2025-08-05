@@ -26,7 +26,7 @@ full_palette = tk.BooleanVar(value = True)
 style = ttk.Style()
 style.configure("TButton", font = 11)
 style.configure("TCheckbutton", font = ("Default", 11))
-style.configure("ColorList.TFrame", background = "#000000")
+style.configure("ColorList.TFrame", background = "SystemWindowText")
 
 if not winaccent.apps_use_light_theme:
     window.update()

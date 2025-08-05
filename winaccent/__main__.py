@@ -86,7 +86,7 @@ def gui_demo():
     use_system_theme()
 
     notebook = ttk.Notebook(window, width = 300)
-    notebook.pack()
+    notebook.pack(fill = "both", expand = True)
 
     def lock_size():
         window.update()
