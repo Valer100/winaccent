@@ -32,6 +32,7 @@ def gui_demo():
 
     style.element_create("Dark.Notebook.client", "from", "clam")
     style.element_create("Dark.Notebook.tab", "from", "clam")
+    style.element_create("Dark.Horizontal.Progressbar.trough", "from", "clam")
 
     def use_system_theme():
         if not winaccent.apps_use_light_theme:
@@ -47,9 +48,11 @@ def gui_demo():
 
             style.layout("TNotebook", [("Dark.Notebook.client", {"sticky": "nswe"})])
             style.layout("TNotebook.Tab", [("Dark.Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children": [("Notebook.label", {"side": "top", "sticky": ""})]})]})])
+            style.layout("Horizontal.TProgressbar", [("Dark.Horizontal.Progressbar.trough", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Horizontal.Progressbar.pbar", {"side": "left", "sticky": "ns"})]})]})])
 
             style.configure("TNotebook", background = "#202020", lightcolor = "#272727", darkcolor = "#272727", bordercolor = "#3D3D3D")
             style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (3, 1, 3, 1))
+            style.configure("Horizontal.TProgressbar", bordercolor = "#646464", troughcolor = "#383838", padding = 3)
 
             style.map("TNotebook.Tab",
                 background = [("selected", "#272727"), ("active", "#353535")],
@@ -72,6 +75,7 @@ def gui_demo():
             
             style.layout("TNotebook", [("Notebook.client", {"sticky": "nswe"})])
             style.layout("TNotebook.Tab", [("Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children":[("Notebook.label", {"side": "top", "sticky": ""})]})]})])
+            style.layout("Horizontal.TProgressbar", [("Horizontal.Progressbar.trough", {"sticky": "nswe", "children": [("Horizontal.Progressbar.pbar", {"side": "left", "sticky": "ns"})]})])
 
             style.configure("TNotebook", background = "SystemButtonFace")
             style.configure("TNotebook.Tab", padding = "")
@@ -270,10 +274,12 @@ def gui_demo():
                 winaccent.Event.TASKBAR_COLOR_CHANGED
             ] and notebook.index("current") == 2
         ):
-            overlay = ttk.Frame(width = accent_palette.winfo_width(), height = accent_palette.winfo_height())
-            overlay.place(x = 1, y = notebook.winfo_height() - accent_palette.winfo_height() - 2)
+            loading_overlay = ttk.Frame(width = accent_palette.winfo_width(), height = accent_palette.winfo_height())
+            loading_overlay.place(x = 1, y = notebook.winfo_height() - accent_palette.winfo_height() - 2)
 
-            ttk.Label(overlay, text = "Loading...").place(relx = 0.5, rely = 0.5, anchor = "center")
+            progressbar = ttk.Progressbar(loading_overlay, mode = "indeterminate", length = 200)
+            progressbar.place(relx = 0.5, rely = 0.5, anchor = "center")
+            progressbar.start(interval = 3)
 
             loading_overlay_shown = True
 
@@ -285,7 +291,7 @@ def gui_demo():
         elif event == winaccent.Event.START_MENU_COLOR_CHANGED: update_system_info()
         elif event == winaccent.Event.TASKBAR_COLOR_CHANGED: update_system_info()
 
-        if loading_overlay_shown: window.after(100, lambda: overlay.destroy())
+        if loading_overlay_shown: window.after(100, lambda: loading_overlay.destroy())
 
     accent_palette = ttk.Frame(notebook, padding = 10)
     window_chrome = ttk.Frame(notebook, padding = 10)
