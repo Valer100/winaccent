@@ -271,7 +271,7 @@ def gui_demo():
             ] and notebook.index("current") == 2
         ):
             overlay = ttk.Frame(width = accent_palette.winfo_width(), height = accent_palette.winfo_height())
-            overlay.place(x = 1, y = notebook.winfo_height() - accent_palette.winfo_height() - 1)
+            overlay.place(x = 1, y = notebook.winfo_height() - accent_palette.winfo_height() - 2)
 
             ttk.Label(overlay, text = "Loading...").place(relx = 0.5, rely = 0.5, anchor = "center")
 
