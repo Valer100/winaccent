@@ -126,13 +126,11 @@ def gui_demo():
         if value: checkbutton.state(["selected"])
         else: checkbutton.state(["!selected"])
 
-    accent_palette = ttk.Frame(notebook, padding = 10)
-    notebook.add(accent_palette, text = "Accent palette")
 
     def update_accent_palette_colors():
         global color_item_index
-
         for widget in accent_palette.winfo_children(): widget.destroy()
+
         winaccent.Flags.GET_ACCENT_FROM_DWM = get_accent_from_dwm.get()
         winaccent.update_values()
 
@@ -188,13 +186,10 @@ def gui_demo():
         ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
 
 
-    window_chrome = ttk.Frame(notebook, padding = 10)
-    notebook.add(window_chrome, text = "Window chrome")
-
     def update_windows_chrome_colors():
         global color_item_index
-
         for widget in window_chrome.winfo_children(): widget.destroy()
+
         winaccent.Flags.DARK_MODE_WINDOW = dark_mode_window.get()
         winaccent.update_values()
 
@@ -226,9 +221,6 @@ def gui_demo():
         ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         ttk.Checkbutton(window_chrome, text = " dark_mode_window", variable = dark_mode_window, command = update_windows_chrome_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
 
-
-    system = ttk.Frame(notebook, padding = 10)
-    notebook.add(system, text = "System")
 
     def update_system_info():
         global color_item_index
@@ -262,7 +254,29 @@ def gui_demo():
         
         add_boolean_value(system, "os_has_full_support", winaccent.os_has_full_support)
 
+
     def on_appearance_changed(event):
+        loading_overlay_shown = False
+
+        if (
+            event == winaccent.Event.ACCENT_COLOR_CHANGED and notebook.index("current") == 0
+            or event == winaccent.Event.WINDOW_CHROME_COLOR_CHANGED and notebook.index("current") == 1
+
+            or event in [
+                winaccent.Event.APPS_THEME_CHANGED, 
+                winaccent.Event.SYSTEM_THEME_CHANGED,
+                winaccent.Event.TRANSPARENCY_EFFECTS_TOGGLED,
+                winaccent.Event.START_MENU_COLOR_CHANGED,
+                winaccent.Event.TASKBAR_COLOR_CHANGED
+            ] and notebook.index("current") == 2
+        ):
+            overlay = ttk.Frame(width = accent_palette.winfo_width(), height = accent_palette.winfo_height())
+            overlay.place(x = 1, y = notebook.winfo_height() - accent_palette.winfo_height() - 1)
+
+            ttk.Label(overlay, text = "Loading...").place(relx = 0.5, rely = 0.5, anchor = "center")
+
+            loading_overlay_shown = True
+
         if event == winaccent.Event.ACCENT_COLOR_CHANGED: update_accent_palette_colors()
         elif event == winaccent.Event.WINDOW_CHROME_COLOR_CHANGED: update_windows_chrome_colors()
         elif event == winaccent.Event.APPS_THEME_CHANGED: update_system_info(); use_system_theme()
@@ -270,6 +284,16 @@ def gui_demo():
         elif event == winaccent.Event.TRANSPARENCY_EFFECTS_TOGGLED: update_system_info()
         elif event == winaccent.Event.START_MENU_COLOR_CHANGED: update_system_info()
         elif event == winaccent.Event.TASKBAR_COLOR_CHANGED: update_system_info()
+
+        if loading_overlay_shown: window.after(100, lambda: overlay.destroy())
+
+    accent_palette = ttk.Frame(notebook, padding = 10)
+    window_chrome = ttk.Frame(notebook, padding = 10)
+    system = ttk.Frame(notebook, padding = 10)
+
+    notebook.add(accent_palette, text = "Accent palette")
+    notebook.add(window_chrome, text = "Window chrome")
+    notebook.add(system, text = "System")
 
     update_accent_palette_colors()
     update_windows_chrome_colors()
