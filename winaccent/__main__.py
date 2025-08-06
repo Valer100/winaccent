@@ -78,7 +78,7 @@ def gui_demo():
             style.layout("Horizontal.TProgressbar", [("Horizontal.Progressbar.trough", {"sticky": "nswe", "children": [("Horizontal.Progressbar.pbar", {"side": "left", "sticky": "ns"})]})])
 
             style.configure("TNotebook", background = "SystemButtonFace")
-            style.configure("TNotebook.Tab", padding = "")
+            style.configure("TNotebook.Tab", padding = (1, 0, 1, 0))
 
             style.configure("ColorList.TFrame", background = "SystemWindowText")
             style.configure(".", background = "SystemWindow", foreground = "SystemWindowText")
