@@ -34,7 +34,7 @@ nav:
     - Getting started:
         - Installation: getting-started/installation.md
         - Try the demo: getting-started/try-the-demo.md
-        - Example usage: getting-started/example-usage.md
+        - Examples: getting-started/examples.md
 
     - Colors:
         - Accent color and shades: colors/accent-color-and-shades.md

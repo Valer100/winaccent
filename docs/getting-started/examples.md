@@ -1,4 +1,4 @@
-# Example usage
+# Examples
 
 ## Printing the accent color
 winaccent is very easy to use. Here's how we can print the accent color the system is using:
