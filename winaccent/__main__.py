@@ -1,5 +1,5 @@
 import os
-import winaccent, ctypes, threading, argparse, traceback
+import winaccent, ctypes, threading, argparse, traceback, sys
 
 # Prevent "File not found" errors
 os.chdir(os.path.dirname(__file__))
@@ -314,60 +314,107 @@ def gui_demo():
 
 
 def console_demo():
+    ctypes.windll.kernel32.SetConsoleMode(ctypes.windll.kernel32.GetStdHandle(-11), 7)
+    reset_escape_code = "\033[0m"
+
+    def colored_text(text: str, color: str = None, hex_color: str = None):
+        if color != None:
+            if color == "black": escape_code = "\033[30m"
+            elif color == "red": escape_code = "\033[31m"
+            elif color == "green": escape_code = "\033[32m"
+            elif color == "yellow": escape_code = "\033[33m"
+            elif color == "blue": escape_code = "\033[34m"
+            elif color == "magenta": escape_code = "\033[35m"
+            elif color == "cyan": escape_code = "\033[36m"
+            elif color == "white": escape_code = "\033[37m"
+            elif color == "light_black": escape_code = "\033[90m"
+            elif color == "light_red": escape_code = "\033[91m"
+            elif color == "light_green": escape_code = "\033[92m"
+            elif color == "light_yellow": escape_code = "\033[93m"
+            elif color == "light_blue": escape_code = "\033[94m"
+            elif color == "light_magenta": escape_code = "\033[95m"
+            elif color == "light_cyan": escape_code = "\033[96m"
+            elif color == "bright_white": escape_code = "\033[97m"
+        else:
+            hex_color = hex_color.lstrip("#")
+            escape_code = f"\033[38;2;{int(hex_color[0:2], 16)};{int(hex_color[2:4], 16)};{int(hex_color[4:6], 16)}m"
+
+        version = sys.getwindowsversion()
+
+        if version.major >= 10 and version.build >= 16257:
+            return(f"{escape_code}{text}{reset_escape_code if escape_code != '' else ''}")
+        else:
+            return text
+
+    def colored_bool(bool: bool):
+        return colored_text(str(bool), color = "green" if bool else "red")
+
+    def color(hex_color: str):
+        color_square = "\u2588\u2588"
+        version = sys.getwindowsversion()
+
+        if version.major >= 10 and version.build >= 16257: 
+            return f"{colored_text(color_square, hex_color = hex_color)} {hex_color}"
+        else:
+            return hex_color
+        
+
     print(f"\nwinaccent {winaccent.__version__}")
     print("=" * len(f"winaccent {winaccent.__version__}") + "\n")
 
     if winaccent.os_has_full_support:
-        print("This Windows version is fully supported.")
+        print(colored_text("This Windows version is fully supported.", color = "green"))
     else:
-        print("This Windows version isn't fully supported.")
+        print(colored_text("This Windows version isn't fully supported.", color = "red"))
 
-    print("\n\nAccent palette")
-    print("--------------\n")
 
-    print(f"accent_light_3:                 {winaccent.accent_light_3}")
-    print(f"accent_light_2:                 {winaccent.accent_light_2}")
-    print(f"accent_light_1:                 {winaccent.accent_light_1}")
-    print(f"accent_normal:                  {winaccent.accent_normal}")
-    print(f"accent_dark_1:                  {winaccent.accent_dark_1}")
-    print(f"accent_dark_2:                  {winaccent.accent_dark_2}")
-    print(f"accent_dark_3:                  {winaccent.accent_dark_3}")
+    print(colored_text("\n\nAccent palette", color = "yellow"))
+    print(colored_text("--------------\n", color = "yellow"))
 
-    print("\n\nWindow chrome")
-    print("-------------\n")
+    print(f"accent_light_3:               {color(winaccent.accent_light_3)}")
+    print(f"accent_light_2:               {color(winaccent.accent_light_2)}")
+    print(f"accent_light_1:               {color(winaccent.accent_light_1)}")
+    print(f"accent_normal:                {color(winaccent.accent_normal)}")
+    print(f"accent_dark_1:                {color(winaccent.accent_dark_1)}")
+    print(f"accent_dark_2:                {color(winaccent.accent_dark_2)}")
+    print(f"accent_dark_3:                {color(winaccent.accent_dark_3)}")
+    print(f"\naccent_menu:                  {color(winaccent.accent_menu)}")
+
+
+    print(colored_text("\n\nWindow chrome", color = "yellow"))
+    print(colored_text("-------------\n", color = "yellow"))
+
+    print(f"is_titlebar_colored:          {colored_bool(winaccent.is_titlebar_colored)}")
+    print(f"titlebar_active:              {color(winaccent.titlebar_active)}")
+    print(f"titlebar_active_text:         {color(winaccent.titlebar_active_text)}")
+    print(f"titlebar_inactive:            {color(winaccent.titlebar_inactive)}")
+    print(f"titlebar_inactive_text:       {color(winaccent.titlebar_inactive_text)}")
+    print(f"window_border_active:         {color(winaccent.window_border_active)}")
+    print(f"window_border_inactive:       {color(winaccent.window_border_inactive)}")
     
 
-    print(f"is_titlebar_colored:            {winaccent.is_titlebar_colored}")
-    print(f"titlebar_active:                {winaccent.titlebar_active}")
-    print(f"titlebar_active_text:           {winaccent.titlebar_active_text}")
-    print(f"titlebar_inactive:              {winaccent.titlebar_inactive}")
-    print(f"titlebar_inactive_text:         {winaccent.titlebar_inactive_text}")
-    print(f"window_border_active:           {winaccent.window_border_active}")
-    print(f"window_border_inactive:         {winaccent.window_border_inactive}")
-    
-    print("\n\nStart Menu")
-    print("----------\n")
+    print(colored_text("\n\nStart Menu", color = "yellow"))
+    print(colored_text("----------\n", color = "yellow"))
 
-    print(f"is_start_menu_colored:          {winaccent.is_start_menu_colored}")
-    print(f"start_menu:                     {winaccent.start_menu}")
+    print(f"is_start_menu_colored:        {colored_bool(winaccent.is_start_menu_colored)}")
+    print(f"start_menu:                   {color(winaccent.start_menu)}")
 
-    print("\n\nTaskbar")
-    print("-------\n")
 
-    print(f"is_taskbar_colored:             {winaccent.is_taskbar_colored}")
-    print(f"taskbar:                        {winaccent.taskbar}")
+    print(colored_text("\n\nTaskbar", color = "yellow"))
+    print(colored_text("-------\n", color = "yellow"))
 
-    print("\n\nUI Appearance")
-    print("-------------\n")
+    print(f"is_taskbar_colored:           {colored_bool(winaccent.is_taskbar_colored)}")
+    print(f"taskbar:                      {color(winaccent.taskbar)}")
 
-    print(f"transparency_effects_enabled:   {winaccent.transparency_effects_enabled}")
-    print(f"apps_use_light_theme:           {winaccent.apps_use_light_theme}")
-    print(f"system_uses_light_theme:        {winaccent.system_uses_light_theme}")
 
-    print("\n\nOther colors")
-    print("------------\n")
+    print(colored_text("\n\nUI Appearance", color = "yellow"))
+    print(colored_text("-------------\n", color = "yellow"))
 
-    print(f"accent_menu:                    {winaccent.accent_menu}")
+    print(f"transparency_effects_enabled: {colored_bool(winaccent.transparency_effects_enabled)}")
+    print(f"apps_use_light_theme:         {colored_bool(winaccent.apps_use_light_theme)}")
+    print(f"system_uses_light_theme:      {colored_bool(winaccent.system_uses_light_theme)}")
+
+
     print("\n")
 
 
