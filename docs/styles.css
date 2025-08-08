@@ -1,6 +1,24 @@
 /* Custom minimum version badge */
 /* <a title="Minimum version" class="badge" href="../../about/changelog#2.1.0">:material-tag-outline: **v2.1.0**</a> */
 
+html {
+    --terminal-red: #920611;
+    --terminal-green: #097905;
+    --terminal-yellow: #836900;
+    --terminal-blue: #0d2261;
+    --terminal-magenta: #53055e;
+    --terminal-cyan: #186aa8;
+}
+
+html:has(body[data-md-color-scheme="slate"]) {
+    --terminal-red: #f38992;
+    --terminal-green: #8ef089;
+    --terminal-yellow: #F9F1A5;
+    --terminal-blue: #7ea7ff;
+    --terminal-magenta: #f181e4;
+    --terminal-cyan: #8fecec;
+}
+
 .badge {
     background-color: #526cfe1a;
     padding: 4px;

@@ -9,9 +9,9 @@ Before using winaccent, you can try the demo program to see how it works and wha
 ## The console mode
 In the console mode, the demo program will display the current winaccent version and everything winaccent can get. To launch the demo program, type the following command in your terminal:
 
-```
-python -m winaccent --mode console
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">python</span> <span style="color: var(--terminal-blue)">-m</span> winaccent <span style="color: var(--terminal-blue)">--mode</span> console</code></pre>
+</div>
 
 The output will look like this:
 
@@ -23,59 +23,50 @@ The output will look like this:
 
 <div class="md-typeset">
 <pre>
-<code class="console-demo">winaccent 2.1.0
+<code class="console-demo">winaccent 2.2.0
 ===============
 
-Accent palette
---------------
+<span style="color: var(--terminal-yellow)">Accent palette<br>--------------</span>
 
-accent_light_3:                 #99EBFF
-accent_light_2:                 #4CC2FF
-accent_light_1:                 #0091F8
-accent_normal:                  #0078D4
-accent_dark_1:                  #0067C0
-accent_dark_2:                  #003E92
-accent_dark_3:                  #001A68
+accent_light_3:               <span style="color: #99EBFF;">██</span> #99EBFF
+accent_light_2:               <span style="color: #4CC2FF;">██</span> #4CC2FF
+accent_light_1:               <span style="color: #0091F8;">██</span> #0091F8
+accent_normal:                <span style="color: #0078D4;">██</span> #0078D4
+accent_dark_1:                <span style="color: #0067C0;">██</span> #0067C0
+accent_dark_2:                <span style="color: #003E92;">██</span> #003E92
+accent_dark_3:                <span style="color: #001A68;">██</span> #001A68
 
-
-Window chrome
--------------
-
-is_titlebar_colored:            False
-titlebar_active:                #F3F3F3
-titlebar_active_text:           #000000
-titlebar_inactive:              #F3F3F3
-titlebar_inactive_text:         #929292
-window_border_active:           #757575
-window_border_inactive:         #757575
+accent_menu:                  <span style="color: #0078D4;">██</span> #0078D4
 
 
-Start Menu
-----------
+<span style="color: var(--terminal-yellow)">Window chrome<br>-------------</span>
 
-is_start_menu_colored:          False
-start_menu:                     #242424
-
-
-Taskbar
--------
-
-is_taskbar_colored:             False
-taskbar:                        #1C1C1C
+is_titlebar_colored:          <span style="color: var(--terminal-red)">False</span>
+titlebar_active:              <span style="color: #F3F3F3;">██</span> #F3F3F3
+titlebar_active_text:         <span style="color: #000000;">██</span> #000000
+titlebar_inactive:            <span style="color: #F3F3F3;">██</span> #F3F3F3
+titlebar_inactive_text:       <span style="color: #929292;">██</span> #929292
+window_border_active:         <span style="color: #757575;">██</span> #757575
+window_border_inactive:       <span style="color: #757575;">██</span> #757575
 
 
-UI Appearance
--------------
+<span style="color: var(--terminal-yellow)">Start Menu<br>----------</span>
 
-transparency_effects_enabled:   True
-apps_use_light_theme:           False
-system_uses_light_theme:        False
+is_start_menu_colored:        <span style="color: var(--terminal-red)">False</span>
+start_menu:                   <span style="color: #242424;">██</span> #242424
 
 
-Other colors
-------------
+<span style="color: var(--terminal-yellow)">Taskbar<br>-------</span>
 
-accent_menu:                    #0078D4
+is_taskbar_colored:           <span style="color: var(--terminal-red)">False</span>
+taskbar:                      <span style="color: #1C1C1C;">██</span> #1C1C1C
+
+
+<span style="color: var(--terminal-yellow)">UI Appearance<br>-------------</span>
+
+transparency_effects_enabled: <span style="color: var(--terminal-green)">True</span>
+apps_use_light_theme:         <span style="color: var(--terminal-red)">False</span>
+system_uses_light_theme:      <span style="color: var(--terminal-red)">False</span>
 </code>
 </pre>
 </div>
@@ -84,9 +75,9 @@ accent_menu:                    #0078D4
 ## The GUI mode
 In the GUI mode, the demo program will display a window with an interactive user interface where you can better explore what winaccent has to offer. To run the demo program in the GUI mode, run the following command:
 
-```
-python -m winaccent --mode gui
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">python</span> <span style="color: var(--terminal-blue)">-m</span> winaccent <span style="color: var(--terminal-blue)">--mode</span> gui</code></pre>
+</div>
 
 <br>
 The GUI demo looks like this:
@@ -183,15 +174,15 @@ The GUI demo looks like this:
 ## The auto mode
 The auto mode will basically run the demo program in GUI mode if tcl/tk is available, installed correctly and no other error occurs or in console mode if tcl/tk is unavailable, not installed correctly or an error occured. To run the demo program in the auto mode, run the following command:
 
-```
-python -m winaccent --mode auto
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">python</span> <span style="color: var(--terminal-blue)">-m</span> winaccent <span style="color: var(--terminal-blue)">--mode</span> auto</code></pre>
+</div>
 
 ... or even shorter:
 
-```
-python -m winaccent
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">python</span> <span style="color: var(--terminal-blue)">-m</span> winaccent</code></pre>
+</div>
 
 ## Shorter command
 
@@ -199,21 +190,21 @@ For an easier way to run the demo program, you can try the `winaccent` command. 
 
 Some examples for running the command:
 
-```
-winaccent
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">winaccent</span></code></pre>
+</div>
 
-```
-winaccent --mode auto
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">winaccent</span> <span style="color: var(--terminal-blue)">--mode</span> auto</code></pre>
+</div>
 
-```
-winaccent --mode gui
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">winaccent</span> <span style="color: var(--terminal-blue)">--mode</span> gui</code></pre>
+</div>
 
-```
-winaccent --mode console
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">winaccent</span> <span style="color: var(--terminal-blue)">--mode</span> console</code></pre>
+</div>
 
 <br>
 

@@ -2,12 +2,12 @@
 
 winaccent can be easily installed using the following command:
 
-```
-pip install winaccent
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">pip</span> install winaccent</code></pre>
+</div>
 
 To upgrade the module when a newer version is released, you can run the following command:
 
-```
-pip install --upgrade --no-cache winaccent
-```
+<div class="md-typeset">
+<pre><code><span style="color: var(--terminal-yellow)">pip</span> install <span style="color: var(--terminal-blue)">--upgrade --no-cache</span> winaccent</code></pre>
+</div>
