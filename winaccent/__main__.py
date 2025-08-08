@@ -327,7 +327,7 @@ def console_demo():
             elif color == "magenta": escape_code = "\033[35m"
             elif color == "cyan": escape_code = "\033[36m"
             elif color == "white": escape_code = "\033[37m"
-            elif color == "light_black": escape_code = "\033[90m"
+            elif color == "gray": escape_code = "\033[90m"
             elif color == "light_red": escape_code = "\033[91m"
             elif color == "light_green": escape_code = "\033[92m"
             elif color == "light_yellow": escape_code = "\033[93m"
