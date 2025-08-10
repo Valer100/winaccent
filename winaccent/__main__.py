@@ -314,7 +314,22 @@ def gui_demo():
 
 
 def console_demo():
-    ctypes.windll.kernel32.SetConsoleMode(ctypes.windll.kernel32.GetStdHandle(-11), 7)
+    version = sys.getwindowsversion()
+
+    colorama_available = False
+    ansi_escapes_supported = version.major >= 10 and version.build >= 16257
+
+    if ansi_escapes_supported:
+        ctypes.windll.kernel32.SetConsoleMode(ctypes.windll.kernel32.GetStdHandle(-11), 7)
+    else:
+        try: 
+            import colorama
+            colorama.just_fix_windows_console()
+
+            colorama_available = True
+        except ModuleNotFoundError:
+            colorama_available = False
+
     reset_escape_code = "\033[0m"
 
     def colored_text(text: str, color: str = None, hex_color: str = None):
@@ -339,9 +354,7 @@ def console_demo():
             hex_color = hex_color.lstrip("#")
             escape_code = f"\033[38;2;{int(hex_color[0:2], 16)};{int(hex_color[2:4], 16)};{int(hex_color[4:6], 16)}m"
 
-        version = sys.getwindowsversion()
-
-        if version.major >= 10 and version.build >= 16257:
+        if ansi_escapes_supported or colorama_available:
             return(f"{escape_code}{text}{reset_escape_code if escape_code != '' else ''}")
         else:
             return text
@@ -351,9 +364,8 @@ def console_demo():
 
     def color(hex_color: str):
         color_square = "\u2588\u2588"
-        version = sys.getwindowsversion()
 
-        if version.major >= 10 and version.build >= 16257: 
+        if ansi_escapes_supported: 
             return f"{colored_text(color_square, hex_color = hex_color)} {hex_color}"
         else:
             return hex_color
