@@ -10,4 +10,4 @@
 - Fixed compatibility with Python 3.6 and 3.7
 - Fixed demo program not launching at all (even in console mode) if the Python installation was missing tk/tcl support
 - Add dark mode support to the demo program (Windows 10+)
-- Add color preview and use different text colors for category titles and booleans in the console demo (Windows 10+)
+- Add color preview and use different text colors for category titles and booleans in the console demo (Windows 10+). On Windows verions older than 10, the [`colorama`](https://github.com/tartley/colorama) module must be installed for the output to use colored text. If it isn't, the output won't use colored text.

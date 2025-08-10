@@ -71,6 +71,9 @@ system_uses_light_theme:      <span style="color: var(--terminal-red)">False</sp
 </pre>
 </div>
 
+!!! warning
+    For getting colored output on Windows versions older than 10, you have to install the [`colorama`](https://github.com/tartley/colorama) module (run `pip install colorama` in Command Prompt or PowerShell). If you don't install `colorama`, the output won't use colors on these versions. On Windows 10+, you don't need to install or do anything.
+
 
 ## The GUI mode
 In the GUI mode, the demo program will display a window with an interactive user interface where you can better explore what winaccent has to offer. To run the demo program in the GUI mode, run the following command:
