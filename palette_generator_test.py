@@ -42,10 +42,11 @@ if not winaccent.apps_use_light_theme:
     style.layout("TButton", [("Dark.Button.border", {"sticky": "nswe", "border": "1", "children": [("Button.focus", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Button.label", {"sticky": "nswe"})]})]})]})])
     style.layout("TEntry", [("Dark.Entry.field", {"sticky": "nswe", "border": "1", "children": [("Entry.background", {"sticky": "nswe", "children": [("Entry.padding", {"sticky": "nswe", "children": [("Entry.textarea", {"sticky": "nswe"})]})]})]})])
 
-    style.configure("TEntry", fieldbackground = "#404040", bordercolor = "#6E6E6E", insertcolor = "#FFFFFF")
+    style.configure("TEntry", fieldbackground = "#404040", background = "#6E6E6E", bordercolor = "#6E6E6E", insertcolor = "#FFFFFF")
     style.configure("TButton", background = "#333333", bordercolor = "#9B9B9B", relief = "raised")
     
     style.map("TEntry",
+        background = [("focus", "#FFFFFF")],
         bordercolor = [("focus", "#FFFFFF")],
         lightcolor = [("focus", "#404040"), ("", "#404040")],
         darkcolor = [("focus", "#404040"), ("", "#404040")],
