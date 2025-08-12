@@ -31,9 +31,11 @@ def update_values():
     global window_border_inactive
     
     global is_start_menu_colored
-    global is_taskbar_colored
     global start_menu
+
+    global is_taskbar_colored
     global taskbar
+    global is_taskbar_center_aligned
 
     global transparency_effects_enabled
     global apps_use_light_theme
@@ -93,3 +95,7 @@ def update_values():
     is_taskbar_colored = True
     apps_use_light_theme = True
     system_uses_light_theme = True
+
+
+    # Hardcode these values to `False`
+    is_taskbar_center_aligned = False

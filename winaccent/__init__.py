@@ -48,12 +48,14 @@ window_border: str
 window_border_active: str
 window_border_inactive: str
 
-# Start Menu & Taskbar
+# Start Menu
 is_start_menu_colored: bool
-is_taskbar_colored: bool
-
 start_menu: str
+
+# Taskbar
+is_taskbar_colored: bool
 taskbar: str
+is_taskbar_center_aligned: bool
 
 # Other settings
 transparency_effects_enabled: bool
@@ -70,6 +72,7 @@ class Event:
     TRANSPARENCY_EFFECTS_TOGGLED = 4
     APPS_THEME_CHANGED = 5
     SYSTEM_THEME_CHANGED = 6
+    TASKBAR_ALIGNMENT_CHANGED = 7
 
 # Flags
 class Flags:
@@ -106,9 +109,11 @@ def update_values() -> None:
     global window_border_inactive
     
     global is_start_menu_colored
-    global is_taskbar_colored
     global start_menu
+
+    global is_taskbar_colored
     global taskbar
+    global is_taskbar_center_aligned
 
     global transparency_effects_enabled
     global apps_use_light_theme
@@ -146,9 +151,11 @@ def update_values() -> None:
     window_border_inactive = win.window_border_inactive
 
     is_start_menu_colored = win.is_start_menu_colored
-    is_taskbar_colored = win.is_taskbar_colored
     start_menu = win.start_menu
+
+    is_taskbar_colored = win.is_taskbar_colored
     taskbar = win.taskbar
+    is_taskbar_center_aligned = win.is_taskbar_center_aligned
 
     transparency_effects_enabled = win.transparency_effects_enabled
     apps_use_light_theme = win.apps_use_light_theme
@@ -181,9 +188,11 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
         accent_menu_old = accent_menu
         
         is_start_menu_colored_old = is_start_menu_colored
-        is_taskbar_colored_old = is_taskbar_colored
         start_menu_old = start_menu
+
+        is_taskbar_colored_old = is_taskbar_colored
         taskbar_old = taskbar
+        is_taskbar_center_aligned_old = is_taskbar_center_aligned
 
         transparency_effects_enabled_old = transparency_effects_enabled
         apps_use_light_theme_old = apps_use_light_theme
@@ -242,6 +251,11 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
         if system_uses_light_theme_old != system_uses_light_theme:
             # System theme changed
             if pass_event: callback(event = Event.SYSTEM_THEME_CHANGED)
+            else: callback()
+
+        if is_taskbar_center_aligned_old != is_taskbar_center_aligned:
+            # Taskbar alignment changed
+            if pass_event: callback(event = Event.TASKBAR_ALIGNMENT_CHANGED)
             else: callback()
 
         time.sleep(1)

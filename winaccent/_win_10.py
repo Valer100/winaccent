@@ -30,9 +30,11 @@ def update_values():
     global window_border_inactive
     
     global is_start_menu_colored
-    global is_taskbar_colored
     global start_menu
+
+    global is_taskbar_colored
     global taskbar
+    global is_taskbar_center_aligned
 
     global transparency_effects_enabled
     global apps_use_light_theme
@@ -296,3 +298,17 @@ def update_values():
             # Windows 10
             if system_uses_light_theme: taskbar = "#EEEEEE"
             else: taskbar = "#101010"
+
+    # Retrieve taskbar alignment
+    if sys.getwindowsversion().major == 10 and sys.getwindowsversion().build > 22000:
+        # Windows 11
+        try:
+            is_taskbar_center_aligned = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarAl")
+
+            if is_taskbar_center_aligned == 0: is_taskbar_center_aligned = False
+            else: is_taskbar_center_aligned = True
+        except:
+            is_taskbar_center_aligned = True
+    else:
+        # Windows 10
+        is_taskbar_center_aligned = False
