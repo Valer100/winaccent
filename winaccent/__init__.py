@@ -9,7 +9,7 @@ import sys, time
 
 if not sys.platform == "win32": 
     raise ImportError("No Windows environment found. This module only works on Windows Vista and later.")
-elif sys.getwindowsversion().major == 10: 
+elif sys.getwindowsversion().major >= 10: 
     from . import _win_10 as win
 elif sys.getwindowsversion().major == 6 and sys.getwindowsversion().minor >= 2:
     from . import _win_8 as win
