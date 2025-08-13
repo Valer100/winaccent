@@ -243,10 +243,13 @@ def gui_demo():
         add_boolean_value(system, "is_taskbar_colored", winaccent.is_taskbar_colored)
 
         taskbar_color = ttk.Frame(system, style = "ColorList.TFrame", padding = 1)
-        taskbar_color.pack(anchor = "w", fill = "x", pady = (8, 0))
+        taskbar_color.pack(anchor = "w", fill = "x", pady = 8)
 
         add_color(taskbar_color, "taskbar", winaccent.taskbar)
         color_item_index = -1
+        
+        add_boolean_value(system, "is_taskbar_center_aligned", winaccent.is_taskbar_center_aligned)
+        add_boolean_value(system, "is_taskbar_auto_hiding", winaccent.is_taskbar_auto_hiding)
 
         ttk.Label(system, text = "UI Appearance", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
 
@@ -254,9 +257,9 @@ def gui_demo():
         add_boolean_value(system, "apps_use_light_theme", winaccent.apps_use_light_theme)
         add_boolean_value(system, "system_uses_light_theme", winaccent.system_uses_light_theme)
         
-        ttk.Label(system, text = "Other info", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+        # ttk.Label(system, text = "Other info", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         
-        add_boolean_value(system, "os_has_full_support", winaccent.os_has_full_support)
+        # add_boolean_value(system, "os_has_full_support", winaccent.os_has_full_support)
 
 
     def on_appearance_changed(event):
@@ -271,7 +274,9 @@ def gui_demo():
                 winaccent.Event.SYSTEM_THEME_CHANGED,
                 winaccent.Event.TRANSPARENCY_EFFECTS_TOGGLED,
                 winaccent.Event.START_MENU_COLOR_CHANGED,
-                winaccent.Event.TASKBAR_COLOR_CHANGED
+                winaccent.Event.TASKBAR_COLOR_CHANGED,
+                winaccent.Event.TASKBAR_ALIGNMENT_CHANGED,
+                winaccent.Event.TASKBAR_AUTO_HIDING_TOGGLED
             ] and notebook.index("current") == 2
         ):
             loading_overlay = ttk.Frame(width = accent_palette.winfo_width(), height = accent_palette.winfo_height())
@@ -290,6 +295,8 @@ def gui_demo():
         elif event == winaccent.Event.TRANSPARENCY_EFFECTS_TOGGLED: update_system_info()
         elif event == winaccent.Event.START_MENU_COLOR_CHANGED: update_system_info()
         elif event == winaccent.Event.TASKBAR_COLOR_CHANGED: update_system_info()
+        elif event == winaccent.Event.TASKBAR_ALIGNMENT_CHANGED: update_system_info()
+        elif event == winaccent.Event.TASKBAR_AUTO_HIDING_TOGGLED: update_system_info()
 
         if loading_overlay_shown: window.after(100, lambda: loading_overlay.destroy())
 
@@ -417,6 +424,8 @@ def console_demo():
 
     print(f"is_taskbar_colored:           {colored_bool(winaccent.is_taskbar_colored)}")
     print(f"taskbar:                      {color(winaccent.taskbar)}")
+    print(f"is_taskbar_center_aligned:    {colored_bool(winaccent.is_taskbar_center_aligned)}")
+    print(f"is_taskbar_auto_hiding:       {colored_bool(winaccent.is_taskbar_auto_hiding)}")
 
 
     print(colored_text("\n\nUI Appearance", color = "yellow"))
