@@ -56,6 +56,7 @@ start_menu: str
 is_taskbar_colored: bool
 taskbar: str
 is_taskbar_center_aligned: bool
+is_taskbar_auto_hiding: bool
 
 # Other settings
 transparency_effects_enabled: bool
@@ -73,6 +74,7 @@ class Event:
     APPS_THEME_CHANGED = 5
     SYSTEM_THEME_CHANGED = 6
     TASKBAR_ALIGNMENT_CHANGED = 7
+    TASKBAR_AUTO_HIDING_TOGGLED = 8
 
 # Flags
 class Flags:
@@ -114,6 +116,7 @@ def update_values() -> None:
     global is_taskbar_colored
     global taskbar
     global is_taskbar_center_aligned
+    global is_taskbar_auto_hiding
 
     global transparency_effects_enabled
     global apps_use_light_theme
@@ -156,6 +159,7 @@ def update_values() -> None:
     is_taskbar_colored = win.is_taskbar_colored
     taskbar = win.taskbar
     is_taskbar_center_aligned = win.is_taskbar_center_aligned
+    is_taskbar_auto_hiding = win.is_taskbar_auto_hiding
 
     transparency_effects_enabled = win.transparency_effects_enabled
     apps_use_light_theme = win.apps_use_light_theme
@@ -193,6 +197,7 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
         is_taskbar_colored_old = is_taskbar_colored
         taskbar_old = taskbar
         is_taskbar_center_aligned_old = is_taskbar_center_aligned
+        is_taskbar_auto_hiding_old = is_taskbar_auto_hiding
 
         transparency_effects_enabled_old = transparency_effects_enabled
         apps_use_light_theme_old = apps_use_light_theme
@@ -256,6 +261,11 @@ def on_appearance_changed(callback: callable, pass_event: bool = False) -> None:
         if is_taskbar_center_aligned_old != is_taskbar_center_aligned:
             # Taskbar alignment changed
             if pass_event: callback(event = Event.TASKBAR_ALIGNMENT_CHANGED)
+            else: callback()
+
+        if is_taskbar_auto_hiding_old != is_taskbar_auto_hiding:
+            # Taskbar alignment changed
+            if pass_event: callback(event = Event.TASKBAR_AUTO_HIDING_TOGGLED)
             else: callback()
 
         time.sleep(1)

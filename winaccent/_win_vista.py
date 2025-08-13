@@ -36,6 +36,7 @@ def update_values():
     global is_taskbar_colored
     global taskbar
     global is_taskbar_center_aligned
+    global is_taskbar_auto_hiding
 
     global transparency_effects_enabled
     global apps_use_light_theme
@@ -76,6 +77,20 @@ def update_values():
         else: transparency_effects_enabled = True
     except:
         transparency_effects_enabled = True
+
+
+    # Retrieve taskbar autohide setting
+    try:
+        stuckrects3_settings = _utils.get_registry_value(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StuckRects3", "Settings", winreg.REG_BINARY)
+        stuckrects3_settings = " ".join(f'{byte:02X}' for byte in stuckrects3_settings)
+        stuckrects3_settings_list = stuckrects3_settings.split(" ")
+
+        is_taskbar_auto_hiding = stuckrects3_settings_list[8][1]
+
+        if is_taskbar_auto_hiding >= 3: is_taskbar_auto_hiding = True
+        else: is_taskbar_auto_hiding = False
+    except:
+        is_taskbar_auto_hiding = False
 
 
     # Unsupported values
