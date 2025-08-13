@@ -288,3 +288,7 @@ html:has(body[data-md-color-scheme="slate"]) {
 [data-md-color-scheme="slate"] .button {
     color: #000000 !important;
 }
+
+td {
+    vertical-align: middle !important;
+}

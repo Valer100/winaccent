@@ -60,6 +60,8 @@ start_menu:                   <span style="color: #242424;">██</span> #24242
 
 is_taskbar_colored:           <span style="color: var(--terminal-red)">False</span>
 taskbar:                      <span style="color: #1C1C1C;">██</span> #1C1C1C
+is_taskbar_center_aligned:    <span style="color: var(--terminal-green)">True</span>
+is_taskbar_auto_hiding:       <span style="color: var(--terminal-red)">False</span>
 
 
 <span style="color: var(--terminal-yellow)">UI Appearance<br>-------------</span>
