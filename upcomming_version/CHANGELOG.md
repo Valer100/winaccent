@@ -3,6 +3,7 @@
 ## What's new
 
 - Added limited support for Windows Vista and 7
+- Added new variables for settings that can be retrieved: `is_taskbar_center_aligned` and `is_taskbar_auto_hiding`
 - Added a much simpler command for running the demo program: `winaccent` (it also supports the same arguments as the `python -m winaccent` command)
 
 ## Fixes and improvements

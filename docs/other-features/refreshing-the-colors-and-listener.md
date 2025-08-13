@@ -58,9 +58,14 @@ Here are all the supported event constants from the `Event` class:
 | TRANSPARENCY_EFFECTS_TOGGLED | 4     |
 | APPS_THEME_CHANGED           | 5     |
 | SYSTEM_THEME_CHANGED         | 6     |
+| TASKBAR_ALIGNMENT_CHANGED    | 7     |
+| TASKBAR_AUTO_HIDING_TOGGLED  | 8     |
 
 !!! note
     If you set up the listener, there's no need to call `update_values()` manually, because the values will update automatically.
+
+!!! warning
+    The `TASKBAR_AUTO_HIDING_TOGGLED` event may be sent with delays (around 2 seconds on Windows 11/10/8.x and 5 seconds on Windows 7) or may not be sent at all (Windows Vista).
 
 Here is a demonstration of the appearance change listener:
 

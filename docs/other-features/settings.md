@@ -3,7 +3,7 @@
 winaccent also allows you to retrieve some appearance-related settings. Here are all the settings that winaccent can retrieve right now:
 
 ## Colored title bars and window borders
-This setting can be found on Windows 10 and 11 in Settings > Personalization > Color. It is called "Show accent color on title bars and window borders". To check if this setting is enabled or not, you can use the `is_titlebar_colored` boolean variable like this:
+This setting can be found on Windows 10 and 11 in Settings > Personalization > Color as "Show accent color on title bars and window borders". To check if this setting is enabled or not, you can use the `is_titlebar_colored` boolean variable like this:
 
 ```python
 import winaccent
@@ -19,7 +19,7 @@ else:
 
 
 ## Colored taskbar and Start menu
-This option can also be found on Windows 10 and 11 in Settings > Personalization > Color. It is called "Show accent color on Start and taskbar". To check if the Start menu or the taskbar is colored, you can use the `is_start_menu_colored` and `is_taskbar_colored` boolean variables like this:
+This option can also be found on Windows 10 and 11 in Settings > Personalization > Color as "Show accent color on Start and taskbar". To check if the Start menu or the taskbar is colored, you can use the `is_start_menu_colored` and `is_taskbar_colored` boolean variables like this:
 
 ```python
 import winaccent
@@ -48,6 +48,44 @@ else:
 
 !!! note
     On Windows 8.x, 7 and Vista, these variables will always return `True`.
+
+
+## Taskbar alignment
+This setting is Windows 11-specific and can be found in Settings > Personalization > Taskbar > Taskbar behaviors as "Taskbar alignment". To check if the taskbar is center aligned or not, you can use the `is_taskbar_center_aligned` boolean variable like this:
+
+```python
+import winaccent
+
+if winaccent.is_taskbar_center_aligned:
+    print("Taskbar is center aligned.")
+else:
+    print("Taskbar isn't center aligned.")
+```
+
+!!! note
+    On Windows 10, 8.x, 7 and Vista, this variable will always return `False`.
+
+
+## Taskbar autohide
+This setting can be found:
+
+- on Windows 11: **Settings > Personalization > Taskbar > Taskbar behaviors** (Automatically hide the taskbar)
+- on Windows 10: **Settings > Personalization > Taskbar** (Automatically hide the taskbar in desktop mode)
+- on Windows 8.x, 7 and Vista: **right-click on the taskbar > Properties** (Auto-hide taskbar)
+
+You can check if this setting is enabled or not using the `is_taskbar_auto_hiding` boolean variable. It can be used like this:
+
+```python
+import winaccent
+
+if winaccent.is_taskbar_auto_hiding:
+    print("Taskbar is hiding automatically.")
+else:
+    print("Taskbar isn't hiding automatically.")
+```
+
+!!! warning
+    This variable may not be reliable on Windows Vista.
 
 
 ## Apps' and system's theme
