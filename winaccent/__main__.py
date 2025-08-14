@@ -1,10 +1,31 @@
 import os
-import winaccent, ctypes, threading, argparse, traceback, sys
+import winaccent, ctypes, threading, argparse, traceback, sys, platform, webbrowser
 
 # Prevent "File not found" errors
 os.chdir(os.path.dirname(__file__))
 
 color_item_index = -1
+
+# Collect some info about Windows and Python
+windows_version = sys.getwindowsversion()
+python_verion = sys.version_info
+
+if windows_version.major == 10 and windows_version.build > 22000: windows = "11"
+elif windows_version.major == 10: windows = "10"
+elif windows_version.major == 6 and windows_version.minor == 3: windows = "8.1"
+elif windows_version.major == 6 and windows_version.minor == 2: windows = "8"
+elif windows_version.major == 6 and windows_version.minor == 1: windows = "7"
+elif windows_version.major == 6 and windows_version.minor == 0: windows = "Vista"
+else: windows = "Unknown"
+
+try: windows_architecture = platform.architecture("C:\\Windows\\System32\\cmd.exe")[0]
+except: windows_architecture = "Unknown"
+
+try: windows_edition = platform.win32_edition()
+except: windows_edition = ""
+
+loaded_submodule = os.path.basename(winaccent.win.__file__)
+
 
 def gui_demo():
     import tkinter as tk
@@ -29,10 +50,13 @@ def gui_demo():
 
     style = ttk.Style()
     style.configure("TCheckbutton", font = ("Default", 11))
+    style.configure("TButton", font = ("Default", 11), padding = 5)
+    style.configure("Data.TLabel", font = ("Default", 11))
 
     style.element_create("Dark.Notebook.client", "from", "clam")
     style.element_create("Dark.Notebook.tab", "from", "clam")
     style.element_create("Dark.Horizontal.Progressbar.trough", "from", "clam")
+    style.element_create("Dark.Button.border", "from", "clam")
 
     def use_system_theme():
         if not winaccent.apps_use_light_theme:
@@ -49,15 +73,23 @@ def gui_demo():
             style.layout("TNotebook", [("Dark.Notebook.client", {"sticky": "nswe"})])
             style.layout("TNotebook.Tab", [("Dark.Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children": [("Notebook.label", {"side": "top", "sticky": ""})]})]})])
             style.layout("Horizontal.TProgressbar", [("Dark.Horizontal.Progressbar.trough", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Horizontal.Progressbar.pbar", {"side": "left", "sticky": "ns"})]})]})])
+            style.layout("TButton", [("Dark.Button.border", {"sticky": "nswe", "border": "1", "children": [("Button.focus", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Button.label", {"sticky": "nswe"})]})]})]})])
 
             style.configure("TNotebook", background = "#202020", lightcolor = "#272727", darkcolor = "#272727", bordercolor = "#3D3D3D")
             style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (3, 1, 3, 1))
             style.configure("Horizontal.TProgressbar", bordercolor = "#646464", troughcolor = "#383838", padding = 3)
+            style.configure("TButton", background = "#333333", bordercolor = "#9B9B9B", relief = "raised")
 
             style.map("TNotebook.Tab",
                 background = [("selected", "#272727"), ("active", "#353535")],
                 lightcolor = [("selected", "#272727"), ("active", "#353535")],
                 darkcolor = [("selected", "#272727"), ("active", "#353535")]
+            )
+
+            style.map("TButton",
+                background = [("pressed", "#676767"), ("active", "#454545"), ("", "#333333")],
+                lightcolor = [("pressed", "#676767"), ("active", "#454545"), ("", "#333333")],
+                darkcolor = [("pressed", "#676767"), ("active", "#454545"), ("", "#333333")],
             )
 
             style.configure("ColorList.TFrame", background = "#FFFFFF")
@@ -76,6 +108,13 @@ def gui_demo():
             style.layout("TNotebook", [("Notebook.client", {"sticky": "nswe"})])
             style.layout("TNotebook.Tab", [("Notebook.tab", {"sticky": "nswe", "children": [("Notebook.padding", {"side": "top", "sticky": "nswe", "children":[("Notebook.label", {"side": "top", "sticky": ""})]})]})])
             style.layout("Horizontal.TProgressbar", [("Horizontal.Progressbar.trough", {"sticky": "nswe", "children": [("Horizontal.Progressbar.pbar", {"side": "left", "sticky": "ns"})]})])
+            style.layout("TButton", [("Button.button", {"sticky": "nswe", "children": [("Button.focus", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Button.label", {"sticky": "nswe"})]})]})]})])
+
+            style.map("TButton",
+                background = [("pressed", "SystemWindow"), ("active", "SystemWindow"), ("", "SystemWindow")],
+                lightcolor = [("pressed", "SystemWindow"), ("active", "SystemWindow"), ("", "SystemWindow")],
+                darkcolor = [("pressed", "SystemWindow"), ("active", "SystemWindow"), ("", "SystemWindow")],
+            )
 
             style.configure("TNotebook", background = "SystemButtonFace")
             style.configure("TNotebook.Tab", padding = (1, 0, 1, 0))
@@ -256,10 +295,52 @@ def gui_demo():
         add_boolean_value(system, "transparency_effects_enabled", winaccent.transparency_effects_enabled)
         add_boolean_value(system, "apps_use_light_theme", winaccent.apps_use_light_theme)
         add_boolean_value(system, "system_uses_light_theme", winaccent.system_uses_light_theme)
+
+
+    def update_about_info():
+        ttk.Label(about, text = "Module", font = ("Segoe UI Semibold", 15)).pack(pady = (0, 10), anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Version: {winaccent.__version__}").pack(anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Loaded submodule: {loaded_submodule}").pack(anchor = "w")
+
+        ttk.Label(about, text = "Windows", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Version: Windows {windows}").pack(anchor = "w")
+
+        if windows_edition != "":
+            ttk.Label(about, style = "Data.TLabel", text = f"Edition: {windows_edition}").pack(anchor = "w")
+
+        ttk.Label(about, style = "Data.TLabel", text = f"Build: {windows_version.build} ({windows_architecture})").pack(pady = (0, 6), anchor = "w")
+        add_boolean_value(about, "os_has_full_support", winaccent.os_has_full_support)
         
-        # ttk.Label(system, text = "Other info", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
+        ttk.Label(about, text = "Python", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Version: {python_verion.major}.{python_verion.minor}.{python_verion.micro} ({python_verion.releaselevel})").pack(anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Architecture: {platform.architecture()[0]}").pack(anchor = "w")
+
+        ttk.Label(about, text = "Useful links", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         
-        # add_boolean_value(system, "os_has_full_support", winaccent.os_has_full_support)
+        links = ttk.Frame(about)
+        links.pack(fill = "x", expand = True)
+        links.columnconfigure(0, weight = 1)
+        links.columnconfigure(1, weight = 1)
+
+        ttk.Button(
+            links, text = "Documentation", 
+            command = lambda: webbrowser.open("https://valer100.github.io/winaccent")
+        ).grid(row = 0, column = 0, padx = (0, 3), sticky = "nsew")
+
+        ttk.Button(
+            links, text = "GitHub repository",
+            command = lambda: webbrowser.open("https://github.com/Valer100/winaccent")
+        ).grid(row = 0, column = 1, padx = (3, 0), sticky = "nsew")
+
+        ttk.Button(
+            links, text = "PyPI project",
+            command = lambda: webbrowser.open("https://pypi.org/project/winaccent")
+        ).grid(row = 1, column = 0, padx = (0, 3), pady = (6, 0), sticky = "nsew")
+
+        ttk.Button(
+            links, text = "Changelog",
+            command = lambda: webbrowser.open("https://valer100.github.io/winaccent/about/changelog/")
+        ).grid(row = 1, column = 1, padx = (3, 0), pady = (6, 0), sticky = "nsew")
 
 
     def on_appearance_changed(event):
@@ -303,14 +384,17 @@ def gui_demo():
     accent_palette = ttk.Frame(notebook, padding = 10)
     window_chrome = ttk.Frame(notebook, padding = 10)
     system = ttk.Frame(notebook, padding = 10)
+    about = ttk.Frame(notebook, padding = 10)
 
     notebook.add(accent_palette, text = "Accent palette")
     notebook.add(window_chrome, text = "Window chrome")
     notebook.add(system, text = "System")
+    notebook.add(about, text = "About")
 
     update_accent_palette_colors()
     update_windows_chrome_colors()
     update_system_info()
+    update_about_info()
 
     thread = threading.Thread(target = lambda: winaccent.on_appearance_changed(callback = on_appearance_changed, pass_event = True), daemon = True)
     thread.start()
@@ -434,6 +518,14 @@ def console_demo():
     print(f"transparency_effects_enabled: {colored_bool(winaccent.transparency_effects_enabled)}")
     print(f"apps_use_light_theme:         {colored_bool(winaccent.apps_use_light_theme)}")
     print(f"system_uses_light_theme:      {colored_bool(winaccent.system_uses_light_theme)}")
+
+    print(colored_text("\n\nEnvironment", color = "yellow"))
+    print(colored_text("-----------\n", color = "yellow"))
+    
+    print(f"Windows {windows}{(' ' + windows_edition) if windows_edition != '' else ''} {windows_architecture} (Build {windows_version.build})")
+    print(f"Python {python_verion.major}.{python_verion.minor}.{python_verion.micro} {platform.architecture()[0]} ({python_verion.releaselevel})")
+    print(f"Loaded submodule: {loaded_submodule}")
+    print(f"Full support: {colored_bool(winaccent.os_has_full_support)}")
 
 
     print("\n")
