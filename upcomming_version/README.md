@@ -132,6 +132,8 @@ Taskbar
 
 is_taskbar_colored:           False
 taskbar:                      #1C1C1C
+is_taskbar_center_aligned:    True
+is_taskbar_auto_hiding:       False
 
 
 UI Appearance
@@ -140,6 +142,15 @@ UI Appearance
 transparency_effects_enabled: True
 apps_use_light_theme:         False
 system_uses_light_theme:      False
+
+
+Environment
+-----------
+
+Windows 11 Professional 64bit (Build 26100)
+Python 3.11.9 64bit (final)
+Loaded submodule: _win_10.py
+Full support: True
 ```
 </details>
 

@@ -69,6 +69,14 @@ is_taskbar_auto_hiding:       <span style="color: var(--terminal-red)">False</sp
 transparency_effects_enabled: <span style="color: var(--terminal-green)">True</span>
 apps_use_light_theme:         <span style="color: var(--terminal-red)">False</span>
 system_uses_light_theme:      <span style="color: var(--terminal-red)">False</span>
+
+
+<span style="color: var(--terminal-yellow)">Environment<br>-------------</span>
+
+Windows 11 Professional 64bit (Build 26100)
+Python 3.11.9 64bit (final)
+Loaded submodule: _win_10.py
+Full support: <span style="color: var(--terminal-green)">True</span>
 </code>
 </pre>
 </div>
