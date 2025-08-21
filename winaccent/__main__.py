@@ -303,7 +303,7 @@ def gui_demo():
         ttk.Label(about, style = "Data.TLabel", text = f"Loaded submodule: {loaded_submodule}").pack(anchor = "w")
 
         ttk.Label(about, text = "Windows", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
-        ttk.Label(about, style = "Data.TLabel", text = f"Version: Windows {windows}").pack(anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Version: {windows}").pack(anchor = "w")
 
         if windows_edition != "":
             ttk.Label(about, style = "Data.TLabel", text = f"Edition: {windows_edition}").pack(anchor = "w")
