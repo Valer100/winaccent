@@ -77,11 +77,14 @@ The command will run with `--mode` set to `auto` by default.
 <summary>Show GUI demo screenshots</summary>
 <br>
 
-| **Windows 11** | **Windows 10** | **Windows 8.x** | **Windows 7** | **Windows Vista** |
-|:--------------:|:--------------:|:---------------:|:-------------:|:-----------------:|
-| ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win11.png?raw=true) | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win10.png?raw=true) | ![Windows 8 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win8.png?raw=true) | ![Windows 7 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win7.png?raw=true) | ![Windows Vista default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/winvista.png?raw=true) |
-| ![Windows 11 default dark](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win11_dark.png?raw=true) | ![Windows 10 default dark](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win10_dark.png?raw=true) |
 
+| Windows version | Light mode | Dark mode |
+|:---------------:|:----------:|:---------:|
+| Windows 11      | ![Windows 11 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win11.png?raw=true) | ![Windows 11 default dark](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win11_dark.png?raw=true) |
+| Windows 10      | ![Windows 10 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win10.png?raw=true) | ![Windows 10 default dark](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win10_dark.png?raw=true) |
+| Windows 8.x     | ![Windows 8.x default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win8.png?raw=true) | |
+| Windows 7       | ![Windows 7 default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/win7.png?raw=true) | |
+| Windows Vista   | ![Windows vista default](https://github.com/Valer100/winaccent/blob/main/assets/demo4/winvista.png?raw=true) | |
 
 
 </details>
