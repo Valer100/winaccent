@@ -1,5 +1,4 @@
-import os
-import winaccent, ctypes, threading, argparse, traceback, sys, platform, webbrowser
+import winaccent, ctypes, threading, argparse, traceback, sys, os, platform, webbrowser, subprocess
 
 # Prevent "File not found" errors
 os.chdir(os.path.dirname(__file__))
@@ -7,6 +6,9 @@ os.chdir(os.path.dirname(__file__))
 color_item_index = -1
 
 # Collect some info about Windows and Python
+windows_dir = ctypes.create_unicode_buffer(260)
+ctypes.windll.kernel32.GetWindowsDirectoryW(windows_dir, 260)
+
 windows_version = sys.getwindowsversion()
 python_verion = sys.version_info
 
@@ -18,11 +20,11 @@ elif windows_version.major == 6 and windows_version.minor == 1: windows = "7"
 elif windows_version.major == 6 and windows_version.minor == 0: windows = "Vista"
 else: windows = "Unknown"
 
-try: windows_architecture = platform.architecture("C:\\Windows\\System32\\cmd.exe")[0]
-except: windows_architecture = "Unknown"
-
 try: windows_edition = platform.win32_edition()
 except: windows_edition = ""
+
+windows_build = subprocess.getoutput(os.path.join(windows_dir.value, "System32", "cmd.exe") + " /c ver").strip().replace("]", "")
+windows_build = windows_build[windows_build.rfind(f"[Version ") + 9:].replace(f"{windows_version.major}.{windows_version.minor}.", "")
 
 loaded_submodule = os.path.basename(winaccent.win.__file__)
 
@@ -226,7 +228,7 @@ def gui_demo():
         color_item_index = -1
 
         ttk.Label(accent_palette, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
-        ttk.Checkbutton(accent_palette, text = " get_accent_from_dwm", variable = get_accent_from_dwm, command = update_accent_palette_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
+        ttk.Checkbutton(accent_palette, text = " GET_ACCENT_FROM_DWM", variable = get_accent_from_dwm, command = update_accent_palette_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
 
 
     def update_windows_chrome_colors():
@@ -262,7 +264,7 @@ def gui_demo():
         color_item_index = -1
 
         ttk.Label(window_chrome, text = "Flags", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
-        ttk.Checkbutton(window_chrome, text = " dark_mode_window", variable = dark_mode_window, command = update_windows_chrome_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
+        ttk.Checkbutton(window_chrome, text = " DARK_MODE_WINDOW", variable = dark_mode_window, command = update_windows_chrome_colors, state = "normal" if winaccent.os_has_full_support else "disabled").pack(anchor = "w", padx = 4)
 
 
     def update_system_info():
@@ -308,12 +310,11 @@ def gui_demo():
         if windows_edition != "":
             ttk.Label(about, style = "Data.TLabel", text = f"Edition: {windows_edition}").pack(anchor = "w")
 
-        ttk.Label(about, style = "Data.TLabel", text = f"Build: {windows_version.build} ({windows_architecture})").pack(pady = (0, 6), anchor = "w")
+        ttk.Label(about, style = "Data.TLabel", text = f"Build: {windows_build}").pack(pady = (0, 6), anchor = "w")
         add_boolean_value(about, "os_has_full_support", winaccent.os_has_full_support)
         
         ttk.Label(about, text = "Python", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 10), anchor = "w")
         ttk.Label(about, style = "Data.TLabel", text = f"Version: {python_verion.major}.{python_verion.minor}.{python_verion.micro} ({python_verion.releaselevel})").pack(anchor = "w")
-        ttk.Label(about, style = "Data.TLabel", text = f"Architecture: {platform.architecture()[0]}").pack(anchor = "w")
 
         ttk.Label(about, text = "Useful links", font = ("Segoe UI Semibold", 15)).pack(pady = (16, 6), anchor = "w")
         
@@ -522,8 +523,8 @@ def console_demo():
     print(colored_text("\n\nEnvironment", color = "yellow"))
     print(colored_text("-----------\n", color = "yellow"))
     
-    print(f"Windows {windows}{(' ' + windows_edition) if windows_edition != '' else ''} {windows_architecture} (Build {windows_version.build})")
-    print(f"Python {python_verion.major}.{python_verion.minor}.{python_verion.micro} {platform.architecture()[0]} ({python_verion.releaselevel})")
+    print(f"Windows {windows}{(' ' + windows_edition) if windows_edition != '' else ''} (Build {windows_build})")
+    print(f"Python {python_verion.major}.{python_verion.minor}.{python_verion.micro} ({python_verion.releaselevel})")
     print(f"Loaded submodule: {loaded_submodule}")
     print(f"Full support: {colored_bool(winaccent.os_has_full_support)}")
 
