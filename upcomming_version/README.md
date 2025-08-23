@@ -24,6 +24,10 @@
 
 A simple and lightweight Python module for easily retrieving Windows' accent color, including shades, specific window chrome colors such as active/inactive titlebar and window borders and theme. Supports Windows 8.x, 10 and 11 and doesn't require additional dependencies.
 
+## 📝 Requirements
+- Windows Vista or later (Windows 8.0 or later required for full functionality)
+- Python 3.6 or later
+
 ## 📦 Installation
 Run this command in your terminal:
 
@@ -36,10 +40,6 @@ To update the module, run this command:
 ```
 pip install --upgrade winaccent
 ```
-
-## 📝 Requirements
-- Windows 8.0 or newer
-- Python 3.6 or newer
 
 ## 📜 Documentation
 The documentation is available [here](https://valer100.github.io/winaccent).
@@ -97,6 +97,9 @@ The command will run with `--mode` set to `auto` by default.
 winaccent 2.2.0
 ===============
 
+This Windows version is fully supported.
+
+
 Accent palette
 --------------
 
@@ -150,8 +153,8 @@ system_uses_light_theme:      False
 Environment
 -----------
 
-Windows 11 Professional 64bit (Build 26100)
-Python 3.11.9 64bit (final)
+Windows 11 Professional (Build 26100.4946)
+Python 3.11.9 (final)
 Loaded submodule: _win_10.py
 Full support: True
 ```
