@@ -78,9 +78,10 @@ body {
     transition: background-color 0.3s, scrollbar-color 0.3s;
 }
 
-.md-typeset table:not([class]), .md-typeset .admonition {
+.md-typeset table:not([class]), .md-typeset .admonition, details {
     background: none !important;
-    border-radius: 15px;
+    border-radius: 15px !important;
+    overflow: hidden !important;
 }
 
 p.admonition-title {

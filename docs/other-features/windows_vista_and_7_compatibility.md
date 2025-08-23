@@ -28,6 +28,7 @@ Here is the list of the supported and unsupported features on these Windows vers
 
 ### Supported features
 - [Accent color and shades](../colors/accent-color-and-shades.md) (all)
+- [Predefined colors](../colors/predefined-colors.md) (all)
 - [Settings](../other-features/settings.md) (all)
 - [Appearance change listener and manual values refreshing](../other-features/refreshing-the-colors-and-listener.md)
 - [HEX string color to RGB integer tuple function](../other-features/hex-to-rgb-function.md)

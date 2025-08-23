@@ -26,6 +26,9 @@ The output will look like this:
 <code class="console-demo">winaccent 2.2.0
 ===============
 
+<span style="color: var(--terminal-green)">This Windows version is fully supported.</span>
+
+
 <span style="color: var(--terminal-yellow)">Accent palette<br>--------------</span>
 
 accent_light_3:               <span style="color: #99EBFF;">██</span> #99EBFF
@@ -73,8 +76,8 @@ system_uses_light_theme:      <span style="color: var(--terminal-red)">False</sp
 
 <span style="color: var(--terminal-yellow)">Environment<br>-------------</span>
 
-Windows 11 Professional 64bit (Build 26100)
-Python 3.11.9 64bit (final)
+Windows 11 Professional (Build 26100.4946)
+Python 3.11.9 (final)
 Loaded submodule: _win_10.py
 Full support: <span style="color: var(--terminal-green)">True</span>
 </code>

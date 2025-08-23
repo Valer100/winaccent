@@ -1,7 +1,7 @@
 # Requirements
 Here are the following requirements that must be met for being able to run winaccent without any problem:
 
-:material-microsoft-windows: Windows Vista or later
+![Windows Vista icon](https://api.iconify.design/grommet-icons/windows-legacy.svg?color=%23121212#only-light) ![Windows Vista icon](https://api.iconify.design/grommet-icons/windows-legacy.svg?color=%23BBBBBB#only-dark) Windows Vista or later (:material-microsoft-windows: Windows 8.0 or later required for full functionality)
 <br>
 :material-language-python: Python 3.6 or later
 

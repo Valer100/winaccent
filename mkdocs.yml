@@ -38,8 +38,9 @@ nav:
 
     - Colors:
         - Accent color and shades: colors/accent-color-and-shades.md
-        - System colors: colors/system-colors.md
         - Window chrome colors: colors/window-chrome-colors.md
+        - System colors: colors/system-colors.md
+        - Predefined colors: colors/predefined-colors.md
 
     - Other features:
         - Settings: other-features/settings.md
