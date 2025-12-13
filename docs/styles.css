@@ -293,3 +293,7 @@ html:has(body[data-md-color-scheme="slate"]) {
 td {
     vertical-align: middle !important;
 }
+
+.md-code__nav {
+    background: none !important;
+}
