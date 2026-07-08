@@ -30,6 +30,10 @@ if not apps_use_light_theme:
         ctypes.sizeof(ctypes.c_int(1))
     )
 
+    # Undocumented dark mode functions
+    ctypes.windll.uxtheme[135](2)   # AllowDarkModeForApp / SetPreferredAppMode
+    ctypes.windll.uxtheme[136]()    # FlushMenuThemes
+
     style = ttk.Style()
 
     style.element_create("Dark.Button.border", "from", "clam")

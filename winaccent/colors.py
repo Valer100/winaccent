@@ -1,5 +1,5 @@
 '''
-A list of predefined colors taken from https://learn.microsoft.com/en-us/uwp/api/windos.ui.colors?view=winrt-26100#remarks
+A list of predefined colors taken from https://learn.microsoft.com/en-us/uwp/api/windows.ui.colors?view=winrt-26100#remarks
 '''
 
 aliceblue = "#F0F8FF"

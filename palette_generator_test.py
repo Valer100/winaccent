@@ -36,6 +36,11 @@ if not winaccent.apps_use_light_theme:
         ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
         ctypes.sizeof(ctypes.c_int(1))
     )
+
+    # Undocumented dark mode functions
+    ctypes.windll.uxtheme[135](2)   # AllowDarkModeForApp / SetPreferredAppMode
+    ctypes.windll.uxtheme[136]()    # FlushMenuThemes
+
     style.element_create("Dark.Button.border", "from", "clam")
     style.element_create("Dark.Entry.field", "from", "clam")
 

@@ -61,14 +61,19 @@ def gui_demo():
     style.element_create("Dark.Button.border", "from", "clam")
 
     def use_system_theme():
-        if not winaccent.apps_use_light_theme:
-            window.update()
-            window.configure(background = "#202020")
+        window.update()
 
-            ctypes.windll.dwmapi.DwmSetWindowAttribute(
-                ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
-                ctypes.sizeof(ctypes.c_int(1))
-            )
+        ctypes.windll.dwmapi.DwmSetWindowAttribute(
+            ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
+            ctypes.sizeof(ctypes.c_int(not winaccent.apps_use_light_theme))
+        )
+
+        # Undocumented dark mode functions
+        ctypes.windll.uxtheme[135](not winaccent.apps_use_light_theme * 2)   # AllowDarkModeForApp / SetPreferredAppMode
+        ctypes.windll.uxtheme[136]()                                         # FlushMenuThemes
+
+        if not winaccent.apps_use_light_theme:
+            window.configure(background = "#202020")
 
             style.map("Value.TCheckbutton", foreground = [("disabled", "#FFFFFF")])
 
@@ -78,7 +83,7 @@ def gui_demo():
             style.layout("TButton", [("Dark.Button.border", {"sticky": "nswe", "border": "1", "children": [("Button.focus", {"sticky": "nswe", "children": [("Button.padding", {"sticky": "nswe", "children": [("Button.label", {"sticky": "nswe"})]})]})]})])
 
             style.configure("TNotebook", background = "#202020", lightcolor = "#272727", darkcolor = "#272727", bordercolor = "#3D3D3D")
-            style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (3, 1, 3, 1))
+            style.configure("TNotebook.Tab", background = "#2D2D2D", lightcolor = "#2D2D2D", darkcolor = "#2D2D2D", bordercolor = "#3D3D3D", padding = (5, 2, 5, 2))
             style.configure("Horizontal.TProgressbar", bordercolor = "#646464", troughcolor = "#383838", padding = 3)
             style.configure("TButton", background = "#333333", bordercolor = "#9B9B9B", relief = "raised")
 
@@ -97,13 +102,7 @@ def gui_demo():
             style.configure("ColorList.TFrame", background = "#FFFFFF")
             style.configure(".", background = "#272727", foreground = "#FFFFFF")
         else:
-            window.update()
             window.configure(background = "SystemButtonFace")
-
-            ctypes.windll.dwmapi.DwmSetWindowAttribute(
-                ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(0)), 
-                ctypes.sizeof(ctypes.c_int(0))
-            )
 
             style.map("Value.TCheckbutton", foreground = [("disabled", "SystemWindowText")])
             
@@ -119,7 +118,7 @@ def gui_demo():
             )
 
             style.configure("TNotebook", background = "SystemButtonFace")
-            style.configure("TNotebook.Tab", padding = (1, 0, 1, 0))
+            style.configure("TNotebook.Tab", padding = (3, 2, 3, 2))
 
             style.configure("ColorList.TFrame", background = "SystemWindowText")
             style.configure(".", background = "SystemWindow", foreground = "SystemWindowText")
