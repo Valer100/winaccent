@@ -63,14 +63,15 @@ def gui_demo():
     def use_system_theme():
         window.update()
 
-        ctypes.windll.dwmapi.DwmSetWindowAttribute(
-            ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
-            ctypes.sizeof(ctypes.c_int(not winaccent.apps_use_light_theme))
-        )
-
-        # Undocumented dark mode functions
-        ctypes.windll.uxtheme[135](not winaccent.apps_use_light_theme * 2)   # AllowDarkModeForApp / SetPreferredAppMode
-        ctypes.windll.uxtheme[136]()                                         # FlushMenuThemes
+        if windows_version.major >= 10:
+            ctypes.windll.dwmapi.DwmSetWindowAttribute(
+                ctypes.windll.user32.GetParent(window.winfo_id()), 20, ctypes.byref(ctypes.c_int(1)), 
+                ctypes.sizeof(ctypes.c_int(not winaccent.apps_use_light_theme))
+            )
+    
+            # Undocumented dark mode functions
+            ctypes.windll.uxtheme[135](not winaccent.apps_use_light_theme * 2)   # AllowDarkModeForApp / SetPreferredAppMode
+            ctypes.windll.uxtheme[136]()                                         # FlushMenuThemes
 
         if not winaccent.apps_use_light_theme:
             window.configure(background = "#202020")
